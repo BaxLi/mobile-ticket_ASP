@@ -5,7 +5,7 @@
   <div class="frame custom logo-bg-color parent-center">
     <img src="/app/resources/qmLogo.png" class="logo custom logo-image child-center"/>
   </div>
-  <div [hidden]="!isBrowserSupport">
+  <div class="center-content" [hidden]="!isBrowserSupport">
     <ng-content></ng-content>
   </div>
   <div class="qm-footer custom text-color footer-bg-color" *ngIf="isLogoFooterEnabled">

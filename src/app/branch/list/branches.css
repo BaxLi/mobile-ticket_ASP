@@ -48,6 +48,9 @@
 
 .list-container {
   margin-top: 1em;
+  max-height: calc(100vh - 275px);
+  overflow: auto;
+  padding: 5px;
 }
 
 .list-shadow {

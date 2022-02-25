@@ -10,6 +10,7 @@
   width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
   margin: 0 auto;
   display: table;
+  margin-top: 45px;
 }
 
 .queue-heading {
@@ -19,6 +20,7 @@
   font-family: Roboto-Light;
   padding-bottom: 4px;
 }
+
 
 .queue-heading-alignment{
   text-align: left;
@@ -48,6 +50,9 @@
   font-weight: 300;
 }
 
+.app-time {
+  margin-top: 30px! important;
+}
 .queue-app {
   color: #FFFFFF;
   line-height: 34px;

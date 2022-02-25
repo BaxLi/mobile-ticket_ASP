@@ -40,11 +40,13 @@
 }
 
 .service-btn {
-  color: black;
+  color: #175A83;
+  border-radius: 75px;
   height: calc(14vw + 8px) !important;
   width: calc(88vw + 8px) !important;
-  max-height: 64px;
+  max-height: 48px;
   max-width: 356px;
+font-weight: 500;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -53,15 +55,24 @@
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  background-color: #E7E9ED;
-  margin: 0 auto 5px auto;
-  border-radius: 3px;
+  background-color: #DEEDF6;
+  margin: 0 auto 25px auto;
 }
 
 .service-btn-active {
-  background-color:#FCFCFD;
-  border-radius: 3px;
+  background-color:#0079C2;
+  color: white;
 }
+
+.service-btn:hover { 
+  .short-and-fixed { 
+    background: #E5EBF1 !important;
+  }
+  .service-btn { 
+    color: #175A83 !important;
+  }
+}
+
 
 .service_name {
   display: inline-flex;
@@ -69,7 +80,7 @@
 
 .service_name > span {
   margin: 0 auto;
-  font-family: Roboto-Regular;
+  font-family: Roboto-Medium;
 }
 
 .btn-text-container {

@@ -18,24 +18,33 @@
 
 .visitcall-heading-one {
   padding-bottom: 1em;
-  font-family: Roboto-Bold;
+  font-family: 'Roboto-Regular';
+  font-size: 30px;
+  font-weight: 800;
+  color: #000000;
+}
+.visit-call-message {
+  font-size: 16px;
 }
 
 .visitcall-heading-three {
   font-size: 25px;
   font-family: Roboto-Bold;
   word-wrap: break-word;
+  padding-bottom: 40px;
 }
 
 .ticket_branch{
   position: relative;
-  top: 6px;
-
+  /* top: 6px; */
+  font-family: Roboto-Light;
+  font-size: 20px;
+  /* padding: 20px 0; */
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* number of lines to show */
-  margin: 0em auto !important;
+  margin: 1em auto !important;
 }
 
 .ticket-container-center {
@@ -44,10 +53,14 @@
 
 .button-container {
   margin: 1em 0;
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
 }
 
 .inner-padding {
-  padding-top: 10px;
+  padding: 18px;
 }
 
 .placement-layout{
@@ -73,4 +86,13 @@
 .width-control{
   width: 100%;
   margin: 0 auto;
+}
+
+.visit-call-background {
+  background-color: #EDF6FA;
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
 }

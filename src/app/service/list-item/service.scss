@@ -10,20 +10,29 @@
   align-items: center;
   margin: 0 auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: calc(88vw + 8px - 100px) !important;
-  max-width: 256px;
+  max-width: 100%;
 }
 
 .short-and-fixed {
   white-space: nowrap;
-  margin: 0 3px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 40px;
+  width: 70px;
+  background: white;
+  border-radius: 100px;
+  padding:5px;
 }
+
+
 
 .short-and-fixed > div {
   width: 40px;
-  height: 30px;
+  height: 25px;
   border-radius: 10px;
   background: lightgreen;
   display: inline-block;
@@ -40,11 +49,13 @@
 }
 
 .service-btn {
-  color: black;
+  color: #175A83;
+  border-radius: 75px;
   height: calc(14vw + 8px) !important;
   width: calc(88vw + 8px) !important;
-  max-height: 64px;
+  max-height: 48px;
   max-width: 356px;
+font-weight: 500;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -53,23 +64,26 @@
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  background-color: #E7E9ED;
-  margin: 0 auto 5px auto;
-  border-radius: 3px;
+  background-color: #DEEDF6;
+  margin: 0 auto 25px auto;
 }
 
 .service-btn-active {
-  background-color:#FCFCFD;
-  border-radius: 3px;
+  background-color:#0079C2;
+  color: white;
 }
 
 .service_name {
   display: inline-flex;
+  padding: 0 25px;
 }
 
 .service_name > span {
   margin: 0 auto;
-  font-family: Roboto-Regular;
+  font-family: Roboto-Medium;
+  font-weight: 400;
+  width: 250px;
+  text-align: start;
 }
 
 .btn-text-container {
@@ -108,7 +122,11 @@ svg.tick {
 }
 
 .customer-waiting {
-  /*...*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  color: #175A83;
 }
 
 .customer-icon {
@@ -137,5 +155,13 @@ svg.tick {
     top: 2px;
     width: 18px;
     visibility: hidden;
+  }
+}
+.service-btn:hover { 
+  .short-and-fixed { 
+    background: #E5EBF1 !important;
+  }
+  .service-btn { 
+    color: #175A83 !important;
   }
 }

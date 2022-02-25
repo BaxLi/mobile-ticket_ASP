@@ -1,5 +1,6 @@
 .ticket_container {
-  background: url('/app/resources/Ticket.png');
+  /* background: url('/app/resources/Ticket.png'); */
+  background: #DEEDF6;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
@@ -19,15 +20,18 @@
 .ticket_nmbr {
   line-height: 100%;
   margin-bottom: 10px;
-  font-family: Roboto-Bold;
+  font-weight: 700;
+  font-family: Roboto-Regular;
+  color: #185982;
 }
 
 .ticket_info {
   position: relative;
   text-align: center;
-  font-weight: bold;
   display: table;
-  width: 100%;
+  width: 300px;
+  margin: 0 auto 80px auto;
+  border-radius: 30px;
 }
 
 .service-text-small {
@@ -36,6 +40,7 @@
 
 .service-text-large {
   font-size: 20px !important;
+  color: #88B0D8;
 }
 
 .ticket_branch {
@@ -58,7 +63,7 @@
 }
 
 .ticket-size-4 {
-  font-size: 50px !important;
+  font-size: 60px !important;
 }
 
 .ticket-size-5 {
@@ -70,10 +75,10 @@
 }
 
 .ticket-service-name {
-  color: black !important;
+  color: #185982;
   width: 133px !important;
   line-height: 24px;
-  font-weight: 300 !important;
+  font-weight: 700 !important;
   font-family: Roboto-Regular;
   display: -webkit-box;
   -webkit-line-clamp: 2;

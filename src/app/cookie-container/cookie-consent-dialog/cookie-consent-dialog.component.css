@@ -12,6 +12,7 @@
 }
 #cookies-container {
     z-index: 9999;
+    background: #F8f8f8;
 }
 .flex-container {
     display: flex;
@@ -34,7 +35,7 @@
     flex-direction: row-reverse;
 }
 .cookie-btn {
-    color: rgba(157, 0, 58, 0.9);
+    color: #0079C2;
     border-width: 0px;
     border-color: rgb(255, 255, 255);
     border-radius: 20px;

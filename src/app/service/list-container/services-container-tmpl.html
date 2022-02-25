@@ -1,6 +1,6 @@
-<div class="table-container inner-margin-separator">
+<div class="table-container inner-margin-separator" [ngClass]="{ 'table-container-with-visit-delay': getDelayVisitAvailability()}">
   
-  <div class="row sub-heading-text-1-margin" *ngIf="!showLoader">
+  <!-- <div class="row sub-heading-text-1-margin" *ngIf="!showLoader">
     <div class="col-xs-1 col-xxs"></div>
     <div class="col-xs-10 col-xxs">
       <div class="center-text sub-heading-text-1 custom text-color pad-bottom inner-margin-separator">
@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-xs-1 col-xxs"></div>
-  </div>
+  </div> -->
 
   <div class="text-center table-child-heading-1" *ngIf="!showLoader">
     <div class="center-text">
@@ -26,23 +26,11 @@
                   (onServiceListHeightUpdate)='onServiceListHeightUpdate($event)'
                   (onShowHideServiceFetchError)="showHideNetworkError($event);" (onServiceListLoaded)="onServiceListLoaded()"></app-services>
   </div>
-  <div class="table-child-shadow" *ngIf="!showLoader">
+  <!-- <div class="table-child-shadow" *ngIf="!showLoader">
     <div class="" [ngClass]="{'list-shadow' : true, 'list-show-hidden' : !showListShadow}">
     </div>
-  </div>
+  </div> -->
 
-  <div class="table-child-footer" [hidden]="showNetWorkError || showLoader">
-    <footer class="qm-footer" [hidden]="!isServiceListLoaded">
-      <div class="center-text">
-        <div class="accent-btn custom accent-bg-color btn-text-color" (click)='onTakeTicket()'>
-          {{ (getDelayVisitAvailability() ? 'service.accentBtnDleayText' : 'service.accentBtnText') | translate }}
-        </div>
-        <div *ngIf="getDelayVisitAvailability()" class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='onDelayTicket()'>
-          {{ 'service.delayVisitBtnText' | translate }}
-        </div>
-      </div>
-    </footer>
-  </div>
   <div *ngIf="showLoader" style="display: flex;margin-top: 10%;">
     <div class="row width-control">
       <div class="loader-container">
@@ -55,4 +43,22 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="table-child-footer" style="position: absolute; margin-bottom: 32px;left: 0; right: 0;"  [hidden]="showNetWorkError || showLoader">
+  <footer class="qm-footer" [hidden]="!isServiceListLoaded">
+    <div class="center-text">
+      <div class="accent-btn custom accent-bg-color btn-text-color" (click)='onTakeTicket()'>
+        <svg class="get-in-line-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="18px" viewBox="0 0 20 18" version="1.1">
+          <g id="surface1">
+          <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 8.40625 4.855469 C 8.039062 5.230469 8.039062 5.828125 8.40625 6.203125 L 10.1875 8.035156 L 1.5625 8.035156 C 1.046875 8.035156 0.625 8.46875 0.625 9 C 0.625 9.53125 1.046875 9.964844 1.5625 9.964844 L 10.1875 9.964844 L 8.40625 11.796875 C 8.039062 12.171875 8.039062 12.769531 8.40625 13.144531 C 8.773438 13.523438 9.351562 13.523438 9.71875 13.144531 L 13.085938 9.683594 C 13.449219 9.308594 13.449219 8.699219 13.085938 8.324219 L 9.71875 4.855469 C 9.351562 4.476562 8.773438 4.476562 8.40625 4.855469 Z M 17.5 15.75 L 10.9375 15.75 C 10.421875 15.75 10 16.183594 10 16.714844 C 10 17.246094 10.421875 17.679688 10.9375 17.679688 L 17.5 17.679688 C 18.53125 17.679688 19.375 16.8125 19.375 15.75 L 19.375 2.25 C 19.375 1.1875 18.53125 0.320312 17.5 0.320312 L 10.9375 0.320312 C 10.421875 0.320312 10 0.753906 10 1.285156 C 10 1.816406 10.421875 2.25 10.9375 2.25 L 17.5 2.25 Z M 17.5 15.75 "/>
+          </g>
+          </svg>
+        <span class="get-in-line-text"> {{ (getDelayVisitAvailability() ? 'service.accentBtnDleayText' : 'service.accentBtnText') | translate }}</span>
+      </div>
+      <div *ngIf="getDelayVisitAvailability()" class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='onDelayTicket()'>
+        {{ 'service.delayVisitBtnText' | translate }}
+      </div>
+    </div>
+  </footer>
 </div>

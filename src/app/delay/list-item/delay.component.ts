@@ -8,7 +8,7 @@ declare var MobileTicketAPI: any;
 @Component({
   selector: 'delay-service',
   templateUrl: './delay-tmpl.html',
-  styleUrls: ['./delay.css', './delay-rtl.css']
+  styleUrls: ['./delay.scss', './delay-rtl.css']
 
 })
 export class DelayComponent implements OnInit {

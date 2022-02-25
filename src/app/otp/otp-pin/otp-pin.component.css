@@ -7,7 +7,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 .customer-phone__number-container {
     background: white;
-    border-bottom: 2px solid #bc0e3d;
+    /* border-bottom: 2px solid #bc0e3d; */
     color: white;
     height: 60px;
 }
@@ -55,8 +55,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     color: rgba(0, 0, 0, 0.82);
     width: 100%;
     font-size: 16px;
-    margin: 0 -15px;
-    padding-left: 8px;
+    border-radius: 5px;
+    /* margin: 0 -15px; */
+    border: 1px solid #63635E;
+    padding: 8px 10px;
 }
 .phone-num-input-container {
     margin: 14px 10px;
@@ -226,6 +228,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 .otp-heading {
   display: flex;
   justify-content: space-between;
+  background: white;
+  position: absolute;
+  margin: 0 27px;
+  padding: 4px;
 }
 .otp-timer {
   float: right;
@@ -263,3 +269,11 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     }
   }
   
+  .customer-otp-heading {
+    font-size: 18px;
+    color: rgba(0,0,0,0.9) !important;
+    font-family: Roboto-Medium;
+    font-weight: 400;
+    margin: 5px auto;
+    padding: 20px;
+  }

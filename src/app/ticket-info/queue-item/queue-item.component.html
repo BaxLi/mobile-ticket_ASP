@@ -1,11 +1,12 @@
 <div class="col center-text queue-itm parent-center"
-     [ngClass]="{empty:isEmptyQueueItem(), selected:hilightSelctedPosition(), other:!hilightSelctedPosition() && !isEmptyQueueItem(), animselected:animatePosition()}">
+     [ngClass]="{empty:isEmptyQueueItem(), selected:hilightSelctedPosition(), other:!hilightSelctedPosition()
+       && !isEmptyQueueItem(), animselected:animatePosition(),  'first-element': index==1, 'last-element': itemIndex==0 } ">
   <div [ngClass]="{'child-center': true, 'center-content' : !hilightSelctedPosition()}">
     <div class="box  ellipsis  reverse-ellipsis content-container-one">
-      <div class="ellipsis__content">{{ getQueueIndex() }}</div>
+      <div class="ellipsis__content"  [ngClass]="{'bolded-text':hilightSelctedPosition(), 'next-positions': index > visitPosition}">{{ getQueueIndex() }}</div>
     </div>
     <div *ngIf="hilightSelctedPosition()" class="content-container-two">
-      <div class="ellipsis__content">{{ 'ticketInfo.yourPosition' | translate }}</div>
+      <div class="ellipsis__content" style="font-weight: 800;">{{ 'ticketInfo.yourPosition' | translate }}</div>
     </div>
   </div>
 </div>

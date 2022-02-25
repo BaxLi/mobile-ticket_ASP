@@ -1,4 +1,40 @@
-html, body {margin: 0; height: 100%; overflow: hidden}
+.selected-branch{
+    text-align: center;
+    color: white;
+}
+.selected-branch-title {
+    margin: 30px 0 0 10px;
+    font-size: 16px;
+}
+.selected-branch-name {
+    font-size: 24px;
+}
+.selected-service {
+    text-align: center;
+    color: white;
+}
+.selected-service-title {
+    margin: 30px 0 0 10px;
+    font-size: 16px;
+}
+.selected-service-name {
+    font-size: 24px;
+}
+.skip-button{
+    background: none;
+    line-height: 1.5em;
+    border: 1px solid #212021;
+    color: 1px solid #212021 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+.skip-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
 .customer-phone {
     margin: 10px auto;
     max-width: calc((9 * 40px) + 50px + (2px * 10) + 1px);
@@ -7,7 +43,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 .customer-phone__number-container {
     background: white;
-    border-bottom: 2px solid #bc0e3d;
+    /* border-bottom: 2px solid #bc0e3d; */
     color: white;
     height: 60px;
 }
@@ -39,24 +75,45 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     letter-spacing: .15px;
     color: #fff;
     font-weight: 300;
-    padding: 0;
+    padding: 20px 0;
+    text-align: center;
     margin: 0;
 }
+
+.phone-text-icon {
+  margin: 0 10px;
+}
+
+.phone-num-botton-text {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: .15px;
+  color: #2389C6 !important;
+  padding: 20px 0;
+  margin: 0;
+  font-family: 'Roboto-Regular';
+  display: flex;
+}
 .phone-num-input {
-    border: none;
     background: transparent;
-    caret-color: #bc0e3d;
+    caret-color: #A71D3D;
     color: rgba(0, 0, 0, 0.82);
     width: 100%;
-    font-size: 16px;
-    margin: 0 -15px;
+    font-size: 18px;
+    /* margin: 0 -15px; */
+    height: 55px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    border: 1px solid #63635E;
 }
 .phone-num-input_ {
-  caret-color: #bc0e3d;
-  color: rgba(0, 0, 0, 0.82);
-  width: 100%;
-  font-size: 16px; 
-  margin: 0 -15px;
+    caret-color: #A71D3D;
+    color: rgba(0, 0, 0, 0.82);
+    font-size: 16px; 
+}
+.custom ul{
+  margin: 0 0 0 0px !important;
+  font-size: larger;
 }
 .phone-num-input-container {
     margin: 14px 10px;
@@ -114,24 +171,45 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   }
   .phone-num-error {
     font-size: 12px;
-    color: red;
-    margin:0 -15px;
+    color: #A71D3D;
+    margin:0 2px;
+    padding: 0 10px;
   }
+  .phone-number-text {
+    text-align: left;
+    background: white;
+    margin: 0px 10px 0 18px;
+    height: 2px;
+    padding: 0px 8px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+
   .privacy-container {
       display: flex;
+      padding: 20px 0;
+  }
+  .privacy-upper-container {
+    padding: 20px;
+    background: #E5F3F1;
+    border-radius: 40px;
   }
   .message-icon {
       margin: 0 10px;
   }
   .btn-understood {
     font-size: 14px;
-    color: #a9023b;
+    color: #0079C2;
     text-transform: uppercase;
     font-weight: 500;
     border: 1px solid rgba(0,0,0,.12);
     padding: 8px 20px;
     cursor: pointer;
     border-radius: 40px;
+    margin: 20px 0;
   }
   .btn-understood-container {
       display: flex;
@@ -156,6 +234,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
       width: 220px;
   }
   .phone-secondary-btn {
+    font-family: Roboto-Regular;
     text-transform: uppercase;
     color: #a9023b;
     text-align: center;
@@ -185,41 +264,79 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
    .send_button {
     /* background: #b30042; */
+    font-family: Roboto-Medium;
     cursor: pointer;
     padding: 10px 15px;
     text-align: center;
-    margin: 20px 10px;
     border-radius: 20px;
-    font-weight: 800;
     max-width: 400px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 10px auto;
+    margin: 15px auto;
     font-size: 16px
    }
+   .send_button:hover {
+    // font-family: Roboto-Bold;
+    //  font-weight: 400;
+   }
 .privcay-container-bottom {
-  margin: 30px;
+  margin: 30px 0;
+  letter-spacing: 0.25px;
+  font-size: 16px;
+}
+.qm-customer-id-details {
+  background-color: white;
+  padding: 30px;
 }
 
+.customer-id-error {
+  font-size: 12px;
+  color: #A71D3D;
+  background: white;
+  padding: 0 10px;
+}
 .custom-phone-card {
+  overflow-x: hidden;
+  position: relative;
+  z-index: 999;
+  padding: 5px 10px 0 10px;;
+}
+.customer-data-container {
   height: calc(100vh - 20em) !important;
   overflow: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-
-@media only screen and (max-height: 800px) { 
-  .custom-phone-card {
+#phone {
+  font-size: 16px;
+}
+@media only screen and (max-height: 600px) { 
+  .customer-data-container {
     height: calc(100vh - 16em) !important;
     overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 }
 .secondary-btn:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+.qm-customer-id {
+  margin: 10px auto;
+    max-width: calc((9 * 40px) + 50px + (2px * 10) + 1px);
+    width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
+    font-family: Roboto-Regular;
+    position: relative;
+    padding: 0 18px;
+}
+.customer-id-input {
+  border: none;
+    /* background: transparent; */
+    caret-color: #bc0e3d;
+    color: rgba(0, 0, 0, 0.82);
+    width: 100%;
+    font-size: 16px;
+    height: 55px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    border: 1px solid #63635E;
 }
 
 
@@ -233,5 +350,41 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     .phone-num-error { 
       font-size: 9px;
     }
+    .center-text {
+      margin-top: -16px;
+    }
   }
+
+  html, body {position:fixed; margin: 0; height: 100%; overflow: hidden}
+
   
+  
+  :host {::ng-deep { 
+  .form-control {
+    height: 55px !important;
+    width: 100% !important;
+  }
+  .iti { 
+    width: 100% !important;
+  }
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+}}
+
+.sub-heading-text-2 {
+  width: 90% !important;
+  padding-bottom: 2em;
+}
+
+.table-child-footer {
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+}
+.icon-svg {
+  margin: 0 5px;
+}

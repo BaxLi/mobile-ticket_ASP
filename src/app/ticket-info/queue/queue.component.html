@@ -1,21 +1,21 @@
 <div class="text-center queue-container" *ngIf="!isTicketEndedOrDeleted">
-  <div *ngIf="showAppTime && appointmentTime" class="queue-app">
+  <div *ngIf="showAppTime && appointmentTime" class="queue-app app-time">
     <span class="queue-app-heading custom text-color">{{ 'ticketInfo.appointmentTime' | translate }}</span>
     <span class="queue-app-time custom text-color">{{appointmentTime}} </span> 
   </div>
   <div *ngIf="showQueue && queueItems && !(appointmentTime && showAppTime)">
-    <div [ngClass]="{'queue-heading-alignment-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true, 'custom' : true, 'text-color' : true}">
+    <!-- <div [ngClass]="{'queue-heading-alignment-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true, 'custom' : true, 'text-color' : true}">
       {{ 'ticketInfo.queueHeading' | translate }}
-    </div>
+    </div> -->
     <div [ngClass]="{'queue-body-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true,
     'custom' : true, 'text-color' : true}" [hidden]="!showNetWorkError">
       <app-network-message></app-network-message>
     </div>
     <div *ngIf="(!showNetWorkError && !visitRecycleMsg)" class="queue-body" [ngClass]="{'queue-body-rtl' : isRtl}">
-      <app-queue-item [queueName]="queueItem.queueName" [visitPosition]="queueItem.visitPosition" [waitingVisits]="queueItem.waitingVisits"
+      <app-queue-item [itemIndex] = 'i' [queueName]="queueItem.queueName" [visitPosition]="queueItem.visitPosition" [waitingVisits]="queueItem.waitingVisits"
         [upper]="queueItem.upperBound" [lower]="queueItem.lowerBound" [prevUpperBound]="queueItem.prevUpperBound" [prevLowerBound]="queueItem.prevLowerBound"
         [prevWaitingVisits]="queueItem.prevWaitingVisits" [prevVisitPosition]="queueItem.prevVisitPosition" [index]="queueItem.index"
-        *ngFor="let queueItem of queueItems" class="app-queue-item"></app-queue-item>
+        *ngFor="let queueItem of queueItems; let i = index" class="app-queue-item"></app-queue-item>
   
     </div>
     <div *ngIf="visitRecycleMsg"  class="center-text recycle-heading custom text-color" [ngClass]="{'queue-body-rtl' : isRtl}">{{ visitRecycleMsg }}</div>

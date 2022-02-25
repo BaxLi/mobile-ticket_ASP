@@ -40,7 +40,7 @@
     "btnTitleArrive": "I'm here",
     "defaultTitle": "Mobile Ticket",
     "titleYourTurn": "It's your turn!",
-    "ticketReady": "{firstName} is ready to serve you at:",
+    "ticketReady": "{firstName} is ready to serve you at",
     "ticketReadyWithNoName": "You are being ready to serve at",
     "titleInLine": "position",
     "btnTitleNewTicket": "Get new ticket",
@@ -123,7 +123,7 @@
    "customer_info" : {
     "PleaseEnterphoneNumber" : "Please enter your phone number so that we can send an SMS when you are called.",
     "phoneNumber" : "Phone Number.",
-    "phoneNumberBottomText" : "We will not store your phone number.",
+    "phoneNumberBottomText" : "Your phone number will be removed from our system as soon as your visit is ended.",
     "customerId" : "Customer ID",
     "editPhoneNumber" : "Edit phone number",
     "phoneNumberError" : "Please enter a valid phone number",

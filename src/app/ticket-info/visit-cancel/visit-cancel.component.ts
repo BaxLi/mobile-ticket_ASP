@@ -12,7 +12,7 @@ declare var MobileTicketAPI: any;
 @Component({
   selector: 'app-visit-cancel',
   templateUrl: './visit-cancel.component.html',
-  styleUrls: ['./visit-cancel.component.css', '../../shared/css/common-styles.css']
+  styleUrls: ['./visit-cancel.component.scss', '../../shared/css/common-styles.css']
 })
 export class VisitCancelComponent {
 

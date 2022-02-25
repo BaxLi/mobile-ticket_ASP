@@ -1,0 +1,30 @@
+.btn-margin {
+  margin-top: 8em;
+  padding-top: 1em;
+}
+
+.btn-margin-extend {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.leave-line {
+
+  background: white !important;
+  color: #A71D3D !important;
+  border: 2px solid #A71D3D !important;
+
+}
+
+.leave-line:hover {
+  background: #A71D3D !important;
+  color: white !important;
+  border: 2px solid #A71D3D !important;
+  fill: white;
+}
+
+.leave-line:hover {
+  .leave-svg-path {
+    fill: white;
+  }
+}

@@ -12,7 +12,7 @@ declare var MobileTicketAPI: any;
 @Component({
   selector: "app-otp-phone-number",
   templateUrl: "./otp-phone-number.component.html",
-  styleUrls: ["./otp-phone-number.component.css"],
+  styleUrls: ["./otp-phone-number.component.scss"],
 })
 export class OtpPhoneNumberComponent implements OnInit, AfterViewInit {
   public phoneNumber: string = '';

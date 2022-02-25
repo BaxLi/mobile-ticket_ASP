@@ -4,18 +4,20 @@
   </span>
 </div>
 <div class="customer-phone" [hidden]="showNetWorkError">
-  
+  <div class="customer-otp-heading"> 
+    {{'otp.firstAdvantageByEnteringOtpPhone'| translate}}
+  </div>
   <div class="custom-phone-card" id="customer-data-container">
     <!-- INITIAL AND EDIT PHONE SECTION -->
     <div class="phone-num-text custom text-color"> {{'customer_info.phoneNumber' | translate}} </div>
     <div class="customer-phone__number-container">
       <div class="phone-num">
-        <div class="phone-container-icon">
+        <!-- <div class="phone-container-icon">
           <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
             <path fill-opacity=".87" fill-rule="evenodd"
               d="M7.576 11.005c1.184 2.327 3.092 4.226 5.419 5.419l1.809-1.81c.222-.221.55-.295.838-.197.921.305 1.916.469 2.936.469.452 0 .822.37.822.822v2.87c0 .452-.37.822-.822.822C10.858 19.4 4.6 13.143 4.6 5.422c0-.452.37-.822.822-.822H8.3c.452 0 .822.37.822.822 0 1.028.165 2.015.469 2.936.09.287.025.608-.206.838l-1.809 1.81z" />
           </svg>
-        </div>
+        </div> -->
         <div class="phone-num-input-container">
           <input class="phone-num-input" type="text" placeholder="  {{'customer_info.phone_placeholder' | translate}}"
             [(ngModel)]="phoneNumber" (change)="onPhoneNumberChanged()" (keyup.enter)="phoneNumContinue()"
@@ -61,9 +63,9 @@
       </div>
     </div>
     <!-- BOTTOM SECTION -->
-    <div class="phone-num-bottom-section">
+    <!-- <div class="phone-num-bottom-section"> -->
       <!-- INITIAL BOTTOM SECTION -->
-      <div>
+      <!-- <div>
         <div class="phone-num-bottom-initial-topic">
           {{'otp.phoneInfoTitle' | translate}}
         </div>
@@ -73,8 +75,8 @@
             {{'otp.firstAdvantageByEnteringOtpPhone' | translate}}
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <div *ngIf="showLoader" style="display: flex;">
       <div class="row width-control">
         <div class="loader-container">

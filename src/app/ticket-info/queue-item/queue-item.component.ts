@@ -22,6 +22,7 @@ export class QueueItemComponent {
     @Input() public prevVisitPosition: number;
     @Input() public prevUpperBound: number;
     @Input() public prevLowerBound: number;
+    @Input() public itemIndex: number;
     public queueEntity: QueueEntity;
 
     constructor(private ticketService: TicketInfoService) {

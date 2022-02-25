@@ -24,6 +24,7 @@ export class TicketComponent implements OnInit {
   public isServiceTextLarge: boolean = true;
   @Input() isTicketEndedOrDeleted: boolean;
   @Input() isAfterCalled: boolean;
+  @Input() isCalled: boolean;
   private flashInterval;
   private flashCount: number = 0;
   private isIOS;
@@ -291,6 +292,7 @@ export class TicketComponent implements OnInit {
   public getTicketInfo() {
     if (MobileTicketAPI.getCurrentVisit() !== null) {
       this.ticketEntity = MobileTicketAPI.getCurrentVisit();
+      console.log(this.ticketEntity)
     }
   }
 

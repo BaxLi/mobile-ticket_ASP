@@ -3,6 +3,9 @@
     <app-network-message></app-network-message>
   </span>
 </div>
+<div class="customer-phone customer-otp-heading">
+  {{'otp.firstAdvantageByEnteringPin' | translate}}
+</div>
 <div class="customer-phone" [hidden]="showNetWorkError">
   <div class="custom-phone-card" >
     <!-- INITIAL AND EDIT PHONE SECTION -->
@@ -17,12 +20,12 @@
     
     <div class="customer-phone__number-container">
       <div class="phone-num">
-        <div class="phone-container-pin-icon">
+        <!-- <div class="phone-container-pin-icon">
           <svg class="svg-pin" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
             <title>lock</title>
             <path style="fill: rgba(0, 0, 0, 0.54);" d="M11.378 12.644c0-2.489 2.020-4.508 4.509-4.508 2.492 0 4.508 2.020 4.508 4.508h-9.017zM15.886 21.703c-1.227 0-2.222-0.996-2.222-2.222 0-1.23 0.995-2.222 2.222-2.222s2.222 0.992 2.222 2.222c0 1.227-0.996 2.222-2.222 2.222v0zM23.253 12.644h-0.412c0-3.84-3.115-6.955-6.954-6.955s-6.955 3.115-6.955 6.955h-0.412c-0.974 0-1.764 0.789-1.764 1.764v10.148c0 0.971 0.79 1.76 1.764 1.76h14.734c0.975 0 1.764-0.789 1.764-1.76v-10.148c0-0.974-0.789-1.764-1.764-1.764v0z"></path>
             </svg>
-        </div>
+        </div> -->
         <div class="phone-num-input-container">
           <input class="phone-num-input" type="text" placeholder="{{'otp.pin_placeholder' | translate}}"
             [(ngModel)]="pin" (change)="onPinChanged()" (keyup.enter)="pinContinue()" maxlength="8"
@@ -31,9 +34,9 @@
         </div>
       </div>
     </div>
-    <div class="phone-num-bottom-section">
+    <!-- <div class="phone-num-bottom-section"> -->
       <!-- INITIAL BOTTOM SECTION -->
-      <div>
+      <!-- <div>
         <div class="phone-num-bottom-initial-topic">
           {{'otp.pinInfoTitle' | translate}}
         </div>
@@ -43,8 +46,8 @@
             {{'otp.firstAdvantageByEnteringPin' | translate}}
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <div *ngIf="showLoader" style="display: flex;">
       <div class="row width-control">
         <div class="loader-container">

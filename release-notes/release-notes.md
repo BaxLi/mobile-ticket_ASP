@@ -40,6 +40,20 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+<h2> Version 2.0.0 </h2>
+
+**Date: 2022-02-25**
+ 
+**Build number: 5**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-767** | **Rebranding mobile Ticket.** |
+
+----------
+
 <h2> Version 1.17.0 </h2>
 
 **Date: 2022-04-08**
@@ -78,12 +92,18 @@ This document describes the new features, bug corrections, known issues and reco
  
 **Build number: 1**
 
+
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-306** | **Revisit the Issue fixed in MOB-271 after updating the angular version** |
 | **MOB-780** | **Reimplement the handling of 503 for the function pollVisitStatus** |
+
+
+
+<h3>Upgrade Instructions</h3>
+
 
 ----------
 

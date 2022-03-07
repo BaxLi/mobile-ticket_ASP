@@ -131,6 +131,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-823** | **Service group custom branding and few more changes from UX** |
 | **MOB-867** | **Include the new deployment guide in the MT project** |
 | **MOB-838** | **Loading UI for "Leave the line" in Mobile Ticket** |
+| **MOB-787** | **Show translated servicename** |
 
 <h3>Bug fixes</h3>
 
@@ -142,20 +143,6 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-804** | **Apply encoded related changes into the core version.** |
 | **MOB-851** | **Not validate same ticket correctly** |
 | **MOB-850** | **Address other errors in visit cancel.** |
-
-----------
-
-<h2> Version 1.17.0 </h2>
-
-**Date: 2022-04-08**
- 
-**Build number: 1**
-
-<h3>Stories</h3>
-
-| **Id** | **Release notes** |
-| --- | --- |
-| **MOB-787** | **Show translated servicename** |
 
 <h3>Upgrade Instructions</h3>
 
@@ -175,6 +162,7 @@ This document describes the new features, bug corrections, known issues and reco
         path: /MobileTicket/translations/*
         url: ${orchestra.central.url}/calendar-backend/api/v1
 ```
+
 ----------
 
 <h2> Version 1.16.1 </h2>
@@ -190,11 +178,6 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-306** | **Revisit the Issue fixed in MOB-271 after updating the angular version** |
 | **MOB-780** | **Reimplement the handling of 503 for the function pollVisitStatus** |
-
-
-
-<h3>Upgrade Instructions</h3>
-
 
 ----------
 

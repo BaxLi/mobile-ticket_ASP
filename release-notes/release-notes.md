@@ -42,7 +42,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-02-25**
+**Date: 2022-03-21**
  
 **Build number: 5**
 
@@ -51,6 +51,16 @@ This document describes the new features, bug corrections, known issues and reco
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-767** | **Rebranding mobile Ticket.** |
+| **MOB-793** | **Include new development guide into the build package.** |
+| **MOB-777** | **Remove encoding/decoding from Mobile Ticket.** |
+
+<h3>Known issues</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-782** | **Customise theming.** |
+
+ - Theming will not be worked with this version since the current theming became irrelevant with the rebranding changes
 
 ----------
 

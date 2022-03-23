@@ -53,6 +53,7 @@ module.exports = function (grunt) {
           { expand: true, src: ['src/libs/js/*'], dest: 'dist/src/libs/js/', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/js/intlTelInput.min.js'], dest: 'dist/src/', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/img/*'], dest: 'dist/src/img/', filter: 'isFile', flatten: true },
+          { expand: true, src: ['doc/*'], dest: 'dist/doc/', filter: 'isFile', flatten: true },
         ]
       },
       mt_service: {

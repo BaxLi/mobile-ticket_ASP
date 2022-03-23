@@ -20,7 +20,7 @@ declare var ga: Function;
 @Component({
   selector: 'appointment',
   templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css', './appointment.component-rtl.css', '../shared/css/common-styles.css']
+  styleUrls: ['./appointment.component.scss', './appointment.component-rtl.scss', '../shared/css/common-styles.css']
 })
 export class AppointmentComponent implements OnInit {
   public iHight = 0;

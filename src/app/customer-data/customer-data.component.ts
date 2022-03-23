@@ -217,7 +217,7 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
           this.customerIdMaxError = true;
         } else {
           if (this.customerId.trim() !== '') {
-            MobileTicketAPI.setCustomerId(encodeURIComponent(this.customerId.toString().trim()));
+            MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
           }
           if (isPrivacyAgreed === 'true' || this.isPrivacyEnable !== 'enable' || this.activeConsentEnable !== 'enable') {
             this.createVisit()
@@ -231,7 +231,7 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
       if (this.customerId.length > 255) {
         this.customerIdMaxError = true;
       } else {
-      MobileTicketAPI.setCustomerId(encodeURIComponent(this.customerId.toString().trim()));
+      MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
       this.createVisit()
       }
     } else { // if not matching phone and phone number exists
@@ -246,7 +246,7 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
         if (this.customerId.length > 255) {
           this.customerIdMaxError = true;
         } else {
-        MobileTicketAPI.setCustomerId(encodeURIComponent(this.customerId.toString().trim()));
+        MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
         this.createVisit()
         }
     } else { // if no customer id
@@ -308,7 +308,7 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     MobileTicketAPI.setPhoneNumber('');
     if (this.seperateCountryCode) {MobileTicketAPI.setPhoneNumberObj({})}
     if (this.customerId) {
-      MobileTicketAPI.setCustomerId(encodeURIComponent(this.customerId.toString().trim()));
+      MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
       this.createVisit()
     } else {
       this.createVisit();

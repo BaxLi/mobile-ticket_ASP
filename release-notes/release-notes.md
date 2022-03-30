@@ -42,7 +42,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-05-20**
+**Date: 2022-03-29**
  
 **Build number: 9**
 
@@ -64,6 +64,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-809** | **UI issue in OTP screen** |
 | **MOB-820** | **Some properties (keys in config, logo.. etc) are not correctly updated with upgrade script** |
 | **MOB-822** | **Mobile Ticket - Service groups show up for each branch even when empty for branch** |
+| **MOB-804** | **Apply encoded related changes into the core version.** |
 
 <h3>Known issues</h3>
 

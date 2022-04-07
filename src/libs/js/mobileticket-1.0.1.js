@@ -2587,6 +2587,7 @@ var MobileTicketAPI = (function () {
   var GEO = "/geo";
   var SERVICES = "services";
   var BRANCHES = "branches";
+  var TRANSLATIONS = "translations";
   var TICKET = "ticket";
   var ISSUE = "issue";
   var PARAMS = 'params';
@@ -3143,6 +3144,46 @@ var MobileTicketAPI = (function () {
           type: "GET",
           dataType: "json",
           url: SERVICES_REST_API,
+          success: function (data) {
+            if (data != undefined) {
+              onSuccess(data);
+            }
+          },
+          error: function (xhr, status, errorMsg) {
+            onError(xhr, status, errorMsg);
+          }
+        });
+      } catch (e) {
+        onError(null, null, e.message);
+      }
+    },
+    getServiceTranslation: function (onSuccess, onError) {
+      try {
+        var SERVICES_CAL_API = MOBILE_TICKET + "/" + TRANSLATIONS + "/" + SERVICES;
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: SERVICES_CAL_API,
+          success: function (data) {
+            if (data != undefined) {
+              onSuccess(data);
+            }
+          },
+          error: function (xhr, status, errorMsg) {
+            onError(xhr, status, errorMsg);
+          }
+        });
+      } catch (e) {
+        onError(null, null, e.message);
+      }
+    },
+    getBranchTranslation: function (onSuccess, onError) {
+      try {
+        var BRANCHES_CAL_API = MOBILE_TICKET + "/" + TRANSLATIONS + "/" + BRANCHES;
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: BRANCHES_CAL_API,
           success: function (data) {
             if (data != undefined) {
               onSuccess(data);

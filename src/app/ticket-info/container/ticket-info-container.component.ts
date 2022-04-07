@@ -50,6 +50,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   public showQueue: boolean;
   public showAppTime: boolean;
   private checkedEvents: boolean = false;
+  private userLanguage: string;
 
   @ViewChild('ticketNumberComponent', {static: true}) ticketNumberComponent;
   @ViewChild('queueComponent', {static: true}) queueComponent;
@@ -84,6 +85,11 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
 // });
 
     this.getSelectedBranch();
+    this.userLanguage = navigator.language;
+    if (typeof navigator !== 'undefined' && navigator) {
+      this.userLanguage = navigator.language.split('-')[0];
+    }
+    
 
     /**
      * this is commented
@@ -381,6 +387,38 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     if (MobileTicketAPI.getSelectedBranch() !== null) {
       this.branchEntity = MobileTicketAPI.getSelectedBranch();
     }
+    
+
+    // if (this.config.getConfig('service_translation') === 'enable' && this.userLanguage) {
+      
+    //   MobileTicketAPI.getBranchTranslation(
+    //     (branchTranslations) => {
+    //       // development env
+    //       const branches = branchTranslations.branchList;
+    //       const branchData = [];
+    //       branches.forEach(branch => {
+    //         let newBranch: any = {};
+    //         newBranch.id = branch.qpId;
+    //         newBranch.custom = branch.custom;
+    //         branchData.push(newBranch);
+    //       });
+
+    //       if(branchData && branchData.length > 0) {
+    //           let matchedBranch = (branchData.find((b) => b.id == this.branchEntity.id));
+    //           if(matchedBranch && matchedBranch.custom !== null){
+    //             const translatedValue = JSON.parse(matchedBranch.custom).names[this.userLanguage];  
+    //             if(translatedValue){
+    //               this.branchEntity.name = translatedValue;
+    //             }  
+    //           }
+    //       }
+    //   });
+    // } else {
+    //   if (MobileTicketAPI.getSelectedBranch() !== null) {
+    //     this.branchEntity = MobileTicketAPI.getSelectedBranch();
+    //   }
+    // }
+    
     this.sendStatEvents();
   }
 

@@ -18,6 +18,7 @@ export class ServiceService {
   private isSingleBranch;
   private countDownreTimersource;
   private serviceFecthTimerResource
+  private userLanguage = 'en';
 
   constructor(private config: Config, private translate: TranslateService, private branchScheduleService: BranchScheduleService) {
     try {
@@ -25,13 +26,51 @@ export class ServiceService {
     } catch (error) {
       console.log(error.message + ' error reading service_screen_timeout');
     }
+
+    this.userLanguage = navigator.language;
+    if (typeof navigator !== 'undefined' && navigator) {
+      this.userLanguage = navigator.language.split('-')[0];
+    }
+    
   }
 
   public fetchServices(callback) {
     MobileTicketAPI.getServices(
       (serviceList: any) => {
-        let serviceEntities = this.convertToServiceEntities(serviceList);
-        callback(serviceEntities, false);
+        if(this.config.getConfig('service_translation') === 'enable'){
+          MobileTicketAPI.getServiceTranslation(
+            (serviceTranslations: any) => {
+
+              // development env
+              const services = serviceTranslations.serviceList;
+              const serviceData:any = [];
+              services.forEach(service => {
+                let newService:any = {};
+                newService.id = service.qpId;
+                newService.custom = service.custom;
+                serviceData.push(newService);
+              });
+
+              if(serviceData && serviceData.length > 0) {
+                serviceList.forEach(service => { 
+                  let matchedService = (serviceData.find((s) => s.id == service.serviceId));
+                  if(matchedService && matchedService.custom !== null){
+                    let translatedValue = JSON.parse(matchedService.custom).names[this.userLanguage.toLowerCase()];
+                    translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[this.userLanguage.toUpperCase()];
+                    if(translatedValue){
+                      service.serviceName = translatedValue;
+                    } 
+                  }
+                }); 
+              } 
+
+              let serviceEntities = this.convertToServiceEntities(serviceList);
+              callback(serviceEntities, false);
+          });
+        } else {
+            let serviceEntities = this.convertToServiceEntities(serviceList);
+            callback(serviceEntities, false);
+        }
       },
       () => {
         callback(null, true);

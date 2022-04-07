@@ -26,6 +26,7 @@ This is a web application that has been developed using Angular4 and the develop
 - [Cookie consent](#cookie-consent)
 - [Set delay](#set-delay)
 - [Set service group](#set-service-group)
+- [Set service translation](#set-service-translation)
 
 ## Installation
 BEFORE YOU INSTALL: please read the [prerequisites](#prerequisites)
@@ -979,3 +980,12 @@ Mobile Ticket can be configured to add an delay time for the visit. User can cre
 ## Set service group
 Fetch all service groups that are defined using the General Admin UI module. This will only return the groups that are related to mobile ticket.
 
+## Set service translation
+Mobile Ticket can be configured to translate service names according to the browser language using General Admin UI service translations.
+This can be enabled by `service_translation` attribute in the `config.json`.
+Translations mapping should be added to api gateway additionally.
+```yml
+    translations:
+        path: /MobileTicket/translations/*
+        url: ${orchestra.central.url}/calendar-backend/api/v1
+```

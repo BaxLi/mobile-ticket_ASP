@@ -258,6 +258,35 @@ export class AuthGuard implements CanActivate {
                 let sEntity = new ServiceEntity();
                 sEntity.id = +route.url[3].path;
 
+                if(this.config.getConfig('service_translation') === "enable"){
+                    let userLanguage = 'en';
+                    if (typeof navigator !== 'undefined' && navigator) {
+                        userLanguage = navigator.language.split('-')[0];
+                    }
+                    MobileTicketAPI.getServiceTranslation(
+                        (serviceTranslations: any) => {
+
+                            // development env
+                            const services = serviceTranslations.serviceList;
+                            const serviceData:any = [];
+                            services.forEach(service => {
+                                let newService:any = {};
+                                newService.id = service.qpId;
+                                newService.custom = service.custom;
+                                serviceData.push(newService);
+                            });
+
+                            let matchedService = (serviceData.find((s) => s.id ==  sEntity.id));
+                            if(matchedService && matchedService.custom !== null){
+                                let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
+                                translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
+                                if(translatedValue){
+                                    sEntity.name = translatedValue;         
+                                } 
+                            }      
+                        });
+                }
+
                 this.branchService.getBranchById(+bEntity.id, (branchEntity: BranchEntity, isError: boolean, errorCode: string) => {
                     if (!isError) {
                         if (visitInfo && visitInfo.visitStatus !== "DELETE") {
@@ -505,6 +534,35 @@ export class AuthGuard implements CanActivate {
                                 entity.endTime = response2.endTime;
                                 entity.notes = response2.properties.notes;
                                 entity.custom = response2.properties.custom;
+                                if(this.config.getConfig('service_translation') === "enable"){
+                                    let userLanguage = 'en';
+                                    if (typeof navigator !== 'undefined' && navigator) {
+                                        userLanguage = navigator.language.split('-')[0];
+                                    }
+                                    MobileTicketAPI.getServiceTranslation(
+                                        (serviceTranslations: any) => {
+                
+                                            // development env
+                                            const services = serviceTranslations.serviceList;
+                                            const serviceData:any = [];
+                                            services.forEach(service => {
+                                                let newService:any = {};
+                                                newService.id = service.qpId;
+                                                newService.custom = service.custom;
+                                                serviceData.push(newService);
+                                            });
+                                            
+                                            let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
+                                            if(matchedService && matchedService.custom !== null){
+                                                let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
+                                                translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
+                                                if(translatedValue){
+                                                    entity.serviceName = translatedValue; 
+                                                } 
+                                            }
+                                            
+                                        });
+                                }
                                 MobileTicketAPI.setAppointment(entity);
                                 resolve(true);
                             },
@@ -524,6 +582,35 @@ export class AuthGuard implements CanActivate {
                                 entity.endTime = response2.endTime;
                                 entity.notes = response2.properties.notes;
                                 entity.custom = response2.properties.custom;
+                                if(this.config.getConfig('service_translation') === "enable"){
+                                    let userLanguage = 'en';
+                                    if (typeof navigator !== 'undefined' && navigator) {
+                                        userLanguage = navigator.language.split('-')[0];
+                                    }
+                                    MobileTicketAPI.getServiceTranslation(
+                                        (serviceTranslations: any) => {
+                
+                                            // development env
+                                            const services = serviceTranslations.serviceList;
+                                            const serviceData:any = [];
+                                            services.forEach(service => {
+                                                let newService:any = {};
+                                                newService.id = service.qpId;
+                                                newService.custom = service.custom;
+                                                serviceData.push(newService);
+                                            });
+                                            
+                                            let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
+                                            if(matchedService && matchedService.custom !== null){
+                                                let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
+                                                translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
+                                                if(translatedValue){
+                                                    entity.serviceName = translatedValue; 
+                                                } 
+                                            }
+                                            
+                                        });
+                                }
                                 MobileTicketAPI.setAppointment(entity);
                                 resolve(true);
                             },

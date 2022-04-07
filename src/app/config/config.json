@@ -190,6 +190,10 @@
     },
     "description": "Enable or disable or define a single selection when services show as group"
   },
+  "service_translation": {
+    "value": "disable",
+    "description": "Enable or disable service translation"
+  },
   "privacy_policy": {
     "value": "disable",
     "description": "Enable or disable privacy policy when sending phone number, 'on = enable', 'off = disable'"

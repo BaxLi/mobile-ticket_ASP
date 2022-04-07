@@ -218,6 +218,38 @@ export class AppointmentComponent implements OnInit {
         this.branchEntity.name = res.name;
         this.branchEntity.position = new PositionEntity(res.latitude, res.longitude);
         MobileTicketAPI.setBranchSelection(this.branchEntity);
+        // if (this.config.getConfig('service_translation') === 'enable') {
+        //   MobileTicketAPI.getBranchTranslation(
+        //     (branchTranslations) => {
+        //       // development env
+        //       const branches = branchTranslations.branchList;
+        //       const branchData = [];
+        //       branches.forEach(branch => {
+        //         let newBranch: any = {};
+        //         newBranch.id = branch.qpId;
+        //         newBranch.custom = branch.custom;
+        //         branchData.push(newBranch);
+        //       });
+              
+        //       var userLanguage = navigator.language;
+        //       if (typeof navigator !== 'undefined' && navigator) {
+        //         userLanguage = navigator.language.split('-')[0];
+        //       }
+    
+        //       if(branchData && branchData.length > 0) {
+        //           let matchedBranch = (branchData.find((b) => b.id == res.id));
+        //           if(matchedBranch && matchedBranch.custom !== null){
+        //             const translatedValue = JSON.parse(matchedBranch.custom).names[userLanguage];  
+        //             if(translatedValue){
+        //               this.branchEntity.name = translatedValue;
+        //             }  
+        //           }
+        //       }
+        //       MobileTicketAPI.setBranchSelection(this.branchEntity);
+        //   });
+        // } else {
+        //   MobileTicketAPI.setBranchSelection(this.branchEntity);
+        // }  
       });
     }
   }

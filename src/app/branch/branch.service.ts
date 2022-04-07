@@ -33,6 +33,41 @@ export class BranchService {
     branchEntity = new BranchEntity();
     branchEntity.id = branchRes.id;
     branchEntity.name = branchRes.name;
+    
+    // if (this.config.getConfig('service_translation') === 'enable') {
+    //   MobileTicketAPI.getBranchTranslation(
+    //     (branchTranslations) => {
+    //       // development env
+    //       const branches = branchTranslations.branchList;
+    //       const branchData = [];
+    //       branches.forEach(branch => {
+    //         let newBranch: any = {};
+    //         newBranch.id = branch.qpId;
+    //         newBranch.custom = branch.custom;
+    //         branchData.push(newBranch);
+    //       });
+          
+    //       var userLanguage = navigator.language;
+    //       if (typeof navigator !== 'undefined' && navigator) {
+    //         userLanguage = navigator.language.split('-')[0];
+    //       }
+
+    //       if(branchData && branchData.length > 0) {
+    //           let matchedBranch = (branchData.find((b) => b.id == branchRes.id));
+    //           if(matchedBranch && matchedBranch.custom !== null){
+    //             const translatedValue = JSON.parse(matchedBranch.custom).names[userLanguage];  
+    //             if(translatedValue){
+    //               branchRes.name = translatedValue;
+    //             }  
+    //           }
+    //       }
+    //       branchEntity.id = branchRes.id;
+    //       branchEntity.name = branchRes.name;
+    //       MobileTicketAPI.setBranchSelection(branchEntity); 
+    //       // return branchEntity;
+
+    //   });
+    // }    
     return branchEntity;
 
   }
@@ -53,6 +88,74 @@ export class BranchService {
     }
 
     this.setBranchAddresses(branchList, entities, onUpdateList);
+
+    // if (this.config.getConfig('service_translation') === 'enable') {
+      
+    //   MobileTicketAPI.getBranchTranslation(
+    //     (branchTranslations) => {
+    //       // development env
+    //       const branches = branchTranslations.branchList;
+    //       const branchData = [];
+    //       branches.forEach(branch => {
+    //         let newBranch: any = {};
+    //         newBranch.id = branch.qpId;
+    //         newBranch.custom = branch.custom;
+    //         branchData.push(newBranch);
+    //       });
+          
+    //       var userLanguage = navigator.language;
+    //       if (typeof navigator !== 'undefined' && navigator) {
+    //         userLanguage = navigator.language.split('-')[0];
+    //       }
+
+    //       let a: any =[];
+    //       if(branchData && branchData.length > 0) {
+    //         branchList.forEach(branch => { 
+    //           let matchedBranch = (branchData.find((b) => b.id == branch.id));
+    //           if(matchedBranch && matchedBranch.custom !== null){
+    //             const translatedValue = JSON.parse(matchedBranch.custom).names[userLanguage];  
+    //             if(translatedValue){
+    //               branch.name = translatedValue;
+    //             }  
+    //           }
+    //         }); 
+    //       }
+    //       let entities: Array<BranchEntity> = [];
+    //       let branchEntity: BranchEntity;
+    //       this.singleBranch = branchList.length === 1;
+    //       for (var i = 0; i < branchList.length; i++) {
+    //         branchEntity = new BranchEntity();
+    //         branchEntity.id = branchList[i].id;
+    //         branchEntity.name = branchList[i].name;
+            
+    //         let branchPosition = new PositionEntity(branchList[i].latitude, branchList[i].longitude);
+    //         if (customerPosition !== undefined){
+    //           branchEntity.distance = this.getBranchDistance(branchPosition, customerPosition) + '';
+    //           branchEntity.rawDistance = this.getBranchRawDistance(branchPosition, customerPosition);
+    //         }
+    //         entities.push(branchEntity);
+    //       }
+    //       this.setBranchAddresses(branchList, entities, onUpdateList);        
+    //   });
+    // } else {
+    //   let entities: Array<BranchEntity> = [];
+    //   let branchEntity: BranchEntity;
+    //   this.singleBranch = branchList.length === 1;
+    //   for (var i = 0; i < branchList.length; i++) {
+    //     branchEntity = new BranchEntity();
+    //     branchEntity.id = branchList[i].id;
+    //     branchEntity.name = branchList[i].name;
+        
+    //     let branchPosition = new PositionEntity(branchList[i].latitude, branchList[i].longitude);
+    //     if (customerPosition !== undefined){
+    //       branchEntity.distance = this.getBranchDistance(branchPosition, customerPosition) + '';
+    //       branchEntity.rawDistance = this.getBranchRawDistance(branchPosition, customerPosition);
+    //     }
+    //     entities.push(branchEntity);
+    //   }
+
+    //   this.setBranchAddresses(branchList, entities, onUpdateList);
+    // }
   }
 
   public setAdditionalBranchInfo() {

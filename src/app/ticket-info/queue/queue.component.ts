@@ -125,11 +125,62 @@ export class QueueComponent implements OnInit, OnDestroy {
                 this.ticketService.pollVisitStatus((queueInfo: QueueEntity, ticketId: any, queueId: any, appointmentId: any) => {
                 MobileTicketAPI.setVisit(branchId, queueId, visitId, checksum, ticketId, appointmentId);
                 this.onUrlVisitLoading.emit(false);
-                MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+                
+                const serviceTranstaltion = this.config.getConfig('service_translation');
+                
+                if(serviceTranstaltion === 'enable'){
+                  MobileTicketAPI.setServiceSelection({ name: '' });
+                  let userLanguage = 'en';
+                  if (typeof navigator !== 'undefined' && navigator) {
+                      userLanguage = navigator.language.split('-')[0];
+                  }
+                  try {
+                    MobileTicketAPI.getServiceTranslation(
+                      (serviceTranslations: any) => {
+
+                          // development env
+                          const services = serviceTranslations.serviceList;
+                          const serviceData:any = [];
+                          services.forEach(service => {
+                              let newService:any = {};
+                              newService.id = service.qpId;
+                              newService.custom = service.custom;
+                              newService.name = service.name;
+                              serviceData.push(newService);
+                          });
+                          
+                          let matchedService = (serviceData.find((s) => s.name == MobileTicketAPI.getCurrentVisitStatus().currentServiceName));
+                          if(matchedService && matchedService.custom !== null){
+                            let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
+                            translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
+                              if(translatedValue){
+                                MobileTicketAPI.setServiceSelection({ name: translatedValue });     
+                              } else {
+                                MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+                              }
+                          }  
+                      });
+                  } catch (error) {
+                    MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+                  } 
+                  
+                } else {
+                  MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+                }
+                
+                
                 this.onUrlAccessedTicket.emit(true);
                 this.onBranchUpdate.emit();
                 this.onTciketNmbrChange.emit();
-                this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+                // this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+                if(serviceTranstaltion === 'enable') {
+                  const selectedService = MobileTicketAPI.getSelectedService();
+                  if( selectedService && selectedService.name !== undefined) {
+                    this.onServiceNameUpdate.emit(MobileTicketAPI.getSelectedService().name);  
+                  }
+                } else {
+                  this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+                }
                 this.checkDelay();
                 this.initPollTimer(this.visitPosition, this.ticketService);
 
@@ -247,7 +298,11 @@ export class QueueComponent implements OnInit, OnDestroy {
       this.retryService.abortRetry();
       this.queueId = queueInfo.queueId;
       if (this.detectTransfer(this.queueId) === true) {
-        MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+        if(this.config.getConfig('service_translation') === 'enable') {
+          MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getSelectedService().name });
+        } else {
+          MobileTicketAPI.setServiceSelection({ name: MobileTicketAPI.getCurrentVisitStatus().currentServiceName });
+        } 
         this.onBranchUpdate.emit();
       }
       this.queueIdPrev = this.queueId;
@@ -304,7 +359,17 @@ export class QueueComponent implements OnInit, OnDestroy {
      * because in multiple tab scenario, getSelectedService() returns the
      * value of the local variable which is not correct.
      */
-    this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+    
+    if(this.config.getConfig('service_translation') === 'enable') {
+      const selectedService = MobileTicketAPI.getSelectedService();
+      if( selectedService && selectedService.name !== undefined) {
+        this.onServiceNameUpdate.emit(MobileTicketAPI.getSelectedService().name); 
+      } else {
+        this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+      }
+    } else {
+      this.onServiceNameUpdate.emit(MobileTicketAPI.getCurrentVisitStatus().currentServiceName);
+    }
     this.onVisitStatusUpdate.emit(queueInfo);
     this.prevVisitState = queueInfo.status;
     if (queueInfo.status === 'IN_QUEUE' || queueInfo.status === 'CALLED') {

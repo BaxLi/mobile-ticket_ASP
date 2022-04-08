@@ -143,6 +143,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-804** | **Apply encoded related changes into the core version.** |
 | **MOB-851** | **Not validate same ticket correctly** |
 | **MOB-850** | **Address other errors in visit cancel.** |
+| **MOB-787** | **Show translated servicename** |
 
 <h3>Upgrade Instructions</h3>
 
@@ -162,7 +163,6 @@ This document describes the new features, bug corrections, known issues and reco
         path: /MobileTicket/translations/*
         url: ${orchestra.central.url}/calendar-backend/api/v1
 ```
-
 ----------
 
 <h2> Version 1.16.1 </h2>

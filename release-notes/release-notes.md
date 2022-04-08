@@ -40,6 +40,38 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+<h2> Version 1.17.0 </h2>
+
+**Date: 2022-04-08**
+ 
+**Build number: 1**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-787** | **Show translated servicename** |
+
+<h3>Upgrade Instructions</h3>
+
+- When upgrading from a previous version, following should be considered.
+
+1. 'service_translation' parameter needs to be added to config.json
+```
+"service_translation": {
+    "value": "disable",
+    "description": "Enable or disable service translation"
+  }
+```
+2. When upgrading from a previous version, API Gateway route needs to be added to application.yml.
+
+```
+ translations:
+        path: /MobileTicket/translations/*
+        url: ${orchestra.central.url}/calendar-backend/api/v1
+```
+----------
+
 <h2> Version 1.16.1 </h2>
 
 **Date: 2022-03-07**

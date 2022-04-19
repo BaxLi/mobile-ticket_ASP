@@ -13,3 +13,10 @@
   margin-top: 1em;
   font-size: 19px;
 }
+.not-support {
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+}

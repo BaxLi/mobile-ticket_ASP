@@ -40,7 +40,7 @@
 }
 
 .service-btn {
-  color: #175A83;
+  color: var(--list-button-text);
   border-radius: 75px;
   height: calc(14vw + 8px) !important;
   width: calc(88vw + 8px) !important;
@@ -55,21 +55,21 @@ font-weight: 500;
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  background-color: #DEEDF6;
+  background: var(--list-button-background);
   margin: 0 auto 25px auto;
 }
 
 .service-btn-active {
-  background-color:#0079C2;
-  color: white;
+  background-color:var(--list-button-background-selected);
+  color: var(--list_button_text_light);
 }
 
 .service-btn:hover { 
   .short-and-fixed { 
-    background: #E5EBF1 !important;
+    // background: #E5EBF1 !important;
   }
   .service-btn { 
-    color: #175A83 !important;
+    // color: #175A83 !important;
   }
 }
 

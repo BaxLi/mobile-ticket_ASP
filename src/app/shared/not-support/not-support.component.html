@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12 col-xxs">
-        <div class="center-text sub-heading-text-2 custom text-color">
+        <div class="center-text sub-heading-text-2 custom text-color not-support">
             <span *ngIf="browserName && browserName.length > 0">{{ 'support.not_support_p1' | translate }}{{browserName}}{{ isApplePlatform ? ('support.not_support_p2' | translate) : ('support.not_support_p2_extend' | translate) }}</span>
             <div *ngIf="!browserName" class="details">
                 <span class="info-header">{{ 'ticketInfo.ticketEndHeading' | translate }}</span>

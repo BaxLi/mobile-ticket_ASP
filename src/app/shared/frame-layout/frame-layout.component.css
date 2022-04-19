@@ -15,7 +15,8 @@
 }
 
 #app-bg{
-  background: white;
+  background: var(--app-bg-primary-color);
+  /* content: var(--app-bg-image); */
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat;
@@ -67,7 +68,7 @@
 .logo{
   width: 120px;
   max-width: 120px;
-  margin: 40px auto 0 auto;
+  /* margin: 40px auto 0 auto; */
   z-index: 100;
   position: relative;
   /* content: url('/app/resources/qmLogo.png'); */
@@ -86,9 +87,9 @@
 }
 
 .qm-footer{
-  background: #1a1c34;
+  background: transparent;
   text-align: center;
-  color: white !important;
+  color: black !important;
   bottom: 0;
   min-height: 30px;
   position: fixed;

@@ -10,21 +10,24 @@
 
 .leave-line {
 
-  background: white !important;
-  color: #A71D3D !important;
-  border: 2px solid #A71D3D !important;
+  background: var(--leave_button_background) !important;
+  color: var(--leave_button_text) !important;
+  border: 2px solid var(--leave_button_text) !important;
 
 }
 
 .leave-line:hover {
-  background: #A71D3D !important;
-  color: white !important;
-  border: 2px solid #A71D3D !important;
-  fill: white;
+  background: var(--leave_button_text) !important;
+  color: var(--leave_button_background) !important;
+  border: 2px solid var(--leave_button_text) !important;
+  fill: var(--leave_button_background);
+}
+.leave-svg-path {
+  fill: var(--leave_button_text);
 }
 
 .leave-line:hover {
   .leave-svg-path {
-    fill: white;
+    fill: var(--leave_button_background);
   }
 }

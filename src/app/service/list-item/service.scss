@@ -23,7 +23,7 @@
   align-items: center;
   min-width: 40px;
   width: 70px;
-  background: white;
+  background: var(--list_button_oval_background);
   border-radius: 100px;
   padding:5px;
 }
@@ -49,7 +49,7 @@
 }
 
 .service-btn {
-  color: #175A83;
+  color: var(--list-button-text);
   border-radius: 75px;
   height: calc(14vw + 8px) !important;
   width: calc(88vw + 8px) !important;
@@ -65,12 +65,14 @@ font-weight: 500;
   align-items: center;
   position: relative;
   background-color: #DEEDF6;
+  background-color: var(--list-button-background);
   margin: 0 auto 25px auto;
 }
 
 .service-btn-active {
   background-color:#0079C2;
-  color: white;
+  background-color:var(--list-button-background-selected);
+  color: var(--list_button_text_light);
 }
 
 .service_name {
@@ -126,9 +128,11 @@ svg.tick {
   justify-content: space-between;
   align-items: center;
   width: 70%;
-  color: #175A83;
+  color: #000000 !important;
 }
-
+.customer-path {
+  fill: #000000 !important;
+}
 .customer-icon {
   width: 20px;
   vertical-align: sub;
@@ -159,9 +163,9 @@ svg.tick {
 }
 .service-btn:hover { 
   .short-and-fixed { 
-    background: #E5EBF1 !important;
+    // background: var(--list-button-background) !important;
   }
   .service-btn { 
-    color: #175A83 !important;
+    // color: #175A83 !important;
   }
 }

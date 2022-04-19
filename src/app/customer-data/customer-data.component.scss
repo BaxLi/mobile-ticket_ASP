@@ -21,10 +21,10 @@
     font-size: 24px;
 }
 .skip-button{
-    background: none;
-    line-height: 1.5em;
-    border: 1px solid #212021;
-    color: 1px solid #212021 !important;
+    background: var(--primary_button_background_light);
+    line-height: 1.3em;
+    border: 1px solid var(--primary_button_text_dark);
+    color: var(--primary_button_text_dark) !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,11 +88,15 @@
   font-size: 18px;
   font-weight: 400;
   letter-spacing: .15px;
-  color: #2389C6 !important;
+  color: var( --primary_text) !important;
   padding: 20px 0;
   margin: 0;
   font-family: 'Roboto-Regular';
   display: flex;
+  opacity: 0.7;
+}
+.svg-path {
+  fill: var( --primary_text) !important;
 }
 .phone-num-input {
     background: transparent;
@@ -110,6 +114,7 @@
     caret-color: #A71D3D;
     color: rgba(0, 0, 0, 0.82);
     font-size: 16px; 
+    z-index: 1;
 }
 .custom ul{
   margin: 0 0 0 0px !important;
@@ -171,7 +176,7 @@
   }
   .phone-num-error {
     font-size: 12px;
-    color: #A71D3D;
+    color: var(--eror-text);
     margin:0 2px;
     padding: 0 10px;
   }
@@ -194,7 +199,7 @@
   }
   .privacy-upper-container {
     padding: 20px;
-    background: #E5F3F1;
+    background: var(--secondary_background_light);
     border-radius: 40px;
   }
   .message-icon {
@@ -203,6 +208,7 @@
   .btn-understood {
     font-size: 14px;
     color: #0079C2;
+    color: var(--pop-up-button-text);
     text-transform: uppercase;
     font-weight: 500;
     border: 1px solid rgba(0,0,0,.12);
@@ -216,7 +222,6 @@
       flex-direction: row-reverse;
   }
   .privacy-policy-link {
-    color: #03996c;
     cursor: pointer;
   }
   .phone-num-display {
@@ -292,7 +297,7 @@
 
 .customer-id-error {
   font-size: 12px;
-  color: #A71D3D;
+  color: var(--eror-text);
   background: white;
   padding: 0 10px;
 }

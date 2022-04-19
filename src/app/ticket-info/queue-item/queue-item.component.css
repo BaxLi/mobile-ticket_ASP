@@ -1,6 +1,6 @@
 .queue-itm {
   display: inline-block;
-  color: black;
+  color: var(--primary_text);
   vertical-align: middle;
   border-radius: 0;
   /* margin-right: 2px; */
@@ -14,7 +14,7 @@
 
 
 .queue-itm.empty{
-  background: #F1F8F8;
+  background: var(--queue-component-background);
   /* opacity: 0.25; */
   border-radius: 0;
    width: 8.5vw;
@@ -25,7 +25,7 @@
 }
 
 .queue-itm.other {
-  background: #F1F8F8;
+  background: var(--queue-component-background);
   border-radius: 0;
   width: 8.5vw;
   height: 8.5vw;
@@ -36,7 +36,7 @@
 }
 
 .queue-itm.selected {
-  background: #3C817A;
+  background: var(--secondary_background_dark);
   font-weight: 500;
   font-size: 17px;
   width: 12vw;
@@ -44,10 +44,10 @@
   margin: 0 4px;
   max-width: 50px;
   max-height: 50px;
-  color: white;
+  color: var(--secondary_text_light);
   border-radius: 8px;
   display: inline-table;
-  border: 1px solid #3C817A;
+  border: 1px solid var(--secondary_background_dark);
   font-weight: bold;
 }
 
@@ -132,5 +132,5 @@
   font-weight: 800;
 }
 .next-positions {
-  color:#3C817A !important;
+  color:var(--secondary_background_dark) !important;
 }

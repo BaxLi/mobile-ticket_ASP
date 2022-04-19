@@ -38,6 +38,7 @@
 
 #okBtn{
   color: #0079C2;
+  color: var(--pop-up-button-text);
 }
 
 #cancelBtn, #okBtn, .btn-seperator {

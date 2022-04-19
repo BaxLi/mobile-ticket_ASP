@@ -1,6 +1,6 @@
-<div *ngIf="!isTicketEndedOrDeleted" class="ticket_container ticket_info parent-center" [ngStyle]="{'background-color':!isCalled ? '#E5F3F1' : '#3C817A' }">
+<div *ngIf="!isTicketEndedOrDeleted" class="ticket_container ticket_info parent-center" [ngStyle]="{'background-color':!isCalled ? 'var(--secondary_background_light)' : 'var(--secondary_background_dark)' }">
   <div *ngIf='ticketEntity' class="child-center"  >
-    <div [ngStyle]="{'color':!isCalled ? '#204542' : 'white' }"
+    <div [ngStyle]="{'color':!isCalled ?  'var(--secondary_text_dark)' : 'var(--secondary_text_light)' }"
       [ngClass]="{'fadeIn': !isTicketNumberHidden, 'fadeOut': isTicketNumberHidden, 
       'ticket-size-1' : ticketEntity.ticketNumber?.length == 1, 'ticket-size-2' : ticketEntity.ticketNumber?.length == 2,
        'ticket-size-3' : ticketEntity.ticketNumber?.length == 3, 'ticket-size-4' : ticketEntity.ticketNumber?.length == 4,
@@ -8,7 +8,7 @@
          'ticket_nmbr': true}">
       {{ticketEntity.ticketNumber}}
     </div>
-    <div  [ngStyle]="{'color':!isCalled ? '#204542' : 'white' }"
+    <div  [ngStyle]="{'color':!isCalled ? 'var(--secondary_text_dark)' : 'var(--secondary_text_light)' }"
     [ngClass]="{'service-text-small': isServiceTextSmall, 'service-text-large': isServiceTextLarge, 'tckt-line-height':setLate()}" class="ticket-service-name" [innerHTML]="serviceName"></div>
     <!-- <div> {{ticketEntity.queueName}} </div> -->
   </div>

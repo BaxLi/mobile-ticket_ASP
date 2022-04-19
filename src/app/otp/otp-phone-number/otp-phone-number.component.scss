@@ -54,17 +54,21 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     border: none;
     background: transparent;
     caret-color: #bc0e3d;
-    color: rgba(0, 0, 0, 0.82);
+    color: var(--primary_text);
     width: 100%;
     font-size: 16px;
     margin: 0 -15px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
 }
 .phone-num-input_ {
   caret-color: #bc0e3d;
-  color: rgba(0, 0, 0, 0.82);
+  color: var(--primary_text);
   width: 100%;
   font-size: 16px; 
   margin: 0 -15px;
+  z-index: 1;
 }
 .phone-num-input-container {
     margin: 14px 10px;
@@ -122,7 +126,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   }
   .phone-num-error {
     font-size: 12px;
-    color: red;
+    color: var(--eror-text);
     margin:0 -15px;
   }
   .privacy-container {
@@ -146,7 +150,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
       flex-direction: row-reverse;
   }
   .privacy-policy-link {
-    color: #03996c;
     cursor: pointer;
   }
   .phone-num-display {
@@ -260,7 +263,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .customer-otp-heading {
     font-size: 18px;
-    color: rgba(0,0,0,0.9) !important;
+    color: var(--primary_text) !important;
     font-family: Roboto-Medium;
     font-weight: 400;
     margin: 5px auto;

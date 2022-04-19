@@ -20,6 +20,9 @@
     margin: 10px 0;
     
 }
+.svg-close-color {
+    fill: var(--list-button-background-selected);
+}
 .privacy-policy-close {
     margin: 10px 10px;
     border: none;

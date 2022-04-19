@@ -867,25 +867,20 @@ Customizations can be done on the fly, after building your application ([Creatin
 
 In your build, open and edit src/app/theme/theme-styles.css file.
 
-Css selector                           |   Css property | Description   | Example(Default Styles)
-------------                           |   ------------ | ------------- | -------------
-```.custom.text-color            ```   |   color        | Edit to change font color |  #FFFFFF !important;
-```.custom.btn-text-color        ```   |   color        | Edit to change font color of the accent buttons  |  #FFFFFF !important;
-```.custom.accent-bg-color       ```   |   background   | Edit to change accent color of buttons |  #A9023A !important;
-```.custom.accent-tick-color.tick```   |   stroke       | Edit to change accent color of tick mark |  #A9023A !important;
-```.custom.bg-image              ```   |   background   | Edit to change app background |  url('../../app/resources/background.jpg') !important;
-```.custom.logo-image            ```   |   content      | Edit to change app logo  |  url('../../app/resources/qmLogo.png') !important;
-```.custom.logo-bg-color         ```   |   background   | Edit to change app logo  |  transparent !important;
-```.custom.link-text-color       ```   |   color        | Edit to change text color of links  |  #03996c !important;
-```.custom.otp-timer-color       ```   |   color        | Edit to change text color of OTP timer  |  #d4152b !important;
-```.custom.group-btn-text-color  ```   |   color, fill  | Edit to change text and icon color  |  #000000 !important;
-```.custom.group-btn-color       ```   |   background   | Edit to change group button background color  |  #c1c1c1 !important;
+Css variable                  | Description                 | Example(Default Styles)
+------------                  | -------------               | -------------
+``` primary-color  ```        | Edit primary color          |  #0079C2;
+``` primary-text-color  ```   | Edit primary text color     |  #FFFFFF;
+``` secondary-color  ```      | Edit secondary color        |  #DEEDF6;
+``` secondary-text-color  ``` | Edit secondary text color   |  #000000;
+``` brand-logo  ```           | Change brand logo           |  url('../app/resources/qmLogo.png');
+``` footer-logo ```           | Change footer logo          |  url('../app/resources/brand_logo.png');
+
 
 Note:
 
-* If you are specifying styles in this stylesheet, it will override the default styles.
 * If you want to add a new logo or background image, make sure to include the images in the src/app/resources folder and refer it from the theme-styles sheet as shown in the above table.
-* If you do not want to customize your application, remove this file from the build. In this case, the application will load with the default styles.
+
 
 
 ## Customer data

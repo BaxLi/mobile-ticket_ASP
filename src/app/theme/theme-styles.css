@@ -1,70 +1,8 @@
-/* Start customizing your app */
-
-/* Edit to change font color */
-.custom.text-color{
-  color: rgba(0,0,0,0.9) !important;
-}
-
-/* Edit to change font color of buttons */
-.custom.btn-text-color{
-  color: #ffffff !important;
-}
-
-/* Edit to change accent color of buttons */
-.custom.accent-bg-color {
-  background: #20201F !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Edit to change accent color of tick mark */
-.custom.accent-tick-color.tick {
-  stroke: #5EB930 !important;
-}
-
-/* Edit to change app background */
-.custom.bg-image {
-  background: white
-}
-
-/* Edit to change app logo */
-.custom.logo-image {
-  content: url('../../app/resources/qmLogo.png') !important;
-}
-
-/* Edit to change color of footer */
-.custom.footer-bg-color {
-  background: #1a1c34 !important
-}
-
-/* Edit to change footer logo */
-.custom.footer-logo {
-  content: url('../../app/resources/brand_logo.png') !important;
-}
-
-/* Edit to change logo background */
-.custom.logo-bg-color {
-  background: transparent !important;
-}
-
-/* Edit to change link text color */
-.custom.link-text-color {
-  color: #0079C2 !important;
-}
-
-/* Edit to change group button text color */
-.custom.group-btn-text-color {
-  color: #000000 !important;
-  fill: #000000 !important;
-}
-
-/* Edit to change group button color */
-.custom.group-btn-color {
-  background-color: #C1C1C1 !important;
-}
-
-/* Edit to change OTP timer color */
-.custom.otp-timer-color {
-  color: #d4152b !important;
-}
+:root {
+    --primary-color:#0079C2;
+    --primary-text-color:#FFFFFF;
+    --secondary-color:#DEEDF6;
+    --secondary-text-color:#000000;
+    --brand-logo:url('../app/resources/qmLogo.png');
+    --footer-logo:url('../app/resources/brand_logo.png');
+  }

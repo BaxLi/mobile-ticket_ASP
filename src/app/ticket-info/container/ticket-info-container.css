@@ -21,7 +21,7 @@
   font-family: 'Roboto-Regular';
   font-size: 30px;
   font-weight: 800;
-  color: #000000;
+  color: var(--primary_text);
 }
 .visit-call-message {
   font-size: 16px;
@@ -54,7 +54,7 @@
 .button-container {
   margin: 1em 0;
   position: absolute;
-  bottom: 32px;
+  bottom: 35px;
   left: 0;
   right: 0;
 }
@@ -89,7 +89,7 @@
 }
 
 .visit-call-background {
-  background-color: #EDF6FA;
+  /* background-color: var(--secondary-color); */
 width: 100%;
 height: 100%;
 position: absolute;

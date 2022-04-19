@@ -30,6 +30,10 @@
     font-size: 16px;
 }
 
+.svg-close-color {
+    fill: var(--list-button-background-selected);
+}
+
 
 @media (max-width: 450px), (max-height: 450px)
 {

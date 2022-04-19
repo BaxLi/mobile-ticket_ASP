@@ -5,21 +5,27 @@ body{
   -webkit-user-select:none;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
-  background: transparent;
+  background: var(--app-bg-primary-color);
 }
 
 /* FOR THE DESKTOP, SET THE HOVER STATE */
 body.no-touch .service-btn:hover {
-  background-color:#FFFFFF !important;
-  border: 2px solid #2389C6;
-  color: #175A83 !important;
+  opacity: 0.9;
+  /* background-color:#FFFFFF !important; */
+  /* background-color:var(--list_button_hover) !important; */
+  /* border: 2px solid #2389C6;
+  border: 2px solid var(--list-button-background-selected); */
+  /* color: #175A83 !important; */
+  /* color: var(--list-button-text) !important; */
   /* border-radius: 3px; */
 }
 
 body.no-touch .branch-btn:hover {
-  opacity: 0.8;
-  background-color:#FFFFFF !important;
-  border: 2px solid #2389C6
+  opacity: 0.9;
+  /* background-color:#FFFFFF !important; */
+  /* background-color:var(--list_button_hover) !important; */
+  /* border: 2px solid #2389C6; */
+  /* border: 2px solid var(--list-button-background-selected); */
 }
 
 .center-text {
@@ -178,3 +184,82 @@ span.iti__country-name{
   color: #000;
 }
 
+.custom.text-color{
+  color: rgb(0,0,0,0) !important;
+  color: var(--primary_text) !important;
+  opacity: 0.9;
+}
+
+.custom.logo-image {
+  content: var(--brand-logo) !important;
+}
+
+
+.custom.accent-bg-color {
+  background: var(--primary_button_background_dark) !important;
+  color: var(--primary_button_text_light) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom.group-btn-text-color {
+  color: var(--group-button-text) !important;
+  fill: var(--group-button-text) !important;
+}
+.custom.group-btn-color {
+  background-color: var(--group-button-background) !important;
+}
+
+
+
+.custom.link-text-color {
+  color: var(--link-text);
+}
+
+.custom.otp-timer-color {
+  color: var(--leave_button_text) !important;
+}
+
+.custom.footer-bg-color {
+  background: var(--footer-background);
+}
+
+.custom.footer-logo {
+  content: var(--footer-logo) !important;
+}
+.custom.logo-bg-color {
+  background: var(--brand-logo-background) !important;
+}
+
+:root { 
+  --primary_text: #000000;
+  --pop-up-button-text:var(--primary-color);
+  --link-text: #0079C2;
+  --eror-text:#cc1800;
+  --app-bg-primary-color: #FFFFFF; 
+  --brand-logo-background:transparent;
+  --footer-background: transparent;
+  --primary_button_background_dark: #20201F;
+  --primary_button_background_light: #FFFFFF;
+  --primary_button_text_dark: #212021;
+  --primary_button_text_light: #FFFFFF;
+
+  --list-button-background: var(--secondary-color);
+  --list-button-background-selected: var(--primary-color);
+  --list_button_hover: var(--secondary-color);
+  --list_button_oval_background : #FFFFFF;
+  --list-button-text: var(--secondary-text-color);
+  --list_button_text_light: var(--primary-text-color);
+
+  --leave_button_background:#FFFFFF;
+  --leave_button_text:#A71D3D;
+  --group-button-background:#C1C1C1;
+  --group-button-text:#FFFFFF;
+
+  --secondary_background_light:var(--secondary-color); 
+  --secondary_background_dark: var(--primary-color);
+  --secondary_text_dark: var(--secondary-text-color);
+  --secondary_text_light: var(--primary-text-color);
+  --queue-component-background: var(--secondary-color);
+}

@@ -116,7 +116,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   }
   .phone-num-error {
     font-size: 12px;
-    color: red;
+    color: var(--eror-text);
     margin:0 -15px;
   }
   .privacy-container {
@@ -271,7 +271,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   
   .customer-otp-heading {
     font-size: 18px;
-    color: rgba(0,0,0,0.9) !important;
+    color: var(--primary_text) !important;
     font-family: Roboto-Medium;
     font-weight: 400;
     margin: 5px auto;

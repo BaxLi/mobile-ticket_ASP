@@ -42,9 +42,9 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-03-21**
+**Date: 2022-04-21**
  
-**Build number: 5**
+**Build number: 6**
 
 <h3>Stories</h3>
 
@@ -53,6 +53,12 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-767** | **Rebranding mobile Ticket.** |
 | **MOB-793** | **Include new development guide into the build package.** |
 | **MOB-777** | **Remove encoding/decoding from Mobile Ticket.** |
+
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-809** | **UI issue in OTP screen** |
 
 <h3>Known issues</h3>
 

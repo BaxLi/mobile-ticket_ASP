@@ -116,6 +116,11 @@
     font-size: 16px; 
     z-index: 1;
 }
+.phone-num-input:focus {
+  outline: none;
+  border: 2px solid #0079C2;
+}
+
 .custom ul{
   margin: 0 0 0 0px !important;
   font-size: larger;
@@ -310,6 +315,7 @@
 .customer-data-container {
   height: calc(100vh - 20em) !important;
   overflow: auto;
+  scrollbar-width: none;
 }
 #phone {
   font-size: 16px;
@@ -342,6 +348,11 @@
     padding: 5px 20px;
     border-radius: 8px;
     border: 1px solid #63635E;
+}
+
+.customer-id-input:focus {
+  outline: none;
+  border: 2px solid #0079C2;
 }
 
 

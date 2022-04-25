@@ -58,7 +58,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     border-radius: 5px;
     /* margin: 0 -15px; */
     border: 1px solid #63635E;
-    padding: 8px 10px;
+    padding: 14px 10px;
 }
 .phone-num-input-container {
     margin: 14px 10px;
@@ -117,7 +117,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   .phone-num-error {
     font-size: 12px;
     color: var(--eror-text);
-    margin:0 -15px;
+   /* margin:0 -15px; */
   }
   .privacy-container {
       display: flex;
@@ -276,4 +276,11 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     font-weight: 400;
     margin: 5px auto;
     padding: 20px;
+  }
+
+  .table-child-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
   }

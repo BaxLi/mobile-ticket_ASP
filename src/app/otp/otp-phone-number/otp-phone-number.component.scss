@@ -207,7 +207,10 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 10px auto;
-    font-size: 16px
+    font-size: 16px;
+    @media (max-width: 450px){
+      width: 250px;
+    }
    }
 .privcay-container-bottom {
   margin: 30px;

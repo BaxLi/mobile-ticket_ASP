@@ -93,7 +93,7 @@
   margin: 0;
   font-family: 'Roboto-Regular';
   display: flex;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 .svg-path {
   fill: var( --primary_text) !important;
@@ -284,7 +284,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 15px auto;
-    font-size: 16px
+    font-size: 16px;
+    @media (max-width: 450px){
+      width: 250px;
+    }
    }
    .send_button:hover {
     // font-family: Roboto-Bold;
@@ -367,7 +370,7 @@
       font-size: 9px;
     }
     .center-text {
-      margin-top: -16px;
+      // margin-top: -16px;
     }
   }
 

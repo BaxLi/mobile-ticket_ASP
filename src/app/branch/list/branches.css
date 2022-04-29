@@ -71,11 +71,7 @@
   text-decoration: underline;
 }
 
-/* Hide scroll bar */
 
-::-webkit-scrollbar {
-  display: none;
-}
 
 /* Media Queries */
 
@@ -83,4 +79,19 @@
   .list-container {
     height: calc(100vh - 236px);
   }
+}
+::-webkit-scrollbar {
+  width: 6px;
+  display: unset;
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: none;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+  width: 6px;
+  background-color: rgba(0,0,0,.2);
 }

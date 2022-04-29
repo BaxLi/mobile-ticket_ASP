@@ -93,11 +93,11 @@ export class ServicesContainerComponent implements OnInit {
 
     onTakeTicket() {
 
-        if(!this.selectedServiceId){
-            this.translate.get('service.noSelectedServices').subscribe((res: string) => {
-                this.alertDialogService.activate(res);
-            });
-        }
+        // if(!this.selectedServiceId){
+        //     this.translate.get('service.noSelectedServices').subscribe((res: string) => {
+        //         this.alertDialogService.activate(res);
+        //     });
+        // }
         
         if (this.config.getConfig('branch_schedule') === 'enable') {
             const _thisObj = this;
@@ -118,13 +118,13 @@ export class ServicesContainerComponent implements OnInit {
     }
 
     private onDelayTicket() {
-        if(!this.selectedServiceId){
-            this.translate.get('service.noSelectedServices').subscribe((res: string) => {
-                this.alertDialogService.activate(res);
-            });
-        }
+        // if(!this.selectedServiceId){
+        //     this.translate.get('service.noSelectedServices').subscribe((res: string) => {
+        //         this.alertDialogService.activate(res);
+        //     });
+        // } else
         
-        else if (this.config.getConfig('branch_schedule') === 'enable') {
+        if (this.config.getConfig('branch_schedule') === 'enable') {
             const _thisObj = this;
             const selectedBranch = MobileTicketAPI.getSelectedBranch();
             const branchId = selectedBranch ? selectedBranch.id : undefined;

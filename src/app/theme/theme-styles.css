@@ -1,8 +1,8 @@
 :root {
-    --primary-color:#0079C2;
-    --primary-text-color:#FFFFFF;
-    --secondary-color:#DEEDF6;
-    --secondary-text-color:#000000;
-    --brand-logo:url('../app/resources/qmLogo.png');
-    --footer-logo:url('../app/resources/brand_logo.png');
+  --primary-color:#855400;
+  --primary-text-color:#ededed;
+  --secondary-color:#d1ea42;
+  --secondary-text-color:#0d0097;
+  --brand-logo:url('../app/resources/qmLogo.png');
+  --footer-logo:url('../app/resources/brand_logo.png');
   }

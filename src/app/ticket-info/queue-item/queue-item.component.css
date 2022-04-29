@@ -1,6 +1,6 @@
 .queue-itm {
   display: inline-block;
-  color: var(--primary_text);
+  color: var(--secondary-text-color);
   vertical-align: middle;
   border-radius: 0;
   /* margin-right: 2px; */
@@ -132,5 +132,5 @@
   font-weight: 800;
 }
 .next-positions {
-  color:var(--secondary_background_dark) !important;
+  color:var(--secondary-text-color) !important;
 }

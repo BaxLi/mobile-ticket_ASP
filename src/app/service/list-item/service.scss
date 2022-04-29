@@ -11,7 +11,7 @@
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
-  width: calc(88vw + 8px - 100px) !important;
+  // width: calc(88vw + 8px - 100px) !important;
   max-width: 100%;
 }
 
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 40px;
+  // min-width: 40px;
   width: 70px;
   background: var(--list_button_oval_background);
   border-radius: 100px;
@@ -127,11 +127,11 @@ svg.tick {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
-  color: #000000 !important;
+  width: 40px;
+  color: rgba(0,0,0,0.8) !important;
 }
 .customer-path {
-  fill: #000000 !important;
+  color: rgba(0,0,0,0.8) !important;
 }
 .customer-icon {
   width: 20px;

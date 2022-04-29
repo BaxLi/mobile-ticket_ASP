@@ -123,7 +123,7 @@
     flex-direction: column;
     width: 100%;
     /*height: calc(100vh - 4em) !important;*/
-    height: calc(100vh - 9em) !important;
+    height: calc(100vh - 12em) !important;
   }
 
   .table-child-list {

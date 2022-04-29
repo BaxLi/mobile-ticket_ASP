@@ -4,9 +4,9 @@
     <span class="queue-app-time custom text-color">{{appointmentTime}} </span> 
   </div>
   <div *ngIf="showQueue && queueItems && !(appointmentTime && showAppTime)">
-    <!-- <div [ngClass]="{'queue-heading-alignment-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true, 'custom' : true, 'text-color' : true}">
+    <div [ngClass]="{'queue-heading-alignment-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true, 'custom' : true, 'text-color' : true}">
       {{ 'ticketInfo.queueHeading' | translate }}
-    </div> -->
+    </div>
     <div [ngClass]="{'queue-body-rtl' : isRtl, 'queue-heading-alignment' : true, 'queue-heading' : true,
     'custom' : true, 'text-color' : true}" [hidden]="!showNetWorkError">
       <app-network-message></app-network-message>

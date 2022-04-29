@@ -200,6 +200,11 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     margin: 10px auto;
     font-size: 16px
    }
+   @media (max-width: 450px){
+    .send_button {
+      width: 250px;
+    }
+   }
 .privcay-container-bottom {
   margin: 30px;
 }

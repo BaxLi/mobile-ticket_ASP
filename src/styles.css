@@ -10,7 +10,7 @@ body{
 
 /* FOR THE DESKTOP, SET THE HOVER STATE */
 body.no-touch .service-btn:hover {
-  opacity: 0.9;
+  /* opacity: 0.9; */
   /* background-color:#FFFFFF !important; */
   /* background-color:var(--list_button_hover) !important; */
   /* border: 2px solid #2389C6;
@@ -157,7 +157,7 @@ div.row {
     width: 250px;
     margin: 0 auto;
     line-height: 1.25em;
-    padding: 15px;
+    /* padding: 15px; */
     background: rgba(157, 0, 58, 0.58);
     border-radius: 250px;
     color: #FFFFFF;
@@ -196,8 +196,8 @@ span.iti__country-name{
 
 
 .custom.accent-bg-color {
-  background: var(--primary_button_background_dark) !important;
-  color: var(--primary_button_text_light) !important;
+  background: var(--primary_button_background_dark);
+  color: var(--primary_button_text_light);
   display: flex;
   justify-content: center;
   align-items: center;

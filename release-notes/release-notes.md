@@ -59,6 +59,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-809** | **UI issue in OTP screen** |
+| **MOB-820** | **Some properties (keys in config, logo.. etc) are not correctly updated with upgrade script** |
 
 <h3>Known issues</h3>
 

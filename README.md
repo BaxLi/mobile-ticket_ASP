@@ -887,7 +887,15 @@ Note:
 Mobile Ticket can be configured to accept customer phone number as a part of accepting customer data when creating a ticket. To enable accepting customer data, `customer_data` attribute in `config.json` needs to be switched on.There are three sections under `customer_data` field. 
   1. `phone number` section enables the cutomer phone number field.
   2. `customer id` enables entering id or token specific to customer. so it can be found in counter application by enabling `custom2` field visibility. 
-  3. `additional_data` enables to add query parameter data in the QR scanning URL. `additional_data` value should be matched to the query parameter name and it can be visualized in counter application by enabling `custom3` field.
+  3. `additional_data` is enabled by setting up any comma-separated string with a maximum of two values. (can have only one value as well) The values have to match the query parameters of one of the following URLs.
+      * `create ticket URL` : http://base-URL:81/branches/[branch Id]/services/[service Id]?value1=xxx&value2=yyy
+
+      * `service group URL`:  http://base-URL:81/branches/[branch Id]/[service group Id]?value1=xxx&value2=yyy
+
+      * Note: value1 & value2 are the query parameters and the values will be saved to “custom field 3” & “custom field 4” respectively. They can be visualized in counter by enabling `custom3` field and `custom4` field. If there is only one query parameter value and it will be saved to “custom field 3”.
+
+* service group URL - `http://<baseURL>:81/branches/[branch Id]/[service group Id]`.
+  The service group URL is also introduced here. This will direct to the service page & filter only the services of the relevant service group.
 
 As a part of accepting customer phone number, it is configurable whether privacy policy needs to be applied or not. Privacy policy can be applied by switching on the `privacy_policy` attribute. By default, privacy policy text in translation file will be applied. This text can be customized, and also inline CSS styling can be used. An external privacy policy link can be used instead of using the default privacy policy. In this case the link to the privacy policy statement should be specified in `privacy_policy_link` attribute in `config.json`. If `active_consent` attribute set to enable user need an actively involvement to accept privacy policy by pressing a button.
 

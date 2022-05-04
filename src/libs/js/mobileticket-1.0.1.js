@@ -2576,6 +2576,9 @@ var MobileTicketAPI = (function () {
   var delayInfo = undefined;
   var isUserOpenDelay = false;
   var custom3 = undefined;
+  var custom4 = undefined;
+  var custom5 = undefined;
+  var serviceGroupId = undefined;
 
   var visitFromQR = false;
   //var VISIT_EVENT_NAME = "visitFromQR";
@@ -2703,6 +2706,9 @@ var MobileTicketAPI = (function () {
     MobileTicketAPI.delayInfo = undefined;
     MobileTicketAPI.serviceAvailablity = undefined;
     MobileTicketAPI.custom3 = undefined;
+    MobileTicketAPI.serviceGroupId = undefined;
+    MobileTicketAPI.custom4 = undefined;
+    MobileTicketAPI.custom5 = undefined;
     
   }
 
@@ -2718,6 +2724,15 @@ var MobileTicketAPI = (function () {
   }
   function removeCustom3() {
     MobileTicketAPI.custom3 = '';
+  }
+  function removeCustom4() {
+    MobileTicketAPI.custom4 = undefined;
+  }
+  function removeCustom5() {
+    MobileTicketAPI.custom5 = undefined;
+  }
+  function removeServiceGroupId() {
+    MobileTicketAPI.serviceGroupId = undefined;
   }
   function removePhoneNumberObj() {
     MobileTicketAPI.enteredPhoneNumObj = '';
@@ -2773,6 +2788,18 @@ var MobileTicketAPI = (function () {
 
   function getCustom3() {
     return MobileTicketAPI.custom3;
+  }
+
+  function getCustom4() {
+    return MobileTicketAPI.custom4;
+  }
+
+  function getCustom5() {
+    return MobileTicketAPI.custom5;
+  }
+
+  function getServiceGroupId() {
+    return MobileTicketAPI.serviceGroupId;
   }
 
   function getSelectedService() {
@@ -3277,8 +3304,9 @@ var MobileTicketAPI = (function () {
         var delay = getDelayTime();
         var jsonData = {};
         var custom3 = getCustom3();
+        var custom4 = getCustom4();
 
-        if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3) {
+        if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3 || custom4) {
           jsonData.parameters = {};
           
            if (fingerPrint) {
@@ -3297,8 +3325,12 @@ var MobileTicketAPI = (function () {
            if (custom3 && custom3.length > 0) {
             jsonData.parameters.custom3 = custom3;
            }
+           if (custom4 && custom4.length > 0) {
+            jsonData.parameters.custom4 = custom4;
+           }
 
           removeCustom3();
+          removeCustom4();
           removePhoneNumber('');
           removeCustomerId('');
 
@@ -3742,6 +3774,15 @@ var MobileTicketAPI = (function () {
     setCustom3: function (custom3) {
       MobileTicketAPI.custom3 = custom3;
     },
+    setCustom4: function (custom4) {
+      MobileTicketAPI.custom4 = custom4;
+    },
+    setCustom5: function (custom5) {
+      MobileTicketAPI.custom5 = custom5;
+    },
+    setServiceGroupId: function (id) {
+      MobileTicketAPI.serviceGroupId = id;
+    },
     setServiceAvailability: function (services) {
       MobileTicketAPI.serviceAvailablity = services;
     },
@@ -3825,6 +3866,15 @@ var MobileTicketAPI = (function () {
     },
     getCustom3: function () {
       return getCustom3();
+    },
+    getCustom4: function () {
+      return getCustom4();
+    },
+    getCustom5: function () {
+      return getCustom5();
+    },
+    getServiceGroupId: function () {
+      return getServiceGroupId();
     },
     getServiceAvailablity: function () {
       return MobileTicketAPI.serviceAvailablity;

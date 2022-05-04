@@ -23,9 +23,11 @@ export class ServicesComponent implements AfterViewInit {
   public isSingleGroup: boolean;
   public servicesWithoutGroup: Array<ServiceEntity> = [];
   public servicesGroups: Array<ServiceGroupEntity>;
+  public hasServiceGroupId: boolean;
 
   private serviceGroupsLoaded = false;
   private serviceListLoaded = false;
+  private filteredGroupId: string;
 
   @Output() onServiceListHeightUpdate: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onServiceSelection: EventEmitter<number> = new EventEmitter<number>();
@@ -37,6 +39,8 @@ export class ServicesComponent implements AfterViewInit {
     this.onShowHideServiceFetchError.emit(false);
     this.isServiceGroupingEnabled = this.config.getConfig('service_group').availability.value == 'enable' ? true : false;
     this.isSingleGroup = this.config.getConfig('service_group').single_selection.value == 'enable' ? true : false;
+    this.filteredGroupId = MobileTicketAPI.getServiceGroupId();
+    this.hasServiceGroupId = this.filteredGroupId && this.filteredGroupId.length > 0 ? true : false;
     serviceService.getServices((serviceList: Array<ServiceEntity>, error: boolean) => {
       if (error) {
         this.onShowHideServiceFetchError.emit(true);
@@ -64,7 +68,7 @@ export class ServicesComponent implements AfterViewInit {
       }
     });
 
-    this.fetchServiceGroup();
+    this.fetchServiceGroup();  
   }
 
   private fetchServiceGroup(){
@@ -174,6 +178,19 @@ export class ServicesComponent implements AfterViewInit {
         }
       })
     });
+    
+    if (this.isServiceGroupingEnabled && this.hasServiceGroupId) {
+      this.filterGroups();
+    } 
+  }
+
+  filterGroups(){
+    let filteredGroup = this.servicesGroups.find(s => s.id == this.filteredGroupId);
+    if(filteredGroup) {
+      this.services = filteredGroup.services;
+    } else {
+      this.router.navigate(['branches']);
+    }
   }
 
   groupName(serviceGroup: ServiceGroupEntity){

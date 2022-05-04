@@ -187,11 +187,17 @@ export class AuthGuard implements CanActivate {
         let checksum = route.queryParams['checksum'];
         let appointmentId = route.queryParams['appId'];
         let appointmentExtId = route.queryParams['external'];
-        let queryParameter = this.config.getConfig('customer_data').additional_data.value.trim();
+        let custom3 = '';
+        let custom4 = '';
+        let queryParameters = this.config.getConfig('customer_data').additional_data.value.trim().split(',');
 
-        if(queryParameter && queryParameter.length > 0) {
-            let custom3 =  route.queryParams[queryParameter];
-            if(custom3 && custom3.length > 0) {MobileTicketAPI.setCustom3(custom3);}  
+        if(queryParameters.length > 0 ) {
+            let custom3_ =  route.queryParams[queryParameters[0].trim()];
+            custom3 = custom3_;
+        }
+        if (queryParameters.length > 1) {
+            let custom4_ =  route.queryParams[queryParameters[1].trim()];
+            custom4 = custom4_;
         }
 
         if (url.startsWith('/branches/') || url.endsWith('/branches') || url.endsWith('/branches;redirect=true')) {
@@ -247,6 +253,51 @@ export class AuthGuard implements CanActivate {
                         resolve(true);
                     }
                 });
+            } else if (route.url.length === 3 && route.url[1].path) {
+                let id = route.url[1].path;
+
+                this.branchService.getBranchById(+id, (branchEntity: BranchEntity, isError: boolean, errorCode: string) => {
+                    if (!isError) {
+                        if (visitInfo && visitInfo.visitStatus !== "DELETE") {
+                            let alertMsg = '';
+                            this.translate.get('visit.onGoingVisit').subscribe((res: string) => {
+                                alertMsg = res;
+                                this.alertDialogService.activate(alertMsg).then(res => {
+                                    resolve(true);
+                                }, () => {
+
+                                });
+                            });
+
+                        } else {
+                            if (this.checkOpenHours(resolve)) {
+                                return;
+                            }
+                            if (this.checkCreateTicketOption(resolve)) {
+                                return;
+                            }
+                            MobileTicketAPI.setBranchSelection(branchEntity);
+                            let serviceGroupId = route.url[2].path;
+                            if(this.config.getConfig('service_group').availability.value === "enable"){
+                                MobileTicketAPI.setServiceGroupId(serviceGroupId);
+                                if(custom3 && custom3.length > 0) {MobileTicketAPI.setCustom3(custom3);}
+                                if(custom4 && custom4.length > 0) {MobileTicketAPI.setCustom4(custom4);}
+                            }
+                            
+                            this.router.navigate(['services']);
+                            resolve(false);
+                        }
+
+                    } else {
+                        if (this.checkOpenHours(resolve)) {
+                            return;
+                        }
+                        let e = 'error';
+                        this.isNoSuchBranch = true;
+                        this.router.navigate(['no_branch']);
+                        resolve(true);
+                    }
+                });
             }
             /**
              * for qr-code format: System.://XXXX/branches/{branchId}/services/{serviceId}
@@ -257,6 +308,9 @@ export class AuthGuard implements CanActivate {
                 bEntity.id = route.url[1].path;
                 let sEntity = new ServiceEntity();
                 sEntity.id = +route.url[3].path;
+
+                if(custom3 && custom3.length > 0) {MobileTicketAPI.setCustom3(custom3);}
+                if(custom4 && custom4.length > 0) {MobileTicketAPI.setCustom4(custom4);}
 
                 if(this.config.getConfig('service_translation') === "enable"){
                     let userLanguage = 'en';

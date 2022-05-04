@@ -159,7 +159,7 @@
       },
       "additional_data": {
         "value": "",
-        "description": "Enable or disable additonal customer data on QR scanning URL, set a value that is using in query parameter"
+        "description": "Enable or disable additional customer data on creating ticket URL/ service group URL, that is using in query parameter. Maximum of two comma separated values are expected."
       }
     },
     "description": "Enable or disable customer id or phone number in customer area. If both are disabled customer data section will be hidden"

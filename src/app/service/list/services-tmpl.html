@@ -1,5 +1,5 @@
 <div class="list-container">
-    <div *ngIf="!isServiceGroupingEnabled;else groupedServices">
+    <div *ngIf="(isServiceGroupingEnabled && hasServiceGroupId)  || !isServiceGroupingEnabled;else groupedServices">
         <app-service [name]="service.name" [customersWaiting]="service.customersWaiting" [entity]="service"
             [selected]="service.selected" (onSelection)='resetSelections($event)' *ngFor="let service of services">
         </app-service>

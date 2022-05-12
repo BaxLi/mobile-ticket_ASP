@@ -74,8 +74,9 @@ export class ServicesComponent implements AfterViewInit {
   private fetchServiceGroup(){
     if (this.isServiceGroupingEnabled) {
       this.serviceService.getServicesGroups((groups: ServiceGroupEntity[], error: boolean) => {
+        let availableGroups = groups && groups.length > 0 ? groups.filter(x => x.serviceIds.length > 0) : []
         this.serviceGroupsLoaded = true;
-        this.servicesGroups = groups || [];
+        this.servicesGroups = availableGroups || [];
 
         if (this.serviceListLoaded)
           this.onListLoaded();

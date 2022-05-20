@@ -1,4 +1,4 @@
-@echo on
+@echo off
 IF NOT "%1"=="am_admin" (powershell start -verb runas '%0' am_admin & exit /b)
 
 SET ROOT=%~dp0
@@ -14,6 +14,8 @@ echo "Error! cannot locate C:\Program Files\nodejs\node.exe"
 
 call npm --prefix %MT_HOME% run install:prod || goto FAIL
 ::call npm install --silent || goto FAIL
+
+@echo on
 
 set SERVICE_TITLE=Qmatic Mobile Ticket
 set SERVICE_NAME=QP_MT

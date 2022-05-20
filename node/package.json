@@ -33,6 +33,7 @@
     "build": "rimraf ./mt-service/**/*.js server.js && tsc",
     "clean": "rimraf ./mt-service/**/*.js server.js",
     "start:dev": "ts-node server.ts dev",
+    "install:prod": "npm install --silent",
     "start:prod": "npm install && npm run server"
   },
   "repository": {

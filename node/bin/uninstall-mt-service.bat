@@ -1,21 +1,19 @@
 @echo off
 IF NOT "%1"=="am_admin" (powershell start -verb runas '%0' am_admin & exit /b)
-SET CURRENT=%~dp0
-echo %CURRENT%
-cd /D %CURRENT%
 
-nssm stop "Qmatic Mobile Ticket" || goto FAIL
-nssm remove "Qmatic Mobile Ticket" confirm || goto FAIL
+set SERVICE_NAME=QP_MT
+echo Removing Mobile Ticket service
 
-:SUCCESS
+sc stop %SERVICE_NAME% > NUL
+sc delete %SERVICE_NAME% > NUL
+
+reg delete "HKLM\SYSTEM\CurrentControlSet\Services\%SERVICE_NAME%" /f >NUL 2>&1
+exit /b 0
+
+SUCCESS
 echo service successfully uninstalled.
-PAUSE
 goto :EOF
 
 :FAIL
 echo service uninstallation failed.
-PAUSE
 goto :EOF
-
-
-

@@ -42,9 +42,9 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-05-12**
+**Date: 2022-05-20**
  
-**Build number: 8**
+**Build number: 9**
 
 <h3>Stories</h3>
 
@@ -54,6 +54,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-793** | **Include new development guide into the build package.** |
 | **MOB-777** | **Remove encoding/decoding from Mobile Ticket.** |
 | **MOB-819** | **Sibelco - Mobile ticket url with servicegroup and customerid(license plate) and orderid(see sammeleinkauf) in url** |
+| **MOB-812** | **Investigation on nssm.exe** |
 
 <h3>Bug fixes</h3>
 

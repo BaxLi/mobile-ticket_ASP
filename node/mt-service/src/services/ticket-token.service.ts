@@ -7,14 +7,15 @@ import { ITicketToken } from "../data-module/types/ticket-token.type";
 import { TicketTokenModel } from "../data-module/models/ticket-token.model";
 
 export default class TicketTokenService {
-  private userConfigFile = "./mt-service/src/config/config.json";
+  private userConfigFile = "mt-service\\src\\config\\config.json";
   private userConfig: any;
   private tenantId: string;
 
   constructor() {
+    var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
     connectDB();
     this.userConfig = JSON.parse(
-      fs.readFileSync(this.userConfigFile).toString()
+      fs.readFileSync(fullPath + this.userConfigFile).toString()
     );
     this.tenantId = this.userConfig.tenant_id.value;
   }

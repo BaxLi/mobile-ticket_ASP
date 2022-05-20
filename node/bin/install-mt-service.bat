@@ -1,33 +1,48 @@
-@echo off
+@echo on
 IF NOT "%1"=="am_admin" (powershell start -verb runas '%0' am_admin & exit /b)
-SET CURRENT=%~dp0
-echo %CURRENT%
-cd /D %CURRENT%
+
+SET ROOT=%~dp0
+CALL :RESOLVE "%ROOT%\.." MT_HOME
+echo %MT_HOME%
+set LOG_DIR=%MT_HOME%\logs
+set BIN_DIR=%MT_HOME%\bin
 
 IF NOT EXIST "C:\Program Files\nodejs\node.exe" (
 echo "Error! cannot locate C:\Program Files\nodejs\node.exe"
  goto FAIL
 )
 
-call npm install --silent || goto FAIL
+call npm --prefix %MT_HOME% run install:prod || goto FAIL
+::call npm install --silent || goto FAIL
 
-nssm install "Qmatic Mobile Ticket" "C:\Program Files\nodejs\node.exe" || goto FAIL
-nssm set "Qmatic Mobile Ticket" AppDirectory "%CURRENT%\.." || goto FAIL
-nssm set "Qmatic Mobile Ticket" AppParameters "%CURRENT%\..\server.js" || goto FAIL
-nssm set "Qmatic Mobile Ticket" AppStdout "%CURRENT%\service.log"
-nssm set "Qmatic Mobile Ticket" AppStderr "%CURRENT%\service-error.log"
-nssm set "Qmatic Mobile Ticket" Start SERVICE_AUTO_START || goto FAIL
-nssm start "Qmatic Mobile Ticket" || goto FAIL
+set SERVICE_TITLE=Qmatic Mobile Ticket
+set SERVICE_NAME=QP_MT
 
-:SUCCESS
-echo service successfully installed.
-PAUSE
-goto :EOF
+::set prunsrv=%BIN_DIR%\prunsrv.exe
+set prunsrv=%BIN_DIR%\prunsrv.exe
+
+::stop service:
+net stop %SERVICE_NAME%
+
+::delete service:
+%prunsrv% //DS//%SERVICE_NAME%
+
+::install service:
+:: ++StartParams is the arguments. arguments are separated with "#"
+%prunsrv% //IS//%SERVICE_NAME% --DisplayName="%SERVICE_TITLE%" --Startup=auto --Install=%prunsrv% --StartMode=exe --StartImage="C:\\Program Files\\nodejs\\node.exe" ++StartParams=%MT_HOME%\server.js --StdOutput=%MT_HOME%\bin\logs\service.log --StdError=%MT_HOME%\bin\logs\service-error.log
+
+::start service:
+net start %SERVICE_NAME%
 
 :FAIL
-echo service installation failed.
+ECHO %SERVICE_TITLE% installation failed.
 PAUSE
-goto :EOF
+GOTO:EOF
 
+:SUCCESS
+ECHO %SERVICE_TITLE% service successfully installed.
+PAUSE
+GOTO:EOF
 
-
+:RESOLVE
+SET %2=%~f1

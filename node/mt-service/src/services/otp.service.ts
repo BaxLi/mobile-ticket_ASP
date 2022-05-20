@@ -7,8 +7,8 @@ import { OtpModel } from "../data-module/models/otp.model";
 
 export default class OtpService {
   private db = connectDB();
-  private configFile = "./proxy-config.json";
-  private userConfigFile = "./mt-service/src/config/config.json";
+  private configFile = "proxy-config.json";
+  private userConfigFile = "mt-service\\src\\config\\config.json";
   private authToken = "nosecrets";
   private validAPIGWCert = "1";
   private host = "localhost:9090";
@@ -21,11 +21,12 @@ export default class OtpService {
   private hasCertificate: string;
 
   constructor() {
+    var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
     this.configuration = JSON.parse(
-      fs.readFileSync(this.configFile).toString()
+      fs.readFileSync(fullPath + this.configFile).toString()
     );
     this.userConfig = JSON.parse(
-      fs.readFileSync(this.userConfigFile).toString()
+      fs.readFileSync(fullPath + this.userConfigFile).toString()
     );
    
     this.tenantId = this.userConfig.tenant_id.value;

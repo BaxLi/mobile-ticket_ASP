@@ -18,7 +18,7 @@ export class LocationValidator {
 
     public isInLocation(branchId, success) {
         let radius = +(this.config.getConfig('branch_radius'));
-        let geoFencing = this.config.getConfig('geo_fencing') === 'enable' ? true : false;
+        let geoFencing = this.config.getConfig('geo_fencing') === 'disable' ? false : true;
         if (location.protocol === 'https:' && radius > 0 && geoFencing) {
             this.currentLocation.watchCurrentPosition((currentPosition) => {
                 this.currentLocation.removeWatcher();

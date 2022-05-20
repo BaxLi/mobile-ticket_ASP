@@ -3,6 +3,7 @@
     "defaultTitle": "Mobile Ticket",
     "btn_text_separator" : ",",
     "loading": "Loading...",
+    "noPermission": "Please enable location services and refresh the browser to continue",
     "noBranches": "Sorry, there are no available branches close by.",
     "tryAgain": "Try again",
     "clickHere": "Click here",

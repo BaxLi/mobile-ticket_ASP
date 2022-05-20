@@ -9,7 +9,7 @@
   },
   "geo_fencing": {
     "value": "enable",
-    "description": "Enable or disable geofencing on landing pages, 'on = enable', 'off = disable'. geofencing will only work on https protocol. if geofencing disabled, branch radius and appointment radius will be discarded"
+    "description": "Enable or disable geofencing on landing pages, 'on = enable',  'off = disable', 'mandatory = geo fencing is enabled and allow location service is mandatory' . geofencing will only work on https protocol. if geofencing disabled, branch radius and appointment radius will be discarded"
   },
   "version": {
     "value": "2.0.0",

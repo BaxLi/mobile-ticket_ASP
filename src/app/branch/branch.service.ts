@@ -246,7 +246,7 @@ export class BranchService {
   }
 
   getBranches(onBrancheListReceived): void {
-    let geoFencing = this.config.getConfig('geo_fencing') === 'enable' ? true : false;
+    let geoFencing = this.config.getConfig('geo_fencing') === 'disable' ? false : true;
     if (location.protocol === 'https:' && geoFencing) {
       this.currentLocation.watchCurrentPosition((currentPosition) => {
         this.currentPosition = new PositionEntity(currentPosition.coords.latitude, currentPosition.coords.longitude)
@@ -256,6 +256,11 @@ export class BranchService {
           this.currentLocation.removeWatcher();
         })
       }, (error) => {
+        if ( this.config.getConfig('geo_fencing') === 'mandatory') {
+          document.getElementById('branchLoading').style.display = "none";
+          document.getElementById('no-branch-permission').style.display = "block";
+          this.currentLocation.removeWatcher();
+        } else {
         var alertMsg = "";
         if (!this.PositionErrorShowedOnce) {
           this.PositionErrorShowedOnce = true
@@ -282,7 +287,7 @@ export class BranchService {
             this.currentLocation.removeWatcher();
           });
         }
-    
+      }
       });
     }
     else {

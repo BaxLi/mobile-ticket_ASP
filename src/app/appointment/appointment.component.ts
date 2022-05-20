@@ -83,7 +83,7 @@ export class AppointmentComponent implements OnInit {
       });
     } else {
       let radius = +(this.config.getConfig('appointment_arrive_radius'));
-      let geoFencing = this.config.getConfig('geo_fencing') === 'enable' ? true : false;
+      let geoFencing = this.config.getConfig('geo_fencing') === 'disable' ? false : true;
       if (location.protocol === 'https:' && radius > 0 && geoFencing) {
         this.currentLocation.watchCurrentPosition((currentPosition) => {
           this.currentPosition = new PositionEntity(currentPosition.coords.latitude, currentPosition.coords.longitude);

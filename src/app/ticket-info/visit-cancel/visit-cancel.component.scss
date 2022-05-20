@@ -16,18 +16,26 @@
 
 }
 
-.leave-line:hover {
-  background: var(--leave_button_text) !important;
-  color: var(--leave_button_background) !important;
-  border: 2px solid var(--leave_button_text) !important;
-  fill: var(--leave_button_background);
-}
+// .leave-line:hover {
+//   background: var(--leave_button_text) !important;
+//   color: var(--leave_button_background) !important;
+//   border: 2px solid var(--leave_button_text) !important;
+//   fill: var(--leave_button_background);
+// }
 .leave-svg-path {
   fill: var(--leave_button_text);
 }
 
-.leave-line:hover {
-  .leave-svg-path {
-    fill: var(--leave_button_background);
-  }
+// .leave-line:hover {
+//   .leave-svg-path {
+//     fill: var(--leave_button_background);
+//   }
+// }
+
+.delay-btn {
+  background-color: white !important;
+  border: 2px solid #0079C2 !important;
+  color: #0079C2 !important;
+  font-family: 'Roboto-Medium' !important;
+  line-height: 1em !important;
 }

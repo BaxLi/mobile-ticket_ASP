@@ -5,7 +5,7 @@
         </app-service>
     </div>
 
-
+    
     <ng-template #groupedServices>
         <app-service-group-item [name]="groupName(group)" [services]="group.services" [isSelected]="group.selected" *ngFor="let group of servicesGroups" 
             (onServiceSelection)="resetSelections($event)"  (onGroupSelection)="selectGroup(group)"

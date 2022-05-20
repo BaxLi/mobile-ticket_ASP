@@ -27,7 +27,9 @@
   border-radius: 100px;
   padding:5px;
 }
-
+.service_group_fixed {
+  padding:5px 10px;
+}
 
 
 .short-and-fixed > div {
@@ -47,6 +49,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 .service-btn {
   color: var(--list-button-text);
@@ -92,6 +95,9 @@ font-weight: 500;
   width: 100%;
 }
 
+.service_group {
+  width: 300px !important;
+}
 div.btn-text {
   font-size: 17px;
   font-weight: 400;

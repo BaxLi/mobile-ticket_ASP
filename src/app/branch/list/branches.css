@@ -80,7 +80,7 @@
     height: calc(100vh - 236px);
   }
 }
-::-webkit-scrollbar {
+::-webkit-bar {
   width: 6px;
   display: unset;
 }

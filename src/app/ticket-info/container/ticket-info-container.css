@@ -96,3 +96,18 @@ position: absolute;
 left: 0;
 top: 0;
 }
+::-webkit-bar {
+  width: 6px;
+  display: unset;
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: none;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+  width: 6px;
+  background-color: rgba(0,0,0,.2);
+}

@@ -8,7 +8,8 @@
     </div>
 </div>
 </div>
-<div [hidden]="isUrlVisitLoading" class="inner-margin-separator">
+<div [hidden]="isUrlVisitLoading" class="inner-margin-separator" 
+[style.height]="getButtonStatus() ? 'calc(100vh - 22em)' : 'calc(100vh - 17em);'">
   <div class="row" [hidden]="isVisitCall && !isVisitRecycled">
     <app-queue-container #queueComponent
                           (onUrlAccessedTicket)='onUrlAccessedTicket($event)'
@@ -31,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div style="margin-top: 20px;">
+  <div>
   <div *ngIf='branchEntity && !isVisitCall' class="sub-heading-text-1 text-center inner-padding placement-layout"><span class="ticket_branch custom text-color">{{ branchEntity.name }}</span></div>
   <div class="parent-container row">
     <div

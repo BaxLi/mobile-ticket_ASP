@@ -8,15 +8,15 @@
   <div class="center-content" [hidden]="!isBrowserSupport">
     <ng-content></ng-content>
   </div>
-  <div class="qm-footer custom text-color footer-bg-color" *ngIf="isLogoFooterEnabled">
+  <div class="qm-footer custom footer-text-color footer-bg-color" *ngIf="isLogoFooterEnabled">
     <span>{{'footer.text' | translate}}</span>
     <img class="qm-brand-logo custom footer-logo" src="/app/resources/brand_logo.png" alt="brand logo">
   </div>
-  <div class="qm-footer custom text-color footer-bg-color footer-custom-text" *ngIf="isCustomFooterEnabled && defautlDir">
+  <div class="qm-footer custom footer-text-color footer-bg-color footer-custom-text" *ngIf="isCustomFooterEnabled && defautlDir">
     <span>{{'footer.text' | translate}} </span>
     <span  class="custom-text">{{customText}}</span>
   </div>
-  <div class="qm-footer custom text-color footer-bg-color footer-custom-text" *ngIf="isCustomFooterEnabled && !defautlDir">
+  <div class="qm-footer custom footer-text-color footer-bg-color footer-custom-text" *ngIf="isCustomFooterEnabled && !defautlDir">
     <span class="custom-text">{{customText}} &#8202;</span>
     <span>{{'footer.text' | translate}} </span>
   </div>

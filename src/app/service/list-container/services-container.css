@@ -153,3 +153,22 @@
   width: 6px;
   background-color: rgba(0,0,0,.2);
 }
+.estimated_enabled {
+  background-color: white !important;
+  border: 2px solid #0079C2 !important;
+  color: #0079C2 !important;
+  font-family: 'Roboto-Medium' !important;
+  line-height: 1em !important;
+}
+
+.estimated_disabled{
+  background-color: white !important;
+  border: 2px solid #0079C2 !important;
+  color: #0079C2 !important;
+  font-family: 'Roboto-Medium' !important;
+  opacity: 0.2 !important;
+  line-height: 1em !important;
+}
+.svg-icon-primary {
+  fill: var(--get-in-line-btn-bg-text);
+}

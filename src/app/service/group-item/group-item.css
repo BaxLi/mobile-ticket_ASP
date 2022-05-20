@@ -8,18 +8,18 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 10px;
   align-items: center;
   justify-content: center;
-  width: calc(88vw + 8px - 100px) !important;
-  max-width: 256px;
+  /* width: calc(88vw + 8px - 100px) !important;
+  max-width: 256px; */
   justify-content: space-between;
 }
 
 
 .group-btn {
-  color: black;
-  height: calc(14vw + 8px) !important;
+  color: var(--service-group-text);
+  height: 60px !important;
   width: calc(88vw + 8px) !important;
   max-height: 64px;
   max-width: 356px;
@@ -31,9 +31,10 @@
   -ms-flex-align: center;
   align-items: center;
   position: relative;
+  text-align: start;
   background-color: #C1C1C1;
-  margin: 0 auto 15px auto;
-  border-radius: 3px;
+  /* margin: 0 auto 15px auto; */
+  border-bottom: 1px solid var(--service-group-line);
 }
 
 .group-btn:hover {
@@ -49,7 +50,6 @@
 }
 
 .group-name>span {
-  margin: 0 auto;
   font-family: Roboto-Regular;
 }
 
@@ -59,7 +59,7 @@
 
 .button-drop {
   min-width: 22px;
-  margin-right: -12%;
+  /* margin-right: -12%; */
 }
 
 .button-drop-rtl {

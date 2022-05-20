@@ -62,16 +62,16 @@
     </div>
   </div>
 
-  <div class="table-child-footer" *ngIf="!showLoader">
+  <div class="table-child-footer"  *ngIf="!showLoader">
     <footer class="qm-footer">
       <div class="center-text">
         <div
-          class="send_button accent-btn custom btn-text-color accent-bg-color" (click)="pinContinue()">
+          class="send_button bottom_button" (click)="pinContinue()">
           {{'otp.submit' | translate}}
         </div>
 
         <div
-          class="send_button secondary-btn custom btn-text-color" [ngClass]=" disableResend ? 'disable': 'active'" (click)="resend()">
+          class="send_button  bottom_button" [ngClass]=" disableResend ? 'disable': 'active'" (click)="resend()">
           {{ 'otp.resend' | translate }}
         </div>
       </div>

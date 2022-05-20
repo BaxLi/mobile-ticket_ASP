@@ -3,6 +3,7 @@
   <div class="text-center table-child-heading-1">
     <div class="center-text">
       <span class="sub-heading-text-2 service-limit-label custom text-color">{{ (isDelayListEmpty ? 'service.noDelaysAvailable' : 'service.selectDelay') | translate }}</span>
+      <span class="service-delay-description"> {{ 'service.selectDelayDescription' | translate }}</span>
     </div>
   </div>
 
@@ -11,19 +12,28 @@
                   (onServiceListHeightUpdate)='onServiceListHeightUpdate($event)'
                   (onShowHideServiceFetchError)="showHideNetworkError($event)"></delay-services>
   </div>
-  <div class="table-child-shadow">
+  <!-- <div class="table-child-shadow">
     <div class="" [ngClass]="{'list-shadow' : true, 'list-show-hidden' : !showListShadow}">
     </div>
-  </div>
+  </div> -->
 
   <div class="table-child-footer">
     <footer class="qm-footer">
       <div class="center-text">
-        <div *ngIf="!isDelayListEmpty" class="accent-btn custom accent-bg-color btn-text-color" (click)='onTakeTicket()'>
+        <div *ngIf="!isDelayListEmpty"  [style.background-color]="selectedDelay ? 'black' : '#E9E9E9'"  class="accent-btn custom accent-bg-color btn-text-color" (click)='onTakeTicket()'>
+          <svg style="margin: 0 10px;" xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+            <path d="M9.05299 0.251159C5.23549 0.146159 2.10799 3.20616 2.10799 7.00116H0.765494C0.427994 7.00116 0.262994 7.40616 0.502994 7.63866L2.59549 9.73866C2.74549 9.88866 2.97799 9.88866 3.12799 9.73866L5.22049 7.63866C5.46049 7.40616 5.28799 7.00116 4.95799 7.00116H3.60799C3.60799 4.07616 5.99299 1.71366 8.93299 1.75116C11.723 1.78866 14.0705 4.13616 14.108 6.92616C14.1455 9.85866 11.783 12.2512 8.85799 12.2512C7.65049 12.2512 6.53299 11.8387 5.64799 11.1412C5.34799 10.9087 4.92799 10.9312 4.65799 11.2012C4.34299 11.5237 4.36549 12.0487 4.71799 12.3262C5.85799 13.2187 7.29799 13.7512 8.85799 13.7512C12.6455 13.7512 15.713 10.6237 15.608 6.80616C15.5105 3.28866 12.5705 0.348659 9.05299 0.251159ZM8.67049 4.00116C8.36299 4.00116 8.10799 4.25616 8.10799 4.56366V7.32366C8.10799 7.58616 8.25049 7.83366 8.47549 7.96866L10.8155 9.35616C11.0855 9.51366 11.4305 9.42366 11.588 9.16116C11.7455 8.89116 11.6555 8.54616 11.393 8.38866L9.23299 7.10616V4.55616C9.23299 4.25616 8.98549 4.00116 8.67049 4.00116Z" fill="white"/>
+            </svg>
           {{ 'service.delayOkButtonText' | translate }}
         </div>
-        <div class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='onCancelDelay()'>
-          {{ (isDelayListEmpty ? 'service.okButtonText' : 'service.delayCancelBtnText') | translate }}
+        <div *ngIf="isDelayListEmpty" class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='onCancelDelay()'>
+          {{ 'service.okButtonText' | translate }}
+        </div>
+        <div *ngIf="!isDelayListEmpty" class="accent-btn custom estimated_enabled accent-bg-color btn-text-color btn-margin-extend" (click)='onCancelDelay()'>
+          <svg style="margin: 0 10px;" xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+            <path d="M5.25001 1.02895C4.95751 0.736445 4.48501 0.736445 4.19251 1.02895L0.750015 4.47145C0.457515 4.76395 0.457515 5.23645 0.750015 5.52895L4.19251 8.97144C4.48501 9.26394 4.95751 9.26394 5.25001 8.97144C5.54251 8.67894 5.54251 8.20645 5.25001 7.91395L2.34001 4.99645L5.25001 2.08645C5.54251 1.79395 5.53501 1.31395 5.25001 1.02895Z" fill="#0079C2"/>
+            </svg>
+          {{ 'service.delayCancelBtnText' | translate }}
         </div>
       </div>
     </footer>

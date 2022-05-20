@@ -88,9 +88,9 @@
 }
 
 .qm-footer{
-  background: transparent;
+  background: white;
   text-align: center;
-  color: black !important;
+  color: black;
   bottom: 0;
   min-height: 30px;
   position: fixed;
@@ -99,8 +99,8 @@
   word-spacing: 3px;
   margin: 2px 1px;
   justify-content: center;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .qm-brand-logo {
   width: 67px;
@@ -116,6 +116,9 @@
   margin: 0 3px;
   font-weight: 600;
  
+}
+.footer-text-color {
+  color: var(--footer-text-color);
 }
 
 /* Media Queries */

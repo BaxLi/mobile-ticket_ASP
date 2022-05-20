@@ -34,6 +34,9 @@ body.no-touch .branch-btn:hover {
 
 .inner-margin-separator{
   padding-top: 0px;
+  padding-top: 0px;
+  overflow: auto;
+  height: calc(100vh - 17em);
 }
 
 .sub-heading-text-1 {
@@ -72,7 +75,7 @@ div.row {
 }
 
 .common-btn {
-  stroke: #9c003a;
+  /* stroke: #9c003a; */
 }
 
 .accent-btn:hover {
@@ -98,7 +101,19 @@ div.row {
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  display: unset;
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: none;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+  width: 6px;
+  background-color: rgba(0,0,0,.2);
 }
 
 /* Animation */
@@ -187,7 +202,6 @@ span.iti__country-name{
 .custom.text-color{
   color: rgb(0,0,0,0) !important;
   color: var(--primary_text) !important;
-  opacity: 0.9;
 }
 
 .custom.logo-image {
@@ -196,22 +210,20 @@ span.iti__country-name{
 
 
 .custom.accent-bg-color {
-  background: var(--primary_button_background_dark);
-  color: var(--primary_button_text_light);
+  background: var(--get-in-line-btn-bg);
+  color: var(--get-in-line-btn-bg-text);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .custom.group-btn-text-color {
-  color: var(--group-button-text) !important;
-  fill: var(--group-button-text) !important;
+  color: var(--service-group-text) !important;
+  fill: var(--service-group-text) !important;
 }
 .custom.group-btn-color {
   background-color: var(--group-button-background) !important;
 }
-
-
 
 .custom.link-text-color {
   color: var(--link-text);
@@ -233,33 +245,26 @@ span.iti__country-name{
 }
 
 :root { 
-  --primary_text: #000000;
-  --pop-up-button-text:var(--primary-color);
   --link-text: #0079C2;
   --eror-text:#cc1800;
-  --app-bg-primary-color: #FFFFFF; 
-  --brand-logo-background:transparent;
   --footer-background: transparent;
   --primary_button_background_dark: #20201F;
   --primary_button_background_light: #FFFFFF;
   --primary_button_text_dark: #212021;
   --primary_button_text_light: #FFFFFF;
-
   --list-button-background: var(--secondary-color);
   --list-button-background-selected: var(--primary-color);
   --list_button_hover: var(--secondary-color);
   --list_button_oval_background : #FFFFFF;
   --list-button-text: var(--secondary-text-color);
   --list_button_text_light: var(--primary-text-color);
-
-  --leave_button_background:#FFFFFF;
-  --leave_button_text:#A71D3D;
-  --group-button-background:#C1C1C1;
-  --group-button-text:#FFFFFF;
-
+  --leave_button_background:transparent;
   --secondary_background_light:var(--secondary-color); 
   --secondary_background_dark: var(--primary-color);
   --secondary_text_dark: var(--secondary-text-color);
   --secondary_text_light: var(--primary-text-color);
   --queue-component-background: var(--secondary-color);
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 4px;
 }

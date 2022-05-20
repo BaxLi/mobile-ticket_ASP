@@ -205,6 +205,33 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     this.cancelVisitComponent.cancelVisitViaBrowserBack();
   }
 
+  public getDelayTime() {
+    let delay = MobileTicketAPI.getCurrentDelayInfo();
+    if (delay === null || delay === undefined) {
+      return 0;
+    }
+    let delayTime = delay * 1000;
+    return delayTime;
+  }
+
+  getDelayVisitAvailability() {
+    let delayStatus = this.config.getConfig('delay_visit').availability.value;
+    if (delayStatus === 'enable' && MobileTicketAPI.getCurrentVisit() && (MobileTicketAPI.getCurrentVisit().appointmentId === null || MobileTicketAPI.getCurrentVisit().appointmentId === undefined)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+
+  getButtonStatus() {
+    if (this.getDelayTime() > 0 && this.isDelayFuncAvailable && this.getDelayVisitAvailability() && !this.isTicketEndedOrDeleted && !this.isVisitCall ){
+      return true
+    } else {
+      return false;
+    }    
+  }
+
   public onServiceNameUpdate(serviceName) {
     let serviceNme = undefined;
     if (serviceName === null) {

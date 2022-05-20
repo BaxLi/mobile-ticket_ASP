@@ -51,24 +51,25 @@
 }
 
 .app-time {
-  margin-top: 30px! important;
+  /* margin-top: 30px! important; */
 }
 .queue-app {
   color: #FFFFFF;
   line-height: 34px;
   display: grid;
-  margin: 4px 0 10px 0px;
+  /* margin: 4px 0 10px 0px; */
   font-family: 'Roboto-Regular';
 }
 .queue-app-heading {
-  font-size: 21px;
+  font-size: 20px;
   line-height: 24px;
   margin-bottom: 6px;
   margin-top: 2px;
 }
 .queue-app-time {
-  font-size: 39px;
-  font-weight: 700 !important;
+  padding: 5px 0;
+  font-size: 32px;
+  /* font-weight: 700 !important; */
 }
 
 /* Small phones */

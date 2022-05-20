@@ -1,8 +1,14 @@
 <div *ngIf='showButton()' [ngClass]="{'btn-margin': isTicketEndedOrDeleted, 'center-text': true}">
   <div *ngIf="getDelayTime() > 0 && isDelayFuncAvailable && getDelayVisitAvailability() && !isTicketEndedOrDeleted && !isVisitCall" class="accent-btn accent-btn-side custom accent-bg-color btn-text-color btn-margin-extend" (click)='onArriveButtonClick()'>
+    <svg style="margin: 0 5px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8 14C4.6925 14 2 11.3075 2 8C2 4.6925 4.6925 2 8 2C11.3075 2 14 4.6925 14 8C14 11.3075 11.3075 14 8 14ZM10.91 5.2175L6.5 9.6275L5.09 8.2175C4.7975 7.925 4.325 7.925 4.0325 8.2175C3.74 8.51 3.74 8.9825 4.0325 9.275L5.975 11.2175C6.2675 11.51 6.74 11.51 7.0325 11.2175L11.975 6.275C12.2675 5.9825 12.2675 5.51 11.975 5.2175C11.6825 4.925 11.2025 4.925 10.91 5.2175Z" fill="white"/>
+      </svg>
     {{ btnTitleArrive }}
   </div>
-  <div *ngIf="getDelayVisitAvailability() && isDelayFuncAvailable && !isTicketEndedOrDeleted && !isVisitCall" class="accent-btn accent-btn-side custom accent-bg-color btn-text-color btn-margin-extend" (click)='onDelayButtonClick()'>
+  <div *ngIf="getDelayVisitAvailability() && isDelayFuncAvailable && !isTicketEndedOrDeleted && !isVisitCall" class="accent-btn accent-btn-side custom accent-bg-color btn-text-color btn-margin-extend delay-btn" (click)='onDelayButtonClick()'>
+    <svg style="margin: 0px 5px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 14" fill="none">
+      <path d="M9.05305 0.251159C5.23555 0.146159 2.10805 3.20616 2.10805 7.00116H0.765555C0.428055 7.00116 0.263055 7.40616 0.503055 7.63866L2.59555 9.73866C2.74555 9.88866 2.97805 9.88866 3.12805 9.73866L5.22055 7.63866C5.46055 7.40616 5.28805 7.00116 4.95805 7.00116H3.60805C3.60805 4.07616 5.99305 1.71366 8.93305 1.75116C11.7231 1.78866 14.0706 4.13616 14.1081 6.92616C14.1456 9.85866 11.7831 12.2512 8.85805 12.2512C7.65055 12.2512 6.53305 11.8387 5.64805 11.1412C5.34805 10.9087 4.92805 10.9312 4.65805 11.2012C4.34305 11.5237 4.36555 12.0487 4.71805 12.3262C5.85805 13.2187 7.29805 13.7512 8.85805 13.7512C12.6456 13.7512 15.7131 10.6237 15.6081 6.80616C15.5106 3.28866 12.5706 0.348659 9.05305 0.251159ZM8.67055 4.00116C8.36305 4.00116 8.10805 4.25616 8.10805 4.56366V7.32366C8.10805 7.58616 8.25055 7.83366 8.47555 7.96866L10.8156 9.35616C11.0856 9.51366 11.4306 9.42366 11.5881 9.16116C11.7456 8.89116 11.6556 8.54616 11.3931 8.38866L9.23305 7.10616V4.55616C9.23305 4.25616 8.98555 4.00116 8.67055 4.00116Z" fill="#0079C2"/>
+      </svg>
     {{ getDelayTime() > 0 ? btnTitleChangeDelay : btnTitleDelayVisit }}
   </div>
   <div class="accent-btn accent-btn-side custom accent-bg-color btn-text-color" [ngClass]="{ 'leave-line':!this.isVisitCall && !this.isTicketEndedOrDeleted}" (click)='onButtonClick()'>

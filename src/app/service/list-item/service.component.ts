@@ -12,6 +12,7 @@ declare var MobileTicketAPI: any;
 })
 export class ServiceComponent implements OnInit {
   @Input() name: string
+  @Input() serviceGroup: boolean
   @Input() entity: ServiceEntity
   @Input() selected: boolean
   @Input() customersWaiting: string

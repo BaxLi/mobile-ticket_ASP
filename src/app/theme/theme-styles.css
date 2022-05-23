@@ -1,36 +1,36 @@
 :root {
-   /* Logo image  */
-  --brand-logo:url('../app/resources/qmLogo.png');
-  /* Logo background */
-  --brand-logo-background:transparent;
-  /* Background Color */
-  --app-bg-primary-color: red;  
-  /* Services/Branches/delay time, active HEX */
-  --primary-color:#0079C2;
-  /* Font colour of Services/Branches/delay time, active HEX */
-  --primary-text-color:#FFFFFF;
-  /* Services/Branches/delay time, inactive HEX  */
-  --secondary-color:#DEEDF6;
-  /* Font colour of Services/Branches/delay time, inactive HEX */
-  --secondary-text-color:#000000;
-  /* Primary Font colour HEX */
-  --primary_text: #000000;
-  /* Footer logo */
-  --footer-logo:url('../app/resources/brand_logo.png');
-  /* Footer text */
-  --footer-text-color: #000000;
-  /* Privacy & Cookie concent text*/
-  --pop-up-button-text:#0079C2;
-  /* Service Groups text */
-  --service-group-text:#175A83;
-  /* Service group line */
-  --service-group-line:rgba(0,0,0,0.2);
-  /* Bottom button/get in line */
-  --get-in-line-btn-bg:#20201F;
-  /* Bottom button/get in line text */
-  --get-in-line-btn-bg-text:#FFFFFF;
-  /* Bottom button leave the line*/
-  --leave_button_text:#A71D3D;
-  /* Bottom button send/skip */
-  --send-skip-btn-text: #0079C2;
+  /* Header brand logo image  */
+ --brand-logo:url('../app/resources/qmLogo.png');
+ /* Logo background */
+ --brand-logo-background:transparent;
+ /* Background Color */
+ --app-bg-primary-color: #FFFFFF;  
+ /* Services/Branches/delay time, active HEX */
+ --primary-color:#0079C2;
+ /* Font colour of Services/Branches/delay time, active HEX */
+ --primary-text-color:#FFFFFF;
+ /* Services/Branches/delay time, inactive HEX  */
+ --secondary-color:#DEEDF6;
+ /* Font colour of Services/Branches/delay time, inactive HEX */
+ --secondary-text-color:#000000;
+ /* Primary Font colour HEX */
+ --primary_text: #000000;
+ /* Footer logo */
+ --footer-logo:url('../app/resources/brand_logo.png');
+ /* Footer text */
+ --footer-text-color: #000000;
+ /* Privacy & Cookie concent text*/
+ --pop-up-button-text:#0079C2;
+ /* Service Groups text */
+ --service-group-text:#175A83;
+ /* Service group line */
+ --service-group-line:rgba(0,0,0,0.2);
+ /* Bottom button/get in line */
+ --get-in-line-btn-bg:#20201F;
+ /* Bottom button/get in line text */
+ --get-in-line-btn-bg-text:#FFFFFF;
+ /* Bottom button leave the line*/
+ --leave_button_text:#A71D3D;
+ /* Bottom button send/skip */
+ --send-skip-btn-text: #0079C2;
 }

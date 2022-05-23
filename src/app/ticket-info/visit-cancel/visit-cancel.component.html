@@ -11,6 +11,7 @@
       </svg>
     {{ getDelayTime() > 0 ? btnTitleChangeDelay : btnTitleDelayVisit }}
   </div>
+  <!-- {{isCancelButtonClicked}} -->
   <div class="accent-btn accent-btn-side custom accent-bg-color btn-text-color" [ngClass]="{ 'leave-line':!this.isVisitCall && !this.isTicketEndedOrDeleted}" (click)='onButtonClick()'>
     <svg class="leave-svg" *ngIf="!this.isVisitCall && !this.isTicketEndedOrDeleted" style="margin: 0 5px;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
       <path class="leave-svg-path" d="M3.82825 3.75H8.32825C8.74075 3.75 9.07825 3.4125 9.07825 3C9.07825 2.5875 8.74075 2.25 8.32825 2.25H3.82825C3.00325 2.25 2.32825 2.925 2.32825 3.75V14.25C2.32825 15.075 3.00325 15.75 3.82825 15.75H8.32825C8.74075 15.75 9.07825 15.4125 9.07825 15C9.07825 14.5875 8.74075 14.25 8.32825 14.25H3.82825V3.75Z" fill="#A71D3D"/>

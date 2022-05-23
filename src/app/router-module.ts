@@ -27,7 +27,7 @@ export const router: Routes = [
     
     { path: 'open_hours', component: BranchOpenHoursComponent, canActivate: [AuthGuard] },
     { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard] },
-    { path: 'branches', component: OtpPinComponent, canActivate: [AuthGuard] },
+    { path: 'branches', component: BranchesContainerComponent, canActivate: [AuthGuard] },
     { path: 'services', component: ServicesContainerComponent, canActivate: [AuthGuard] },
     { path: 'delays', component: DelayContainerComponent, canActivate:  [DelayDataGuard] },
     { path: 'no_visit', component: VisitNotfoundComponent, canActivate: [AuthGuard] },

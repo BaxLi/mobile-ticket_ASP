@@ -32,6 +32,7 @@ export class VisitCancelComponent {
   public visitCancelled: boolean = false;
   public visitCancelledViaBtn: boolean = false;
   public delayInfo: any;
+  public isCancelButtonClicked: boolean = false;
 
   constructor(location: PlatformLocation, private config: Config,
      public router: Router, private translate: TranslateService,
@@ -120,18 +121,22 @@ export class VisitCancelComponent {
         // Confirm Success Callback
         this.visitCancelled = true;
         this.visitCancelledViaBtn = true;
+        this.isCancelButtonClicked = true;
         MobileTicketAPI.cancelVisit(
           () => {
+            
             if (!this.isUrlAccessedTicket) {
               MobileTicketAPI.clearLocalStorage();
             } else {
               MobileTicketAPI.updateCurrentVisitStatus();
             }
             MobileTicketAPI.resetAllVars();
+            this.isCancelButtonClicked = false;
             // 168477572 : Always route to thank you page
             // this.router.navigate(['branches']);
           },
           (xhr, status, errorMsg) => {
+            this.isCancelButtonClicked = false;
             if (util.getStatusErrorCode(xhr && xhr.getAllResponseHeaders()) === "11000") {
               this.translate.get('ticketInfo.visitAppRemoved').subscribe((res: string) => {
                 this.alertDialogService.activate(res);

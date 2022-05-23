@@ -56,6 +56,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-819** | **Sibelco - Mobile ticket url with servicegroup and customerid(license plate) and orderid(see sammeleinkauf) in url** |
 | **MOB-812** | **Investigation on nssm.exe** |
 | **MOB-783** | **Mobile Ticket, not show branches with blocked geolocation** |
+| **MOB-836** | **More flexibility on custom branding** |
 
 <h3>Bug fixes</h3>
 

@@ -23,6 +23,7 @@ export class ServicesComponent implements AfterViewInit {
   public isSingleGroup: boolean;
   public servicesWithoutGroup: Array<ServiceEntity> = [];
   public servicesGroups: Array<ServiceGroupEntity>;
+  public tmpServicesGroups: Array<ServiceGroupEntity>;
   public hasServiceGroupId: boolean;
 
   private serviceGroupsLoaded = false;
@@ -74,9 +75,8 @@ export class ServicesComponent implements AfterViewInit {
   private fetchServiceGroup(){
     if (this.isServiceGroupingEnabled) {
       this.serviceService.getServicesGroups((groups: ServiceGroupEntity[], error: boolean) => {
-        let availableGroups = groups && groups.length > 0 ? groups.filter(x => x.serviceIds.length > 0) : []
         this.serviceGroupsLoaded = true;
-        this.servicesGroups = availableGroups || [];
+        this.tmpServicesGroups = groups || [];
 
         if (this.serviceListLoaded)
           this.onListLoaded();
@@ -166,7 +166,7 @@ export class ServicesComponent implements AfterViewInit {
   groupServices() {
     this.servicesWithoutGroup = this.services.slice(); 
 
-    this.servicesGroups.forEach(g => {
+    this.tmpServicesGroups.forEach(g => {
       g.services = [];
       g.serviceIds.forEach(serviceId => {
         //We should not replace services with servicesWithoutGroup, because one service could be present in multiple groups
@@ -179,6 +179,8 @@ export class ServicesComponent implements AfterViewInit {
         }
       })
     });
+
+    this.servicesGroups = this.tmpServicesGroups.filter(x => x.services.length > 0)
     
     if (this.isServiceGroupingEnabled && this.hasServiceGroupId) {
       this.filterGroups();

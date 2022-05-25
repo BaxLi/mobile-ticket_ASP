@@ -21,7 +21,7 @@
 .cookie-description {
     text-align: left;
     margin: 0 10px;
-    color: var(--primary_text);
+    color: var(--general-text-color);
     opacity: 0.9;
 }
 .cookie-description .custom{
@@ -39,7 +39,7 @@
 }
 .cookie-btn {
     color: #0079C2;
-    color: var(--pop-up-button-text);
+    color: var(--pop-up-button-text-color);
     border-width: 0px;
     border-color: rgb(255, 255, 255);
     border-radius: 20px;

@@ -59,7 +59,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     border: none;
     background: transparent;
     caret-color: #bc0e3d;
-    color: var(--primary_text);
+    color: var(--general-text-color);
     width: 100%;
     font-size: 18px;
     padding: 10px;
@@ -68,7 +68,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 .phone-num-input_ {
   caret-color: #bc0e3d;
-  color: var(--primary_text);
+  color: var(--general-text-color);
   // width: 100%;
   font-size: 16px; 
   z-index: 1;
@@ -226,7 +226,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 .custom-phone-card {
   overflow: auto;
   overflow-x: hidden;
-  scrollbar-width: none;
+  scrollbar-width: thin;
   padding: 10px;
   height: 100px;
   -ms-overflow-style: none;
@@ -236,8 +236,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   .custom-phone-card {
     // height: calc(100vh - 51em) !important;
     overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 }
 .secondary-btn:hover {
@@ -274,7 +272,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
   .customer-otp-heading {
     font-size: 18px;
-    color: var(--primary_text) !important;
+    color: var(--general-text-color) !important;
     font-family: Roboto-Medium;
     font-weight: 400;
     margin: 5px auto;

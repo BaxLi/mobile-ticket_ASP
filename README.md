@@ -867,14 +867,27 @@ Customizations can be done on the fly, after building your application ([Creatin
 
 In your build, open and edit src/app/theme/theme-styles.css file.
 
-Css variable                  | Description                 | Example(Default Styles)
-------------                  | -------------               | -------------
-``` primary-color  ```        | Edit primary color          |  #0079C2;
-``` primary-text-color  ```   | Edit primary text color     |  #FFFFFF;
-``` secondary-color  ```      | Edit secondary color        |  #DEEDF6;
-``` secondary-text-color  ``` | Edit secondary text color   |  #000000;
-``` brand-logo  ```           | Change brand logo           |  url('../app/resources/qmLogo.png');
-``` footer-logo ```           | Change footer logo          |  url('../app/resources/brand_logo.png');
+Css variable                        | Description                            | Example(Default Styles)
+------------                        | -------------                          | -------------
+``` brand-logo  ```                 | Header brand logo image                |  url('../app/resources/qmLogo.png');
+``` brand-logo-background  ```      | Header brand logo background color     |  #FFFFFF;
+``` app-bg-primary-color  ```       | Application background color           |  #FFFFFF;
+``` primary-bg-color  ```           | Background color for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc   | #DEEDF6;
+``` primary-text-color  ```         | Text colour for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc        | #000000;
+``` secondary-bg-color  ```         | Background color for Services,Branches,delay time when selected and ticket layout in calling page, etc       | #0079C2;
+``` secondary-text-color  ```       | Text color for Services,Branches,delay time when selected and ticket layout in calling page, etc             | #FFFFFF;
+``` service-group-text-color ```    | Service Groups text color                                                                                    | #000000;
+``` service-group-line-color ```    | Service group seperator line color                                                                           | rgba(0,0,0,0.2);
+``` general-text-color ```          | Text color used throughout the application in common areas which are not specific to any UI component.       | #000000;
+``` footer-logo ```                 | Footer logo                                                                                                  |  url('../app/resources/brand_logo.png');
+``` footer-text-color  ```          | Footer text                                                                                                  | #000000;
+``` pop-up-button-text-color  ```   | Privacy & Cookie concent button text color                                                                   | #0079C2;
+``` get-in-line-btn-bg-color  ```   | Bottom button/get in line button background color                                                            | #20201F;
+``` get-in-line-btn-text-color  ``` | Bottom button/get in line text color                                                                         | #FFFFFF;
+``` leave-button-text-color  ```    | Bottom button leave the line color                                                                           | #A71D3D;
+``` secondary-btn-text-color ```    | Secondary button text color which is blue by default                                                         | #0079C2;
+
+
 
 
 Note:

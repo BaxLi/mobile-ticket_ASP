@@ -58,6 +58,8 @@
 .table-child-list {
   /*flex: 5;*/
   overflow: auto;
+  scrollbar-width: thin;
+  overflow-x: hidden;
   /*max-height: calc(100vh - 5em - 90px - 95px);*/
   /*max-height: calc(100vh - 44px - 60px);*/
 }
@@ -133,6 +135,8 @@
 
   .table-child-list {
     overflow: auto;
+    scrollbar-width: thin;
+    overflow-x: hidden;
     /*max-height: calc(100vh - 4em - 90px - 95px);*/
   }
 }
@@ -170,5 +174,5 @@
   line-height: 1em !important;
 }
 .svg-icon-primary {
-  fill: var(--get-in-line-btn-bg-text);
+  fill: var(--get-in-line-btn-text-color);
 }

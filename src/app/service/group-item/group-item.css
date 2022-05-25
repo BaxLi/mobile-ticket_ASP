@@ -18,7 +18,7 @@
 
 
 .group-btn {
-  color: var(--service-group-text);
+  color: var(--service-group-text-color);
   height: 60px !important;
   width: calc(88vw + 8px) !important;
   max-height: 64px;
@@ -34,7 +34,7 @@
   text-align: start;
   background-color: #C1C1C1;
   /* margin: 0 auto 15px auto; */
-  border-bottom: 1px solid var(--service-group-line);
+  border-bottom: 1px solid var(--service-group-line-color);
 }
 
 .group-btn:hover {

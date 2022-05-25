@@ -66,6 +66,7 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   private errorDiv;
   public isSkipVisible = true;
   public isPhoneNumberMandatory: boolean;
+  public isPrivacyPolicyAgreed: boolean;
 
   constructor(
     private translate: TranslateService,
@@ -128,9 +129,9 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.isCustomerIdEnabled =  this.config.getConfig('customer_data').customerId.value === 'enable' ? true : false;
     this.isPhoneNumberMandatory =  this.config.getConfig('customer_data').phone_number.value === 'mandatory' ? true : false;
 
-    if (this.phoneNumber && (this.phoneNumber !== this.countryCode) && this.activeConsentEnable === 'enable') {
-      this.phoneSectionState = phoneSectionStates.PRIVACY_POLICY;
-    }
+    // if (this.phoneNumber && (this.phoneNumber !== this.countryCode) && this.activeConsentEnable === 'enable') {
+    //   this.phoneSectionState = phoneSectionStates.PRIVACY_POLICY;
+    // }
     if (document.dir === 'rtl') {
       this.documentDir = 'rtl';
     }
@@ -210,8 +211,8 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
       this.setPhoneNumber();
       // is phone matches
       if (this.phoneNumber.match(/^\(?\+?\d?[-\s()0-9]{6,}$/) && this.phoneNumber !== this.countryCode && !this.phoneNumberError) {
-        let isPrivacyAgreed = localStorage.getItem('privacy_agreed');
         MobileTicketAPI.setPhoneNumber(this.phoneNumber);
+        let isPrivacyAgreed = this.isPrivacyPolicyAgreed;
         if (this.seperateCountryCode) {MobileTicketAPI.setPhoneNumberObj(this.phoneNumberObject)}
         if (this.customerId.trim() !== '' && this.customerId.length > 255) {
           this.customerIdMaxError = true;
@@ -219,10 +220,16 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
           if (this.customerId.trim() !== '') {
             MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
           }
-          if (isPrivacyAgreed === 'true' || this.isPrivacyEnable !== 'enable' || this.activeConsentEnable !== 'enable') {
+          if (isPrivacyAgreed || this.isPrivacyEnable !== 'enable' || this.activeConsentEnable !== 'enable') {
             this.createVisit()
           } else {
-            this.phoneSectionState = phoneSectionStates.PRIVACY_POLICY;
+            this.translate.get('customer_info.pleaseAcceptPrivacyPolicy').subscribe((res: string) => {
+              let alertMsg = res;
+              this.alertDialogService.activate(alertMsg).then(res => {     
+              }, () => {
+      
+              });
+            })
           }
         }
 

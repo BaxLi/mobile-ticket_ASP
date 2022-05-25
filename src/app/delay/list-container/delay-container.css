@@ -1,6 +1,6 @@
 * { 
-  -ms-overflow-style: none; /* edge */
-  scrollbar-width: none /* firefox */
+  /* -ms-overflow-style: none; /* edge */
+  /* scrollbar-width: none firefox */
 }
 
 .service-list-container {

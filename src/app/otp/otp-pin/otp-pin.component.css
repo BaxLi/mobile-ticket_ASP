@@ -223,8 +223,9 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   .custom-phone-card {
     height: calc(100vh - 16em) !important;
     overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    /* -ms-overflow-style: none; */
   }
 }
 
@@ -278,7 +279,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
   
   .customer-otp-heading {
     font-size: 18px;
-    color: var(--primary_text) !important;
+    color: var(--general-text-color) !important;
     font-family: Roboto-Medium;
     font-weight: 400;
     margin: 5px auto;
@@ -312,8 +313,8 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     font-size: 16px;
     background: transparent;
     line-height: 1.3em;
-    border: 2px solid var(--send-skip-btn-text);
-    color: var(--send-skip-btn-text);
+    border: 2px solid var(--secondary-btn-text-color);
+    color: var(--secondary-btn-text-color);
     display: flex;
     justify-content: center;
     align-items: center;

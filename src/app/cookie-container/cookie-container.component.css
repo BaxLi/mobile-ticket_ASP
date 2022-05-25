@@ -9,6 +9,7 @@
     transform: translate(-50%, 0);
     padding: 15px;
     overflow: auto;
+    scrollbar-width: thin;
 }
 .privacy-policy-heading {
     display: flex;

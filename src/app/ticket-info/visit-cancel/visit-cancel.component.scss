@@ -11,19 +11,19 @@
 .leave-line {
 
   background: var(--leave_button_background) !important;
-  color: var(--leave_button_text) !important;
-  border: 2px solid var(--leave_button_text) !important;
+  color: var(--leave-button-text-color) !important;
+  border: 2px solid var(--leave-button-text-color) !important;
 
 }
 
 // .leave-line:hover {
-//   background: var(--leave_button_text) !important;
+//   background: var(--leave-button-text-color) !important;
 //   color: var(--leave_button_background) !important;
-//   border: 2px solid var(--leave_button_text) !important;
+//   border: 2px solid var(--leave-button-text-color) !important;
 //   fill: var(--leave_button_background);
 // }
 .leave-svg-path {
-  fill: var(--leave_button_text);
+  fill: var(--leave-button-text-color);
 }
 
 // .leave-line:hover {

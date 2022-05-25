@@ -201,7 +201,7 @@ span.iti__country-name{
 
 .custom.text-color{
   color: rgb(0,0,0,0) !important;
-  color: var(--primary_text) !important;
+  color: var(--general-text-color) !important;
 }
 
 .custom.logo-image {
@@ -210,16 +210,16 @@ span.iti__country-name{
 
 
 .custom.accent-bg-color {
-  background: var(--get-in-line-btn-bg);
-  color: var(--get-in-line-btn-bg-text);
+  background: var(--get-in-line-btn-bg-color);
+  color: var(--get-in-line-btn-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .custom.group-btn-text-color {
-  color: var(--service-group-text) !important;
-  fill: var(--service-group-text) !important;
+  color: var(--service-group-text-color) !important;
+  fill: var(--service-group-text-color) !important;
 }
 .custom.group-btn-color {
   background-color: var(--group-button-background) !important;
@@ -230,7 +230,7 @@ span.iti__country-name{
 }
 
 .custom.otp-timer-color {
-  color: var(--leave_button_text) !important;
+  color: var(--leave-button-text-color) !important;
 }
 
 .custom.footer-bg-color {
@@ -252,18 +252,18 @@ span.iti__country-name{
   --primary_button_background_light: #FFFFFF;
   --primary_button_text_dark: #212021;
   --primary_button_text_light: #FFFFFF;
-  --list-button-background: var(--secondary-color);
-  --list-button-background-selected: var(--primary-color);
-  --list_button_hover: var(--secondary-color);
+  --list-button-background: var(--primary-bg-color);
+  --list-button-background-selected: var(--secondary-bg-color);
+  --list_button_hover: var(--primary-bg-color);
   --list_button_oval_background : #FFFFFF;
-  --list-button-text: var(--secondary-text-color);
-  --list_button_text_light: var(--primary-text-color);
+  --list-button-text: var(--primary-text-color);
+  --list_button_text_light: var( --secondary-text-color);
   --leave_button_background:transparent;
-  --secondary_background_light:var(--secondary-color); 
-  --secondary_background_dark: var(--primary-color);
-  --secondary_text_dark: var(--secondary-text-color);
-  --secondary_text_light: var(--primary-text-color);
-  --queue-component-background: var(--secondary-color);
+  --secondary_background_light:var(--primary-bg-color); 
+  --secondary_background_dark: var(--secondary-bg-color);
+  --secondary_text_dark: var(--primary-text-color);
+  --secondary_text_light: var( --secondary-text-color);
+  --queue-component-background: var(--primary-bg-color);
 }
 :focus-visible {
   outline: -webkit-focus-ring-color auto 4px;

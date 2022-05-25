@@ -82,21 +82,21 @@
 }
 
 .phone-text-icon {
-  margin: 0 10px;
+width: 50px;
 }
 
 .phone-num-botton-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: .15px;
-  color: var( --primary_text) !important;
+  color: var(--general-text-color) !important;
   margin: 0;
   font-family: 'Roboto-Regular';
   display: flex;
   opacity: 0.6;
 }
 .svg-path {
-  fill: var( --primary_text) !important;
+  fill: var(--general-text-color) !important;
   opacity: 0.6;
 }
 .phone-num-input {
@@ -146,7 +146,7 @@
 
   .phone-num-bottom-section {
       background: white;
-      padding: 10px;
+      padding: 22px 10px;
   }
   .phone-num-bottom-initial-topic {
     font-size: 12px;
@@ -188,7 +188,7 @@
     font-size: 12px;
     color: var(--eror-text);
     margin:0 2px;
-    padding: 0 10px;
+    padding: 8px 10px;
   }
   .phone-number-text {
     text-align: left;
@@ -210,10 +210,16 @@
 
   .privacy-container {
       display: flex;
-      padding: 20px 0;
+      // padding: 20px 0;
   }
   .privacy-upper-container {
     // padding: 20px;
+  }
+  .privacy-read-container {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    color:#0079C2;
   }
   .message-icon {
       margin: 0 10px;
@@ -221,7 +227,7 @@
   .btn-understood {
     font-size: 14px;
     color: #0079C2;
-    color: var(--pop-up-button-text);
+    color: var(--pop-up-button-text-color);
     text-transform: uppercase;
     font-weight: 500;
     border: 1px solid rgba(0,0,0,.12);
@@ -236,6 +242,7 @@
   }
   .privacy-policy-link {
     cursor: pointer;
+    text-decoration: underline;
   }
   .phone-num-display {
     font-size: 16px;
@@ -295,8 +302,8 @@
     font-size: 16px;
     background: transparent;
     line-height: 1.3em;
-    border: 2px solid var(--send-skip-btn-text);
-    color: var(--send-skip-btn-text);
+    border: 2px solid var(--secondary-btn-text-color);
+    color: var(--secondary-btn-text-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -337,7 +344,8 @@
 .customer-data-container {
   height: calc(100vh - 20em) !important;
   overflow: auto;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  overflow-x: hidden;
 }
 #phone {
   font-size: 16px;
@@ -432,8 +440,11 @@
   margin: 5px 25px;
 }
 .phone-description {
-  margin: 0 35px 35px 35px;
+  margin: 0 10px 35px 10px;
   font-size: 16px;
+  li{
+    padding: 0 15px;
+  }
 }
 :host {::ng-deep { 
   .form-control {
@@ -454,10 +465,84 @@
 }}
 
 input[type="checkbox"]{
-  width: 60px;
-  height: 20px;
-  margin: 0 10px;
+  width: 40px;
+  height: 25px;
+  // margin: 0 10px;
 }
 .svg-path-buttons {
-  fill: var(--send-skip-btn-text);
+  fill: var(--secondary-btn-text-color);
+}
+.agree-text {
+  font-weight: 500;
+}
+
+
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color:#3C817A;
+  border-radius: 5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 2px;
+  width: 7px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

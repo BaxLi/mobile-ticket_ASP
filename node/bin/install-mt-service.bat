@@ -15,8 +15,6 @@ echo "Error! cannot locate C:\Program Files\nodejs\node.exe"
 call npm --prefix %MT_HOME% run install:prod || goto FAIL
 ::call npm install --silent || goto FAIL
 
-@echo on
-
 set SERVICE_TITLE=Qmatic Mobile Ticket
 set SERVICE_NAME=QP_MT
 
@@ -31,19 +29,22 @@ net stop %SERVICE_NAME%
 
 ::install service:
 :: ++StartParams is the arguments. arguments are separated with "#"
-%prunsrv% //IS//%SERVICE_NAME% --DisplayName="%SERVICE_TITLE%" --Startup=auto --Install=%prunsrv% --StartMode=exe --StartImage="C:\\Program Files\\nodejs\\node.exe" ++StartParams=%MT_HOME%\server.js --StdOutput=%MT_HOME%\bin\logs\service.log --StdError=%MT_HOME%\bin\logs\service-error.log
+%prunsrv% //IS//%SERVICE_NAME% --DisplayName="%SERVICE_TITLE%" --Startup=auto --Install=%prunsrv% --StartMode=exe --StartImage="C:\\Program Files\\nodejs\\node.exe" ++StartParams=%MT_HOME%\server.js --LogPath=%MT_HOME%\bin\logs --StdOutput=%MT_HOME%\bin\logs\service.log --StdError=%MT_HOME%\bin\logs\service-error.log
 
 ::start service:
 net start %SERVICE_NAME%
 
+::clear auto generate files for clean the MT directory
+del %MT_HOME%\*.cmd
+del %MT_HOME%\*.ps1
+del %MT_HOME%\*.
+
 :FAIL
 ECHO %SERVICE_TITLE% installation failed.
-PAUSE
 GOTO:EOF
 
 :SUCCESS
 ECHO %SERVICE_TITLE% service successfully installed.
-PAUSE
 GOTO:EOF
 
 :RESOLVE

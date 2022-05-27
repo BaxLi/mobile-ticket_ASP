@@ -4,7 +4,7 @@ import * as fs from "fs";
 
 let database: Mongoose.Connection;
 let configuration: any;
-var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
+var fullPath = __dirname.replace('mt-service\\src\\data-module', '').replace(/\\/g, '\\\\') + '\\'
 const userConfigFile = "mt-service\\src\\config\\config.json";
 configuration = JSON.parse(
   fs.readFileSync(fullPath + userConfigFile).toString()

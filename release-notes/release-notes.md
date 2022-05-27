@@ -42,9 +42,9 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-03-29**
+**Date: 2022-05-27**
  
-**Build number: 9**
+**Build number: 10**
 
 <h3>Stories</h3>
 
@@ -57,6 +57,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-812** | **Investigation on nssm.exe** |
 | **MOB-783** | **Mobile Ticket, not show branches with blocked geolocation** |
 | **MOB-836** | **More flexibility on custom branding** |
+| **MOB-849** | **Use Procrun for create windows service** |
 
 <h3>Bug fixes</h3>
 

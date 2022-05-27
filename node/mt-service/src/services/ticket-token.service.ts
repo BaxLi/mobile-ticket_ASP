@@ -12,7 +12,7 @@ export default class TicketTokenService {
   private tenantId: string;
 
   constructor() {
-    var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
+    var fullPath = __dirname.replace('mt-service\\src\\services', '').replace(/\\/g, '\\\\') + '\\'
     connectDB();
     this.userConfig = JSON.parse(
       fs.readFileSync(fullPath + this.userConfigFile).toString()

@@ -21,7 +21,7 @@ export default class OtpService {
   private hasCertificate: string;
 
   constructor() {
-    var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
+    var fullPath = __dirname.replace('mt-service\\src\\services', '').replace(/\\/g, '\\\\') + '\\'
     this.configuration = JSON.parse(
       fs.readFileSync(fullPath + this.configFile).toString()
     );

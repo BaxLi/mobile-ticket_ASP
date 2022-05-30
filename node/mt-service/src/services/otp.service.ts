@@ -21,12 +21,12 @@ export default class OtpService {
   private hasCertificate: string;
 
   constructor() {
-    var fullPath = __dirname.replace('mt-service\\src\\services', '').replace(/\\/g, '\\\\') + '\\'
+    var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\\\'
     this.configuration = JSON.parse(
-      fs.readFileSync(fullPath + this.configFile).toString()
+      fs.readFileSync(this.configFile).toString()
     );
     this.userConfig = JSON.parse(
-      fs.readFileSync(fullPath + this.userConfigFile).toString()
+      fs.readFileSync(this.userConfigFile).toString()
     );
    
     this.tenantId = this.userConfig.tenant_id.value;

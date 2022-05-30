@@ -4,7 +4,7 @@
     margin: auto;
     position: absolute;
     top: 5em;
-    bottom: 0;
+    bottom: 30px;
     left: 50%;
     transform: translate(-50%, 0);
     padding: 15px;

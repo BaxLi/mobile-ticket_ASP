@@ -4,9 +4,10 @@ import * as fs from "fs";
 
 let database: Mongoose.Connection;
 let configuration: any;
-const userConfigFile = "mt-service/src/config/config.json";
+var fullPath = __dirname.replace('mt-service\\src\\data-module', '').replace(/\\/g, '\\\\') + '\\'
+const userConfigFile = "mt-service\\src\\config\\config.json";
 configuration = JSON.parse(
-  fs.readFileSync(userConfigFile).toString()
+  fs.readFileSync(fullPath + userConfigFile).toString()
 );
 const localConString = configuration.db_connection_string.value;
 const reconnectTimeoutMS = 90000;

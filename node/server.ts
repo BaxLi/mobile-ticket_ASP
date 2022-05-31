@@ -38,10 +38,11 @@ const google_analytics = 'https://www.google-analytics.com';
 const bootstarp_cdn = 'https://maxcdn.bootstrapcdn.com';
 const countrycode_css = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.1/js/utils.js';
 
+var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
 // Enable packet compression of each response
 app.use(compression({level: zlib.Z_BEST_COMPRESSION, strategy: zlib.Z_DEFAULT_STRATEGY}));
 // Set route to fetch compressed content
-if (fs.existsSync('./src/zip')) {
+if (fs.existsSync(fullPath + 'src\\zip')) {
    app.use("/zip", expressStaticGzip(__dirname + '/src/zip', {
 	   enableBrotli: false,
     customCompressions: [{
@@ -54,7 +55,7 @@ if (fs.existsSync('./src/zip')) {
 
 //update configurations using config.json
 const configuration = JSON.parse(
-	fs.readFileSync(configFile, "utf8")
+	fs.readFileSync(fullPath + configFile, "utf8")
 );
 // //update user-configurations using config.json for functional server
 // var userConfiguration = JSON.parse(
@@ -136,8 +137,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = validAPIGWCert;
 let privateKey, certificate, credentials;
 
 if (supportSSL) {
-	privateKey = fs.readFileSync('sslcert/server.key', 'utf8');
-	certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+	privateKey = fs.readFileSync(fullPath + 'sslcert\\server.key', 'utf8');
+	certificate = fs.readFileSync(fullPath + 'sslcert\\server.crt', 'utf8');
 
 	credentials = { key: privateKey, cert: certificate };
 	if (tlsVersion.length > 0 && tlsversionSet.indexOf(tlsVersion) !== -1) {
@@ -816,8 +817,8 @@ let env = process.argv[2] || 'prod';
 let otpService = "disable";
 let ticketToken = "disable";
 let tenantID = "";
-let userConfigFile = "./src/app/config/config.json";
-let mtConfigFile = "mt-service/src/config/config.json"
+let userConfigFile = fullPath + "src\\app\\config\\config.json";
+let mtConfigFile = fullPath + "mt-service\\src\\config\\config.json"
 if (env=='dev') {
 	userConfigFile = "../src/app/config/config.json";	
 }

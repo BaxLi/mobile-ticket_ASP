@@ -17,6 +17,7 @@ declare var MobileTicketAPI: any;
   styleUrls: ['./ticket-info-container.css', './ticket-info-container-rtl.css', '../../shared/css/common-styles.css']
 })
 export class TicketInfoContainerComponent implements OnInit, OnDestroy {
+  
   public branchEntity: BranchEntity;
   public isTicketFlashed: boolean;
   public isTicketEndedOrDeleted: boolean;
@@ -51,6 +52,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   public showAppTime: boolean;
   private checkedEvents: boolean = false;
   private userLanguage: string;
+  public isTicketDeletedByUser: boolean;
 
   @ViewChild('ticketNumberComponent', {static: true}) ticketNumberComponent;
   @ViewChild('queueComponent', {static: true}) queueComponent;
@@ -480,5 +482,10 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
         
       });
     }
+  }
+  deletedByUser($event) {
+    this.isTicketDeletedByUser = $event;
+    // this.deletedByUserSuccessed.emit($event)
+    // console.log($event);
   }
 }

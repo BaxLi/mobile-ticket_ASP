@@ -14,11 +14,14 @@
     <app-queue-container #queueComponent
                           (onUrlAccessedTicket)='onUrlAccessedTicket($event)'
                          (onTciketNmbrChange)='onTciketNmbrChange($event)'
-                         (onServiceNameUpdate)='onServiceNameUpdate($event)' (onNetworkErr)='onNetworkErr($event)'
+                         (onServiceNameUpdate)='onServiceNameUpdate($event)' 
+                         (onNetworkErr)='onNetworkErr($event)'
                          (onBranchUpdate)='onBranchUpdate($event)'
                          (onVisitNotFound)='onVisitNotFound($event)'
                          (onUrlVisitLoading)='onUrlVisitLoading($event)'
-                         (onVisitStatusUpdate)='onVisitStatusUpdate($event)'></app-queue-container>
+                         (onVisitStatusUpdate)='onVisitStatusUpdate($event)'
+                         [isTicketEndedOrDeleted]="isTicketEndedOrDeleted"
+                         ></app-queue-container>
   </div>
   <div [hidden]="!isVisitCall" class="row">
     <div class="col-xs-12 col-xxs">
@@ -47,5 +50,5 @@
 </div>
 </div>
 <div [hidden]="isVisitCall && !isVisitRecycled || redirectUrlLoading" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
-  <app-visit-cancel #cancelVisitComponent [isDelayFuncAvailable]="isDelayFuncAvailable" [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted"></app-visit-cancel>
+  <app-visit-cancel #cancelVisitComponent [isDelayFuncAvailable]="isDelayFuncAvailable" [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" (deletedByUser)="deletedByUser($event)"></app-visit-cancel>
 </div>

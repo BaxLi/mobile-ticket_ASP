@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Util } from '../../util/util';
@@ -16,6 +16,8 @@ declare var MobileTicketAPI: any;
 })
 export class VisitCancelComponent {
 
+  @Output() deletedByUser = new EventEmitter<boolean>();
+  
   @Input() isTicketEndedOrDeleted: boolean;
   @Input() isDelayFuncAvailable: boolean;
   @Input() isUrlAccessedTicket: boolean;
@@ -58,6 +60,7 @@ export class VisitCancelComponent {
     this.translate.get('ticketInfo.btnOpenMeeting').subscribe((res: string) => {
       this.btnTitleOpenMeeting = res;
     });
+    this.deletedByUser.emit(false);
   }
 
   public getDelayTime() {
@@ -132,6 +135,7 @@ export class VisitCancelComponent {
             }
             MobileTicketAPI.resetAllVars();
             this.isCancelButtonClicked = false;
+            this.deletedByUser.emit(true);
             // 168477572 : Always route to thank you page
             // this.router.navigate(['branches']);
           },

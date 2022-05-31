@@ -20,6 +20,7 @@ declare var ga: Function;
   styleUrls: ['./queue.component.css', './queue.component-rtl.css', '../../shared/css/common-styles.css']
 })
 export class QueueComponent implements OnInit, OnDestroy {
+  @Input() isTicketEndedOrDeleted: boolean;
 
   public visitPosition: number;
   public prevWaitingVisits: number;
@@ -40,7 +41,7 @@ export class QueueComponent implements OnInit, OnDestroy {
   public prevLowerBound: number;
   public queueHeading: string;
   public queueItems: Array<QueueEntity>;
-  public isTicketEndedOrDeleted: boolean;
+ 
   public ticketEndHeading: string;
   public welcomeback: string;
   public isRtl: boolean;

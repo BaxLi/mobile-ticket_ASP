@@ -681,8 +681,8 @@ export class AuthGuard implements CanActivate {
         } else if (url.startsWith('/ticket') && (branchId && visitId && checksum)) { // if ticket is from view ticket url
             let isDeviceBounded = this.config.getConfig('block_other_browsers');
             let isSameTicket = visitInfo && visitInfo !== null &&
-             visitInfo.visitStatus !== "DELETE" && visitInfo.branchId === branchId &&
-              visitInfo.checksum === checksum && visitInfo.visitId === visitId ? true : false;
+             visitInfo.visitStatus !== "DELETE" && parseInt(visitInfo.branchId) === parseInt(branchId) &&
+              visitInfo.checksum === checksum && parseInt(visitInfo.visitId) === parseInt(visitId) ? true : false;
             if (visitInfo && visitInfo !== null && visitInfo.visitStatus !== "DELETE" && !isSameTicket) {
                 let alertMsg = '';
                 this.translate.get('visit.onGoingVisit').subscribe((res: string) => {

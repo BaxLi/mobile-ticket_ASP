@@ -10,6 +10,7 @@
 </div>
 <div [hidden]="isUrlVisitLoading" class="inner-margin-separator" 
 [style.height]="getButtonStatus() ? 'calc(100vh - 22em)' : 'calc(100vh - 17em);'">
+
   <div class="row" [hidden]="isVisitCall && !isVisitRecycled">
     <app-queue-container #queueComponent
                           (onUrlAccessedTicket)='onUrlAccessedTicket($event)'
@@ -20,7 +21,7 @@
                          (onVisitNotFound)='onVisitNotFound($event)'
                          (onUrlVisitLoading)='onUrlVisitLoading($event)'
                          (onVisitStatusUpdate)='onVisitStatusUpdate($event)'
-                         [isTicketEndedOrDeleted]="isTicketEndedOrDeleted"
+                         [isTicketEndedOrDeleted]="isTicketDeletedByUser"
                          ></app-queue-container>
   </div>
   <div [hidden]="!isVisitCall" class="row">

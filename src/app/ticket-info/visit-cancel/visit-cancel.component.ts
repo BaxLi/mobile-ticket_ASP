@@ -117,7 +117,9 @@ export class VisitCancelComponent {
   // }
 
 
-  cancelVisit() {
+  cancelVisit() { 
+    if (!this.isCancelButtonClicked) {
+
     let util = new Util();
     this.confirmDialogService.activate(this.confirmMsg).then(res => {
       if (res === true) {
@@ -134,8 +136,8 @@ export class VisitCancelComponent {
               MobileTicketAPI.updateCurrentVisitStatus();
             }
             MobileTicketAPI.resetAllVars();
-            this.isCancelButtonClicked = false;
             this.deletedByUser.emit(true);
+            this.isCancelButtonClicked = false;
             // 168477572 : Always route to thank you page
             // this.router.navigate(['branches']);
           },
@@ -143,6 +145,10 @@ export class VisitCancelComponent {
             this.isCancelButtonClicked = false;
             if (util.getStatusErrorCode(xhr && xhr.getAllResponseHeaders()) === "11000") {
               this.translate.get('ticketInfo.visitAppRemoved').subscribe((res: string) => {
+                this.alertDialogService.activate(res);
+              });
+            } else {
+              this.translate.get('ticketInfo.btnTitleLeaveLineFailed').subscribe((res: string) => {
                 this.alertDialogService.activate(res);
               });
             }
@@ -155,6 +161,7 @@ export class VisitCancelComponent {
     });
 
 
+  }
   }
 
   getButtonTitle(): string {

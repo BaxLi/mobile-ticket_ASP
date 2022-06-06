@@ -58,6 +58,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-783** | **Mobile Ticket, not show branches with blocked geolocation** |
 | **MOB-836** | **More flexibility on custom branding** |
 | **MOB-849** | **Use Procrun for create windows service** |
+| **MOB-823** | **Service group custom branding and few more changes from UX** |
 
 <h3>Bug fixes</h3>
 
@@ -67,7 +68,11 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-820** | **Some properties (keys in config, logo.. etc) are not correctly updated with upgrade script** |
 | **MOB-822** | **Mobile Ticket - Service groups show up for each branch even when empty for branch** |
 | **MOB-804** | **Apply encoded related changes into the core version.** |
+<<<<<<< HEAD
 | **MOB-851** | **Not validate same ticket correctly** |
+=======
+| **MOB-850** | **Address other errors in visit cancel.** |
+>>>>>>> 73725039... MOB-850: Address other errors in visit cancel
 
 <h3>Known issues</h3>
 

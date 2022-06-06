@@ -37,6 +37,7 @@
   "ticketInfo": {
     "leaveVisitConfirmMsg": "Would you like to leave the line?",
     "btnTitleLeaveLine": "Leave the line",
+    "btnTitleLeaveLineFailed": "Operation was failed. please try again",
     "btnTitleChangeDelay": "Select another time",
     "delayVisitBtnText": "I need more time",
     "btnTitleArrive": "I'm here",

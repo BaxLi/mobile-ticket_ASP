@@ -107,7 +107,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.isTicketDeletedByUser = false;
     this.scrollPageToTop();
     this.loadNotificationSound();
     this.setRtlStyles();
@@ -485,6 +485,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   }
   deletedByUser($event) {
     this.isTicketDeletedByUser = $event;
+    this.isTicketEndedOrDeleted = $event;
     // this.deletedByUserSuccessed.emit($event)
     // console.log($event);
   }

@@ -17,7 +17,7 @@
             </ul>
             <div class="customer-phone__number-container">
               <div class="phone-num">
-                <div class="phone-num-text custom text-color phone-number-text"> {{'customer_info.phoneNumber' |
+                <div class="phone-num-text phone-number-text"> {{'customer_info.phoneNumber' |
                   translate}} <span *ngIf="isPhoneNumberMandatory">*</span> </div>
                 <div class="phone-num-input-container">
                   <svg style="margin: 0 5px;" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -231,7 +231,7 @@
             <div class="qm-customer-id-details phone-num-text custom text-color">
               {{'customer_info.id_details' | translate}}
             </div>
-            <div class="phone-num-text custom text-color phone-number-text"> {{'customer_info.customerId' | translate}}
+            <div class="phone-num-text phone-number-text"> {{'customer_info.customerId' | translate}}
             </div>
             <input type="text" class="customer-id-input" [(ngModel)]="customerId" (change)="onCustomerIdChanged()"
               (keyup)="onCustomerIdChanged()" placeholder="{{'customer_info.id_placeholder' | translate}}">

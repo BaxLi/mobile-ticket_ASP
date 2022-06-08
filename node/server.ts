@@ -52,6 +52,7 @@ if (fs.existsSync(fullPath + 'src\\zip')) {
    }));
 }
 
+app.disable('x-powered-by');
 
 //update configurations using config.json
 const configuration = JSON.parse(
@@ -269,6 +270,7 @@ const apiProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -293,6 +295,7 @@ const apiFindProxy = proxy(host, {	// ip and port off apigateway
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -330,6 +333,7 @@ const apiTranslationProxy = proxy(host, {	// ip and port off apigateway
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -379,6 +383,7 @@ const apiFindExtProxy = proxy(host, {	// ip and port off apigateway
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -419,6 +424,7 @@ const apiFindCentralProxy = proxy(host, {	// ip and port off apigateway
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -463,6 +469,7 @@ const apiFindCentralByEIdProxy = proxy(host, {	// ip and port off apigateway
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -504,6 +511,7 @@ const apiEntryPointProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -531,6 +539,7 @@ const apiCustomParameterProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -577,6 +586,7 @@ const apiArriveProxy = proxy(host, {
     },
 
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -617,6 +627,7 @@ const apiMeetingProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -654,6 +665,7 @@ const apiDelayProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -680,6 +692,7 @@ var apiBranchScheduleProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -706,6 +719,7 @@ var apiEventProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -732,6 +746,7 @@ var apiServicesGroupsProxy = proxy(host, {
 		return proxyReqOpts;
 	},
 	userResHeaderDecorator(headers, userReq, userRes, proxyReq, proxyRes) {
+		removeXPoweredBy(headers);
 		if (isEmbedIFRAME === false) {
 			headers['X-Frame-Options'] = "DENY";
 		}
@@ -746,6 +761,7 @@ var apiServicesGroupsProxy = proxy(host, {
 });
 
 var ticketTokenProxy = function (req, res, next) {
+	res.removeHeader("X-Powered-By");
 	if (ticketToken === "enable") {
 	  if (req.body.token) {
 		checkToken(req.body.token).then((status) => {
@@ -790,6 +806,12 @@ const handleHeaders = (res) => {
 		res.set('Strict-Transport-Security', "max-age=" + hstsExpireTime +"; includeSubDomains");
 	}
 	return res;
+}
+
+const removeXPoweredBy = (headers) => {
+	if (headers['X-Powered-By']) {
+		delete headers['X-Powered-By'];
+	}
 }
 
 app.use("/geo/branches/*", apiProxy);

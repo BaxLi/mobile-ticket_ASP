@@ -42,7 +42,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.0.0 </h2>
 
-**Date: 2022-06-01**
+**Date: 2022-06-10**
  
 **Build number: 11**
 
@@ -59,6 +59,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-836** | **More flexibility on custom branding** |
 | **MOB-849** | **Use Procrun for create windows service** |
 | **MOB-823** | **Service group custom branding and few more changes from UX** |
+| **MOB-867** | **Include the new deployment guide in the MT project** |
 
 <h3>Bug fixes</h3>
 

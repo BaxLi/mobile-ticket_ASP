@@ -52,6 +52,7 @@ module.exports = function (grunt) {
           { expand: true, src: ['src/libs/css/*'], dest: 'dist/src/libs/css/', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/js/*'], dest: 'dist/src/libs/js/', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/js/intlTelInput.min.js'], dest: 'dist/src/', filter: 'isFile', flatten: true },
+          { expand: true, src: ['src/libs/js/ga.js'], dest: 'dist/src/', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/img/*'], dest: 'dist/src/img/', filter: 'isFile', flatten: true },
           { expand: true, src: ['doc/*'], dest: 'dist/doc/', filter: 'isFile', flatten: true },
         ]
@@ -161,8 +162,12 @@ module.exports = function (grunt) {
               replacement: ''
             },
             {
-              pattern: /<script async="" type="text\/javascript" src="libs\/js\/analytics\.min\.js"><\/script>/g,
+              pattern: /\<script\> window\.ga\=window\.ga\|\|function\(\)\{\(ga\.q\=ga\.q\|\|\[\]\)\.push\(arguments\)\};ga\.l\=\+new Date;\<\/script\>/g,
               replacement: ''
+            },
+            {
+              pattern: /<script async="" type="text\/javascript" src="libs\/js\/analytics\.min\.js"><\/script>/g,
+              replacement: '<script type="text/javascript" src="ga.js"></script>'
             },
             {
               pattern: /<script type="text\/javascript" src="libs\/js\/intlTelInput\.min\.js"><\/script>/g,

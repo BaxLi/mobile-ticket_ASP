@@ -88,18 +88,19 @@ app.use(xssFilter());
 app.use(csp({
 	directives: {
 	defaultSrc: ["'self'"],
-	scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'",google_analytics,countrycode_css ],
+	scriptSrc: ["'self'", "'unsafe-eval'",google_analytics,countrycode_css ],
 	// phoneScriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'",countrycode_css ],
 	styleSrc: ["'self'", "'unsafe-inline'",bootstarp_cdn],
-	fontSrc: ["'self'", 'data:',bootstarp_cdn],
-	imgSrc: ["'self'", 'data:', google_analytics,countrycode_css],
+	fontSrc: ["'self'", bootstarp_cdn],
+	imgSrc: ["'self'", google_analytics,countrycode_css],
 	sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin', 'allow-popups'],
 	reportUri: '/report-violation',
+	reportTo: '/report-violation',
 	objectSrc: ["'none'"]
 	},
 	// This module will detect common mistakes in your directives and throw errors
 	// if it finds any. To disable this, enable "loose mode".
-	loose: false,
+	loose: true,
 
 	// Set to true if you only want browsers to report errors, not block them.
 	// You may also set this to a function(req, res) in order to decide dynamically
@@ -247,7 +248,33 @@ app.get('/unauthorized$', (req, res) => {
 	res = handleHeaders(res);
   	res.sendFile(path.join(__dirname + '/src', 'index.html'));
 });
+app.post('/report-violation$', (req, res) => {
+	res = handleHeaders(res);
+  	res.status(200).send("violation recorded");
+});
 
+app.use('/report-violation', express.json({ type: 'application/json' }));  // for old browsers
+app.use('/report-violation', express.json({ type: 'application/reports+json' })); // for report-to directive
+app.use('/report-violation', express.json({ type: 'application/csp-report' }));  // for report-uri directive
+
+app.post('/report-violation$', (req, res) => {
+	let filePath = "./violations.json";
+	if (fs.existsSync(filePath)) {
+		const jsonString = fs.readFileSync(filePath);
+		let jsonArr = JSON.parse(jsonString.toString());
+		// remove the oldest record if the count reached 20
+		if (jsonArr.length > 19) {
+			jsonArr.shift();
+		}
+		jsonArr.push(req['body']['csp-report']);
+		fs.writeFileSync(filePath, JSON.stringify(jsonArr));
+	} else {
+		fs.writeFileSync(filePath, JSON.stringify([req['body']['csp-report']]));
+	}
+
+	res = handleHeaders(res);
+	res.status(200).send("violation recorded");
+});
 
 // Proxy mobile example to API gateway
 const apiProxy = proxy(host, {

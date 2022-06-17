@@ -1,11 +1,11 @@
 
-<h1>Release notes Mobile Ticket 1</h1>
+<h1>Release notes Mobile Ticket 2</h1>
 
 ----------
 
 <h2>Introduction</h2>
 
-This document describes the new features, bug corrections, known issues and recommendations for Mobile Ticket 1. If you want to know about connector changes details or similar, this document is for you.
+This document describes the new features, bug corrections, known issues and recommendations for Mobile Ticket 2. If you want to know about connector changes details or similar, this document is for you.
 
 **Note:** Several of the remarks refer to a Jira number (Jira is Qmatic&#39;s internal registration system for bugs), or Pivotal Tracker (internal system for improvements and other issues).
 
@@ -60,6 +60,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-849** | **Use Procrun for create windows service** |
 | **MOB-823** | **Service group custom branding and few more changes from UX** |
 | **MOB-867** | **Include the new deployment guide in the MT project** |
+| **MOB-838** | **Loading UI for "Leave the line" in Mobile Ticket** |
 
 <h3>Bug fixes</h3>
 

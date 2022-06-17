@@ -35,6 +35,7 @@ let tlsversionSet = ['TLSv1_method', 'TLSv1_1_method', 'TLSv1_2_method'];
 let cipherSet = [];
 let allowedOrigins = [];
 let jsonParser = bodyParser.json();
+let domain = '';
 
 const google_analytics = 'https://www.google-analytics.com';
 const bootstarp_cdn = 'https://maxcdn.bootstrapcdn.com';
@@ -153,6 +154,11 @@ if (supportSSL) {
 		credentials.ciphers = cipherSet.join(':');
 	}
 }
+// middleware to catch domain url
+app.use(function (req, res, next) {
+	domain = req.protocol + "://" + req.get('host');
+	return next();
+});
 
 const options = {
 	setHeaders: function (res, path, stat) {
@@ -161,17 +167,16 @@ const options = {
 }
 
 const corsOptions = {
-    origin: function (origin, callback) {
-        // for some requests it needs to check the same origin manually
-       const originUrl = supportSSL ? "https://localhost:"+sslPort : "http://localhost:"+port
-      if (allowedOrigins.indexOf(origin) !== -1 || origin == originUrl || !origin) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
-  }
-  app.use(cors(corsOptions));
+	origin: function (origin, callback) {
+		// for some requests it needs to check the same origin manually
+		if (allowedOrigins.indexOf(origin) !== -1 || origin == domain || !origin) {
+			callback(null, true)
+		} else {
+			callback(new Error('Not allowed by CORS'))
+		}
+	}
+}
+app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/src', options));
 
 

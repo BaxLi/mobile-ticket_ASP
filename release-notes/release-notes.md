@@ -44,18 +44,16 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-06-17**
  
-**Build number: 1**
-
+**Build number: 2**
 
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-813** | **Upgrade node modules** |
-
-
-<h3>Bug fixes</h3>
-
+| **MOB-860** | **Insecure content security policy** |
+| **MOB-861** | **Server fingerprinting** |
+| **MOB-857** | **Permissive cross origin resource sharing** |
 
 ----------
 

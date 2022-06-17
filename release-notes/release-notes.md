@@ -44,7 +44,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-06-10**
  
-**Build number: 11**
+**Build number: 12**
 
 <h3>Stories</h3>
 
@@ -61,6 +61,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-823** | **Service group custom branding and few more changes from UX** |
 | **MOB-867** | **Include the new deployment guide in the MT project** |
 | **MOB-838** | **Loading UI for "Leave the line" in Mobile Ticket** |
+| **MOB-813** | **Upgrade node modules** |
 
 <h3>Bug fixes</h3>
 

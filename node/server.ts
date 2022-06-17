@@ -1,5 +1,6 @@
 import * as proxy from "express-http-proxy";
 import * as express from "express";
+import * as cors from "cors";
 import * as compression from "compression";
 import * as zlib from "zlib";
 import * as expressStaticGzip from "express-static-gzip";
@@ -32,6 +33,7 @@ let tlsVersion = '';
 let hstsExpireTime = '63072000';
 let tlsversionSet = ['TLSv1_method', 'TLSv1_1_method', 'TLSv1_2_method'];
 let cipherSet = [];
+let allowedOrigins = [];
 let jsonParser = bodyParser.json();
 
 const google_analytics = 'https://www.google-analytics.com';
@@ -131,6 +133,7 @@ isEmbedIFRAME = (configuration.embed_iFrame.value.trim() === 'true')?true:false;
 tlsVersion = configuration.tls_version.value;
 hstsExpireTime = configuration.hsts_expire_time.value;
 cipherSet = configuration.cipher_set.value;
+allowedOrigins = configuration.allow_origins.value;
 
 //this will bypass certificate errors in node to API gateway encrypted channel, if set to '1'
 //if '0' communication will be blocked. So production this should be set to '0'
@@ -157,6 +160,18 @@ const options = {
 	}
 }
 
+const corsOptions = {
+    origin: function (origin, callback) {
+        // for some requests it needs to check the same origin manually
+       const originUrl = supportSSL ? "https://localhost:"+sslPort : "http://localhost:"+port
+      if (allowedOrigins.indexOf(origin) !== -1 || origin == originUrl || !origin) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
+  app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/src', options));
 
 

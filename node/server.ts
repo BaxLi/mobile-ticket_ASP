@@ -171,7 +171,7 @@ if (supportSSL) {
 }
 // middleware to catch domain url
 app.use(function (req, res, next) {
-	domain = req.get('domain');
+	domain = req.get('origin');
 	return next();
 });
 
@@ -289,9 +289,20 @@ app.use('/report-violation', express.json({ type: 'application/csp-report' })); 
 
 app.post('/report-violation$', (req, res) => {
 	let filePath = "./violations.json";
-	let reportObj = req['body']['csp-report'];
-	// add timestamp
-	reportObj.Date = new Date().toUTCString();
+	let reportObj;
+	if (req['body']['csp-report']) {
+		// coming from report-uri
+		reportObj = req['body']['csp-report'];
+		// add timestamp
+		reportObj['Date'] = new Date().toUTCString();
+	} else if (req['body']) {
+		// coming from report-to
+		reportObj = req['body'];
+		// add timestamp
+		reportObj.forEach(function (obj) {
+			obj.Date = new Date().toUTCString();
+		});
+	}
 	if (fs.existsSync(filePath)) {
 		const jsonString = fs.readFileSync(filePath);
 		let jsonArr = JSON.parse(jsonString.toString());

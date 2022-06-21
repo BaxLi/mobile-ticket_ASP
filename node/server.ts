@@ -12,7 +12,6 @@ import * as path from "path";
 import * as helmet from "helmet";
 import * as hidePoweredBy from "hide-powered-by";
 import * as csp  from "helmet-csp";
-import reportTo from "report-to";
 import * as nocache  from "nocache";
 import * as nosniff  from "dont-sniff-mimetype";
 import * as frameguard  from "frameguard";
@@ -20,6 +19,7 @@ import * as xssFilter  from "frameguard";
 import bodyParser = require("body-parser");
 
 const app: express.Application = express();
+const reportTo = require('report-to')
 
 let configFile = 'proxy-config.json';
 let host = 'localhost:9090';

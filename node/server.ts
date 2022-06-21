@@ -171,7 +171,7 @@ if (supportSSL) {
 }
 // middleware to catch domain url
 app.use(function (req, res, next) {
-	domain = req.protocol + "://" + req.get('host');
+	domain = req.get('domain');
 	return next();
 });
 

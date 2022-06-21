@@ -44,7 +44,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-06-17**
  
-**Build number: 2**
+**Build number: 3**
 
 <h3>Stories</h3>
 

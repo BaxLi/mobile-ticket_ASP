@@ -1,6 +1,6 @@
 {
   "name": "mobile-ticket-server",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Server Application for MT",
   "main": "server.js",
   "dependencies": {
@@ -16,6 +16,7 @@
     "express-static-gzip": "2.0.6",
     "helmet": "^3.6.1",
     "mongoose": "^5.10.9",
+    "report-to": "^1.1.0",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {

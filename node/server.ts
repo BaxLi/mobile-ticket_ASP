@@ -12,6 +12,7 @@ import * as path from "path";
 import * as helmet from "helmet";
 import * as hidePoweredBy from "hide-powered-by";
 import * as csp  from "helmet-csp";
+import reportTo from "report-to";
 import * as nocache  from "nocache";
 import * as nosniff  from "dont-sniff-mimetype";
 import * as frameguard  from "frameguard";
@@ -55,8 +56,6 @@ if (fs.existsSync(fullPath + 'src\\zip')) {
    }));
 }
 
-app.disable('x-powered-by');
-
 //update configurations using config.json
 const configuration = JSON.parse(
 	fs.readFileSync(fullPath + configFile, "utf8")
@@ -72,6 +71,7 @@ app.use(helmet());
 //Hackers can exploit known vulnerabilities in Express/Node if they see that your site is 
 //powered by Express (or whichever framework you use)
 app.use(hidePoweredBy());
+app.disable('x-powered-by');
 
 //Abolish all JS client-side caching.
 app.use(nocache());
@@ -86,19 +86,34 @@ app.use(frameguard({ action: 'deny' }));
 
 //The X-XSS-Protection HTTP header is a basic protection against XSS
 app.use(xssFilter());
-
+// add report-to header
+app.use(reportTo({
+    groups: [
+        {
+            group: "reportToEndpoint",
+            max_age: 10886400,
+            include_subdomains: true,
+            endpoints: [
+                {
+                    url: "/report-violation",
+                    priority: 1
+                }
+            ]
+        }
+    ]
+}));
 //Content Security Policy helps prevent unwanted content being injected into your webpages
 app.use(csp({
 	directives: {
 	defaultSrc: ["'self'"],
-	scriptSrc: ["'self'", "'unsafe-eval'",google_analytics,countrycode_css ],
+	scriptSrc: ["'self'", google_analytics,countrycode_css ],
 	// phoneScriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'",countrycode_css ],
 	styleSrc: ["'self'", "'unsafe-inline'",bootstarp_cdn],
 	fontSrc: ["'self'", bootstarp_cdn],
 	imgSrc: ["'self'", google_analytics,countrycode_css],
 	sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin', 'allow-popups'],
 	reportUri: '/report-violation',
-	reportTo: '/report-violation',
+	reportTo: 'reportToEndpoint',
 	objectSrc: ["'none'"]
 	},
 	// This module will detect common mistakes in your directives and throw errors
@@ -268,17 +283,15 @@ app.get('/unauthorized$', (req, res) => {
 	res = handleHeaders(res);
   	res.sendFile(path.join(__dirname + '/src', 'index.html'));
 });
-app.post('/report-violation$', (req, res) => {
-	res = handleHeaders(res);
-  	res.status(200).send("violation recorded");
-});
-
 app.use('/report-violation', express.json({ type: 'application/json' }));  // for old browsers
 app.use('/report-violation', express.json({ type: 'application/reports+json' })); // for report-to directive
 app.use('/report-violation', express.json({ type: 'application/csp-report' }));  // for report-uri directive
 
 app.post('/report-violation$', (req, res) => {
 	let filePath = "./violations.json";
+	let reportObj = req['body']['csp-report'];
+	// add timestamp
+	reportObj.Date = new Date().toUTCString();
 	if (fs.existsSync(filePath)) {
 		const jsonString = fs.readFileSync(filePath);
 		let jsonArr = JSON.parse(jsonString.toString());
@@ -286,10 +299,10 @@ app.post('/report-violation$', (req, res) => {
 		if (jsonArr.length > 19) {
 			jsonArr.shift();
 		}
-		jsonArr.push(req['body']['csp-report']);
+		jsonArr.push(reportObj);
 		fs.writeFileSync(filePath, JSON.stringify(jsonArr));
 	} else {
-		fs.writeFileSync(filePath, JSON.stringify([req['body']['csp-report']]));
+		fs.writeFileSync(filePath, JSON.stringify([reportObj]));
 	}
 
 	res = handleHeaders(res);

@@ -240,6 +240,10 @@ project directory
     "cipher_set": {
         "value": [],
         "description": "Flag indicating cipher set which use in the server. Fill the value like this. ['ECDHE-RSA-AES128-SHA256', 'DHE-RSA-AES128-SHA256', 'AES128-GCM-SHA256']. Keep it empty when not going to modify."
+    },
+    "allow_origins": {
+        "value": [],
+        "description": "Flag indicating the whitelisted origins which can be used in the server. Fill the value like this. ['https://www.origin1.com', 'https://www.origin2.com', 'https://www.origin3.com']. Keep it empty to allow only the same origin."
     }
 }
 ```

@@ -36,7 +36,7 @@ let tlsversionSet = ['TLSv1_method', 'TLSv1_1_method', 'TLSv1_2_method'];
 let cipherSet = [];
 let allowedOrigins = [];
 let jsonParser = bodyParser.json();
-let domain = '';
+let referer = '';
 
 const google_analytics = 'https://www.google-analytics.com';
 const bootstarp_cdn = 'https://maxcdn.bootstrapcdn.com';
@@ -169,9 +169,9 @@ if (supportSSL) {
 		credentials.ciphers = cipherSet.join(':');
 	}
 }
-// middleware to catch domain url
+// middleware to catch referer url
 app.use(function (req, res, next) {
-	domain = req.get('origin');
+	referer = req.get('referer');
 	return next();
 });
 
@@ -183,8 +183,8 @@ const options = {
 
 const corsOptions = {
 	origin: function (origin, callback) {
-		// for some requests it needs to check the same origin manually
-		if (allowedOrigins.indexOf(origin) !== -1 || origin == domain || !origin) {
+		// for some requests it needs to check the same origin manually(ex: font requests)
+		if (allowedOrigins.indexOf(origin) !== -1 || (referer && referer.includes(origin)) || !origin) {
 			callback(null, true)
 		} else {
 			callback(new Error('Not allowed by CORS'))

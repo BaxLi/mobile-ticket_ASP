@@ -21,7 +21,7 @@ import bodyParser = require("body-parser");
 const app: express.Application = express();
 const reportTo = require('report-to')
 
-let configFile = 'proxy-config.json';
+let configFile = '/proxy-config.json';
 let host = 'localhost:9090';
 let authToken = 'nosecrets';
 let port = '80';
@@ -42,11 +42,10 @@ const google_analytics = 'https://www.google-analytics.com';
 const bootstarp_cdn = 'https://maxcdn.bootstrapcdn.com';
 const countrycode_css = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.1/js/utils.js';
 
-var fullPath = __dirname.replace(/\\/g, '\\\\') + '\\'
 // Enable packet compression of each response
 app.use(compression({level: zlib.Z_BEST_COMPRESSION, strategy: zlib.Z_DEFAULT_STRATEGY}));
 // Set route to fetch compressed content
-if (fs.existsSync(fullPath + 'src\\zip')) {
+if (fs.existsSync(__dirname + '/src/zip')) {
    app.use("/zip", expressStaticGzip(__dirname + '/src/zip', {
 	   enableBrotli: false,
     customCompressions: [{
@@ -58,7 +57,7 @@ if (fs.existsSync(fullPath + 'src\\zip')) {
 
 //update configurations using config.json
 const configuration = JSON.parse(
-	fs.readFileSync(fullPath + configFile, "utf8")
+	fs.readFileSync(__dirname + configFile, "utf8")
 );
 // //update user-configurations using config.json for functional server
 // var userConfiguration = JSON.parse(
@@ -158,8 +157,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = validAPIGWCert;
 let privateKey, certificate, credentials;
 
 if (supportSSL) {
-	privateKey = fs.readFileSync(fullPath + 'sslcert\\server.key', 'utf8');
-	certificate = fs.readFileSync(fullPath + 'sslcert\\server.crt', 'utf8');
+	privateKey = fs.readFileSync(__dirname + '/sslcert/server.key', 'utf8');
+	certificate = fs.readFileSync(__dirname + '/sslcert/server.crt', 'utf8');
 
 	credentials = { key: privateKey, cert: certificate };
 	if (tlsVersion.length > 0 && tlsversionSet.indexOf(tlsVersion) !== -1) {
@@ -288,7 +287,7 @@ app.use('/report-violation', express.json({ type: 'application/reports+json' }))
 app.use('/report-violation', express.json({ type: 'application/csp-report' }));  // for report-uri directive
 
 app.post('/report-violation$', (req, res) => {
-	let filePath = "./violations.json";
+	let filePath =  __dirname + "/violations.json";
 	let reportObj;
 	if (req['body']['csp-report']) {
 		// coming from report-uri
@@ -910,8 +909,8 @@ let env = process.argv[2] || 'prod';
 let otpService = "disable";
 let ticketToken = "disable";
 let tenantID = "";
-let userConfigFile = fullPath + "src\\app\\config\\config.json";
-let mtConfigFile = fullPath + "mt-service\\src\\config\\config.json"
+let userConfigFile = __dirname + '/src/app/config/config.json';
+let mtConfigFile = __dirname + '/mt-service/src/config/config.json';
 if (env=='dev') {
 	userConfigFile = "../src/app/config/config.json";	
 }

@@ -40,6 +40,20 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+<h2> Version 2.2.0 </h2>
+
+**Date: 2022-07-04**
+ 
+**Build number: 1**
+
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-881** | **New Mobile Ticket Version 2.0.0 Incompatible with Linux** |
+
+----------
+
 <h2> Version 2.1.0 </h2>
 
 **Date: 2022-06-17**
@@ -89,14 +103,6 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-804** | **Apply encoded related changes into the core version.** |
 | **MOB-851** | **Not validate same ticket correctly** |
 | **MOB-850** | **Address other errors in visit cancel.** |
-
-<h3>Known issues</h3>
-
-| **Id** | **Release notes** |
-| --- | --- |
-| **MOB-782** | **Customise theming.** |
-
- - Theming will not be worked with this version since the current theming became irrelevant with the rebranding changes
 
 ----------
 

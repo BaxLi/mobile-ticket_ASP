@@ -39,6 +39,19 @@ This document describes the new features, bug corrections, known issues and reco
 
 ----------
 -->
+<h2> Version 2.3.0 </h2>
+
+**Date: 2022-07-11**
+ 
+**Build number: 1**
+
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-874** | **error in a node module - TypeError: Cannot read property 'notes' of undefined** |
+
+----------
 
 <h2> Version 2.2.0 </h2>
 

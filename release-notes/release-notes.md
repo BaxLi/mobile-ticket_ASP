@@ -43,7 +43,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-07-11**
  
-**Build number: 1**
+**Build number: 2**
 
 <h3>Bug fixes</h3>
 

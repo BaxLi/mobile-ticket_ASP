@@ -517,7 +517,7 @@ const apiFindCentralProxy = proxy(host, {	// ip and port off apigateway
 			newData.endTime = data.endTime;
 			newData.properties = {};
 			newData.properties.notes = (data.properties && data.properties.notes) || '';
-			newData.properties.custom = data.properties.custom;
+			newData.properties.custom = (data.properties && data.properties.custom) || '';
 		}
 		return JSON.stringify(newData);
 	}
@@ -562,7 +562,7 @@ const apiFindCentralByEIdProxy = proxy(host, {	// ip and port off apigateway
 			newData.endTime = data.endTime;
 			newData.properties = {};
 			newData.properties.notes = (data.properties && data.properties.notes) || '';
-			newData.properties.custom = data.properties.custom;
+			newData.properties.custom = (data.properties && data.properties.custom) || '';
 		}
 		return JSON.stringify(newData);
 	}

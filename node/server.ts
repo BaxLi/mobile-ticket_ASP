@@ -394,7 +394,7 @@ const apiFindProxy = proxy(host, {	// ip and port off apigateway
 });
 const apiTranslationProxy = proxy(host, {	// ip and port off apigateway
 	proxyReqPathResolver: (req) => {
-		var newUrl = req.originalUrl.replace("/MobileTicket/tanslations/","/rest/calendar-backend/api/v1/");
+		var newUrl = req.originalUrl.replace("/MobileTicket/translations/","/rest/calendar-backend/api/v1/");
 		return require('url').parse(newUrl).path;
 	},
 	proxyReqOptDecorator: (proxyReqOpts, srcReq) => {

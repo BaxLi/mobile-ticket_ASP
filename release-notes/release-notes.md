@@ -41,9 +41,9 @@ This document describes the new features, bug corrections, known issues and reco
 -->
 <h2> Version 2.3.0 </h2>
 
-**Date: 2022-07-19**
+**Date: 2022-07-22**
  
-**Build number: 3**
+**Build number: 4**
 
 <h3>Bug fixes</h3>
 
@@ -51,6 +51,7 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-874** | **error in a node module - TypeError: Cannot read property 'notes' of undefined** |
 | **MOB-896** | **Proxy request path issue for translate service** |
+| **MOB-897** | **Appointment arrive functionality for QCA + Visit Manager** |
 
 ----------
 

@@ -548,9 +548,10 @@ export class AuthGuard implements CanActivate {
                             MobileTicketAPI.setAppointment(this.aEntity);
                             resolve(true);
                         } else {
-                            this.aEntity.publicId = response1.properties.publicId;
-                            this.aEntity.qpId = response1.id;
-                            getAppointment(response1.id, this.aEntity);
+                            resolveAppointment(response1, this.aEntity);
+                            // this.aEntity.publicId = response1.properties.publicId;
+                            // this.aEntity.qpId = response1.id;
+                            // getAppointment(response1.id, this.aEntity);
                         }     
                     },
                         (xhr, status, errorMessage) => {
@@ -573,6 +574,48 @@ export class AuthGuard implements CanActivate {
                             MobileTicketAPI.setAppointment(this.aEntity);
                             resolve(true);
                         });
+                }
+
+                const resolveAppointment = (res: any, entity: any) => {
+                    entity.publicId = res.properties.publicId;
+                    entity.qpId = res.id;
+                    entity.serviceId = res.services[0].id;
+                    entity.serviceName = res.services[0].name;
+                    entity.branchId = res.branchId;
+                    entity.status = res.status;
+                    entity.startTime = res.startTime;
+                    entity.endTime = res.endTime;
+                    entity.notes = res.properties.notes;
+                    entity.custom = res.properties.custom;
+                    if(this.config.getConfig('service_translation') === "enable"){
+                        let userLanguage = 'en';
+                        if (typeof navigator !== 'undefined' && navigator) {
+                            userLanguage = navigator.language.split('-')[0];
+                        }
+                        MobileTicketAPI.getServiceTranslation((serviceTranslations: any) => {
+                            // development env
+                            const services = serviceTranslations.serviceList;
+                            const serviceData:any = [];
+                            services.forEach(service => {
+                                let newService:any = {};
+                                newService.id = service.qpId;
+                                newService.custom = service.custom;
+                                serviceData.push(newService);
+                            });
+                                            
+                            let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
+                            if(matchedService && matchedService.custom !== null){
+                                let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
+                                translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
+                                if(translatedValue){
+                                    entity.serviceName = translatedValue; 
+                                } 
+                            }
+                                            
+                        });
+                    }
+                    MobileTicketAPI.setAppointment(entity);
+                    resolve(true);
                 }
 
                 const getAppointment = (id: string, entity: any) => {

@@ -478,6 +478,15 @@ const apiFindExtProxy = proxy(host, {	// ip and port off apigateway
 			var encryptedText = CryptoJS.AES.encrypt( data.id.toString(), authToken ).toString();
 			newData.id =  encryptedText
 			newData.properties.publicId = data.properties.publicId;
+
+			newData.services = data.services;
+			newData.status = data.status
+			newData.branchId = data.branchId;
+			newData.startTime = data.startTime;
+			newData.endTime = data.endTime;
+			
+			newData.properties.notes = (data.properties && data.properties.notes) || '';
+			newData.properties.custom = (data.properties && data.properties.custom) || '';
 		}
 		return JSON.stringify(newData);
 	}

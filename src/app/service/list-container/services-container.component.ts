@@ -47,8 +47,8 @@ export class ServicesContainerComponent implements OnInit {
                 document.title = res;
             });
 
-            this.translate.get('service.selectService').subscribe((res: string) => {
-                this.subHeadingTwo = res + " " + branchService.getSelectedBranch() + ":";
+            this.translate.get('service.selectService', {branchName: branchService.getSelectedBranch()}).subscribe((res: string) => {
+                this.subHeadingTwo = res;
             });
         }
     }

@@ -41,9 +41,16 @@ This document describes the new features, bug corrections, known issues and reco
 -->
 <h2> Version 2.3.0 </h2>
 
-**Date: 2022-07-22**
+**Date: 2022-08-19**
  
-**Build number: 4**
+**Build number: 5**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-876** | **MT, "wrong" language sentence in Swedish** |
+| **MOB-879** | **Default language change when leaving the line** |
 
 <h3>Bug fixes</h3>
 

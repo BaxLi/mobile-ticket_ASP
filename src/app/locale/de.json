@@ -1,0 +1,193 @@
+{
+	"branch": {
+		"defaultTitle": "Mobile Ticket",
+		"btn_text_separator": ",",
+		"loading": "Lädt...",
+		"noPermission": "Bitte aktivieren Sie die Ortungsdienste und aktualisieren Sie den Browser, um fortzufahren",
+		"noBranches": "Entschuldigung, es gibt keine verfügbaren Standorte in der Nähe.",
+		"tryAgain": "Versuchen Sie es noch einmal",
+		"clickHere": "Klicken Sie hier",
+		"loadBranches": "von vorn anfangen",
+		"notFound": "Sorry, etwas ist schiefgelaufen,",
+		"diffLocation": "an einem anderen Ort.",
+		"subHeadingOne": "Herzlich Willkommen",
+		"subHeadingTwo": "Möchten Sie sich für eine unserer Dienstleistungen ein mobiles Ticket ziehen? Beginnen Sie mit der Auswahl des Standortes.",
+		"positionPermission": "Wenn Sie Standorte in der Nähe auflisten möchten, aktivieren Sie die Standortdienste. Andernfalls werden alle Standorte aufgelistet."
+	},
+	"service": {
+		"subHeadingOne": "Herzlich Willkommen",
+		"accentBtnText": "mobiles Ticket ziehen",
+		"accentBtnDleayText": "mobiles Ticket ziehen",
+		"delayVisitBtnText": "Vorrausichtliche Ankunftszeit",
+		"cancelBtnText": "Abbrechen",
+		"okButtonText": "Ok",
+		"delayCancelBtnText": "Zurück",
+		"delayOkButtonText": "Bestätigen",
+		"continueBtnText": "Weiter",
+		"selectService": "Bitte wählen Sie eine Dienstleistung von unserem Standort {{ branchName }}:",
+		"selectDelay": "Benötigen Sie mehr Zeit?",
+		"selectDelayDescription": "Bitte wählen Sie aus, um wie viele Minuten Ihre Platzierung in der Warteschlange zurückgesetzt werden soll.",
+		"noDelaysAvailable": "Leider ist keine Verzögerung verfügbar",
+		"defaultTitle": "Mobile Ticket",
+		"waiting": "Warten",
+		"noSelectedServices": "Bitte wählen Sie eine Dienstleistung aus",
+		"delayVisitIssue": "Leider ist etwas schief gelaufen.",
+		"min": "min"
+	},
+	"ticketInfo": {
+		"leaveVisitConfirmMsg": "Möchten Sie die Warteschlange verlassen?",
+		"btnTitleLeaveLine": "Warteschlange verlassen",
+		"btnTitleLeaveLineFailed": "Leider ist etwas schief gelaufen",
+		"btnTitleChangeDelay": "Andere Zeit auswählen",
+		"delayVisitBtnText": "Ich benötige mehr Zeit",
+		"btnTitleArrive": "Ich bin hier",
+		"defaultTitle": "Mobile Ticket",
+		"titleYourTurn": "Sie sind an der Reihe.",
+		"ticketReady": "Bitte begeben Sie sich zu",
+		"ticketReadyWithNoName": "Sie werden bedient an",
+		"titleInLine": "Position",
+		"btnTitleNewTicket": "neues Ticket ziehen",
+		"ticketRemovedHeading": "Ihr Ticket wurde entfernt",
+		"yourPosition": "Sie",
+		"queueHeading": "Ihr Platz in der Warteschlange:",
+		"delayHeading": "Machen Sie sich bereit, bedient zu werden:",
+		"ticketEndHeading": "Danke für Ihren Besuch!",
+		"welcomeback": "",
+		"visitRecycledMessage": "Sie werden in Kürze aufgerufen",
+		"visitAppRemoved": "kein Einstiegspunkt vom Typ SW_VISITAPP in Standort, kann Besuch nicht anlegen oder löschen",
+		"btnOpenMeeting": "Eingabe Meeting",
+		"loading": "Ihr Ticket wird geladen; dies kann einen Moment dauern",
+		"unauthorized": "Sie sind nicht berechtigt, das Ticket zu öffnen",
+		"appointmentTime": "Machen Sie sich bereit, bedient zu werden in:"
+	},
+	"visit": {
+		"notFound": "Entschuldigung, etwas ist schiefgelaufen,",
+		"onGoingVisit": "Entschuldigung, ein Vorgang läuft noch. Bitte schließen Sie diesen zuerst.",
+		"clickHere": "Klicken Sie hier.",
+		"loadBranches": "von vorn anfangen",
+		"notInRange": "Entschuldigung, Sie sind zu weit vom Standort entfernt. Nähern Sie sich dem Standort und versuchen Sie es erneut.",
+		"positionPermission": "Wenn Sie ein mobiles Ticket ziehen möchten, aktivieren Sie bitte die Standortdienste und"
+	},
+	"error_codes": {
+		"error_8042": "Die Warteschlange ist voll. Bitte versuchen Sie es später noch einmal."
+	},
+	"connection": {
+		"issue_with_connection": "Entschuldigung, es scheint ein Problem mit der Verbindung zu bestehen."
+	},
+	"support": {
+		"this_browser": "dieser Browser",
+		"not_support_p1": "Mobile Ticket ist nicht kompatibel mit ",
+		"not_support_p2": ", bitte benutzen Sie Mobile Ticket mit der letzten Version von Chrome, Safari oder Opera.",
+		"not_support_p2_extend": ", bitte benutzen Sie Mobile Ticket mit der letzten Version von Chrome, Firefox, Edge oder Opera.",
+		"not_support_create_ticket": "Bitte wenden Sie sich an einen Service-Mitarbeiter, wenn Sie weitere Hilfe benötigen."
+	},
+	"dialog": {
+		"confirm": {
+			"ok": "Ok",
+			"cancel": "Abbrechen",
+			"title": "Dies ist eine Bestätigung"
+		},
+		"alert": {
+			"ok": "Ok",
+			"title": "Dies ist eine Hinweis"
+		}
+	},
+	"open_hours": {
+		"heading1": "Diese Dienstleistung ist zur Zeit nicht verfügbar",
+		"heading2": "Unsere Öffnungszeiten sind:",
+		"week_day1": "Montag",
+		"week_day2": "Dienstag",
+		"week_day3": "Mittwoch",
+		"week_day4": "Donnerstag",
+		"week_day5": "Freitag",
+		"week_day6": "Samstag",
+		"week_day7": "Sonntag",
+		"closed": "Geschlossen"
+	},
+	"appointment": {
+		"subHeadingOne": "Herzlich Willkommen",
+		"subHeadingTwo": "Ihr Termin",
+		"branch": "Standort:",
+		"service": "Dienstleistung:",
+		"time": "Zeit:",
+		"date": "Datum:",
+		"tooEearly": "Sie sind zu früh zu Ihrem Termin erschienen. Sie können nur ",
+		"arriveBtnText": "Ankunft",
+		"notInRange": "Entschuldigung, Sie sind zu weit vom Standort entfernt. Nähern Sie sich dem Standort und versuchen Sie es erneut.",
+		"positionPermission": "Wenn Sie ein mobiles Ticket ziehen möchten, aktivieren Sie bitte die Standortdienste.",
+		"error": {
+			"date": "Ihr Termin ist für einen anderen Tag gebucht. Bitte kommen Sie an dem Tag Ihres Termins wieder.",
+			"status": "Ihr Termin ist bereits aktiviert",
+			"early": "Sie sind zu früh für Ihren Termin. Bitte kommen Sie später wieder.",
+			"late": "Sie sind zu spät für Ihren Termin. Bitte buchen Sie einen neuen Termin.",
+			"notFound": "Ihr Termin kann nicht gefunden werden"
+		}
+	},
+	"customer_info": {
+		"phoneNumberHeadingOne" : "Durch Eingabe Ihrer Telefonnummer erhalten Sie:",
+		"phoneNumber": "Telefonnummer",
+		"phoneNumberBottomText" : "Wir speichern Ihre Telefonnummer nicht länger als nötig, um Ihnen zu helfen.",
+		"customerId": "Kundennummer",
+		"editPhoneNumber": "Telefonnummer bearbeiten",
+		"phoneNumberError": "Bitte geben Sie eine gültige Telefonnummer ein.",
+		"customerIdError": "Bitte geben Sie eine gültige Kundennummer ein.",
+		"customerIdMaxError": "Nur 255 Zeichen sind erlaubt.",
+		"vistInfoTitle": "Durch Hinzufügen der Rufnummer erhalten Sie:",
+		"firstAdvantageByEnteringPhone": "Persönliches Ticket per SMS",
+		"secondAdvantageByEnteringPhone": "SMS-Benachrichtigung, wenn Sie an der Reihe sind",
+		"activeConsentDescription" : "Ich bin damit einverstanden, dass meine Telefonnummer vorübergehend gespeichert wird, damit ich kontaktiert werden kann.",
+		"dataProtectionDeclaration" : "Datenschutzerklärung hier",
+		"agreeDescription": "Indem Sie fortfahren, stimmen Sie unseren Datenschutzrichtlinien zu",
+		"readDescription" : "Lesen Sie mehr darüber, wie wir Ihre Daten speichern und schützen, in unseren",
+		"privacyPolicy": "Datenschutzbestimmungen",
+		"understood": "verstanden",
+		"canDeleteInfo": "Sie können Ihre Informationen löschen.",
+		"btnDelete": "LÖSCHEN",
+		"btnCancel": "ABBRECHEN",
+		"selectedBranch": "ausgewählter Standort",
+		"selectedService": "ausgewählte Dienstleistung",
+		"skipAndGetInLine": "Dies überspringen",
+		"phone_placeholder": "Geben Sie Ihre Telefonnummer ein.",
+		"id_placeholder": "Kundennummer eintragen",
+		"id_details": "Bitte geben Sie Ihre Kundennummer ein.",
+		"send": "Informationen senden",
+		"phoneNumberIsMandatory": "Telefonnummer ist verpflichtend, um fortzufahren",
+		"pleaseAcceptPrivacyPolicy": "Bitte stimmen Sie den Datenschutzrichtlinien zu oder klicken Sie auf „Überspringen“, um fortzufahren"
+	},
+	"pricacy_policy": {
+		"title": "Datenschutzrichtlinien",
+		"description": "Richtlinienerklärungen dienen dazu, ein Unternehmen vor Missverständnissen zu schützen, die zu unbefugtem Verhalten oder Klagen führen können. Jede Richtlinienerklärung sollte ihren Zweck, Begriffsbestimmungen, die Erklärung selbst und die Schritte zu ihrer Umsetzung enthalten."
+	},
+	"cookie_consent": {
+		"title": "Diese Website verwendet Cookies, um Ihnen das beste Benutzererlebnis zu bieten. Durch die Nutzung dieses Dienstes akzeptieren Sie unsere",
+		"use.of.cookies": "Verwendung von Cookies",
+		"decline": "Ablehnen",
+		"accept": "Akzeptieren"
+	},
+	"otp": {
+		"submit": "Senden",
+		"resend": "PIN erneut senden",
+		"getOTP": "PIN senden",
+		"firstAdvantageByEnteringOtpPhone": "Um zu bestätigen, dass Sie kein Bot sind, wird eine einmalige PIN an Ihre Telefonnummer gesendet. Es werden keine personenbezogenen Daten gespeichert.",
+		"firstAdvantageByEnteringPin": "Geben Sie die PIN ein, die an Ihr Telefon gesendet wurde. Falls Sie keine PIN erhalten haben, wählen Sie bitte 'PIN erneut senden'.",
+		"phoneNumberError": "Bitte geben Sie eine gültige Telefonnummer ein.",
+		"phoneInfoTitle": "Telefonnummer eingeben",
+		"pinHeading": "Einmalige PIN",
+		"pinError": "Bitte geben Sie eine gültige PIN ein",
+		"pin_placeholder": "PIN eingeben",
+		"pinInfoTitle": "PIN eingeben",
+		"pinExpired": "Die PIN ist abgelaufen. Bitte versuchen Sie es erneut",
+		"pleaseWait": "Sie haben die maximale Anzahl von Versuchen überschritten. Bitte warten Sie.",
+		"invalidOTP": "Die eingegebene PIN ist ungültig. Sie haben noch # Versuch(e)",
+		"lockedOtp": "Keine Versuche übrig. Bitte warten Sie 3 Minuten und versuchen Sie es erneut",
+		"lockedPhone": "Sie haben die maximale Anzahl von Versuchen überschritten. Bitte warten Sie 10 Minuten",
+		"pinResend": "Die PIN wird erneut gesendet",
+		"smsText": "Ihr einmaliges Passwort lautet 0000. Bitte nutzen Sie dieses, um Ihr mobiles Ticket fortzusetzen.",
+		"havePIN": "Sie haben bereits eine PIN",
+		"tryAgain": "Bitte versuchen Sie es noch einmal",
+		"requireTID": "Mieter-ID erforderlich"
+	},
+	"footer": {
+		"text": "Powered by"
+	}
+}

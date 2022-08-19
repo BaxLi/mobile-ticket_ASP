@@ -46,7 +46,7 @@ module.exports = function (grunt) {
           { expand: true, src: ['dist/*'], dest: 'dist/src', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/app/resources/*'], dest: 'dist/src/app/resources', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/app/config/config.json'], dest: 'dist/src/app/config', filter: 'isFile', flatten: true },
-          { expand: true, src: ['src/app/locale/en.json'], dest: 'dist/src/app/locale', filter: 'isFile', flatten: true },
+          { expand: true, src: ['src/app/locale/en.json', 'src/app/locale/es.json', 'src/app/locale/de.json', 'src/app/locale/fr.json', 'src/app/locale/nl.json', 'src/app/locale/it.json'], dest: 'dist/src/app/locale', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/app/locale/cookie-consent-files/*'], dest: 'dist/src/app/locale/cookie-consent-files', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/app/theme/*'], dest: 'dist/src/app/theme', filter: 'isFile', flatten: true },
           { expand: true, src: ['src/libs/css/*'], dest: 'dist/src/libs/css/', filter: 'isFile', flatten: true },

@@ -1,0 +1,193 @@
+{
+	"branch": {
+		"defaultTitle": "Mobiele Ticket",
+		"btn_text_separator": ",",
+		"loading": "laden...",
+		"noPermission":  "Schakel de locatieservices in en vernieuw de browser om door te gaan",
+		"noBranches": "Sorry, er zijn geen beschikbare locaties in de buurt.",
+		"tryAgain": "Probeer opnieuw",
+		"clickHere": "Klik hier",
+		"loadBranches": "opnieuw beginnen",
+		"notFound": "Sorry, er ging iets mis,",
+		"diffLocation": "op een andere locatie.",
+		"subHeadingOne": "Welkom",
+		"subHeadingTwo": "Kies hier de locatie",
+		"positionPermission": "U kunt hier uw afspraak aanmelden, eerst moet u de locatie selecteren"
+	},
+	"service": {
+		"subHeadingOne": "Welkom!",
+		"accentBtnText": "Neem een volgnummer",
+		"accentBtnDleayText": "Ga nu naar de wachtrij",
+		"delayVisitBtnText": "Verwachte aankomst tijd",
+		"cancelBtnText": "Annuleer",
+		"okButtonText": "Ok",
+		"delayCancelBtnText": "Terug",
+		"delayOkButtonText": "Bevestig",
+		"continueBtnText": "Doorgaan",
+		"selectService": "Kies uw dienst bij {{ branchName }}:",
+		"selectDelay": "Heb je meer tijd nodig?",
+		"selectDelayDescription": "Selecteer met hoeveel minuten je je plaats in de rij wenst terug te verplaatsen.",
+		"noDelaysAvailable": "Er is helaas geen uitstelperiode beschikbar",
+		"defaultTitle": "Mobiele Ticket",
+		"waiting": "Wachten",
+		"noSelectedServices": "Kies een dienst",
+		"delayVisitIssue": "Sorry, er ging iets mis.",
+		"min": "min"
+	},
+	"ticketInfo": {
+		"leaveVisitConfirmMsg": "Wilt u de wachtrij verlaten?",
+		"btnTitleLeaveLine": "Verlaat wachtrij",
+		"btnTitleLeaveLineFailed": "Sorry, er is iets fout gelopen",
+		"btnTitleChangeDelay": "Selecteer een andere tijd",
+		"delayVisitBtnText": "Ik heb meer tijd nodig",
+		"btnTitleArrive": "Ik ben er",
+		"defaultTitle": "Mobile Ticket",
+		"titleYourTurn": "Het is uw beurt!",
+		"ticketReady": "Wij zijn klaar om u te ontvangen aan",
+		"ticketReadyWithNoName": "Wij zijn klaar om u te ontvangen aan",
+		"titleInLine": "positie",
+		"btnTitleNewTicket": "Nieuw volgnummer nemen",
+		"ticketRemovedHeading": "Uw ticket is verwijderd",
+		"yourPosition": "U",
+		"queueHeading": "Uw plaats in de wachtrij:",
+		"delayHeading": "U bent bijna aan de beurt:",
+		"ticketEndHeading": "Bedankt voor uw bezoek",
+		"welcomeback": "",
+		"visitRecycledMessage": "U zal zo dadelijk opgeroepen worden",
+		"visitAppRemoved": "Geen invoerpunt van het type SW_VISITAPP in de vestiging, kan geen bezoek aanmaken of verwijderen",
+		"btnOpenMeeting": "Vergadering invoeren",
+		"loading": "Je ticket wordt geladen. Dit kan even duren",
+		"unauthorized": "e bent niet bevoegd om het ticket te openen",
+		"appointmentTime": "Maak je klaar, je wordt zo dadelijk bediend aan:"
+	},
+	"visit": {
+		"notFound": "Sorry, er ging iets mis,",
+		"onGoingVisit": "Er is helaas nog een lopend bezoek. Sluit het bezoek af voor je doorgaat",
+		"clickHere": "Klik hier",
+		"loadBranches": "om opnieuw te beginnen",
+		"notInRange": "Sorry, je bent te ver van de locatie. Begeef je dichter naar de locatie en probeer het opnieuw.",
+		"positionPermission": "Als je een nieuw bezoek wilt maken, schakel de Location Services in en"
+	},
+	"error_codes": {
+		"error_8042": "De wachtrij is vol. Probeer het later opnieuw"
+	},
+	"connection": {
+		"issue_with_connection": "Sorry, er lijkt een probleem te zijn met de verbinding."
+	},
+	"support": {
+		"this_browser": "Deze browser",
+		"not_support_p1": "Mobile Ticket is niet compatibel met ",
+		"not_support_p2": ", start Mobile Ticket in de laatste versie van Chrome, Safari, Firefox, Edge of Opera.",
+		"not_support_p2_extend": ", start Mobile Ticket in de laatste versie van Chrome, Firefox, Edge of Opera.",
+		"not_support_create_ticket": "Als u meer hulp nodig heeft, kunt u bij één van de medewerkers terecht."
+	},
+	"dialog": {
+		"confirm": {
+			"ok": "Ok",
+			"cancel": "Annuleer",
+			"title": "Dit is een bevestiging"
+		},
+		"alert": {
+			"ok": "Ok",
+			"title": "Dit is een alert"
+		}
+	},
+	"open_hours": {
+		"heading1": "Onze locaties zijn op dit moment gesloten",
+		"heading2": "Onze openingsuren:",
+		"week_day1": "Maandag",
+		"week_day2": "Dinsdag",
+		"week_day3": "Woensdag",
+		"week_day4": "Donderdag",
+		"week_day5": "Vrijdag",
+		"week_day6": "Zaterdag",
+		"week_day7": "Zondag",
+		"closed": "Gesloten"
+	},
+	"appointment": {
+		"subHeadingOne": "Welkom",
+		"subHeadingTwo": "Uw afspraak",
+		"branch": "Locatie:",
+		"service": "Dienst:",
+		"time": "Tijd:",
+		"date": "Datum:",
+		"tooEearly": "U bent meer dan 5 min te vroeg voor uw afspraak.",
+		"arriveBtnText": "Aangekomen",
+		"notInRange": "Sorry, u bent te ver van de locatie.",
+		"positionPermission": "als u uw afspraak wilt aanmelden, alstublieft activeer uw locatie service.",
+		"error": {
+			"date": "Uw afspraak staat gepland voor een andere dag. kom terug op uw afspraak dag.",
+			"status": "Uw afspraak is al aangemeld",
+			"early": "U bent te vroeg voor uw afspraak, kom later terug.",
+			"late": "U bent te laat voor uw afspraak. Meldt u zich bij de receptie of maak een nieuwe afspraak.",
+			"notFound": "Uw afspraak is niet gevonden."
+		}
+	},
+	"customer_info": {
+		"phoneNumberHeadingOne" : "Wanneer je je telefoonnummer invoert, ontvang je:",
+		"phoneNumber": "Telefoonnummer",
+		"phoneNumberBottomText" : "We bewaren je telefoonnummer niet langer dan nodig is om je te helpen.",
+		"customerId": "Klant ID",
+		"editPhoneNumber": "Wijzig telefoonnummer",
+		"phoneNumberError": "Vul een correct telefoonnummer in",
+		"customerIdError": "Vul een correct klant ID in",
+		"customerIdMaxError": "Maximaal 255 karakters toegestaan",
+		"vistInfoTitle": "Door uw telefoonnummer toe te voegen krijgt u:",
+		"firstAdvantageByEnteringPhone": "Persoonlijk ticket als sms",
+		"secondAdvantageByEnteringPhone": "SMS notificatie wanneer je je aan de beurt bent",
+		"activeConsentDescription" : "Ik ga ermee akkoord dat mijn telefoonnummer tijdelijk wordt opgeslagen om contact met mij op te nemen.",
+		"dataProtectionDeclaration" : "Gegevensbeschermingsverklaring hier ",
+		"agreeDescription": "Door informatie te versturen gaat u akkoord met onze ",
+		"readDescription" : "Lees hoe we je gegevens opslaan en beschermen in ons",
+		"privacyPolicy": "privacy beleid",
+		"understood": "Begrepen",
+		"canDeleteInfo": "U kan uw informatie verwijderen.",
+		"btnDelete": "Verwijderen",
+		"btnCancel": "Annuleren",
+		"selectedBranch": "Kies locatie",
+		"selectedService": "Kies dienst",
+		"skipAndGetInLine": "Sla dit over",
+		"phone_placeholder": "Voer uw telefoonnummer in",
+		"id_placeholder": "Voer klant ID in",
+		"id_details": "Voer uw klant ID in",
+		"send": "Stuur informatie",
+		"phoneNumberIsMandatory": "Telefoonnummer is verplicht om door te gaan",
+		"pleaseAcceptPrivacyPolicy": "Accepteer het privacybeleid of druk op overslaan om door te gaan "
+	},
+	"pricacy_beleid": {
+		"title": "Privacybeleid",
+		"description": "Beleidsverklaringen dienen om een organisatie te beschermen tegen misverstanden die kunnen leiden tot ongeoorloofd gedrag of rechtszaken. Elke beleidsverklaring moet zijn doel, terminologiedefinities, de verklaring zelf en de stappen om deze te implementeren bevatten."
+	},
+	"cookie_consent": {
+		"title": "Deze website maakt gebruik van cookies om je een geweldige gebruikerservaring te bieden. Door gebruik te maken van deze diensten accepteer je ons",
+		"use.of.cookies": "gebruik van cookies",
+		"decline": "Weigeren",
+		"accept": "Accepteren"
+	},
+	"otp": {
+		"submit": "Verzenden",
+		"resend": "Pincode opnieuw verzenden",
+		"getOTP": "Pincode verzenden",
+		"firstAdvantageByEnteringOtpPhone": "Om te bevestigen dat je geen bot bent, wordt een eenmalige pincode naar je telefoonnummer gestuurd. Er worden geen persoonlijke gegevens opgeslagen.",
+		"firstAdvantageByEnteringPin": "Voer de pincode in die naar je telefoon is verzonden. Als je geen pincode hebt ontvangen, selecteer je 'Pincode opnieuw verzenden'.",
+		"phoneNumberError": "Voer een geldig telefoonnummer in",
+		"phoneInfoTitle": "TELEFOONNUMMER INVOEREN",
+		"pinHeading": "Eenmalige pincode",
+		"pinError": "Voer een geldige pincode in",
+		"pin_placeholder": "Pincode invoeren",
+		"pinInfoTitle": "Pincode invoeren",
+		"pinExpired": "De pincode is verlopen. Probeer het opnieuw.",
+		"pleaseWait": "Je hebt het maximale aantal pogingen overschreden. Even geduld aub",
+		"invalidOTP": "De ingevoerde pincode is ongeldig. Je hebt nog # poging(en)",
+		"lockedOtp": "Geen pogingen meer. Wacht 3 minuten en probeer het opnieuw",
+		"lockedPhone": "Je hebt het maximale aantal pogingen overschreden. Wacht 10 minuten",
+		"pinResend": "De pincode wordt opnieuw verzonden",
+		"smsText": "Je eenmalige wachtwoord is 0000. Gebruik dit om door te gaan met je mobiele ticket.",
+		"havePIN": "Je hebt al een pincode",
+		"tryAgain": "Probeer het opnieuw.",
+		"requireTID": "Huurder-ID is vereist"
+	},
+	"footer": {
+		"text": "Powered by"
+	}
+}

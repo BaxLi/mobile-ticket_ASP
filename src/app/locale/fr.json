@@ -1,0 +1,193 @@
+{
+  "branch": {
+    "defaultTitle": "Ticket Mobile",
+    "btn_text_separator" : ",",
+    "loading": "Chargement...",
+	"noPermission": "Veuillez autoriser les services de localisation et actualiser le navigateur pour continuer",,
+    "noBranches": "Désolé, il n'y a pas de sites disponible à proximité.",
+    "tryAgain": "Réessayer",
+    "clickHere": "Cliquez ici",
+    "loadBranches": "Pour recommencer",
+    "notFound": "Désolé, quelque chose s'est mal passé,",
+    "diffLocation": "à un endroit différent.",
+    "subHeadingOne": "Bienvenue chez Qmatic!",
+    "subHeadingTwo": "Vous souhaitez faire la queue pour l'un de nos services, commencez par selectionner la localisation.",
+    "positionPermission" : "Si vous souhaitez la liste des site à proximité, veuillez activer le service de localisation. Sinon, tous les sites seront répertoriées."
+  },
+  "service": {
+    "subHeadingOne": "Bienvenue chez Qmatic !",
+    "accentBtnText": "Faites la queue",
+	"accentBtnDleayText": "Intégrer la file d’attente",
+	"delayVisitBtnText": "Heure d’arrivée estimée",
+    "cancelBtnText": "Annuler",
+    "okButtonText": "Ok",
+    "delayCancelBtnText": "Revenir en arrière",
+    "delayOkButtonText": "Confirmer",
+    "continueBtnText": "Continuer",
+    "selectService": "Veuillez selectionner un service sur {{ branchName }}:",
+    "selectDelay": "Vous avez besoin de plus de temps ?",
+    "selectDelayDescription": "Veuillez sélectionner le nombre de minutes pendant lesquelles vous souhaitez que votre place dans la file soit reculée.",
+	"noDelaysAvailable": "Désolé, aucun délai n’est disponible",
+	"defaultTitle": "Ticket Mobile ",
+    "waiting": "En attente",
+    "noSelectedServices": "Veuillez sélectionner un service",
+	"delayVisitIssue": "Désolé, une erreur s’est produite",
+    "min": "min"
+  },
+  "ticketInfo": {
+    "leaveVisitConfirmMsg": "Voulez-vous quitter la queue",
+    "btnTitleLeaveLine": "Quittez la file d'attente",
+	"btnTitleLeaveLineFailed": "Désolé, une erreur s’est produite",
+    "btnTitleChangeDelay": "Sélectionner un autre créneau horaire",
+    "delayVisitBtnText": "J’ai besoin de plus de temps",
+    "btnTitleArrive": "Je suis ici",
+    "defaultTitle": "Ticket Mobile ",
+    "titleYourTurn": "C'est votre tour !",
+    "ticketReady": "{firstName} vous attend à",
+	"ticketReadyWithNoName": "Vous serez servi(e) à",
+    "titleInLine": "position",
+    "btnTitleNewTicket": "Prenez un nouveau ticket",
+    "ticketRemovedHeading": "Votre ticket a été supprimé",
+    "yourPosition": "Vous",
+    "queueHeading": "Prenez votre place dans la queue:",
+	"delayHeading": "Préparez-vous à être servi:",
+    "ticketEndHeading": "Merci pour votre visite !",
+    "welcomeback": "",
+    "visitRecycledMessage": "Vous serez appelé sous peu",
+    "visitAppRemoved": "Aucun point d’entrée de type SW_VISITAPP sur l’agence, création ou suppression de visite impossible",
+    "btnOpenMeeting" : "Accéder a votre rendez-vous",
+    "loading" : "Votre ticket est en cours de chargement, cela peut prendre un certain temps",
+    "unauthorized" : "Vous n’êtes pas autorisé(e) à ouvrir le ticket",
+    "appointmentTime" : "Préparez-vous à être servi(e) dans :"
+  },
+  "visit": {
+    "notFound": "Désolé quelque chose s'est mal passé,",
+    "onGoingVisit": "Désolé, il y a une visite en cours. Veuillez fermer la visite avant de continuer",
+    "clickHere": "Cliquer ici",
+    "loadBranches": "Recommencer",
+    "notInRange" : "Désolé, vous êtes trop loin du site. Rapprochez-vous du site et réessayez.",
+    "positionPermission" : "Si vous voulez prendre un rendez-vous, merci de choisir la localisation du service et"
+  },
+  "error_codes": {
+    "error_8042": "La file d'attente est pleine, veuillez réessayer."
+  },
+  "connection" : {
+    "issue_with_connection" : "Désole, il semble y avoir un problème de connection."
+  },
+  "support" : {
+    "this_browser" : "ce navigateur",
+    "not_support_p1" : "Ticket Mobile n'est pas compatible",
+    "not_support_p2" : ", merci de lancer Mobile Ticket dans la dernière version de Chrome, Safari, Firefox, Edge ou Opera à la place.",
+    "not_support_p2_extend" : ", merci de lancer Mobile Ticket dans la dernière version de Chrome, Firefox, Edge ou Opera à la place.",
+    "not_support_create_ticket" : "Merci de contacter un membre du personnel si vous avez besoin d'aide supplémentaire."
+  },
+  "dialog" : {
+    "confirm" : {
+      "ok" : "Ok",
+      "cancel" : "annuler",
+      "title" : "Confirmation"
+    },
+    "alert" : {
+      "ok" : "Ok",
+      "title" : "Ceci est une alerte"
+    }
+  },
+  "open_hours" : {
+      "heading1" : "Ce service est actuellement indisponible.",
+      "heading2" : "Horaires d'ouverture:" ,     
+      "week_day1" : "Lundi",
+      "week_day2" : "Mardi",
+      "week_day3" : "Mercredi",
+      "week_day4" : "Jeudi",
+      "week_day5" : "Vendredi",
+      "week_day6" : "Samedi",
+      "week_day7" : "Dimanche",
+      "closed" : "Fermé"
+   },
+   "appointment" : {
+     "subHeadingOne" : "Bienvenue chez Qmatic !",
+     "subHeadingTwo" : "Votre rendes-vous",
+     "branch" : "Branch:",
+     "service" : "Service:",
+     "time" : "Time:",
+     "date" : "Date:",
+     "tooEearly" : "Vous est arrivé(e) trop tôt pour votre rendes-vous, vous pouvez seulement",
+     "arriveBtnText" : "Arriver",
+     "notInRange" : "Désolé, vous êtes trop loin du site. Veuillez vous rapprocher et réessayer.",
+     "positionPermission" : "Si vous souhaitez prendre des rendez-vous, veuillez activer les services de localisation",
+     "error" : {
+       "date" : "Votre rendez-vous est réservé pour un autre jour. Veuillez revenir le jour de votre rendez-vous.",
+       "status" : "Votre rendez-vous a commencé.",
+       "early" : "Vous êtes en avance pour votre rendez-vous. Veuillez revenir plus tard.",
+       "late" : "Vous êtes en retard pour votre rendez-vous. Veuillez prendre un nouveau rendez-vous.",
+       "notFound" : "Votre rendes-vous est introuvable."
+      }
+   },
+   "customer_info" : {
+    "phoneNumberHeadingOne" : "En saisissant votre numéro de téléphone, vous obtenez :",
+	"phoneNumber" : "Numéro de téléphone",
+    "phoneNumberBottomText" : "Nous ne conserverons pas votre numéro de téléphone plus longtemps que nécessaire pour vous aider.",
+	"customerId" : "Numéro client",
+    "editPhoneNumber" : "Modifier le numéro de téléphone",
+    "phoneNumberError" : "Veuillez entrer un numéro de téléphone valide",
+    "customerIdError" : "Veuillez entrer un numéro client valide",
+    "customerIdMaxError" : "Seulement 255 charactères sont autorisés",
+    "vistInfoTitle" : "En ajoutant votre numéro de téléphone:",
+    "firstAdvantageByEnteringPhone" : "Ticket personnel par SMS",
+    "secondAdvantageByEnteringPhone" : "Une notification pas SMS quand c'est votre tour",
+	"activeConsentDescription" : "J’accepte que mon numéro de téléphone soit enregistré temporairement pour me contacter.",
+    "dataProtectionDeclaration" : "Déclaration de confidentialité ici ",
+    "agreeDescription" : "En poursuivant, vous acceptez notre politique de confidentialité",
+    "readDescription" : "Découvrez comment nous stockons et protégeons vos données dans notre",
+	"privacyPolicy" : "Politique de confidentialité",
+    "understood" : "Compris",
+    "canDeleteInfo" : "Vous pouvez supprimer vos informations.",
+    "btnDelete" : "EFFACER",
+    "btnCancel" : "ANNULER",
+    "selectedBranch": "Site selectionné",
+    "selectedService": "Service selectionné",
+    "skipAndGetInLine": "Ignorer",
+    "phone_placeholder": "Entrer votre numéro de téléphone",
+    "id_placeholder": "Entrer le numero client",
+    "id_details": "Veuillez entrer votre numéro client",
+    "send": "Information envoyée",
+    "phoneNumberIsMandatory": "Pour continuer, le numéro de téléphone est obligatoire",
+	"pleaseAcceptPrivacyPolicy": "Veuillez accepter la politique de confidentialité ou appuyer sur ignorer pour continuer "
+  },
+  "pricacy_policy" : { 
+    "title" : "Politique de confidentialité",
+    "description" : "Les déclarations de politique servent à protéger une organisation contre les malentendus qui pourraient entraîner un comportement non autorisé ou des poursuites judiciaires. Chaque déclaration de politique doit inclure son objectif, ses définitions terminologiques, la déclaration elle-même et les étapes de sa mise en œuvre."
+  },
+  "cookie_consent" : { 
+    "title" : "Ce site utilise des cookies pour vous offrir une excellente expérience utilisateur. En utilisant ce service, vous acceptez notre",
+    "use.of.cookies" : "utilisation des cookies",
+    "decline" : "Refuser",
+    "accept" : "Accepter"
+  },
+  "otp" : {
+    "submit" : "Soumettre",
+    "resend" : "Renvoyer le code PIN",
+    "getOTP" : "Envoyer le code PIN",
+    "firstAdvantageByEnteringOtpPhone" : "Pour confirmer que vous n'êtes pas un robot, un code PIN à usage unique sera envoyé à votre numéro de téléphone. Aucune information personnelle n'est enregistrée.",
+    "firstAdvantageByEnteringPin" : "Saisissez le code PIN envoyé à votre téléphone. Si vous n'avez pas reçu de code PIN, veuillez sélectionner “Renvoyer le code PIN”.",
+    "phoneNumberError": "Veuillez entrer un numéro de téléphone valide",
+    "phoneInfoTitle": "SAISIR LE NUMÉRO DE TÉLÉPHONE",
+    "pinHeading": "code PIN à usage unique",
+    "pinError": "VVeuillez saisir un code PIN valide",
+    "pin_placeholder": "Saisir le code PIN",
+    "pinInfoTitle": "Saisir le code PIN",
+    "pinExpired": "Le code PIN a expiré. Veuillez réessayer",
+    "pleaseWait": "Vous avez dépassé le nombre maximal de tentatives. Merci de patienter.",
+    "invalidOTP": "Le code PIN saisi n’est pas valide. Il vous reste # tentative(s)",
+    "lockedOtp": "Plus aucune tentative restante. Veuillez patienter 3 minutes et réessayer",
+    "lockedPhone": "Vous avez dépassé le nombre maximal de tentatives. Veuillez patienter 10 minutes",
+    "pinResend": "Le code PIN sera renvoyé",
+    "smsText": "Votre mot de passe à usage unique est 0000. Veuillez l'utiliser pour continuer votre Ticket Mobile.",
+    "havePIN": "Vous avez déjà un code PIN",
+    "tryAgain": "Veuillez réessayer",
+    "requireTID": "L’ID du locataire est requis"
+  },
+  "footer" : {
+    "text": "Propulsé par"
+  }
+}

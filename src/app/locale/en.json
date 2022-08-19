@@ -24,9 +24,9 @@
     "delayCancelBtnText": "Go back",
     "delayOkButtonText": "Confirm",
     "continueBtnText": "Continue",
-    "selectService": "Please select a service at {{ branchName }}:",
+    "selectService": "Please select a service at  {{ branchName }}:",
     "selectDelay": "Do you need more time?",
-    "selectDelayDescription": "Please select how many minutes you want your place in line to be moved back.",
+    "selectDelayDescription": "Please select by how many minutes you want your place in line to be moved back.",
     "noDelaysAvailable": "Sorry, there are no available delays",
     "defaultTitle": "Mobile Ticket",
     "waiting": "Waiting",
@@ -37,14 +37,14 @@
   "ticketInfo": {
     "leaveVisitConfirmMsg": "Would you like to leave the line?",
     "btnTitleLeaveLine": "Leave the line",
-    "btnTitleLeaveLineFailed": "Sorry something went wrong",
+    "btnTitleLeaveLineFailed": "Sorry, something went wrong",
     "btnTitleChangeDelay": "Select another time",
     "delayVisitBtnText": "I need more time",
     "btnTitleArrive": "I'm here",
     "defaultTitle": "Mobile Ticket",
     "titleYourTurn": "It's your turn!",
     "ticketReady": "{firstName} is ready to serve you at:",
-    "ticketReadyWithNoName": "You are being ready to serve at",
+    "ticketReadyWithNoName": "You will be served at",
     "titleInLine": "position",
     "btnTitleNewTicket": "Get new ticket",
     "ticketRemovedHeading": "Your ticket has been removed",
@@ -61,12 +61,12 @@
     "appointmentTime" : "Get ready to be served in:"
   },
   "visit": {
-    "notFound": "Sorry something went wrong,",
-    "onGoingVisit": "Sorry, There is an ongoing visit. Please close it before proceed",
+    "notFound": "Sorry, something went wrong,",
+    "onGoingVisit": "There is an ongoing visit. Please close the visit before you proceed",
     "clickHere": "Click here",
     "loadBranches": "to start over",
     "notInRange" : "Sorry, you are too far from the branch. Get closer to the branch and Try again.",
-    "positionPermission" : "If you want to create a visit, please enable Location Services &"
+    "positionPermission" : "If you want to create a visit, please enable Location Services and"
   },
   "error_codes": {
     "error_8042": "Line is full. Please try again later."
@@ -156,7 +156,7 @@
   },
   "pricacy_policy" : { 
     "title" : "Privacy policy",
-    "description" : "Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it. Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it. Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it. definitions, the statement itself and the steps to implement it. Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it. Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it."
+    "description" : "Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it."
   },
   "cookie_consent" : { 
     "title" : "This site uses cookies to provide you with a great user experience. By using this service, you accept our",
@@ -182,7 +182,7 @@
     "lockedOtp": "No attempts left. Please wait for 3 minutes and try again",
     "lockedPhone": "You've exceeded maximum number of attempts. Please wait 10 minutes",
     "pinResend": "The PIN will be resent",
-    "smsText": "Your one time password is 0000. Please use this to continue your mobile ticket.",
+    "smsText": "Your one-time password is 0000. Please use this to continue your mobile ticket.",
     "havePIN": "You already have a PIN",
     "tryAgain": "Please try again",
     "requireTID": "Tenant ID is required"

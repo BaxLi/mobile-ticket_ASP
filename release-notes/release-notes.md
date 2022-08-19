@@ -43,7 +43,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-08-19**
  
-**Build number: 5**
+**Build number: 6**
 
 <h3>Stories</h3>
 
@@ -51,6 +51,7 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-876** | **MT, "wrong" language sentence in Swedish** |
 | **MOB-879** | **Default language change when leaving the line** |
+| **MOB-900** | **Include all supported languages in locale in release** |
 
 <h3>Bug fixes</h3>
 

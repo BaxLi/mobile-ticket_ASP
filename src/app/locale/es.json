@@ -1,0 +1,193 @@
+{
+  "branch": {
+    "defaultTitle": "Ticket Móvil",
+    "btn_text_separator" : ",",
+    "loading": "Cargando...",
+	"noPermission": "Habilite los servicios de ubicación y actualice el navegador para continuar",
+    "noBranches": "Lo sentimos, no hay oficinas disponibles cerca.",
+    "tryAgain": "Pruebe de nuevo",
+    "clickHere": "Pulse aquí",
+    "loadBranches": "para comenzar de nuevo",
+    "notFound": "Lo sentimos, algo salió mal,",
+    "diffLocation": "en una ubicación diferente.",
+    "subHeadingOne": "¡Bienvenidos!",
+    "subHeadingTwo": "¿Quieres hacer cola para uno de nuestros servicios? Comience seleccionando ubicación.",
+    "positionPermission" : "Si desea mostrar las oficinas cercanas, habilite los Servicios de Ubicación. De lo contrario, se mostrarán todas las oficinas."
+  },
+  "service": {
+    "subHeadingOne": "¡Bienvenidos!",
+    "accentBtnText": "Ponerse a la cola",
+	"accentBtnDleayText": "Ponerse a la cola ahora",
+    "delayVisitBtnText": "Estimación de la hora de llegada",
+    "cancelBtnText": "Cancelar",
+    "okButtonText": "Ok",
+    "delayCancelBtnText": "Atrás",
+    "delayOkButtonText": "Confirmar",
+    "continueBtnText": "Continuar",
+    "selectService": "Por favor, seleccione un servicio en {{ branchName }}:",
+	"selectDelay": "¿Cuando quieres ser antendido?",
+	"selectDelayDescription": "Seleccione cuántos minutos desea que se retrase su lugar en la fila.",
+    "noDelaysAvailable": "Lo sentimos, no hay retrasos disponibles",
+    "defaultTitle": "Ticket Móvil",
+    "waiting": "Esperando",
+	"noSelectedServices": "Por favor, seleccione un servicio",
+	"delayVisitIssue": "Lo sentimos, algo fue mal.",
+    "min": "min"
+  },
+  "ticketInfo": {
+    "leaveVisitConfirmMsg": "¿Quiere abandonar la cola?",
+    "btnTitleLeaveLine": "Abandonar la cola",
+	"btnTitleLeaveLineFailed": "Lo siento, algo salió mal",
+	"btnTitleChangeDelay": "Seleccionar otra hora",
+    "delayVisitBtnText": "Necesito mas tiempo",
+    "btnTitleArrive": "Estoy aquí",
+    "defaultTitle": "Ticket Móvil",
+    "titleYourTurn": "¡Es su turno!",
+    "ticketReady": "{firstName} está preparado para atenderlo en",
+	"ticketReadyWithNoName": "Está siendo preparado para atenderlo en",
+    "titleInLine": "posición",
+    "btnTitleNewTicket": "Obtener nuevo ticket",
+    "ticketRemovedHeading": "Su ticket ha sido eliminado",
+    "yourPosition": "Usted",
+    "queueHeading": "Su puesto en la cola:",
+	"delayHeading": "Prepárate para ser atendido en:",
+    "ticketEndHeading": "¡Gracias por visitarnos!",
+    "welcomeback": "",
+    "visitRecycledMessage": "Será llamado en breve",
+    "visitAppRemoved": "No hay EntryPoint de tipo SW_VISITAPP en la oficina, no puede crear o eliminar visitas",
+    "btnOpenMeeting" : "Entrar a la reunión",
+    "loading" : "Se está cargando su ticket, esto puede demorar unos segundos",
+    "unauthorized" : "No está autorizado para abrir el ticket",
+	"appointmentTime" : "Prepárate para ser atendido en: "
+  },
+  "visit": {
+    "notFound": "Lo sentimos, algo salió mal,",
+    "onGoingVisit": "Lo sentimos, ya tiene un ticket emitido. Por favor cierralo antes de continuar",
+    "clickHere": "Pulse aquí",
+    "loadBranches": "para comenzar de nuevo",
+	"notInRange" : "Lo sentimos, está muy lejos de la oficina. Acerquese a ella y pruebe de nuevo.",
+    "positionPermission" : "Si quiere crear una visita, por favor habilite el Servicio de Localización y"
+  },
+  "error_codes": {
+    "error_8042": "La cola está llena. Por favor, inténtelo mas tarde"
+  },
+  "connection" : {
+    "issue_with_connection" : "Lo sentimos, parece haber un problema con la conexión."
+  },
+  "support" : {
+    "this_browser" : "este navegador",
+    "not_support_p1" : "Ticket Móvil no es compatible con ",
+    "not_support_p2" : ", por favor, inicie Ticket Móvil con la última versión de Chrome, Safari, Edge u Opera en su lugar.",
+    "not_support_p2_extend" : ", en su lugar, inicie Mobile Ticket en la última versión de Chrome, Firefox, Edge u Opera.",
+    "not_support_create_ticket" : "Póngase en contacto con un miembro del personal si necesita más ayuda."
+  },
+  "dialog" : {
+    "confirm" : {
+      "ok" : "Ok",
+      "cancel" : "Cancelar",
+      "title" : "Esto es una Confirmación"
+    },
+    "alert" : {
+      "ok" : "Ok",
+      "title" : "Esto es una Alerta"
+    }
+  },
+  "open_hours" : {
+      "heading1" : "Este servicio no está disponible actualmente.",
+      "heading2" : "Nuestro horario de apertura es:" ,     
+      "week_day1" : "Lunes",
+      "week_day2" : "Martes",
+      "week_day3" : "Miércoles",
+      "week_day4" : "Jueves",
+      "week_day5" : "Viernes",
+      "week_day6" : "Sábado",
+      "week_day7" : "Domingo",
+      "closed" : "Cerrado"
+   },
+   "appointment" : {
+     "subHeadingOne" : "¡Bienvenidos a Qmatic!",
+     "subHeadingTwo" : "Su cita",
+     "branch" : "Oficina:",
+     "service" : "Servicio:",
+     "time" : "Hora:",
+     "date" : "Fecha:",
+     "tooEearly" : "Ha llegado demasiado pronto a su cita. Solo puede admitir su cita con 30 minutos de antelación.",
+     "arriveBtnText" : "Admitir",
+	 "notInRange" : "Lo sentimos, está muy lejos de la oficina. Acerquese a ella y pruebe de nuevo.",
+     "positionPermission" : "Si quiere admitir su cita, por favor habilite el Servicio de Localización.",
+     "error" : {
+       "date" : "Su cita está reservada para otro día. Por favor, vuelva el día de su cita.",
+       "status" : "Su cita ya ha sido admitida.",
+       "early" : "Ha llegado demasiado pronto a su cita. Por favor, inténtelo mas tarde.",
+       "late" : "Ha llegado demasiado pronto a su cita. Por favor, reserve una nueva cita.",
+       "notFound" : "No se encuentra su cita."
+      }
+   },
+   "customer_info" : {
+	"phoneNumberHeadingOne" : "By entering your phone number you get:",
+    "phoneNumber" : "Número de Móvil",
+	"phoneNumberBottomText" : "No almacenaremos su número de teléfono por más tiempo del necesario para ayudarlo.",
+	"customerId" : "ID de Cliente",
+    "editPhoneNumber" : "Editar número de móvil",
+    "phoneNumberError" : "Por favor introduzca un número de móvil válido",
+	"customerIdError" : "Por favor introduzca un nombre o ID de cliente válido",
+    "customerIdMaxError" : "Solo se permite 255 caracteres.",
+    "vistInfoTitle" : "Al agregar el número de teléfono, obtienes:",
+    "firstAdvantageByEnteringPhone": "Un ticket personal por SMS ",
+    "secondAdvantageByEnteringPhone":"Notificación por SMS cuando sea tu turno",
+    "activeConsentDescription" : "Acepto que mi número de teléfono se almacene temporalmente para poder contactarme.",
+    "dataProtectionDeclaration" : "Declaración de protección de datos aquí ",
+    "agreeDescription" : "Al continuar aceptas nuestra política de privacidad",
+    "readDescription" : "Lea sobre cómo almacenamos y protegemos sus datos en nuestro",
+    "privacyPolicy" : "política de privacidad.",
+    "understood" : "Entendido",
+    "canDeleteInfo" : "Tu puedes eliminar tu información.",
+    "btnDelete" : "ELIMINAR",
+    "btnCancel" : "CANCELAR",
+    "selectedBranch": "Oficina seleccionada",
+    "selectedService": "Servicio seleccionado",
+    "skipAndGetInLine": "Saltar este paso",
+    "phone_placeholder": "Introduzca su número de teléfono",
+	"id_placeholder": "Introducir Nombre o ID de Cliente",
+    "id_details": "Por favor introduzca su nombre o ID de cliente",
+    "send": "Enviar información",
+	"phoneNumberIsMandatory": "El número de teléfono es obligatorio para poder continuar",
+    "pleaseAcceptPrivacyPolicy": "Acepte la política de privacidad o presione saltar para continuar "
+  },
+  "pricacy_policy" : { 
+    "title" : "Política de privacidad",
+    "description" : "Las declaraciones de política sirven para proteger a una organización de malentendidos que podrían conducir a un comportamiento no autorizado o a demandas judiciales. Cada declaración de política debe incluir su propósito, definiciones terminológicas, la declaración en sí y los pasos para implementarla."
+  },
+  "cookie_consent" : { 
+    "title" : "Este sitio utiliza cookies para brindarle una excelente experiencia de usuario. Al utilizar este servicio, acepta nuestro",
+    "use.of.cookies" : "uso de cookies",
+    "decline" : "Declinar",
+    "accept" : "Aceptar"
+  },
+  "otp" : {
+    "submit" : "Confirmar",
+    "resend" : "Reenviar PIN",
+    "getOTP" : "Enviar PIN",
+    "firstAdvantageByEnteringOtpPhone" : "Para confirmar que eres una persona real, un código PIN único será enviado a tu móvil. No se almacenará información personal.",
+    "firstAdvantageByEnteringPin" : "Introduzca el PIN recibido en su móvil. si no lo ha recibido, pulse sobre Reenviar PIN.",
+    "phoneNumberError": "Por favor, introduzca un número correcto.",
+    "phoneInfoTitle": "INTRODUZCA NÚMERO DE MÓVIL",
+    "pinHeading": "PIN Único",
+    "pinError": "Por favor, introduzca un PIN válido",
+    "pin_placeholder": "Introduzca PIN",
+    "pinInfoTitle": "Introduzca PIN",
+    "pinExpired": "El PIN ha expirado. Por favor, intente de nuevo.",
+    "pleaseWait": "Ha excedido el número máximo de intentos. Por favor, espere.",
+    "invalidOTP": "El PIN introducido no es válido. Tienes # intento(s) restantes",
+    "lockedOtp": "Ya no tiene intentos disponibles. Por favor, espere 3 minutos y vuelva a intentarlo",
+    "lockedPhone": "Ha excedido el número máximo de intentos. Por favor, espere 10 minutos",
+    "pinResend": "El PIN será reenviado",
+    "smsText": "Su contraseña única es 0000. Por favor, use este para obtener su ticket móvil.",
+    "havePIN": "Usted ya tiene un PIN",
+	"tryAgain": "Por favor pruebe de nuevo",
+    "requireTID": "Se requiere Tenant ID"
+  },
+  "footer" : {
+    "text": "Desarrollado por"
+  }
+}

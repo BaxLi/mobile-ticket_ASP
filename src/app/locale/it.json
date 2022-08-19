@@ -1,0 +1,193 @@
+{
+  "branch": {
+    "defaultTitle": "Biglietto elettronico",
+    "btn_text_separator" : ",",
+    "loading": "Caricamento...",
+	"noPermission": "Please enable location services and refresh the browser to continue",
+    "noBranches": "Spiacenti, nessuna sede disponibile in prossimità.",
+    "tryAgain": "Prova di nuovo",
+    "clickHere": "Click qui",
+    "loadBranches": "Ricomincia da capo",
+    "notFound": "Spiacenti qualcosa è andato storto,",
+    "diffLocation": "in una sede diversa.",
+    "subHeadingOne": "Benvenuti!",
+    "subHeadingTwo": "Vuoi metterti in fila per uno dei nostri servizi? Inizia selezionando la posizione.",
+    "positionPermission" : "Se desideri conoscere gli sportelli a te più vicini, abilita i servizi di localizzazione. In caso contrario, nell’elenco troverai tutti gli sportelli disponibili"
+  },
+  "service": {
+    "subHeadingOne": "Benvenuti!",
+    "accentBtnText": "Mettiti in fila",
+    "accentBtnDleayText": "Mettiti in fila ora",
+    "delayVisitBtnText": "Stima tempo di arrivo",
+    "cancelBtnText": "Annulla",
+    "okButtonText": "Ok",
+    "delayCancelBtnText": "Torna indietro",
+    "delayOkButtonText": "Conferma",
+    "continueBtnText": "Continua",
+    "selectService": "Scegli il servizio di tuo interesse al {{ branchName }}",
+    "selectDelay": "Quando vuoi essere servito?",
+	"selectDelayDescription": "Prego selezionare di quanti minuti spostare indietro il suo posto in fila.",
+    "noDelaysAvailable": "Spiacenti, non ci sono rinvii disponibili",
+    "defaultTitle": "Biglietto elettronico",
+    "waiting": "Attendere",
+    "noSelectedServices": "Prego selezionare un servizio",
+    "delayVisitIssue": "Spiacenti qualcosa è andato storto.",
+    "min": "min"
+  },
+  "ticketInfo": {
+    "leaveVisitConfirmMsg": "Vuoi lasciare la fila?",
+    "btnTitleLeaveLine": "Lascia la fila",
+	"btnTitleLeaveLineFailed": "Spiacenti qualcosa è andato storto",
+    "btnTitleChangeDelay": "Seleziona un altro orario",
+    "delayVisitBtnText": "Ho bisogno di più tempo",
+    "btnTitleArrive": "Sono qui",
+    "defaultTitle": "Biglietto elettronico",
+    "titleYourTurn": "E' il tuo turno!",
+    "ticketReady": "{firstName} è pronto per servirti al",
+    "ticketReadyWithNoName": "Sei pronto a servire al",
+    "titleInLine": "posizione",
+    "btnTitleNewTicket": "Prendi un nuovo biglietto",
+    "ticketRemovedHeading": "Il tuo biglietto è stato eliminato",
+    "yourPosition": "Tu",
+    "queueHeading": "Il tuo posto in fila è:",
+    "delayHeading": "preparati per essere servito:",
+    "ticketEndHeading": "Grazie!",
+    "welcomeback": "",
+    "visitRecycledMessage": "Sarai chiamato fra poco",
+    "visitAppRemoved": "Nessun punto di ingresso di tipo SW_VISITAPP sulla sede, impossibile creare o eliminare la visita",
+    "btnOpenMeeting" : "Entra nell' appuntamento",
+    "loading" : "Il tuo biglietto è in fase di caricamento, l'operazione potrebbe richiedere un po' di tempo",
+    "unauthorized" : "Non sei autorizzato ad aprire il biglietto",
+    "appointmentTime" : "Orario dell'appuntamento"
+  },
+  "visit": {
+    "notFound": "Ci dispiace, qualcosa è andato storto,",
+    "onGoingVisit": "Ci dispiace, è in corso un appuntamento. Chiudi questa schermata per continuare.",
+    "clickHere": "Click qui",
+    "loadBranches": "Ricomincia dall’inizio",
+    "notInRange" : "Ci dispiace, sei troppo lontano dallo sportello. Avvicinati e riprova.",
+    "positionPermission" : "Se desideri creare un appuntamento, attiva la localizzazione e"
+  },
+  "error_codes": {
+    "error_8042": "Al momento i posti in coda sono esauriti. Per favore riprova più tardi."
+  },
+  "connection" : {
+    "issue_with_connection" : "Ci dispiace, sembra che ci sia un problema con la connessione."
+  },
+  "support" : {
+    "this_browser" : "questo browser",
+    "not_support_p1" : "Il sistema non è compatibile con ",
+    "not_support_p2" : ", sei pregato di aprire il sistema nell'ultima versione di Chrome, Safari, Firefox, Edge o Opera.",
+    "not_support_p2_extend" : ", avvia invece Mobile Ticket nell'ultima versione di Chrome, Firefox, Edge o Opera.",
+    "not_support_create_ticket" : "Rivolgiti all’operatore se hai bisogno di ulteriore aiuto."
+  },
+  "dialog" : {
+    "confirm" : {
+      "ok" : "Ok",
+      "cancel" : "Annulla",
+      "title" : "Questa è una conferma"
+    },
+    "alert" : {
+      "ok" : "Ok",
+      "title" : "Questo è un avviso"
+    }
+  },
+  "open_hours" : {
+      "heading1" : "questo servizio non è attualmente disponibile.",
+      "heading2" : "I nostri orari di apertura sono:" ,     
+      "week_day1" : "lunedì",
+      "week_day2" : "martedì",
+      "week_day3" : "mercoledì",
+      "week_day4" : "giovedì",
+      "week_day5" : "venerdì",
+      "week_day6" : "sabato",
+      "week_day7" : "domenica",
+      "closed" : "Chiuso"
+   },
+   "appointment" : {
+     "subHeadingOne" : "Benvenuto!",
+     "subHeadingTwo" : "Il tuo appuntamento",
+     "branch" : "Sede:",
+     "service" : "Servizio:",
+     "time" : "Orario:",
+     "date" : "Data:",
+     "tooEearly" : "Ci dispiace, sei arrivato in anticipo per il tuo appuntamento, puoi solo ",
+     "arriveBtnText" : "Arrivato",
+     "notInRange" : "Ci dispiace, sei troppo lontano dallo sportello. Avvicinati e riprova.",
+     "positionPermission" : "Per fare il checkin, prego abilitare servizi di localizzazione.",
+     "error" : {
+       "date" : "Il tuo appuntamento è prenotato per un altro giorno. Preghiamo di tornare in quella data.",
+       "status" : "Il tuo appuntamento è già stato registrato al checkin.",
+       "early" : "Troppo presto per il tuo appuntamento. Prego tornare più tardi.",
+       "late" : "Per il tuo appuntamento è troppo tardi. Prego prenotare un altro appuntamento.",
+       "notFound" : "Appuntamento non trovato."
+      }
+   },
+   "customer_info" : {
+    "phoneNumberHeadingOne" : "Inserendo il tuo numero di telefono otterrai:",
+	"phoneNumber" : "Numero di telefono",
+	"phoneNumberBottomText" : "Non conserveremo il tuo numero di telefono oltre il tempo necessario per fornirti i nostri servizi.",
+    "customerId" : "Customer ID",
+    "editPhoneNumber" : "Modifica Numero di telefono",
+    "phoneNumberError" : "Prego inserire numero di telefono valido",
+    "customerIdError" : "Prego inserire customer ID valido",
+    "customerIdMaxError" : "sono permessi solo 255 caratteri",
+    "vistInfoTitle" : "inserendo il tuo numero di telefono tu otterrai:",
+    "firstAdvantageByEnteringPhone" : "Biglietto su SMS",
+    "secondAdvantageByEnteringPhone" : "Notifica SMS quando è il tuo turno o in prossimità del tuo turno",
+    "activeConsentDescription" : "Io acconsento che il mio numero di cellulare sia temporaneamente conservato e utilizzato per contattarmi.",
+    "dataProtectionDeclaration" : "Dichiarazione di Protezione dei dati ",
+	"agreeDescription" : "Continuando tu acconsenti alla nostra Politica della Privacy ",
+	"readDescription" : "Prego leggi come noi conserviamo e proteggiamo i tuoi dati nei nostri",
+    "privacyPolicy" : "politiche della privacy",
+    "understood" : "Ho Capito",
+    "canDeleteInfo" : "Tu puoi eliminare le tue informazioni.",
+    "btnDelete" : "ELIMINA",
+    "btnCancel" : "ANNULLA",
+    "selectedBranch": "Sede selezionata",
+    "selectedService": "Servizio selezionato",
+    "skipAndGetInLine": "Salta questo",
+    "phone_placeholder": "inserisci il tuo Numero di telefono",
+    "id_placeholder": "inserisci il customer ID",
+    "id_details": "Prego inserire il tuo customer ID",
+    "send": "Invia informazioni",
+    "phoneNumberIsMandatory": "Numero di telefono è obbligatorio per continuare",
+    "pleaseAcceptPrivacyPolicy": "Prego Accetta le Politiche della Privacy o premi Salta per continuare "
+  },
+  "pricacy_policy" : { 
+    "title" : "politiche della privacy",
+    "description" : "Regole e Politiche servono a proteggere un'organizzazione da incomprensioni che potrebbero condurre a comportamenti non autorizzati o illegali. Ogni regola dovrebbe includere il suo scopo, la terminologia usata, le definizioni stesse e le fasi per implementarle. Regole e Politiche servono a proteggere un'organizzazione da incomprensioni che potrebbero condurre a comportamenti non autorizzati o illegali. Ogni regola dovrebbe includere il suo scopo, la terminologia usata, le definizioni stesse e le fasi per implementarle. Regole e Politiche servono a proteggere un'organizzazione da incomprensioni che potrebbero condurre a comportamenti non autorizzati o illegali. Ogni regola dovrebbe includere il suo scopo, la terminologia usata, le definizioni stesse e le fasi per implementarle. Regole e Politiche servono a proteggere un'organizzazione da incomprensioni che potrebbero condurre a comportamenti non autorizzati o illegali. Ogni regola dovrebbe includere il suo scopo, la terminologia usata, le definizioni stesse e le fasi per implementarle. Regole e Politiche servono a proteggere un'organizzazione da incomprensioni che potrebbero condurre a comportamenti non autorizzati o illegali. Ogni regola dovrebbe includere il suo scopo, la terminologia usata, le definizioni stesse e le fasi per implementarle."
+  },
+  "cookie_consent" : { 
+    "title" : "Questo sito usa cookie per fornire una ricca esperienza utente. Utilizzando questo servizio, tu presti il consenso alle nostre",
+    "use.of.cookies" : "Uso dei cookie",
+    "decline" : "Rifiuto",
+    "accept" : "Accetto"
+  },
+  "otp" : {
+    "submit" : "Invia",
+    "resend" : "Riinvia PIN",
+    "getOTP" : "Invia PIN",
+    "firstAdvantageByEnteringOtpPhone" : "Per confermare che tu non sei un robot, verrà inviato un PIN al tuo telefono. Nessuna informazione personale verrà salvata.",
+    "firstAdvantageByEnteringPin" : "Inserisci il PIN inviato al tuo telefono. Se non lo hai ricevuto, seleziona “Riinvia PIN”.",
+    "phoneNumberError": "Prego inserire un numero di telefono valido",
+    "phoneInfoTitle": "NUMERO DI TELEFONO",
+    "pinHeading": "One-time PIN",
+    "pinError": "Prego inserire un PIN valido",
+    "pin_placeholder": "Inserire PIN",
+    "pinInfoTitle": "Autenticazione PIN",
+    "pinExpired": "PIN scaduto. Prego provare di nuovo",
+    "pleaseWait": "Hai superato il massimo numero di tentativi. Prego attendere.",
+    "invalidOTP": "Il PIN inserito non è valido. Hai ancora # Tentativi(o) rimasti",
+    "lockedOtp": "Nessun tentativo rimasto. Prego attendere 3 minuti e provare di nuovo",
+    "lockedPhone": "Hai superato il massimo numero di tentativi. Prego attendere 10 minuti",
+    "pinResend": "Il PIN verrà riinviato",
+    "smsText": "La tua one time password è 0000. Prego usare questa per continuare col tuo Biglietto Elettronico.",
+    "havePIN": "Hai già un PIN",
+    "tryAgain": "Prego prova di nuovo",
+    "requireTID": "Tenant ID è richiesto"
+  },
+  "footer" : {
+    "text": "Powered by"
+  }
+}

@@ -39,6 +39,21 @@ This document describes the new features, bug corrections, known issues and reco
 
 ----------
 -->
+
+<h2> Version 2.3.1 </h2>
+
+**Date: 2022-09-05**
+ 
+**Build number: 1**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-910** | **Make it posible to add a image header** |
+
+----------
+
 <h2> Version 2.3.0 </h2>
 
 **Date: 2022-08-19**

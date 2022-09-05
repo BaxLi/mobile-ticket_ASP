@@ -1,42 +1,42 @@
 :root {
- /* Header brand logo image  */
- --brand-logo:url('../app/resources/qmLogo.png');
- /* Header brand logo background color */
- --brand-logo-background:transparent;
- /* Application background color */
- --app-bg-primary-color: #FFFFFF;  
+    /* Header brand logo image  */
+    --brand-logo: url('../app/resources/qmLogo.png');
+    /* Header brand logo background color */
+    --brand-logo-background: transparent;
+    /* Application background color */
+    --app-bg-primary-color: #FFFFFF;
 
- /* Background color for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc */
- --primary-bg-color:#DEEDF6;
- /* Text colour for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc */
- --primary-text-color:#000000;
- /* Background color for Services,Branches,delay time when selected and ticket layout in calling page, etc */
- --secondary-bg-color:#0079C2;
- /* Text color for Services,Branches,delay time when selected and ticket layout in calling page, etc */
- --secondary-text-color:#FFFFFF;
- /* Service Groups text color */
- --service-group-text-color:#175A83;
- /* Service group seperator line color */
- --service-group-line-color:rgba(0,0,0,0.2);
+    /* Background color for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc */
+    --primary-bg-color: #DEEDF6;
+    /* Text colour for Services,Branches,delay time, appointment arrival, ticket layout in waiting page, etc */
+    --primary-text-color: #000000;
+    /* Background color for Services,Branches,delay time when selected and ticket layout in calling page, etc */
+    --secondary-bg-color: #0079C2;
+    /* Text color for Services,Branches,delay time when selected and ticket layout in calling page, etc */
+    --secondary-text-color: #FFFFFF;
+    /* Service Groups text color */
+    --service-group-text-color: #175A83;
+    /* Service group seperator line color */
+    --service-group-line-color: rgba(0, 0, 0, 0.2);
 
 
- /* Text color used throughout the application in common areas which are not specific to any UI component.  */
- --general-text-color: #000000;
+    /* Text color used throughout the application in common areas which are not specific to any UI component.  */
+    --general-text-color: #000000;
 
- /* Footer logo */
- --footer-logo:url('../app/resources/brand_logo.png');
- /* Footer text */
- --footer-text-color: #000000;
+    /* Footer logo */
+    --footer-logo: url('../app/resources/brand_logo.png');
+    /* Footer text */
+    --footer-text-color: #000000;
 
- /* Privacy & Cookie concent button text color*/
- --pop-up-button-text-color:#0079C2;
+    /* Privacy & Cookie concent button text color*/
+    --pop-up-button-text-color: #0079C2;
 
- /* Bottom button/get in line button background color */
- --get-in-line-btn-bg-color:#20201F;
- /* Bottom button/get in line text color*/
- --get-in-line-btn-text-color:#FFFFFF;
- /* Bottom button leave the line color*/
- --leave-button-text-color:#A71D3D;
- /* Secondary button text color which is blue by default */
- --secondary-btn-text-color: #0079C2;
+    /* Bottom button/get in line button background color */
+    --get-in-line-btn-bg-color: #20201F;
+    /* Bottom button/get in line text color*/
+    --get-in-line-btn-text-color: #FFFFFF;
+    /* Bottom button leave the line color*/
+    --leave-button-text-color: #A71D3D;
+    /* Secondary button text color which is blue by default */
+    --secondary-btn-text-color: #0079C2;
 }

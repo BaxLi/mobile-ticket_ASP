@@ -37,11 +37,11 @@
   flex-direction: column;
   /*height: calc(100vh - 6em) !important;*/
   align-items: center;
-  height: calc(100vh - 12em) !important;
+  height: calc(100vh - 12em);
   padding-bottom: 30px;
 }
 .table-container-with-visit-delay {
-  height: calc(100vh - 15em) !important;
+  height: calc(100vh - 15em);
 }
 
 

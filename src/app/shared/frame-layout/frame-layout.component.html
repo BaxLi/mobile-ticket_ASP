@@ -2,9 +2,12 @@
   <div class="qm-cookie-container" [hidden]="!isBrowserSupport">
     <app-cookie-consent-dialog></app-cookie-consent-dialog>
   </div>
-  <div class="frame custom logo-bg-color parent-center">
-    <img class="logo custom logo-image child-center"/>
+  <div class="qm-logo-header">
+    <div class="frame custom logo-bg-color parent-center">
+      <img class="logo custom logo-image child-center"/>
+    </div>
   </div>
+
   <div class="center-content" [hidden]="!isBrowserSupport">
     <ng-content></ng-content>
   </div>

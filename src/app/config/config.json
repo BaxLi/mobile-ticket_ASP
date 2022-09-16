@@ -12,7 +12,7 @@
     "description": "Enable or disable geofencing on landing pages, 'on = enable',  'off = disable', 'mandatory = geo fencing is enabled and allow location service is mandatory' . geofencing will only work on https protocol. if geofencing disabled, branch radius and appointment radius will be discarded"
   },
   "version": {
-    "value": "2.3.0",
+    "value": "2.4.0",
     "description": "MobileTicket version [depreciated key. version in package.json and release notes instead]"
   },
   "customer_feedback": {

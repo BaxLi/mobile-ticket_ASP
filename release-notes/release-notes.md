@@ -40,17 +40,18 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
-<h2> Version 2.3.1 </h2>
+<h2> Version 2.4.0 </h2>
 
-**Date: 2022-09-05**
+**Date: 2022-09-16**
  
-**Build number: 1**
+**Build number: 2**
 
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-910** | **Make it posible to add a image header** |
+| **MOB-912** | **Update Mobile Ticket deployment guide with delay visit** |
 
 ----------
 

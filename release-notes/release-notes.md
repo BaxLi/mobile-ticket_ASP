@@ -42,9 +42,9 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.4.0 </h2>
 
-**Date: 2022-09-16**
+**Date: 2022-10-12**
  
-**Build number: 2**
+**Build number: 3**
 
 <h3>Stories</h3>
 
@@ -52,6 +52,7 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-910** | **Make it posible to add a image header** |
 | **MOB-912** | **Update Mobile Ticket deployment guide with delay visit** |
+| **MOB-922** | **Update jQuery library into the latest version** |
 
 ----------
 

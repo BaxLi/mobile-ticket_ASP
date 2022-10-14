@@ -10945,6 +10945,7 @@ var MobileTicketAPI = (function () {
   var custom3 = undefined;
   var custom4 = undefined;
   var custom5 = undefined;
+  var queryParameters = undefined;
   var serviceGroupId = undefined;
 
   var visitFromQR = false;
@@ -11039,6 +11040,8 @@ var MobileTicketAPI = (function () {
     if (meetingUrl != undefined) {
       addToLocalStorage('meetingUrl', JSON.stringify(meetingUrl), 0.5);
     }
+	localStorage.removeItem('custom3');
+	localStorage.removeItem('custom4');
   }
 
   function clearLocalStorage() {
@@ -11046,6 +11049,8 @@ var MobileTicketAPI = (function () {
     localStorage.removeItem('service');
     localStorage.removeItem('visit');
     localStorage.removeItem('meetingUrl');
+    localStorage.removeItem('custom3');
+    localStorage.removeItem('custom4');
   }
 
   function resetDelayInfo() {
@@ -11076,6 +11081,7 @@ var MobileTicketAPI = (function () {
     MobileTicketAPI.serviceGroupId = undefined;
     MobileTicketAPI.custom4 = undefined;
     MobileTicketAPI.custom5 = undefined;
+    MobileTicketAPI.queryParameters = undefined;
     
   }
 
@@ -11163,6 +11169,10 @@ var MobileTicketAPI = (function () {
 
   function getCustom5() {
     return MobileTicketAPI.custom5;
+  }
+
+  function getQueryParameters() {
+    return MobileTicketAPI.queryParameters;
   }
 
   function getServiceGroupId() {
@@ -11673,6 +11683,18 @@ var MobileTicketAPI = (function () {
         var custom3 = getCustom3();
         var custom4 = getCustom4();
 
+		if(getQueryParameters() !== undefined){
+			var cus3 = JSON.parse(getFromLocalStorage('custom3'));
+			var cus4 = JSON.parse(getFromLocalStorage('custom4'));
+
+			if(cus3 !== null && getQueryParameters()[0].trim() == cus3[0]) {
+				custom3 = cus3[1];
+			}
+			if(cus4 !== null && getQueryParameters()[0].trim() == cus4[0]) {
+				custom4 = cus4[1];
+			}
+		}
+
         if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3 || custom4) {
           jsonData.parameters = {};
           
@@ -12144,8 +12166,17 @@ var MobileTicketAPI = (function () {
     setCustom4: function (custom4) {
       MobileTicketAPI.custom4 = custom4;
     },
+    setCustom3ToLocalStorage: function (custom3) {
+	  addToLocalStorage('custom3', JSON.stringify(custom3), 0.005);
+    },
+    setCustom4ToLocalStorage: function (custom4) {
+	  addToLocalStorage('custom4', JSON.stringify(custom4), 0.005);
+    },
     setCustom5: function (custom5) {
       MobileTicketAPI.custom5 = custom5;
+    },
+    setQueryParameters: function (queryParameters) {
+      MobileTicketAPI.queryParameters = queryParameters;
     },
     setServiceGroupId: function (id) {
       MobileTicketAPI.serviceGroupId = id;
@@ -12239,6 +12270,9 @@ var MobileTicketAPI = (function () {
     },
     getCustom5: function () {
       return getCustom5();
+    },
+    getQueryParameters: function () {
+      return getQueryParameters();
     },
     getServiceGroupId: function () {
       return getServiceGroupId();

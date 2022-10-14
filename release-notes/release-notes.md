@@ -44,7 +44,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2022-10-12**
  
-**Build number: 3**
+**Build number: 4**
 
 <h3>Stories</h3>
 
@@ -53,6 +53,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-910** | **Make it posible to add a image header** |
 | **MOB-912** | **Update Mobile Ticket deployment guide with delay visit** |
 | **MOB-922** | **Update jQuery library into the latest version** |
+| **MOB-935** | **Additional Customer Information URL feature does not work on certain preselect functions** |
 
 ----------
 

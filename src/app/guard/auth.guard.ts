@@ -41,7 +41,7 @@ export class AuthGuard implements CanActivate {
         private openHourValidator: BranchOpenHoursValidator) {
         this.branchService = branchSrvc;
         this.serviceService = serviceSrvc;
-        MobileTicketAPI.setTicketToken(this.config.getConfig('create_ticket_token')); 
+        MobileTicketAPI.setTicketToken(this.config.getConfig('create_ticket_token'));
     }
 
     createTicket(bEntity: BranchEntity, sEntity: ServiceEntity, resolve) {
@@ -190,6 +190,7 @@ export class AuthGuard implements CanActivate {
         let custom3 = '';
         let custom4 = '';
         let queryParameters = this.config.getConfig('customer_data').additional_data.value.trim().split(',');
+        MobileTicketAPI.setQueryParameters(queryParameters);
 
         if(queryParameters.length > 0 ) {
             let custom3_ =  route.queryParams[queryParameters[0].trim()];
@@ -198,6 +199,24 @@ export class AuthGuard implements CanActivate {
         if (queryParameters.length > 1) {
             let custom4_ =  route.queryParams[queryParameters[1].trim()];
             custom4 = custom4_;
+        }
+
+        let branchSelectionRegex = new RegExp("\/branches\/[0-9]+[?]");
+        
+        if(url.startsWith('/?') || branchSelectionRegex.test(url)){
+
+            if(queryParameters.length > 0){
+                let custom3_ =  route.queryParams[queryParameters[0].trim()];
+                const paramName = queryParameters[0].trim();
+                if(custom3_) MobileTicketAPI.setCustom3ToLocalStorage( [paramName, custom3]); 
+            }
+
+            if(queryParameters.length > 1){
+                let custom4_ =  route.queryParams[queryParameters[0].trim()];
+                const paramName = queryParameters[0].trim();
+                if(custom4_) MobileTicketAPI.setCustom4ToLocalStorage( [paramName, custom4]);
+            }
+            
         }
 
         if (url.startsWith('/branches/') || url.endsWith('/branches') || url.endsWith('/branches;redirect=true')) {

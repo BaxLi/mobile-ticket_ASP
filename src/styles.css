@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body {
   /* These styles are to stop text selection on longpress mobile browsers*/
-  -moz-user-select:none;
-  -webkit-user-select:none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   background: var(--app-bg-primary-color);
@@ -32,7 +32,7 @@ body.no-touch .branch-btn:hover {
   text-align: center;
 }
 
-.inner-margin-separator{
+.inner-margin-separator {
   padding-top: 0px;
   padding-top: 0px;
   overflow: auto;
@@ -104,16 +104,18 @@ div.row {
   width: 6px;
   display: unset;
 }
+
 ::-webkit-scrollbar-thumb {
   box-shadow: none;
   border-radius: 20px;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
 }
+
 ::-webkit-scrollbar-track {
   box-shadow: none;
   border-radius: 10px;
   width: 6px;
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, .2);
 }
 
 /* Animation */
@@ -121,6 +123,7 @@ div.row {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -148,7 +151,7 @@ div.row {
 }
 
 /* Small phones */
-@media (max-width: 450px){
+@media (max-width: 450px) {
   .sub-heading-text-1 {
     font-size: 27px;
     color: #000;
@@ -169,14 +172,14 @@ div.row {
   }
 
   .accent-btn {
-    width: 250px;
+    width: 85%;
     margin: 0 auto;
     line-height: 1.25em;
     /* padding: 15px; */
     background: rgba(157, 0, 58, 0.58);
     border-radius: 250px;
     color: #FFFFFF;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
   }
 }
@@ -195,12 +198,12 @@ div.row {
   vertical-align: middle;
 }
 
-span.iti__country-name{
+span.iti__country-name {
   color: #000;
 }
 
-.custom.text-color{
-  color: rgb(0,0,0) !important;
+.custom.text-color {
+  color: rgb(0, 0, 0) !important;
   color: var(--general-text-color) !important;
 }
 
@@ -221,6 +224,7 @@ span.iti__country-name{
   color: var(--service-group-text-color) !important;
   fill: var(--service-group-text-color) !important;
 }
+
 .custom.group-btn-color {
   background-color: var(--group-button-background) !important;
 }
@@ -240,13 +244,14 @@ span.iti__country-name{
 .custom.footer-logo {
   content: var(--footer-logo) !important;
 }
+
 .custom.logo-bg-color {
   background: var(--brand-logo-background) !important;
 }
 
-:root { 
+:root {
   --link-text: #0079C2;
-  --eror-text:#cc1800;
+  --eror-text: #cc1800;
   --footer-background: white;
   --primary_button_background_dark: #20201F;
   --primary_button_background_light: #FFFFFF;
@@ -255,16 +260,17 @@ span.iti__country-name{
   --list-button-background: var(--primary-bg-color);
   --list-button-background-selected: var(--secondary-bg-color);
   --list_button_hover: var(--primary-bg-color);
-  --list_button_oval_background : #FFFFFF;
+  --list_button_oval_background: #FFFFFF;
   --list-button-text: var(--primary-text-color);
-  --list_button_text_light: var( --secondary-text-color);
-  --leave_button_background:transparent;
-  --secondary_background_light:var(--primary-bg-color); 
+  --list_button_text_light: var(--secondary-text-color);
+  --leave_button_background: transparent;
+  --secondary_background_light: var(--primary-bg-color);
   --secondary_background_dark: var(--secondary-bg-color);
   --secondary_text_dark: var(--primary-text-color);
-  --secondary_text_light: var( --secondary-text-color);
+  --secondary_text_light: var(--secondary-text-color);
   --queue-component-background: var(--primary-bg-color);
 }
+
 :focus-visible {
   outline: -webkit-focus-ring-color auto 4px;
 }

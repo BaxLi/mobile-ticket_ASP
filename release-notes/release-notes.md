@@ -55,6 +55,12 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-922** | **Update jQuery library into the latest version** |
 | **MOB-935** | **Additional Customer Information URL feature does not work on certain preselect functions** |
 
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-921** | **Mobile Ticket does not work well on iPhone SE** |
+
 ----------
 
 <h2> Version 2.3.0 </h2>

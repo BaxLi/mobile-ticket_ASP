@@ -44,11 +44,12 @@
       <app-ticket #ticketNumberComponent [isCalled] = "isVisitCall" [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isAfterCalled]="isAfterCalled"></app-ticket>
     </div>
     
-    <div [hidden]="!isVisitCall || !isMeetingAvailable" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
-      <app-visit-cancel #cancelVisitComponent [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isVisitCall]="isVisitCall"></app-visit-cancel>
-    </div>
+
   </div>
 </div>
+</div>
+<div [hidden]="!isVisitCall || !isMeetingAvailable" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
+  <app-visit-cancel #cancelVisitComponent [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isVisitCall]="isVisitCall"></app-visit-cancel>
 </div>
 <div [hidden]="isVisitCall && !isVisitRecycled || redirectUrlLoading" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
   <app-visit-cancel #cancelVisitComponent [isDelayFuncAvailable]="isDelayFuncAvailable" [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" (deletedByUser)="deletedByUser($event)"></app-visit-cancel>

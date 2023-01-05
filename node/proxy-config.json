@@ -41,7 +41,7 @@
   },
   "cipher_set": {
     "value": [],
-    "description": "Flag indicating cipher set which use in the server. Fill the value like this. ['ECDHE-RSA-AES128-SHA256', 'DHE-RSA-AES128-SHA256', 'AES128-GCM-SHA256']. Keep it empty when not going to modify."
+    "description": "Flag indicating cipher set which uses in the server. Fill in the value like this. ['ECDHE-RSA-AES128-SHA256', 'DHE-RSA-AES128-SHA256', 'AES128-GCM-SHA256'] (Replace the single quotes with the double quotes). Keep it empty when not going to modify."
   },
   "allow_origins": {
     "value": [],

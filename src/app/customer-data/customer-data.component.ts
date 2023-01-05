@@ -36,6 +36,8 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public phoneNumber: string;
   public phoneNumberObject: any;
   public customerId: string;
+  public firstName: string = '';
+  public lastName: string = '';
   public phoneNumberError: boolean;
   public PhoneNumberMandatoryError: boolean;
   public customerIdError: boolean;
@@ -67,6 +69,8 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public isSkipVisible = true;
   public isPhoneNumberMandatory: boolean;
   public isPrivacyPolicyAgreed: boolean;
+  public isFirstNameEnabled: boolean;
+  public isLastNameEnabled: boolean;
 
   constructor(
     private translate: TranslateService,
@@ -125,10 +129,13 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     // commented due to MOB-607
    // MobileTicketAPI.setPhoneNumber('');
     MobileTicketAPI.setCustomerId('');
+    MobileTicketAPI.setFirstName('');
+    MobileTicketAPI.setLastName('');
     this.isCustomerPhoneDataEnabled = (this.config.getConfig('customer_data').phone_number.value === 'enable' || this.config.getConfig('customer_data').phone_number.value === 'mandatory' ) ? true : false;
     this.isCustomerIdEnabled =  this.config.getConfig('customer_data').customerId.value === 'enable' ? true : false;
     this.isPhoneNumberMandatory =  this.config.getConfig('customer_data').phone_number.value === 'mandatory' ? true : false;
-
+    this.isFirstNameEnabled = this.config.getConfig('customer_data').first_name.value === 'enable' ? true : false;
+    this.isLastNameEnabled = this.config.getConfig('customer_data').last_name.value === 'enable' ? true : false;
     // if (this.phoneNumber && (this.phoneNumber !== this.countryCode) && this.activeConsentEnable === 'enable') {
     //   this.phoneSectionState = phoneSectionStates.PRIVACY_POLICY;
     // }
@@ -220,6 +227,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
           if (this.customerId.trim() !== '') {
             MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
           }
+          if (this.firstName !== '' || this.lastName !== '') {
+            MobileTicketAPI.setFirstName(this.firstName.trim());
+            MobileTicketAPI.setLastName(this.lastName.trim());
+          }
           if (isPrivacyAgreed || this.isPrivacyEnable !== 'enable' || this.activeConsentEnable !== 'enable') {
             this.createVisit()
           } else {
@@ -234,13 +245,21 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
         }
 
     // phone not matching phone and no phone number
-    } else if (this.customerId.trim() !== '' && this.phoneNumber.trim() === '') {
+    } else if ((this.customerId.trim() !== '' || this.firstName !== '' || this.lastName !== '') && this.phoneNumber.trim() === '') {
+
       if (this.customerId.length > 255) {
         this.customerIdMaxError = true;
       } else {
-      MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
+        if (this.customerId.trim() !== '') {
+          MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
+        }
+        if (this.firstName !== '' || this.lastName !== '') {
+          MobileTicketAPI.setFirstName(this.firstName.trim());
+          MobileTicketAPI.setLastName(this.lastName.trim());
+        }
       this.createVisit()
       }
+
     } else { // if not matching phone and phone number exists
       this.phoneNumberError = true;
       if (this.customerId.length > 255) {
@@ -249,11 +268,17 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
         this.customerIdError = true;
       }
     }
-    } else if (this.customerId.trim() !== '') { // If customer phone data is disabled and only customer id is enabled
+    } else if (this.customerId.trim() !== ''  || this.firstName !== '' || this.lastName !== '') { // If customer phone data is disabled and only customer id is enabled
         if (this.customerId.length > 255) {
           this.customerIdMaxError = true;
         } else {
-        MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
+          if (this.customerId.trim() !== '') {
+            MobileTicketAPI.setCustomerId((this.customerId.toString().trim()));
+          }
+          if (this.firstName !== '' || this.lastName !== '') {
+            MobileTicketAPI.setFirstName(this.firstName.trim());
+            MobileTicketAPI.setLastName(this.lastName.trim());
+          }
         this.createVisit()
         }
     } else { // if no customer id
@@ -272,6 +297,11 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.customerIdError = false;
     this.phoneNumberError = false;
     this.customerIdMaxError = false;
+  }
+
+  onNameFieldsChanged() {
+    this.customerIdError = false;
+    this.phoneNumberError = false;
   }
 
   onCustomerIdChangedEnter(event) {

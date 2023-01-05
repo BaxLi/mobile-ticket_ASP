@@ -12,7 +12,7 @@
     "description": "Enable or disable geofencing on landing pages, 'on = enable',  'off = disable', 'mandatory = geo fencing is enabled and allow location service is mandatory' . geofencing will only work on https protocol. if geofencing disabled, branch radius and appointment radius will be discarded"
   },
   "version": {
-    "value": "2.4.0",
+    "value": "2.5.0",
     "description": "MobileTicket version [depreciated key. version in package.json and release notes instead]"
   },
   "customer_feedback": {
@@ -153,6 +153,14 @@
         "value": "disable",
         "description": "Enable or disable customer phone number field in customer data section, 'enable => phone number field is visible but not mandatory', 'disable => phone number field is not visible' , 'mandatory => phone number field is visible and mandatory'"
       },
+      "first_name": {
+        "value": "disable",
+        "description": "Enable or disable customer first name field in customer data section, 'on = enable', 'off = disable'"
+      },
+      "last_name": {
+        "value": "disable",
+        "description": "Enable or disable customer last name field in customer data section, 'on = enable', 'off = disable'"
+      },
       "customerId": {
         "value": "disable",
         "description": "Enable or disable customer id field in customer data section, 'on = enable', 'off = disable'"
@@ -162,7 +170,7 @@
         "description": "Enable or disable additional customer data on creating ticket URL/service group URL/service selection URL/No preselect URL, that is using in query parameter. Maximum of two comma separated values are expected."
       }
     },
-    "description": "Enable or disable customer id or phone number in customer area. If both are disabled customer data section will be hidden"
+    "description": "Enable or disable customer id, first name, last name or phone number in customer area. If nothing enabled, customer data section will be hidden"
   },
   "delay_visit": {
     "value": {

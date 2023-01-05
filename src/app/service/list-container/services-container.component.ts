@@ -143,7 +143,9 @@ export class ServicesContainerComponent implements OnInit {
 
     private takeTicket(): void {
         let customerPhoneData = this.config.getConfig('customer_data').phone_number.value;   
-        let customerIdData = this.config.getConfig('customer_data').customerId.value;   
+        let customerIdData = this.config.getConfig('customer_data').customerId.value; 
+        let isFirstNameEnabled = this.config.getConfig('customer_data').first_name.value;
+        let isLastNameEnabled = this.config.getConfig('customer_data').last_name.value;  
         let OtpService = this.config.getConfig('otp_service');   
         let isDeviceBounded  =  this.config.getConfig('block_other_browsers');
         if (!this.isTakeTicketClickedOnce) {
@@ -167,9 +169,12 @@ export class ServicesContainerComponent implements OnInit {
                             clientId = '';
                         }
                     });
-                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') || customerIdData === 'enable') {
+                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') || customerIdData === 'enable'
+                    || isFirstNameEnabled === 'enable'  || isLastNameEnabled === 'enable') {
                         MobileTicketAPI.setPhoneNumber('');
                         MobileTicketAPI.setCustomerId('');
+                        MobileTicketAPI.setFirstName('');
+                     MobileTicketAPI.setLastName('');
                         this.router.navigate(['customer_data']);
                     } else if (OtpService === 'enable'){
                         MobileTicketAPI.setOtpPhoneNumber('');

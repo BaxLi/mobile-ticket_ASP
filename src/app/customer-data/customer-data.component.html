@@ -8,12 +8,34 @@
   <div [hidden]="showNetWorkError">
     <div class="row">
       <div class="customer-data-container" id="customer-data-container">
+        <h4 class="customer-data-title" *ngIf="isFirstNameEnabled || isLastNameEnabled">
+          {{'customer_info.customerInformation' | translate }}</h4>
+        <!-- first name section -->
+        <div *ngIf="!showLoader && isFirstNameEnabled">
+          <div class="qm-customer-field">
+            <div class="phone-num-text phone-number-text"> {{'customer_info.firstName' | translate}}
+            </div>
+            <input type="text" class="customer-id-input" [(ngModel)]="firstName" (change)="onNameFieldsChanged()"
+              (keyup)="onNameFieldsChanged()" placeholder="{{'customer_info.first_name_placeholder' | translate}}">
+          </div>
+        </div>
+        <!-- end first name section -->
+        <!-- last name section -->
+        <div *ngIf="!showLoader && isLastNameEnabled">
+          <div class="qm-customer-field">
+            <div class="phone-num-text phone-number-text"> {{'customer_info.lastName' | translate}}
+            </div>
+            <input type="text" class="customer-id-input" [(ngModel)]="lastName" (change)="onNameFieldsChanged()"
+              (keyup)="onNameFieldsChanged()" placeholder="{{'customer_info.last_name_placeholder' | translate}}">
+          </div>
+        </div>
+        <!-- end last name section -->
         <div class="customer-phone" *ngIf="isCustomerPhoneDataEnabled">
           <div *ngIf="!showLoader" class="custom-phone-card">
             <div class="text-color phone-heading-one"> {{'customer_info.phoneNumberHeadingOne' | translate}}</div>
             <ul class="phone-description">
-              <li> {{'customer_info.firstAdvantageByEnteringPhone' | translate}} </li>
-              <li> {{'customer_info.secondAdvantageByEnteringPhone' | translate}} </li>
+              <li *ngIf="'customer_info.firstAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.firstAdvantageByEnteringPhone' | translate">  </li>
+              <li *ngIf="'customer_info.secondAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.secondAdvantageByEnteringPhone' | translate"> </li>
             </ul>
             <div class="customer-phone__number-container">
               <div class="phone-num">
@@ -75,38 +97,46 @@
                     </div>
                     <div style="padding: 0 10px; font-size: 16px; opacity: 0.6;"
                       *ngIf="activeConsentEnable !== 'enable'">
-                      {{'customer_info.agreeDescription' | translate}} 
+                      {{'customer_info.agreeDescription' | translate}}
                     </div>
                   </div>
                   <div class="privacy-read-container custom link-text-color">
-                    <svg  style="width: 32px;" xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22" fill="none">
-                      <path d="M1.19 3.37625C0.47 3.69625 0 4.41625 0 5.20625V9.90625C0 15.4563 3.84 20.6462 9 21.9062C14.16 20.6462 18 15.4563 18 9.90625V5.20625C18 4.41625 17.53 3.69625 16.81 3.37625L9.81 0.26625C9.29 0.03625 8.7 0.03625 8.19 0.26625L1.19 3.37625ZM9 5.90625C9.55 5.90625 10 6.35625 10 6.90625C10 7.45625 9.55 7.90625 9 7.90625C8.45 7.90625 8 7.45625 8 6.90625C8 6.35625 8.45 5.90625 9 5.90625ZM9 9.90625C9.55 9.90625 10 10.3562 10 10.9062V14.9062C10 15.4563 9.55 15.9062 9 15.9062C8.45 15.9062 8 15.4563 8 14.9062V10.9062C8 10.3562 8.45 9.90625 9 9.90625Z" fill="#0079C2"/>
-                      </svg>
-                    <div style="margin: 0 10px" > 
+                    <svg style="width: 32px;" xmlns="http://www.w3.org/2000/svg" width="18" height="22"
+                      viewBox="0 0 18 22" fill="none">
+                      <path
+                        d="M1.19 3.37625C0.47 3.69625 0 4.41625 0 5.20625V9.90625C0 15.4563 3.84 20.6462 9 21.9062C14.16 20.6462 18 15.4563 18 9.90625V5.20625C18 4.41625 17.53 3.69625 16.81 3.37625L9.81 0.26625C9.29 0.03625 8.7 0.03625 8.19 0.26625L1.19 3.37625ZM9 5.90625C9.55 5.90625 10 6.35625 10 6.90625C10 7.45625 9.55 7.90625 9 7.90625C8.45 7.90625 8 7.45625 8 6.90625C8 6.35625 8.45 5.90625 9 5.90625ZM9 9.90625C9.55 9.90625 10 10.3562 10 10.9062V14.9062C10 15.4563 9.55 15.9062 9 15.9062C8.45 15.9062 8 15.4563 8 14.9062V10.9062C8 10.3562 8.45 9.90625 9 9.90625Z"
+                        fill="#0079C2" />
+                    </svg>
+                    <div style="margin: 0 10px">
                       {{'customer_info.readDescription' | translate}}
-                      <span
-                          class="privacy-policy-link custom link-text-color" id="privacy_element"
-                          (click)="privacyLinkButtonPressed()"> {{'customer_info.privacyPolicy' | translate}}
-                        </span> </div>  
+                      <span class="privacy-policy-link custom link-text-color" id="privacy_element"
+                        (click)="privacyLinkButtonPressed()"> {{'customer_info.privacyPolicy' | translate}}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div *ngIf="activeConsentEnable == 'enable'" >
+                <div *ngIf="activeConsentEnable == 'enable'">
                   <div style="display: flex">
-                    <label class="container"> <span class="agree-text">{{'customer_info.activeConsentDescription' | translate}} </span>
-                      <input type="checkbox" checked="checked"  id="active-consent-checkbox" [(ngModel)]="isPrivacyPolicyAgreed">
+                    <label class="container"> <span class="agree-text">{{'customer_info.activeConsentDescription' |
+                        translate}} </span>
+                      <input type="checkbox" checked="checked" id="active-consent-checkbox"
+                        [(ngModel)]="isPrivacyPolicyAgreed">
                       <span class="checkmark"></span>
                     </label>
-                  </div>          
+                  </div>
                   <div class="privacy-read-container custom link-text-color">
-                    <svg  style="width: 32px;" xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22" fill="none">
-                      <path d="M1.19 3.37625C0.47 3.69625 0 4.41625 0 5.20625V9.90625C0 15.4563 3.84 20.6462 9 21.9062C14.16 20.6462 18 15.4563 18 9.90625V5.20625C18 4.41625 17.53 3.69625 16.81 3.37625L9.81 0.26625C9.29 0.03625 8.7 0.03625 8.19 0.26625L1.19 3.37625ZM9 5.90625C9.55 5.90625 10 6.35625 10 6.90625C10 7.45625 9.55 7.90625 9 7.90625C8.45 7.90625 8 7.45625 8 6.90625C8 6.35625 8.45 5.90625 9 5.90625ZM9 9.90625C9.55 9.90625 10 10.3562 10 10.9062V14.9062C10 15.4563 9.55 15.9062 9 15.9062C8.45 15.9062 8 15.4563 8 14.9062V10.9062C8 10.3562 8.45 9.90625 9 9.90625Z" fill="#0079C2"/>
-                      </svg>
-                    <div style="margin: 0 10px" > 
+                    <svg style="width: 32px;" xmlns="http://www.w3.org/2000/svg" width="18" height="22"
+                      viewBox="0 0 18 22" fill="none">
+                      <path
+                        d="M1.19 3.37625C0.47 3.69625 0 4.41625 0 5.20625V9.90625C0 15.4563 3.84 20.6462 9 21.9062C14.16 20.6462 18 15.4563 18 9.90625V5.20625C18 4.41625 17.53 3.69625 16.81 3.37625L9.81 0.26625C9.29 0.03625 8.7 0.03625 8.19 0.26625L1.19 3.37625ZM9 5.90625C9.55 5.90625 10 6.35625 10 6.90625C10 7.45625 9.55 7.90625 9 7.90625C8.45 7.90625 8 7.45625 8 6.90625C8 6.35625 8.45 5.90625 9 5.90625ZM9 9.90625C9.55 9.90625 10 10.3562 10 10.9062V14.9062C10 15.4563 9.55 15.9062 9 15.9062C8.45 15.9062 8 15.4563 8 14.9062V10.9062C8 10.3562 8.45 9.90625 9 9.90625Z"
+                        fill="#0079C2" />
+                    </svg>
+                    <div style="margin: 0 10px">
                       {{'customer_info.readDescription' | translate}}
-                      <span
-                          class="privacy-policy-link custom link-text-color" id="privacy_element"
-                          (click)="privacyLinkButtonPressed()"> {{'customer_info.privacyPolicy' | translate}}
-                        </span> </div>  
+                      <span class="privacy-policy-link custom link-text-color" id="privacy_element"
+                        (click)="privacyLinkButtonPressed()"> {{'customer_info.privacyPolicy' | translate}}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <!-- <div class="btn-understood-container">
@@ -227,7 +257,8 @@
           </div>
         </div>
         <div *ngIf="!showLoader">
-          <div class="qm-customer-id" *ngIf="isCustomerIdEnabled && phoneSectionState === phoneSectionStates.INITIAL">
+          <div class="qm-customer-field"
+            *ngIf="isCustomerIdEnabled && phoneSectionState === phoneSectionStates.INITIAL">
             <div class="qm-customer-id-details phone-num-text custom text-color">
               {{'customer_info.id_details' | translate}}
             </div>

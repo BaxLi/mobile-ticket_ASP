@@ -1,26 +1,32 @@
-.selected-branch{
+.selected-branch {
   text-align: center;
   color: white;
 }
+
 .selected-branch-title {
   margin: 30px 0 0 10px;
   font-size: 16px;
 }
+
 .selected-branch-name {
   font-size: 24px;
 }
+
 .selected-service {
   text-align: center;
   color: white;
 }
+
 .selected-service-title {
   margin: 30px 0 0 10px;
   font-size: 16px;
 }
+
 .selected-service-name {
   font-size: 24px;
 }
-.skip-button{
+
+.skip-button {
   background: var(--primary_button_background_light);
   line-height: 1.3em;
   border: 1px solid var(--primary_button_text_dark);
@@ -30,6 +36,7 @@
   align-items: center;
   font-weight: 500;
 }
+
 .skip-button:hover {
   background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -41,41 +48,51 @@
   width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
   font-family: Roboto-Regular;
 }
+
 .customer-phone__number-container {
   background: white;
   /* border-bottom: 2px solid #bc0e3d; */
   color: white;
   height: 60px;
 }
-.phone-num{
-display: flex;
-height: 55px;
-border: 1px solid #63635E;
-border-radius: 5px;
-@media (max-width: 450px), (max-height: 450px){
-  width: 250px;
-  margin: auto;
+
+.phone-num {
+  display: flex;
+  height: 55px;
+  border: 1px solid #63635E;
+  border-radius: 5px;
+
+  @media (max-width: 450px),
+  (max-height: 450px) {
+    width: 250px;
+    margin: auto;
+  }
 }
-}
+
 .phone-container-icon {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+
 .phone-icon {
-  fill: rgba(0, 0, 0, 0.54);;
+  fill: rgba(0, 0, 0, 0.54);
+  ;
   margin: 10px;
 }
-.send-icon{
+
+.send-icon {
   fill: white;
   margin: 10px;
   cursor: pointer;
 }
-.edit-icon{
+
+.edit-icon {
   fill: white;
   margin: 10px;
 }
-.phone-num-text{
+
+.phone-num-text {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .15px;
@@ -86,23 +103,25 @@ border-radius: 5px;
 }
 
 .phone-text-icon {
-width: 50px;
+  width: 50px;
 }
 
 .phone-num-botton-text {
-font-size: 16px;
-font-weight: 400;
-letter-spacing: .15px;
-color: var(--general-text-color) !important;
-margin: 0;
-font-family: 'Roboto-Regular';
-display: flex;
-opacity: 0.6;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .15px;
+  color: var(--general-text-color) !important;
+  margin: 0;
+  font-family: 'Roboto-Regular';
+  display: flex;
+  opacity: 0.6;
 }
+
 .svg-path {
-fill: var(--general-text-color) !important;
-opacity: 0.6;
+  fill: var(--general-text-color) !important;
+  opacity: 0.6;
 }
+
 .phone-num-input {
   background: transparent;
   caret-color: #A71D3D;
@@ -114,44 +133,52 @@ opacity: 0.6;
   padding: 5px;
   border-radius: 8px;
   border: none;
- 
+
 }
+
 .phone-num-input:focus {
-border: none;
-outline: none;
+  border: none;
+  outline: none;
 }
+
 .phone-num-input_ {
   caret-color: #A71D3D;
   color: rgba(0, 0, 0, 0.82);
-  font-size: 16px; 
+  font-size: 16px;
   z-index: 1;
 }
 
 
-.custom ul{
-margin: 0 0 0 0px !important;
-font-size: larger;
+.custom ul {
+  margin: 0 0 0 0px !important;
+  font-size: larger;
 }
+
 .phone-num-input-container {
   margin: 14px 10px;
   flex-grow: 1;
   align-items: center;
   display: flex;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(0, 0, 0, 0.62);
-  opacity: 0.6; /* Firefox */
+  opacity: 0.6;
+  /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: rgba(0, 0, 0, 0.62);
   opacity: 0.6;
 }
 
 .phone-num-bottom-section {
-    background: white;
-    padding: 22px 10px;
+  background: white;
+  padding: 22px 10px;
 }
+
 .phone-num-bottom-initial-topic {
   font-size: 12px;
   font-weight: 500;
@@ -159,6 +186,7 @@ font-size: larger;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 .phone-devider {
   width: 100px;
   left: 0px;
@@ -175,25 +203,30 @@ font-size: larger;
   border-left-color: initial;
   border-image: initial;
 }
+
 .phone-num-points-container {
-    display: flex;
+  display: flex;
 }
-.point-icon-container{
-    margin: 0 10px;
+
+.point-icon-container {
+  margin: 0 10px;
 }
+
 .phone-num-points-text {
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.4px;
   font-weight: 500;
-  color: rgba(0,0,0,.6);
+  color: rgba(0, 0, 0, .6);
 }
+
 .phone-num-error {
   font-size: 12px;
   color: var(--eror-text);
-  margin:0 2px;
+  margin: 0 2px;
   padding: 8px 10px;
 }
+
 .phone-number-text {
   text-align: left;
   background: white;
@@ -206,6 +239,7 @@ font-size: larger;
   align-items: center;
   z-index: 5;
 }
+
 .county-code-container {
   width: 100%;
   height: 100%;
@@ -213,55 +247,65 @@ font-size: larger;
 }
 
 .privacy-container {
-    display: flex;
-    // padding: 20px 0;
+  display: flex;
+  // padding: 20px 0;
 }
+
 .privacy-upper-container {
   // padding: 20px;
 }
+
 .privacy-read-container {
   display: flex;
   align-items: center;
   padding-top: 30px;
-  color:#0079C2;
+  color: #0079C2;
 }
+
 .message-icon {
-    margin: 0 10px;
+  margin: 0 10px;
 }
+
 .btn-understood {
   font-size: 14px;
   color: #0079C2;
   color: var(--pop-up-button-text-color);
   text-transform: uppercase;
   font-weight: 500;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0, 0, 0, .12);
   padding: 8px 20px;
   cursor: pointer;
   border-radius: 40px;
   margin: 20px 0;
 }
+
 .btn-understood-container {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
+
 .privacy-policy-link {
   cursor: pointer;
   text-decoration: underline;
 }
+
 .phone-num-display {
   font-size: 16px;
   letter-spacing: .15px;
-  color: hsla(0,0%,100%,.38);
+  color: hsla(0, 0%, 100%, .38);
   display: block;
 }
-.button-container{
+
+.button-container {
   display: flex;
   justify-content: flex-end;
 }
+
 .button-inner-container {
-    display: flex;
-    width: 220px;
+  display: flex;
+  width: 220px;
 }
+
 .phone-secondary-btn {
   font-family: Roboto-Regular;
   text-transform: uppercase;
@@ -270,7 +314,7 @@ font-size: larger;
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  border: none!important;
+  border: none !important;
   font-size: 16px;
   margin: auto;
   outline: none;
@@ -281,17 +325,19 @@ font-size: larger;
   line-height: 1.14;
   font-weight: 500;
 }
+
 .edit-mode-policy-link {
   color: #a9023b;
   cursor: pointer;
   text-decoration: underline;
-  display:block
+  display: block
 }
+
 .edit-mode-policy-link::first-letter {
   text-transform: capitalize;
- }
+}
 
- .bottom_button {
+.bottom_button {
   /* background: #b30042; */
   font-family: Roboto-Medium;
   cursor: pointer;
@@ -312,69 +358,87 @@ font-size: larger;
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  @media (max-width: 450px){
+
+  @media (max-width: 450px) {
     width: 250px;
   }
- }
- .send_button:hover {
+}
+
+.send_button:hover {
   // font-family: Roboto-Bold;
   //  font-weight: 400;
- }
-.privcay-container-bottom {
-margin: 30px 0;
-letter-spacing: 0.25px;
-font-size: 16px;
 }
+
+.privcay-container-bottom {
+  margin: 30px 0;
+  letter-spacing: 0.25px;
+  font-size: 16px;
+}
+
 .qm-customer-id-details {
-background-color: white;
-padding: 25px;
+  background-color: white;
+  padding: 25px;
 }
 
 .customer-id-error {
-font-size: 12px;
-color: var(--eror-text);
-background: white;
-padding: 10px 15px;
+  font-size: 12px;
+  color: var(--eror-text);
+  background: white;
+  padding: 10px 15px;
 }
+
 .custom-phone-card {
-overflow-x: hidden;
-position: relative;
-z-index: 999;
-padding: 5px 10px 0 10px;
-background: white;
-border-radius: 10px;
-padding: 15px;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 999;
+  padding: 5px 10px 0 10px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
 }
+
 .customer-data-container {
-height: calc(100vh - 20em);
-overflow: auto;
-scrollbar-width: thin;
-overflow-x: hidden;
+  height: calc(100vh - 20em);
+  overflow: auto;
+  scrollbar-width: thin;
+  overflow-x: hidden;
 }
+
 #phone {
-font-size: 16px;
+  font-size: 16px;
 }
+
 // @media only screen and (max-height: 600px) { 
 //   .customer-data-container {
 //     height: calc(100vh - 16em);
 //     overflow: auto;
 //   }
 // }
-.secondary-btn:hover {
-background: rgba(255, 255, 255, 0.2);
+.customer-data-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 5px 25px;
+  color: var(--general-text-color);
+  text-align: center;
 }
-.qm-customer-id {
-margin: 10px auto;
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.qm-customer-field {
+  margin: 10px auto;
   max-width: calc((9 * 40px) + 50px + (2px * 10) + 1px);
   width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
   font-family: Roboto-Regular;
   position: relative;
   background: white;
-  padding: 10px;
+  padding: 12px 10px;
   border-radius: 10px;
 }
+
 .customer-id-input {
-border: none;
+  border: none;
   /* background: transparent; */
   caret-color: #bc0e3d;
   color: rgba(0, 0, 0, 0.82);
@@ -390,164 +454,188 @@ border: none;
 
 
 /* Small phones */
-@media (max-width: 400px){
+@media (max-width: 400px) {
 
-  .customer-phone  {
+  .customer-phone {
     max-width: calc((9 * 35px) + 45px + (2px * 10) + 1px);
     width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
   }
-  .phone-num-error { 
+
+  .phone-num-error {
     font-size: 9px;
   }
+
   .center-text {
     // margin-top: -16px;
   }
 }
 
-html, body {position:fixed; margin: 0; height: 100%; overflow: hidden}
+html,
+body {
+  position: fixed;
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}
 
 
 
-:host {::ng-deep { 
-.form-control {
-  height: 55px !important;
-  width: 100% !important;
-  background: transparent;
+:host {
+  ::ng-deep {
+    .form-control {
+      height: 55px !important;
+      width: 100% !important;
+      background: transparent;
+    }
+
+    .iti {
+      width: 100% !important;
+    }
+
+    .form-control:focus {
+      box-shadow: none !important;
+    }
+  }
 }
-.iti { 
-  width: 100% !important;
-}
-.form-control:focus {
-  box-shadow: none !important;
-}
-}}
 
 .sub-heading-text-2 {
-width: 90% !important;
-padding-bottom: 2em;
+  width: 90% !important;
+  padding-bottom: 2em;
 }
 
 .table-child-footer {
-position: absolute;
-width: 100%;
-margin: auto;
-left: 0;
-right: 0;
-bottom: 18px;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 18px;
 }
-.icon-svg {
-margin: 0 5px;
-}
-.phone-heading-one {
-text-align: start;
-font-size: 16px;
-font-weight: 800;
-margin: 5px 25px;
-}
-.phone-description {
-margin: 0 10px 35px 10px;
-font-size: 16px;
-li{
-  padding: 0 15px;
-}
-}
-:host {::ng-deep { 
-.form-control {
-  height: 55px !important;
-  width: 100% !important;
-}
-.iti { 
-  width: 100% !important;
-}
-.form-control:focus {
-  box-shadow: none !important;
-  border: none;
-}
-input{
-  border: none;
-  outline: none;
-}
-}}
 
-input[type="checkbox"]{
-width: 40px;
-height: 25px;
-// margin: 0 10px;
+.icon-svg {
+  margin: 0 5px;
 }
+
+.phone-heading-one {
+  text-align: start;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 5px 25px;
+}
+
+.phone-description {
+  margin: 0 10px 35px 10px;
+  font-size: 16px;
+
+  li {
+    padding: 0 15px;
+  }
+}
+
+:host {
+  ::ng-deep {
+    .form-control {
+      height: 55px !important;
+      width: 100% !important;
+    }
+
+    .iti {
+      width: 100% !important;
+    }
+
+    .form-control:focus {
+      box-shadow: none !important;
+      border: none;
+    }
+
+    input {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 25px;
+  // margin: 0 10px;
+}
+
 .svg-path-buttons {
-fill: var(--secondary-btn-text-color);
+  fill: var(--secondary-btn-text-color);
 }
+
 .agree-text {
-font-weight: 500;
+  font-weight: 500;
 }
 
 
 
 /* The container */
 .container {
-display: block;
-position: relative;
-padding-left: 35px;
-margin-bottom: 12px;
-cursor: pointer;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Hide the browser's default checkbox */
 .container input {
-position: absolute;
-opacity: 0;
-cursor: pointer;
-height: 0;
-width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-position: absolute;
-top: 4px;
-left: 0;
-height: 22px;
-width: 22px;
-background-color: #eee;
-border-radius: 5px;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #eee;
+  border-radius: 5px;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-background-color: #ccc;
+.container:hover input~.checkmark {
+  background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-background-color:#3C817A;
-border-radius: 5px;
+.container input:checked~.checkmark {
+  background-color: #3C817A;
+  border-radius: 5px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-content: "";
-position: absolute;
-display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-display: block;
+.container input:checked~.checkmark:after {
+  display: block;
 }
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-left: 8px;
-top: 2px;
-width: 7px;
-height: 15px;
-border: solid white;
-border-width: 0 3px 3px 0;
--webkit-transform: rotate(45deg);
--ms-transform: rotate(45deg);
-transform: rotate(45deg);
+  left: 8px;
+  top: 2px;
+  width: 7px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

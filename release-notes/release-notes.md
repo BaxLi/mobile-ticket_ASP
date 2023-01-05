@@ -40,6 +40,28 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+<h2> Version 2.5.0 </h2>
+
+**Date: 2023-01-04**
+ 
+**Build number: 5**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-958** | **Enter First & Last Name in Mobile Ticket** |
+
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-950** | **Description cipher usage in proxy-config is not correct** |
+| **MOB-937** | **CSS issue - Incorrect footer text color** |
+| **MOB-962** | **Mobile Ticket - Hide Some Components** |
+
+----------
+
 <h2> Version 2.4.0 </h2>
 
 **Date: 2022-10-12**

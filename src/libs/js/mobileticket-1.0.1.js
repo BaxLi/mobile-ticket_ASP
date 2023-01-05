@@ -10921,7 +10921,11 @@ var MobileTicketAPI = (function () {
   var branches = [];
   var services = [];
   var enteredPhoneNum = '';
+  var enteredFirstName = '';
+  var enteredLastName = '';
   var enteredPhoneNumObj = {};
+  var enteredFirstNameObj = {};
+  var enteredLastNameObj = {};
   var separateCountryCode = {};
   var enteredCustomerId = '';
   var enteredOtpPhoneNum = '';
@@ -10988,7 +10992,7 @@ var MobileTicketAPI = (function () {
   $.ajaxSetup({
     beforeSend: function (xhr) {
       xhr.setRequestHeader("Accept", "application/json");
-      xhr.setRequestHeader("auth-token", "d0516eee-a32d-11e5-bf7f-feff819cdc9f"); //Change the api token with your one      
+      xhr.setRequestHeader("auth-token", "1234"); //Change the api token with your one      
     }
   });
 
@@ -11095,6 +11099,12 @@ var MobileTicketAPI = (function () {
   function removePhoneNumber() {
     MobileTicketAPI.enteredPhoneNum = '';
   }
+  function removeFirstName() {
+    MobileTicketAPI.enteredFirstName = '';
+  }
+  function removeLastName() {
+    MobileTicketAPI.enteredLastName = '';
+  }
   function removeCustom3() {
     MobileTicketAPI.custom3 = '';
   }
@@ -11120,6 +11130,12 @@ var MobileTicketAPI = (function () {
   function getEnteredPhoneNum() {
     return MobileTicketAPI.enteredPhoneNum;
   }
+  function getEnteredFirstName() {
+    return MobileTicketAPI.enteredFirstName;
+  }
+  function getEnteredLastName() {
+    return MobileTicketAPI.enteredLastName;
+  }
   function getDelayTime() {
     return MobileTicketAPI.delayTime;
   }
@@ -11128,6 +11144,12 @@ var MobileTicketAPI = (function () {
   }
   function getEnteredPhoneNumObj() {
     return MobileTicketAPI.enteredPhoneNumObj;
+  }
+  function getEnteredFirstNameObj() {
+    return MobileTicketAPI.enteredFirstNameObj;
+  }
+  function getEnteredLastNameObj() {
+    return MobileTicketAPI.enteredFirstNameObj;
   }
   function getSeparateCountryCode() {
     return MobileTicketAPI.enteredPhoneNumObj;
@@ -11676,6 +11698,8 @@ var MobileTicketAPI = (function () {
         var branch = getSelectedBranch();
         var service = getSelectedService();
         var enteredPhoneNum = getEnteredPhoneNum();
+		var enteredFirstName = getEnteredFirstName();
+		var enteredLastName = getEnteredLastName();
         var enteredCustomerId = getEnteredCustomerId();
         var fingerPrint = getFingerprint();
         var delay = getDelayTime();
@@ -11695,13 +11719,19 @@ var MobileTicketAPI = (function () {
 			}
 		}
 
-        if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3 || custom4) {
+        if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3 || custom4 || enteredFirstName || enteredLastName) {
           jsonData.parameters = {};
           
            if (fingerPrint) {
             jsonData.parameters. userId = fingerPrint
             // jsonData = { "parameters": {phoneNumber: enteredPhoneNum, primaryCustomerPhoneNumber: enteredPhoneNum, userId: fingerPrint}};
            }
+		   if(enteredFirstName || enteredLastName) {
+			jsonData.parameters. primaryCustomerFirstName = enteredFirstName;
+            jsonData.parameters. primaryCustomerLastName  = enteredLastName;
+            jsonData.parameters. customers = enteredFirstName + ' ' + enteredLastName;
+		   }
+
            if (enteredPhoneNum && enteredPhoneNum.length > 0) {
             jsonData.parameters. phoneNumber = enteredPhoneNum;
             jsonData.parameters. primaryCustomerPhoneNumber = enteredPhoneNum;
@@ -12187,6 +12217,12 @@ var MobileTicketAPI = (function () {
     setPhoneNumber: function (phone) {
       MobileTicketAPI.enteredPhoneNum = phone;
     },
+	setFirstName: function (name) {
+		MobileTicketAPI.enteredFirstName = name;
+	  },
+	  setLastName: function (name) {
+		MobileTicketAPI.enteredLastName = name;
+	  },
     setDelayTime: function (time) {
       MobileTicketAPI.delayTime = time;
     },
@@ -12196,6 +12232,12 @@ var MobileTicketAPI = (function () {
     setPhoneNumberObj: function (phoneObj) {
       MobileTicketAPI.enteredPhoneNumObj = phoneObj;
     },
+	setFirstNameObj: function (nameObj) {
+		MobileTicketAPI.enteredFirstNameObj = nameObj;
+	  },
+	  setLastNameObj: function (nameObj) {
+		MobileTicketAPI.enteredLastNameObj = nameObj;
+	  },
     setSeparateCountryCode: function (code) {
       MobileTicketAPI.separateCountryCode = code;
     },
@@ -12226,6 +12268,12 @@ var MobileTicketAPI = (function () {
     getEnteredPhoneNum: function () {
       return getEnteredPhoneNum();
     },
+	getEnteredFirstName: function () {
+		return getEnteredFirstName();
+	  },
+	  getEnteredLastName: function () {
+		return getEnteredLastName();
+	  },
     getDelayTime: function () {
       return getDelayTime();
     },
@@ -12235,6 +12283,12 @@ var MobileTicketAPI = (function () {
     getEnteredPhoneNumObj: function () {
       return getEnteredPhoneNumObj();
     },
+	getEnteredFirstnameObj: function () {
+		return getEnteredFirstNameObj();
+	  },
+	  getEnteredLastnameObj: function () {
+		return getEnteredLastNameObj();
+	  },
     getEnteredCustomerId: function () {
       return getEnteredCustomerId();
     },

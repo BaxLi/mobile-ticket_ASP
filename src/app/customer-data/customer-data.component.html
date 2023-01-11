@@ -8,8 +8,7 @@
   <div [hidden]="showNetWorkError">
     <div class="row">
       <div class="customer-data-container" id="customer-data-container">
-        <h4 class="customer-data-title" *ngIf="isFirstNameEnabled || isLastNameEnabled">
-          {{'customer_info.customerInformation' | translate }}</h4>
+        <h4 class="customer-data-title" *ngIf="!showLoader && (isFirstNameEnabled || isLastNameEnabled)">{{'customer_info.customerInformation' | translate }}</h4>
         <!-- first name section -->
         <div *ngIf="!showLoader && isFirstNameEnabled">
           <div class="qm-customer-field">
@@ -32,11 +31,13 @@
         <!-- end last name section -->
         <div class="customer-phone" *ngIf="isCustomerPhoneDataEnabled">
           <div *ngIf="!showLoader" class="custom-phone-card">
+            <div *ngIf="!isFirstNameEnabled && !isLastNameEnabled">
             <div class="text-color phone-heading-one"> {{'customer_info.phoneNumberHeadingOne' | translate}}</div>
             <ul class="phone-description">
               <li *ngIf="'customer_info.firstAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.firstAdvantageByEnteringPhone' | translate">  </li>
               <li *ngIf="'customer_info.secondAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.secondAdvantageByEnteringPhone' | translate"> </li>
             </ul>
+            </div>
             <div class="customer-phone__number-container">
               <div class="phone-num">
                 <div class="phone-num-text phone-number-text"> {{'customer_info.phoneNumber' |
@@ -73,6 +74,13 @@
                 *ngIf="phoneNumberError"> {{'customer_info.phoneNumberError' | translate}}</div>
               <div class="phone-num-error" [ngStyle]="{'margin':seperateCountryCode ? '0' : '0 1px' }"
                 *ngIf="PhoneNumberMandatoryError"> {{'customer_info.phoneNumberIsMandatory' | translate}}</div>
+            </div>
+            <div *ngIf="isFirstNameEnabled || isLastNameEnabled">
+              <div class="text-color phone-heading-one"> {{'customer_info.phoneNumberHeadingOne' | translate}}</div>
+              <ul class="phone-description-bottom" >
+                <li *ngIf="'customer_info.firstAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.firstAdvantageByEnteringPhone' | translate">  </li>
+                <li *ngIf="'customer_info.secondAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.secondAdvantageByEnteringPhone' | translate"> </li>
+              </ul>
             </div>
             <div class="phone-num-bottom-section">
               <div>

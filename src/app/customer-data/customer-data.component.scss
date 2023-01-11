@@ -53,7 +53,7 @@
   background: white;
   /* border-bottom: 2px solid #bc0e3d; */
   color: white;
-  height: 60px;
+  // height: 60px;
 }
 
 .phone-num {
@@ -93,7 +93,7 @@
 }
 
 .phone-num-text {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: .15px;
   color: black;
@@ -230,7 +230,7 @@
 .phone-number-text {
   text-align: left;
   background: white;
-  margin: -12px 15px 0 15px;
+  margin: -10px 15px 0 15px;
   // height: 2px;
   padding: 0px 8px;
   position: absolute;
@@ -415,8 +415,10 @@
 //   }
 // }
 .customer-data-title {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16px;
+  padding-top: 16px;
+  font-family: Roboto-Regular;
+  font-weight: 400;
   margin: 5px 25px;
   color: var(--general-text-color);
   text-align: center;
@@ -440,7 +442,7 @@
 .customer-id-input {
   border: none;
   /* background: transparent; */
-  caret-color: #bc0e3d;
+  // caret-color: #bc0e3d;
   color: rgba(0, 0, 0, 0.82);
   width: 100%;
   font-size: 16px;
@@ -525,6 +527,14 @@ body {
 
 .phone-description {
   margin: 0 10px 35px 10px;
+  font-size: 16px;
+
+  li {
+    padding: 0 15px;
+  }
+}
+.phone-description-bottom {
+  margin: 0 10px;
   font-size: 16px;
 
   li {

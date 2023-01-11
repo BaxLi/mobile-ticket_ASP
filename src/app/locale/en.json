@@ -125,10 +125,10 @@
    },
    "customer_info" : {
     "phoneNumberHeadingOne" : "By entering your phone number you get:",
-    "phoneNumber" : "Phone Number",
+    "phoneNumber" : "Phone number",
     "phoneNumberBottomText" : "We will not store your phone number for longer than needed to help you.",
-    "firstName" : "First Name",
-    "lastName" : "Last Name",
+    "firstName" : "First name",
+    "lastName" : "Last name",
     "customerId" : "Customer ID",
     "customerInformation" : "My information",
     "editPhoneNumber" : "Edit phone number",
@@ -196,3 +196,4 @@
     "text": "Powered by"
   }
 }
+  

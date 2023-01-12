@@ -157,7 +157,9 @@
 		"id_details": "Voer uw klant ID in",
 		"send": "Stuur informatie",
 		"phoneNumberIsMandatory": "Telefoonnummer is verplicht om door te gaan",
-		"pleaseAcceptPrivacyPolicy": "Accepteer het privacybeleid of druk op overslaan om door te gaan"
+		"fisrtNameIsMandatory": "Voornaam is verplicht om verder te gaan",
+		"lastNameIsMandatory": "Achternaam is verplicht om door te gaan",
+		"pleaseAcceptPrivacyPolicy": "Accepteer het privacybeleid of druk op overslaan om door te gaan "
 	},
 	"pricacy_beleid": {
 		"title": "Privacybeleid",

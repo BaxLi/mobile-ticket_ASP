@@ -157,6 +157,8 @@
 		"id_details": "Bitte geben Sie Ihre Kundennummer ein.",
 		"send": "Informationen senden",
 		"phoneNumberIsMandatory": "Telefonnummer ist verpflichtend, um fortzufahren",
+		"fisrtNameIsMandatory": "Vorname ist obligatorisch, um fortzufahren",
+		"lastNameIsMandatory": "Der Nachname ist obligatorisch, um fortzufahren",
 		"pleaseAcceptPrivacyPolicy": "Bitte stimmen Sie den Datenschutzrichtlinien zu oder klicken Sie auf „Überspringen“, um fortzufahren"
 	},
 	"pricacy_policy": {

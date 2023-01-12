@@ -37,7 +37,9 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public phoneNumberObject: any;
   public customerId: string;
   public firstName: string = '';
+  public firstNameMandatoryError: boolean;
   public lastName: string = '';
+  public lastNameMandatoryError: boolean;
   public phoneNumberError: boolean;
   public PhoneNumberMandatoryError: boolean;
   public customerIdError: boolean;
@@ -70,7 +72,9 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public isPhoneNumberMandatory: boolean;
   public isPrivacyPolicyAgreed: boolean;
   public isFirstNameEnabled: boolean;
+  public isFirstNameMandatory: boolean;
   public isLastNameEnabled: boolean;
+  public isLastNameMandatory: boolean;
 
   constructor(
     private translate: TranslateService,
@@ -113,6 +117,8 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.PhoneNumberMandatoryError = false;
     this.customerIdError = false;
     this.customerIdMaxError = false;
+    this.firstNameMandatoryError = false;
+    this.lastNameMandatoryError = false;
     this.phoneSectionState = phoneSectionStates.INITIAL;
     this.isPrivacyEnable = this.config.getConfig('privacy_policy');
     this.activeConsentEnable = this.config.getConfig('active_consent');
@@ -134,8 +140,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.isCustomerPhoneDataEnabled = (this.config.getConfig('customer_data').phone_number.value === 'enable' || this.config.getConfig('customer_data').phone_number.value === 'mandatory' ) ? true : false;
     this.isCustomerIdEnabled =  this.config.getConfig('customer_data').customerId.value === 'enable' ? true : false;
     this.isPhoneNumberMandatory =  this.config.getConfig('customer_data').phone_number.value === 'mandatory' ? true : false;
-    this.isFirstNameEnabled = this.config.getConfig('customer_data').first_name.value === 'enable' ? true : false;
-    this.isLastNameEnabled = this.config.getConfig('customer_data').last_name.value === 'enable' ? true : false;
+    this.isFirstNameEnabled = (this.config.getConfig('customer_data').first_name.value === 'enable'  || this.config.getConfig('customer_data').first_name.value === 'mandatory')? true : false;
+    this.isFirstNameMandatory = this.config.getConfig('customer_data').first_name.value === 'mandatory' ? true : false;
+    this.isLastNameEnabled = (this.config.getConfig('customer_data').last_name.value === 'enable' || this.config.getConfig('customer_data').last_name.value === 'mandatory')? true : false;
+    this.isLastNameMandatory = this.config.getConfig('customer_data').last_name.value === 'mandatory' ? true : false;
     // if (this.phoneNumber && (this.phoneNumber !== this.countryCode) && this.activeConsentEnable === 'enable') {
     //   this.phoneSectionState = phoneSectionStates.PRIVACY_POLICY;
     // }
@@ -143,7 +151,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
       this.documentDir = 'rtl';
     }
 
-    if (this.isCustomerPhoneDataEnabled && this.isPhoneNumberMandatory) {
+    if ((this.isCustomerPhoneDataEnabled && this.isPhoneNumberMandatory) 
+    || (this.isFirstNameEnabled && this.isFirstNameMandatory)
+    || (this.isLastNameEnabled && this.isLastNameMandatory)
+    ) {
       this.isSkipVisible = false
     } else {
       this.isSkipVisible = true;
@@ -213,8 +224,16 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   CustomerInfoContinue() {
     if (this.isCustomerPhoneDataEnabled && this.isPhoneNumberMandatory && this.phoneNumber === '') {
         this.PhoneNumberMandatoryError = true;
-    } else if (this.isCustomerPhoneDataEnabled) {
+    } else if (this.isFirstNameEnabled && this.isFirstNameMandatory && this.firstName.trim() === '') {
+      this.firstNameMandatoryError = true;
+    } else if (this.isLastNameEnabled && this.isLastNameMandatory && this.lastName.trim() === '') {
+      this.lastNameMandatoryError = true;
+    }
+    
+    else if (this.isCustomerPhoneDataEnabled) {
       this.PhoneNumberMandatoryError = false;
+      this.firstNameMandatoryError = false;
+      this.lastNameMandatoryError = false;
       this.setPhoneNumber();
       // is phone matches
       if (this.phoneNumber.match(/^\(?\+?\d?[-\s()0-9]{6,}$/) && this.phoneNumber !== this.countryCode && !this.phoneNumberError) {
@@ -269,7 +288,9 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
       }
     }
     } else if (this.customerId.trim() !== ''  || this.firstName !== '' || this.lastName !== '') { // If customer phone data is disabled and only customer id is enabled
-        if (this.customerId.length > 255) {
+      this.firstNameMandatoryError = false;
+      this.lastNameMandatoryError = false;
+      if (this.customerId.length > 255) {
           this.customerIdMaxError = true;
         } else {
           if (this.customerId.trim() !== '') {
@@ -299,9 +320,14 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.customerIdMaxError = false;
   }
 
-  onNameFieldsChanged() {
+  onNameFieldsChanged(type) {
     this.customerIdError = false;
     this.phoneNumberError = false;
+    if (type = 'first-name') {
+      this.firstNameMandatoryError = false;
+    } else {
+      this.lastNameMandatoryError = false;
+    }
   }
 
   onCustomerIdChangedEnter(event) {

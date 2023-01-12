@@ -169,12 +169,14 @@ export class ServicesContainerComponent implements OnInit {
                             clientId = '';
                         }
                     });
-                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') || customerIdData === 'enable'
-                    || isFirstNameEnabled === 'enable'  || isLastNameEnabled === 'enable') {
+                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') 
+                    || customerIdData === 'enable'
+                    || (isFirstNameEnabled === 'enable' || isFirstNameEnabled === 'mandatory')  
+                    || (isLastNameEnabled === 'enable' || isLastNameEnabled === 'mandatory')) {
                         MobileTicketAPI.setPhoneNumber('');
                         MobileTicketAPI.setCustomerId('');
                         MobileTicketAPI.setFirstName('');
-                     MobileTicketAPI.setLastName('');
+                        MobileTicketAPI.setLastName('');
                         this.router.navigate(['customer_data']);
                     } else if (OtpService === 'enable'){
                         MobileTicketAPI.setOtpPhoneNumber('');

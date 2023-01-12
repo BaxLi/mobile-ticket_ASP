@@ -160,8 +160,10 @@ export class DelayContainerComponent implements OnInit {
                             clientId = '';
                         }
                     });
-                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') || customerIdData === 'enable'
-                    || isFirstNameEnabled === 'enable'  || isLastNameEnabled === 'enable') {
+                    if ( (customerPhoneData === 'enable' || customerPhoneData === 'mandatory') 
+                    || customerIdData === 'enable'
+                    || (isFirstNameEnabled === 'enable' || isFirstNameEnabled === 'mandatory') 
+                    || (isLastNameEnabled === 'enable' || isLastNameEnabled === 'mandatory')) {
                         MobileTicketAPI.setPhoneNumber('');
                         MobileTicketAPI.setCustomerId('');
                         MobileTicketAPI.setFirstName('');

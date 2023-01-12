@@ -14,8 +14,10 @@
           <div class="qm-customer-field">
             <div class="phone-num-text phone-number-text"> {{'customer_info.firstName' | translate}}
             </div>
-            <input type="text" class="customer-id-input" [(ngModel)]="firstName" (change)="onNameFieldsChanged()"
-              (keyup)="onNameFieldsChanged()" placeholder="{{'customer_info.first_name_placeholder' | translate}}">
+            <input type="text" class="customer-id-input" [(ngModel)]="firstName" (change)="onNameFieldsChanged('first-name')"
+              (keyup)="onNameFieldsChanged('first-name')" placeholder="{{'customer_info.first_name_placeholder' | translate}}">
+          </div>
+          <div class="feild-error" *ngIf="firstNameMandatoryError"> {{'customer_info.fisrtNameIsMandatory' | translate}}
           </div>
         </div>
         <!-- end first name section -->
@@ -24,8 +26,10 @@
           <div class="qm-customer-field">
             <div class="phone-num-text phone-number-text"> {{'customer_info.lastName' | translate}}
             </div>
-            <input type="text" class="customer-id-input" [(ngModel)]="lastName" (change)="onNameFieldsChanged()"
-              (keyup)="onNameFieldsChanged()" placeholder="{{'customer_info.last_name_placeholder' | translate}}">
+            <input type="text" class="customer-id-input" [(ngModel)]="lastName" (change)="onNameFieldsChanged('last-name')"
+              (keyup)="onNameFieldsChanged('last-name')" placeholder="{{'customer_info.last_name_placeholder' | translate}}">
+          </div>
+          <div class="feild-error"  *ngIf="lastNameMandatoryError"> {{'customer_info.lastNameIsMandatory' | translate}}
           </div>
         </div>
         <!-- end last name section -->

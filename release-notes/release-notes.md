@@ -40,6 +40,22 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+
+<h2> Version 2.5.1 </h2>
+
+**Date: 2023-01-12**
+ 
+**Build number: 5**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-977** | **Set first name and last name as mandatory fields** |
+
+
+----------
+
 <h2> Version 2.5.0 </h2>
 
 **Date: 2023-01-04**

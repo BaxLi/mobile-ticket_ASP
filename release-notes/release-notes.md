@@ -45,7 +45,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2023-01-12**
  
-**Build number: 5**
+**Build number: 1**
 
 <h3>Stories</h3>
 

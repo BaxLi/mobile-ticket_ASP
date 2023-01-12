@@ -12,7 +12,7 @@
     "description": "Enable or disable geofencing on landing pages, 'on = enable',  'off = disable', 'mandatory = geo fencing is enabled and allow location service is mandatory' . geofencing will only work on https protocol. if geofencing disabled, branch radius and appointment radius will be discarded"
   },
   "version": {
-    "value": "2.5.0",
+    "value": "2.5.1",
     "description": "MobileTicket version [depreciated key. version in package.json and release notes instead]"
   },
   "customer_feedback": {
@@ -154,11 +154,11 @@
         "description": "Enable or disable customer phone number field in customer data section, 'enable => phone number field is visible but not mandatory', 'disable => phone number field is not visible' , 'mandatory => phone number field is visible and mandatory'"
       },
       "first_name": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer first name field in customer data section, 'on = enable', 'off = disable', 'mandatory => first name field is visible and mandatory'"
       },
       "last_name": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer last name field in customer data section, 'on = enable', 'off = disable', 'mandatory => last name field is visible and mandatory'"
       },
       "customerId": {

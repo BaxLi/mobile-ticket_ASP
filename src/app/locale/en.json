@@ -134,6 +134,8 @@
     "editPhoneNumber" : "Edit phone number",
     "phoneNumberError" : "Please enter a valid phone number",
     "customerIdError" : "Please enter a valid customer ID",
+    "firstNameError": "Please enter a valid first name",
+    "lastNameError": "Please enter a valid last name",
     "customerIdMaxError" : "Only 255 characters are allowed",
     "vistInfoTitle" : "By adding phone number you get:",
     "firstAdvantageByEnteringPhone": "A personal ticket via SMS ",

@@ -134,6 +134,8 @@
 		"editPhoneNumber": "Telefonnummer bearbeiten",
 		"phoneNumberError": "Bitte geben Sie eine gültige Telefonnummer ein.",
 		"customerIdError": "Bitte geben Sie eine gültige Kundennummer ein.",
+		"firstNameError": "Bitte geben Sie einen gültigen Vornamen ein",
+		"lastNameError": "Bitte geben Sie einen gültigen Nachnamen ein",
 		"customerIdMaxError": "Nur 255 Zeichen sind erlaubt.",
 		"vistInfoTitle": "Durch Hinzufügen der Rufnummer erhalten Sie:",
 		"firstAdvantageByEnteringPhone": "Persönliches Ticket per SMS",

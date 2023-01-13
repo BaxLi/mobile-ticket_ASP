@@ -134,6 +134,8 @@
 		"editPhoneNumber": "Wijzig telefoonnummer",
 		"phoneNumberError": "Vul een correct telefoonnummer in",
 		"customerIdError": "Vul een correct klant ID in",
+		"firstNameError": "Vul een geldige voornaam in.",
+		"lastNameError": "Vul een geldige achternaam in te voeren",
 		"customerIdMaxError": "Maximaal 255 karakters toegestaan",
 		"vistInfoTitle": "Door uw telefoonnummer toe te voegen krijgt u:",
 		"firstAdvantageByEnteringPhone": "Persoonlijk ticket als sms",

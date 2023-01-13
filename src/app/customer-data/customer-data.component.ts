@@ -37,8 +37,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public phoneNumberObject: any;
   public customerId: string;
   public firstName: string = '';
+  public firstNameError: boolean;
   public firstNameMandatoryError: boolean;
   public lastName: string = '';
+  public lastNameError: boolean;
   public lastNameMandatoryError: boolean;
   public phoneNumberError: boolean;
   public PhoneNumberMandatoryError: boolean;
@@ -118,7 +120,9 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.customerIdError = false;
     this.customerIdMaxError = false;
     this.firstNameMandatoryError = false;
+    this.firstNameError = false;
     this.lastNameMandatoryError = false;
+    this.lastNameError = false;
     this.phoneSectionState = phoneSectionStates.INITIAL;
     this.isPrivacyEnable = this.config.getConfig('privacy_policy');
     this.activeConsentEnable = this.config.getConfig('active_consent');
@@ -222,13 +226,14 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
 
   // Press continue button for phone number
   CustomerInfoContinue() {
-    if (this.isCustomerPhoneDataEnabled && this.isPhoneNumberMandatory && this.phoneNumber === '') {
-        this.PhoneNumberMandatoryError = true;
-    } else if (this.isFirstNameEnabled && this.isFirstNameMandatory && this.firstName.trim() === '') {
+    if (this.isFirstNameEnabled && this.isFirstNameMandatory && this.firstName.trim() === '') {
       this.firstNameMandatoryError = true;
     } else if (this.isLastNameEnabled && this.isLastNameMandatory && this.lastName.trim() === '') {
       this.lastNameMandatoryError = true;
     }
+    else if (this.isCustomerPhoneDataEnabled && this.isPhoneNumberMandatory && this.phoneNumber === '') {
+      this.PhoneNumberMandatoryError = true;
+    }  
     
     else if (this.isCustomerPhoneDataEnabled) {
       this.PhoneNumberMandatoryError = false;
@@ -283,8 +288,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
       this.phoneNumberError = true;
       if (this.customerId.length > 255) {
         this.customerIdError = true;
-      } else if (this.customerId.trim() === '' && this.phoneNumber.trim() === '') {
+      } else if (this.customerId.trim() === '' && this.phoneNumber.trim() === '' && this.firstName === '' || this.lastName === '' ) {
         this.customerIdError = true;
+        this.firstNameError = true;
+        this.lastNameError = true;
       }
     }
     } else if (this.customerId.trim() !== ''  || this.firstName !== '' || this.lastName !== '') { // If customer phone data is disabled and only customer id is enabled
@@ -304,25 +311,24 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
         }
     } else { // if no customer id
       this.customerIdError = true;
+      this.firstNameError = true;
+      this.lastNameError = true;
     }
   }
   // Change phone number input feild
   onPhoneNumberChanged() {
-    this.phoneNumberError = false;
-    this.customerIdError = false;
+   this.setErrorsFalse();
     this.PhoneNumberMandatoryError = false;
     // this.changeCountry = false;
     // this.submitClicked = false;
   }
   onCustomerIdChanged() {
-    this.customerIdError = false;
-    this.phoneNumberError = false;
+    this.setErrorsFalse();
     this.customerIdMaxError = false;
   }
 
   onNameFieldsChanged(type) {
-    this.customerIdError = false;
-    this.phoneNumberError = false;
+    this.setErrorsFalse();
     if (type = 'first-name') {
       this.firstNameMandatoryError = false;
     } else {
@@ -332,18 +338,22 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
 
   onCustomerIdChangedEnter(event) {
     if (this.customerId && event.keyCode !== 13) {
-      this.customerIdError = false;
-      this.phoneNumberError = false;
+      this.setErrorsFalse();
       this.customerIdMaxError = false;
     }
+  }
+  setErrorsFalse() {
+    this.phoneNumberError = false;
+    this.customerIdError = false;
+    this.firstNameError = false;
+    this.lastNameError = false;
   }
 
   onPhoneNumberEnter(event) {
     this.setPhoneNumber();
     if (this.phoneNumberError && event.keyCode !== 13) {
       if (this.phoneNumber.trim() !== '') {
-        this.customerIdError = false;
-        this.phoneNumberError = false;
+        this.setErrorsFalse();
         this.PhoneNumberMandatoryError = false;
         this.customerIdMaxError = false;
       }

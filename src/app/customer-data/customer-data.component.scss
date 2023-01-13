@@ -53,7 +53,7 @@
   background: white;
   /* border-bottom: 2px solid #bc0e3d; */
   color: white;
-  // height: 60px;
+  height: auto !important;
 }
 
 .phone-num {
@@ -229,7 +229,8 @@
 .feild-error {
   font-size: 12px;
   color: var(--eror-text);
-  margin: -12px 10px 0;
+  margin: -12px 25px 0;
+  font-family: Roboto-Regular;
 }
 
 .phone-number-text {
@@ -440,7 +441,7 @@
   font-family: Roboto-Regular;
   position: relative;
   background: white;
-  padding: 12px 10px;
+  padding: 12px 15px;
   border-radius: 10px;
 }
 

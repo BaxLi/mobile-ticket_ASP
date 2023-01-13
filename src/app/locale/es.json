@@ -134,6 +134,8 @@
     "editPhoneNumber" : "Editar número de móvil",
     "phoneNumberError" : "Por favor introduzca un número de móvil válido",
 	"customerIdError" : "Por favor introduzca un nombre o ID de cliente válido",
+	"firstNameError": "Por favor, introduzca un nombre válido",
+	"lastNameError": "Por favor, introduzca un apellido válido",
     "customerIdMaxError" : "Solo se permite 255 caracteres.",
     "vistInfoTitle" : "Al agregar el número de teléfono, obtienes:",
     "firstAdvantageByEnteringPhone": "Un ticket personal por SMS ",

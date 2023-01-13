@@ -134,6 +134,8 @@
     "editPhoneNumber" : "Modifier le numéro de téléphone",
     "phoneNumberError" : "Veuillez entrer un numéro de téléphone valide",
     "customerIdError" : "Veuillez entrer un numéro client valide",
+	"firstNameError" : "Veuillez entrer un prénom valide",
+	"lastNameError" : "Veuillez entrer un nom de famille valide",
     "customerIdMaxError" : "Seulement 255 charactères sont autorisés",
     "vistInfoTitle" : "En ajoutant votre numéro de téléphone:",
     "firstAdvantageByEnteringPhone" : "Ticket personnel par SMS",

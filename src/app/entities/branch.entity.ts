@@ -8,4 +8,5 @@ export class BranchEntity {
    rawDistance: number;
    enabled: boolean;
    position: PositionEntity;
+   timeZone?: string;
 }

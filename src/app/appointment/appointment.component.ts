@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AlertDialogService } from '../shared/alert-dialog/alert-dialog.service';
 import { RetryService } from '../shared/retry.service';
 import { isDevMode } from '@angular/core';
+import * as moment from 'moment-timezone';
 
 declare var MobileTicketAPI: any;
 declare var ga: Function;
@@ -25,6 +26,7 @@ declare var ga: Function;
 export class AppointmentComponent implements OnInit {
   public iHight = 0;
   public branchEntity: BranchEntity;
+
   public serviceEntity: ServiceEntity;
   public ticketEntity: TicketEntity;
   public app: AppointmentEntity;
@@ -55,8 +57,6 @@ export class AppointmentComponent implements OnInit {
     }
     this.isIOS = util.isBrowseriOS(userAgent)
     this.app = MobileTicketAPI.getAppointment();
-    console.log(this.app);
-    this.isInvalid = this.isAppointmentInvalid();
     this.getBranch();
     this.setRtlStyles();
   }
@@ -89,8 +89,8 @@ export class AppointmentComponent implements OnInit {
           this.currentPosition = new PositionEntity(currentPosition.coords.latitude, currentPosition.coords.longitude);
           let calculator = new GpsPositionCalculator(this.config);
           let distance = calculator.getRawDiatance(this.currentPosition.latitude,
-      this.currentPosition.longitude, this.branchEntity.position.latitude, this.branchEntity.position.longitude);
-      this.currentLocation.removeWatcher();
+            this.currentPosition.longitude, this.branchEntity.position.latitude, this.branchEntity.position.longitude);
+          this.currentLocation.removeWatcher();
           if ((distance * 1000) > radius) {
             let alertMsg = '';
             this.translate.get('appointment.notInRange').subscribe((res: string) => {
@@ -118,15 +118,19 @@ export class AppointmentComponent implements OnInit {
     MobileTicketAPI.findEntrypointId(this.app.branchId, (response) => {
       if (response.length > 0) {
         let entryPointId = response[0].id;
-        let selectedServicesWithPeopleServices = (this.app.custom && JSON.parse(this.app.custom).peopleServices) ? 
-        JSON.parse(this.app.custom).peopleServices : null;
-        let numberOfCustomers = (this.app.custom && JSON.parse(this.app.custom).numberOfCustomers) ? 
-        parseInt(JSON.parse(this.app.custom).numberOfCustomers) : null;
-        
+        let selectedServicesWithPeopleServices = (this.app.custom && JSON.parse(this.app.custom).peopleServices) ?
+          JSON.parse(this.app.custom).peopleServices : null;
+        let numberOfCustomers = (this.app.custom && JSON.parse(this.app.custom).numberOfCustomers) ?
+          parseInt(JSON.parse(this.app.custom).numberOfCustomers) : null;
+
         MobileTicketAPI.arriveAppointment(this.app.branchId, entryPointId, this.app.qpId, this.app.notes, selectedServicesWithPeopleServices, numberOfCustomers, (response) => {
           this.ticket = response;
-          this.router.navigate(['ticket'], { queryParams: {branch: this.app.branchId, visit: this.ticket.id,
-            checksum: this.ticket.checksum}});
+          this.router.navigate(['ticket'], {
+            queryParams: {
+              branch: this.app.branchId, visit: this.ticket.id,
+              checksum: this.ticket.checksum
+            }
+          });
         },
           (xhr, status, errorMessage) => {
             console.log(errorMessage);
@@ -143,15 +147,15 @@ export class AppointmentComponent implements OnInit {
       (xhr, status, errorMessage) => {
         this.showNetWorkError = true
         this.retryService.retry(() => {
-            MobileTicketAPI.findAppointment(this.app.publicId, (response) => {
-              this.retryService.abortRetry();
-              this.showNetWorkError = false;
-            },
+          MobileTicketAPI.findAppointment(this.app.publicId, (response) => {
+            this.retryService.abortRetry();
+            this.showNetWorkError = false;
+          },
             (xhr, status, errorMessage) => {
 
             });
-          });
-         });
+        });
+      });
   }
 
   private async fetchAppointment() {
@@ -162,7 +166,7 @@ export class AppointmentComponent implements OnInit {
         aEntity.branchName = response.branch.name;
         aEntity.qpId = response.qpId;
         // for development mode send qpId without encryption
-        if(isDevMode) {
+        if (isDevMode) {
           MobileTicketAPI.findCentralAppointment(response.qpId,
             (response2) => {
               console.log(response2)
@@ -210,46 +214,17 @@ export class AppointmentComponent implements OnInit {
         });
     });
   }
-  private getBranch() {
+
+  private async getBranch() {
     if (this.app.branchId !== undefined) {
-      MobileTicketAPI.getBranchInfoById(this.app.branchId, (res) => {
+      await MobileTicketAPI.getBranchInfoById(this.app.branchId, (res) => {
         this.branchEntity = new BranchEntity();
         this.branchEntity.id = res.id;
         this.branchEntity.name = res.name;
         this.branchEntity.position = new PositionEntity(res.latitude, res.longitude);
+        this.branchEntity.timeZone = res.timeZone;
         MobileTicketAPI.setBranchSelection(this.branchEntity);
-        // if (this.config.getConfig('service_translation') === 'enable') {
-        //   MobileTicketAPI.getBranchTranslation(
-        //     (branchTranslations) => {
-        //       // development env
-        //       const branches = branchTranslations.branchList;
-        //       const branchData = [];
-        //       branches.forEach(branch => {
-        //         let newBranch: any = {};
-        //         newBranch.id = branch.qpId;
-        //         newBranch.custom = branch.custom;
-        //         branchData.push(newBranch);
-        //       });
-              
-        //       var userLanguage = navigator.language;
-        //       if (typeof navigator !== 'undefined' && navigator) {
-        //         userLanguage = navigator.language.split('-')[0];
-        //       }
-    
-        //       if(branchData && branchData.length > 0) {
-        //           let matchedBranch = (branchData.find((b) => b.id == res.id));
-        //           if(matchedBranch && matchedBranch.custom !== null){
-        //             const translatedValue = JSON.parse(matchedBranch.custom).names[userLanguage];  
-        //             if(translatedValue){
-        //               this.branchEntity.name = translatedValue;
-        //             }  
-        //           }
-        //       }
-        //       MobileTicketAPI.setBranchSelection(this.branchEntity);
-        //   });
-        // } else {
-        //   MobileTicketAPI.setBranchSelection(this.branchEntity);
-        // }  
+        this.isInvalid = this.isAppointmentInvalid();
       });
     }
   }
@@ -258,19 +233,22 @@ export class AppointmentComponent implements OnInit {
   // makes unit test writing impossible
 
   private isAppointmentInvalid(): boolean {
-    let now = new Date();
-    let appStart = new Date(this.app.startTime.replace('T', ' ').replace(/-/g, '/'));
+    let timeZone = this.branchEntity.timeZone;
+    let appStart = this.app.startTime.replace('T', ' ').replace(/-/g, '/');
+    let timeFormat = this.config.getConfig('timeFormat');
+    let dateFormat = this.config.getConfig('dateFormat');
 
-    this.app.startTimeFormatted = this.formatTime(appStart);
-    this.app.date = this.formatDate(appStart);
-
+    let startDefault = moment.tz(appStart,'YYYY-MM-DD HH:mm', timeZone).tz(moment.tz.guess());
+    this.app.startTimeFormatted = moment(startDefault).format(timeFormat).toString();
+    this.app.date = moment(startDefault).locale(timeZone).format(dateFormat).toString();
+    
     if (this.app.status === 'NOTFOUND')
       this.isNotFound = true;
 
     if (this.app.status !== 'CREATED' && this.app.status !== 'NOTFOUND')
       this.isInvalidStatus = true;
-
-    let minDiff = (now.getTime() - appStart.getTime()) / 1000 / 60;
+    var now = moment.tz();//now
+    let minDiff = now.diff(startDefault, 'minutes')
     if (minDiff >= 0 && Math.abs(minDiff) > this.config.getConfig('appointment_late'))
       this.isLate = true;
     else
@@ -279,91 +257,12 @@ export class AppointmentComponent implements OnInit {
     if (minDiff < 0 && Math.abs(minDiff) > this.config.getConfig('appointment_early'))
       this.isEarly = true;
     else
-      this.isEarly = false;
+    this.isEarly = false;
 
-    let todayDate = this.formatDate(now);
+    let todayDate = moment().format(dateFormat).toString();
     if (this.app.date !== todayDate)
       this.isInvalidDate = true;
     return this.isLate || this.isEarly || this.isInvalidStatus || this.isInvalidDate;
-  }
-
-  private formatTime(time) {
-    let formatted = '';
-    let format = this.config.getConfig('timeFormat');
-
-    let min = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
-    let hours = '';
-
-    if (format === 'HH:mm') {
-      hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
-      formatted = hours + ':' + min;
-    }
-
-    else if (format === 'hh:mm a') {
-      if (time.getHours() > 12) {
-        hours = (time.getHours() - 12) < 10 ? '0' + (time.getHours() - 12) : (time.getHours() - 12).toString();
-        formatted = hours + ':' + min;
-      }
-      else {
-        hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
-        formatted = hours + ':' + min;
-      }
-      if (time.getHours() > 11) {
-        formatted += ' pm';
-      } else {
-        formatted += ' am';
-      }
-    }
-    else if (format === 'hh:mm') {
-      if (time.getHours() > 12) {
-        hours = (time.getHours() - 12) < 10 ? '0' + (time.getHours() - 12) : (time.getHours() - 12).toString();
-      }
-      else {
-        hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
-      }
-      formatted = hours + ':' + min;
-    }
-    else if (format === 'h:mm') {
-      if (time.getHours() > 12) {
-        hours = '' + (time.getHours() - 12);
-      }
-      else {
-        hours = time.getHours();
-      }
-      formatted = hours + ':' + min;
-    }
-    else if (format === 'h:mm a') {
-      if (time.getHours() > 12) {
-        hours = '' + (time.getHours() - 12);
-        formatted = hours + ':' + min;
-      }
-      else {
-        hours = time.getHours();
-        formatted = hours + ':' + min;
-      }
-      if (time.getHours() > 11) {
-        formatted += ' pm';
-      } else {
-        formatted += ' am';
-      }
-    }
-    return formatted;
-  }
-
-  private formatDate(date) {
-    let formatted = '';
-    let format = this.config.getConfig('dateFormat');
-
-    formatted = format;
-    let day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    let realMonth = date.getMonth() + 1;
-    let month = realMonth < 10 ? '0' + realMonth : realMonth;
-    formatted = formatted.replace('DD', day);
-    formatted = formatted.replace('MM', month);
-    formatted = formatted.replace('YYYY', date.getFullYear());
-    formatted = formatted.replace('YY', String(date.getFullYear()).substr(2));
-
-    return formatted;
   }
 
 }

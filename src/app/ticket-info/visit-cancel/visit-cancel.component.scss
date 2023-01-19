@@ -13,6 +13,7 @@
   background: var(--leave_button_background) !important;
   color: var(--leave-button-text-color) !important;
   border: 2px solid var(--leave-button-text-color) !important;
+  line-height: 1em;
 
 }
 
@@ -43,4 +44,9 @@
   color: #0079C2 !important;
   font-family: 'Roboto-Medium' !important;
   line-height: 1em !important;
+}
+.leave-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

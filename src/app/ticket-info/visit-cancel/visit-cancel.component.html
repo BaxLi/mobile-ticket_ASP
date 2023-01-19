@@ -25,7 +25,7 @@
   <!-- {{isCancelButtonClicked}} -->
   <div class="accent-btn accent-btn-side custom accent-bg-color btn-text-color"
     [ngClass]="{ 'leave-line':!this.isVisitCall && !this.isTicketEndedOrDeleted}" (click)='onButtonClick()'>
-    <span *ngIf="!isCancelButtonClicked">
+    <span class="leave-text-container" *ngIf="!isCancelButtonClicked">
       <svg class="leave-svg" *ngIf="!this.isVisitCall && !this.isTicketEndedOrDeleted" style="margin: 0 5px;"
         xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
         <path class="leave-svg-path"

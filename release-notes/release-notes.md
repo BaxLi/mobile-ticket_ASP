@@ -40,17 +40,26 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
-<h2> Version 2.5.2 </h2>
+<h2> Version 2.5.3 </h2>
 
 **Date: 2023-02-07**
  
-**Build number: 2**
+**Build number: 1**
 
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-989** | **Adding dependency - "frameguard"** |
+
+
+----------
+
+<h2> Version 2.5.2 </h2>
+
+**Date: 2023-01-20**
+ 
+**Build number: 1**
 
 <h3>Bug fixes</h3>
 

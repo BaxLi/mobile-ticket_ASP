@@ -42,9 +42,15 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.5.2 </h2>
 
-**Date: 2023-01-20**
+**Date: 2023-02-07**
  
-**Build number: 1**
+**Build number: 2**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-989** | **Adding dependency - "frameguard"** |
 
 <h3>Bug fixes</h3>
 
@@ -52,7 +58,6 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-980** | **Calculation of appoinment time results in a wrong result between timezones.** |
 | **MOB-976** | **Minior ui issue fixed.** |
-
 
 ----------
 

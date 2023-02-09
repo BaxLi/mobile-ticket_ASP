@@ -33,6 +33,23 @@
           <div class="feild-error"  *ngIf="lastNameError"> {{'customer_info.lastNameError' | translate}}</div>
         </div>
         <!-- end last name section -->
+        <!-- start customer id field -->
+        <div *ngIf="!showLoader">
+          <div class="qm-customer-field"
+            *ngIf="isCustomerIdEnabled && phoneSectionState === phoneSectionStates.INITIAL">
+            <div class="phone-num-text phone-number-text"> {{'customer_info.customerId' | translate}}
+            </div>
+            <input type="text" class="customer-id-input" [(ngModel)]="customerId" (change)="onCustomerIdChanged()"
+              (keyup)="onCustomerIdChanged()" placeholder="{{'customer_info.id_placeholder' | translate}}">
+            <div class="customer-id-error" *ngIf="customerIdError"> {{'customer_info.customerIdError' | translate}}
+            </div>
+            <div class="customer-id-error" *ngIf="customerIdMaxError"> {{'customer_info.customerIdMaxError' |
+              translate}}</div>
+
+          </div>
+        </div>
+        <!-- end customer id field -->
+        <!-- start phone number field -->
         <div class="customer-phone" *ngIf="isCustomerPhoneDataEnabled">
           <div *ngIf="!showLoader" class="custom-phone-card">
             <div *ngIf="!isFirstNameEnabled && !isLastNameEnabled">
@@ -268,23 +285,8 @@
             </div>
           </div>
         </div>
-        <div *ngIf="!showLoader">
-          <div class="qm-customer-field"
-            *ngIf="isCustomerIdEnabled && phoneSectionState === phoneSectionStates.INITIAL">
-            <div class="qm-customer-id-details phone-num-text custom text-color">
-              {{'customer_info.id_details' | translate}}
-            </div>
-            <div class="phone-num-text phone-number-text"> {{'customer_info.customerId' | translate}}
-            </div>
-            <input type="text" class="customer-id-input" [(ngModel)]="customerId" (change)="onCustomerIdChanged()"
-              (keyup)="onCustomerIdChanged()" placeholder="{{'customer_info.id_placeholder' | translate}}">
-            <div class="customer-id-error" *ngIf="customerIdError"> {{'customer_info.customerIdError' | translate}}
-            </div>
-            <div class="customer-id-error" *ngIf="customerIdMaxError"> {{'customer_info.customerIdMaxError' |
-              translate}}</div>
+        <!-- end phone number field -->
 
-          </div>
-        </div>
       </div>
       <div *ngIf="!showLoader" class="table-child-footer" [hidden]="showNetWorkError">
         <footer class="qm-footer">

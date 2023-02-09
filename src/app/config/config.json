@@ -153,6 +153,14 @@
         "value": "enable",
         "description": "Enable or disable customer phone number field in customer data section, 'enable => phone number field is visible but not mandatory', 'disable => phone number field is not visible' , 'mandatory => phone number field is visible and mandatory'"
       },
+      "first_name": {
+        "value": "enable",
+        "description": "Enable or disable customer first name field in customer data section, 'on = enable', 'off = disable', 'mandatory => first name field is visible and mandatory'"
+      },
+      "last_name": {
+        "value": "enable",
+        "description": "Enable or disable customer last name field in customer data section, 'on = enable', 'off = disable', 'mandatory => last name field is visible and mandatory'"
+      },
       "customerId": {
         "value": "enable",
         "description": "Enable or disable customer id field in customer data section, 'on = enable', 'off = disable'"
@@ -217,6 +225,10 @@
   "queue_poll_retry": {
     "value": "1",
     "description": "Define how many times should retry the queue poll request."
+  },
+  "queue_retry_timeout": {
+    "value": "4",
+    "description": "Define timeout for queue poll request retry if communication to Orchestra fails"
   },
   "block_other_browsers": {
     "value": "disable",

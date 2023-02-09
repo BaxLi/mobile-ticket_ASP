@@ -94,7 +94,7 @@
   },
   "open_hours" : {
       "heading1" : "This service is currently not available.",
-      "heading2" : "Our opening hours are:" ,     
+      "heading2" : "Our opening hours are:" ,
       "week_day1" : "Monday",
       "week_day2" : "Tuesday",
       "week_day3" : "Wednesday",
@@ -115,6 +115,7 @@
      "arriveBtnText" : "Arrive",
      "notInRange" : "Sorry, you are too far from the branch. Get closer to the branch and Try again.",
      "positionPermission" : "If you want to Arrive Appointments, please enable Location Services.",
+     "rescheduleBtnText": "Reschedule / Cancel",
      "error" : {
        "date" : "Your appointment is booked for another day. Please come back on the date of your appointment.",
        "status" : "Your appointment has already been arrived.",
@@ -163,11 +164,11 @@
     "lastNameIsMandatory": "Last name is mandatory to continue",
     "pleaseAcceptPrivacyPolicy": "Please accept the privacy policy or press skip to continue "
   },
-  "pricacy_policy" : { 
+  "pricacy_policy" : {
     "title" : "Privacy policy",
     "description" : "Policy statements serve to protect an organization from misunderstandings that might lead to unauthorized behavior or lawsuits. Each policy statement should include its purpose, terminology definitions, the statement itself and the steps to implement it."
   },
-  "cookie_consent" : { 
+  "cookie_consent" : {
     "title" : "This site uses cookies to provide you with a great user experience. By using this service, you accept our",
     "use.of.cookies" : "use of cookies",
     "decline" : "Decline",
@@ -200,4 +201,3 @@
     "text": "Powered by"
   }
 }
-  

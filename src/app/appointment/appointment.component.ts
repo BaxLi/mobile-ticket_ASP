@@ -43,6 +43,9 @@ export class AppointmentComponent implements OnInit {
   public isRtl: boolean;
   public showNetWorkError = false;
   public currentPosition: PositionEntity;
+  public rescheduleUrl:string ="";
+  public isUnschedulable:boolean = false;
+
 
   constructor(private config: Config, public router: Router, private translate: TranslateService,
     private alertDialogService: AlertDialogService, private retryService: RetryService, private currentLocation: LocationService) {
@@ -59,6 +62,7 @@ export class AppointmentComponent implements OnInit {
     this.app = MobileTicketAPI.getAppointment();
     this.getBranch();
     this.setRtlStyles();
+    this.rescheduleUrl = this.config.getConfig('reschedule_link');
   }
 
   setRtlStyles() {
@@ -186,7 +190,7 @@ export class AppointmentComponent implements OnInit {
               resolve(null);
             });
         } else {
-          // production mode : encrypted qpId 
+          // production mode : encrypted qpId
           MobileTicketAPI.findCentralAppointmentByEId(response.qpId,
             (response2) => {
               aEntity.serviceId = response2.services[0].id;
@@ -241,7 +245,7 @@ export class AppointmentComponent implements OnInit {
     let startDefault = moment.tz(appStart,'YYYY-MM-DD HH:mm', timeZone).tz(moment.tz.guess());
     this.app.startTimeFormatted = moment(startDefault).format(timeFormat).toString();
     this.app.date = moment(startDefault).locale(timeZone).format(dateFormat).toString();
-    
+
     if (this.app.status === 'NOTFOUND')
       this.isNotFound = true;
 
@@ -262,7 +266,14 @@ export class AppointmentComponent implements OnInit {
     let todayDate = moment().format(dateFormat).toString();
     if (this.app.date !== todayDate)
       this.isInvalidDate = true;
+
+    this.isUnschedulable = this.isLate || this.isInvalidStatus;
     return this.isLate || this.isEarly || this.isInvalidStatus || this.isInvalidDate;
+  }
+
+
+  rescheduleAppointment(){
+    window.open(this.rescheduleUrl+"/#/"+this.app.publicId,"_blank")
   }
 
 }

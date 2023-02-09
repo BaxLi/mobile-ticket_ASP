@@ -10,9 +10,9 @@
   </div>
   <div class="row" [hidden]="!showNetWorkError">
     <app-network-message></app-network-message>
-  </div>  
-  <div class="appointment-row text-center" *ngIf="!isNotFound">    
-      <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.subHeadingTwo' | translate }}</span>    
+  </div>
+  <div class="appointment-row text-center" *ngIf="!isNotFound">
+      <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.subHeadingTwo' | translate }}</span>
   </div>
   <div class="appointment-container" *ngIf="!isNotFound">
   <div class="appointment-row">
@@ -67,30 +67,35 @@
   </div>
 </div>
 <div>
-  <div class="errorMessage" *ngIf="isInvalid && isInvalidStatus && !isNotFound">    
-    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.status' | translate }}</span>    
+  <div class="errorMessage" *ngIf="isInvalid && isInvalidStatus && !isNotFound">
+    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.status' | translate }}</span>
   </div>
-  <div class="errorMessage" *ngIf="isInvalid && isInvalidDate && !isInvalidStatus && !isNotFound">    
-    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.date' | translate }}</span>    
+  <div class="errorMessage" *ngIf="isInvalid && isInvalidDate && !isInvalidStatus && !isNotFound">
+    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.date' | translate }}</span>
   </div>
-  <div class="errorMessage" *ngIf="isEarly && !isInvalidStatus && !isInvalidDate && !isNotFound">    
-    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.early' | translate }}</span>    
+  <div class="errorMessage" *ngIf="isEarly && !isInvalidStatus && !isInvalidDate && !isNotFound">
+    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.early' | translate }}</span>
   </div>
-  <div class="errorMessage" *ngIf="isLate && !isInvalidStatus && !isInvalidDate && !isNotFound">    
-    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.late' | translate }}</span>    
+  <div class="errorMessage" *ngIf="isLate && !isInvalidStatus && !isInvalidDate && !isNotFound">
+    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.late' | translate }}</span>
   </div>
-     <div class="errorMessage" *ngIf="isNotFound">    
-    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.notFound' | translate }}</span>    
+     <div class="errorMessage" *ngIf="isNotFound">
+    <span class="sub-heading-text-2 custom text-color sub-heading-text-2-margin">{{ 'appointment.error.notFound' | translate }}</span>
   </div>
 </div>
 </div>
 <div class="table-child-footer" >
   <footer class="qm-footer" >
-    <div class="center-text" [hidden]="isInvalid">
-      <div class="accent-btn custom accent-bg-color btn-text-color" (click)='onArriveAppointment()'>
+    <div class="center-text">
+      <div class="accent-btn custom accent-bg-color btn-text-color" (click)='onArriveAppointment()'
+      *ngIf="!isInvalid">
         {{ 'appointment.arriveBtnText' | translate }}
       </div>
+      <div class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='rescheduleAppointment()'
+      *ngIf="(rescheduleUrl!='') && !isUnschedulable">
+      {{ 'appointment.rescheduleBtnText' | translate }}
+      </div>
     </div>
- 
+
   </footer>
 </div>

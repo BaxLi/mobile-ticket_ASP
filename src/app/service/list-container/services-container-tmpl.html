@@ -44,8 +44,7 @@
     </div>
   </div>
 </div>
-
-<div class="table-child-footer" style="position: absolute;bottom: 20px;left: 0;right: 0;display: flex;flex-direction: column-reverse;"  [hidden]="showNetWorkError || showLoader">
+<div class="table-child-footer" style="position: absolute;bottom: 20px;left: 0;right: 0;display: flex;flex-direction: column-reverse;"  *ngIf="!showNetWorkError && !showLoader">
   <footer class="qm-footer" [hidden]="!isServiceListLoaded">
     <div class="center-text">
       <div class="accent-btn custom accent-bg-color btn-text-color" (click)='onTakeTicket()' >

@@ -1,35 +1,50 @@
 <div *ngIf="isVisitCall" class="visit-call-background"> </div>
-<div  [hidden]="!isUrlVisitLoading" class="row loader-container sub-heading-text-1-margin"> 
+<div class="form-buttons-container" *ngIf="showFormDialog" [hidden]="isVisitCall || isUrlVisitLoading || isTicketDeletedByUser">
+  <div class="form-flex">
+    <div class="form-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+        <path
+          d="M8 38v-3h4.2V19.7q0-4.2 2.475-7.475Q17.15 8.95 21.2 8.1V6.65q0-1.15.825-1.9T24 4q1.15 0 1.975.75.825.75.825 1.9V8.1q4.05.85 6.55 4.125t2.5 7.475V35H40v3Zm16 6q-1.6 0-2.8-1.175Q20 41.65 20 40h8q0 1.65-1.175 2.825Q25.65 44 24 44Z" />
+      </svg>
+    </div>
+    <div class="form-text"> {{'customForm.description' | translate}}</div>
+  </div>
+  <div class="form-button-container-parent">
+    <div class="form-button-container">
+      <button class="form-button" (click)="dismiss()"> {{'customForm.dismiss' | translate}} </button>
+      <button class="form-button form-button-primary" (click)="goToForm()"> {{'customForm.toForm' | translate}}</button>
+    </div>
+  </div>
+</div>
+<div [hidden]="!isUrlVisitLoading" class="row loader-container sub-heading-text-1-margin">
   <div class="row width-control">
     <div class="loader-container">
       <div class="inline-block-elem right-cell">
-        <span id="ticketLoading" class="sub-heading-text-3 custom text-color">{{ 'ticketInfo.loading' | translate }}</span>
+        <span id="ticketLoading" class="sub-heading-text-3 custom text-color">{{ 'ticketInfo.loading' | translate
+          }}</span>
       </div>
     </div>
+  </div>
 </div>
-</div>
-<div [hidden]="isUrlVisitLoading" class="inner-margin-separator" 
-[style.height]="getButtonStatus() ? 'calc(100vh - 22em)' : 'calc(100vh - 17em);'">
+<div [hidden]="isUrlVisitLoading" class="inner-margin-separator"
+  [style.height]="getButtonStatus() ? 'calc(100vh - 22em)' : 'calc(100vh - 17em);'">
 
   <div class="row" [hidden]="isVisitCall && !isVisitRecycled">
-    <app-queue-container #queueComponent
-                          (onUrlAccessedTicket)='onUrlAccessedTicket($event)'
-                         (onTciketNmbrChange)='onTciketNmbrChange($event)'
-                         (onServiceNameUpdate)='onServiceNameUpdate($event)' 
-                         (onNetworkErr)='onNetworkErr($event)'
-                         (onBranchUpdate)='onBranchUpdate($event)'
-                         (onVisitNotFound)='onVisitNotFound($event)'
-                         (onUrlVisitLoading)='onUrlVisitLoading($event)'
-                         (onVisitStatusUpdate)='onVisitStatusUpdate($event)'
-                         [isTicketEndedOrDeleted]="isTicketDeletedByUser"
-                         ></app-queue-container>
+    <app-queue-container #queueComponent (onUrlAccessedTicket)='onUrlAccessedTicket($event)'
+      (onTciketNmbrChange)='onTciketNmbrChange($event)' (onServiceNameUpdate)='onServiceNameUpdate($event)'
+      (onNetworkErr)='onNetworkErr($event)' (onBranchUpdate)='onBranchUpdate($event)'
+      (onVisitNotFound)='onVisitNotFound($event)' (onUrlVisitLoading)='onUrlVisitLoading($event)'
+      (onVisitStatusUpdate)='onVisitStatusUpdate($event)'
+      [isTicketEndedOrDeleted]="isTicketDeletedByUser"></app-queue-container>
   </div>
   <div [hidden]="!isVisitCall" class="row">
     <div class="col-xs-12 col-xxs">
       <div [hidden]="isNetworkErr" class="center-text sub-heading-text-2 custom text-color">
-        <div *ngIf="visitCallMsgOne && !isVisitRecycled" [innerHTML]="visitCallMsgOne" class="visitcall-heading-one"></div>
+        <div *ngIf="visitCallMsgOne && !isVisitRecycled" [innerHTML]="visitCallMsgOne" class="visitcall-heading-one">
+        </div>
         <div *ngIf="visitCallMsg && !isVisitRecycled" class="visit-call-message" [innerHTML]="visitCallMsg"></div>
-        <div *ngIf="visitCallMsgThree && !isVisitRecycled" [innerHTML]="visitCallMsgThree" class="visitcall-heading-three"></div>
+        <div *ngIf="visitCallMsgThree && !isVisitRecycled" [innerHTML]="visitCallMsgThree"
+          class="visitcall-heading-three"></div>
       </div>
       <div [hidden]="!isNetworkErr">
         <app-network-message></app-network-message>
@@ -37,20 +52,27 @@
     </div>
   </div>
   <div>
-  <div *ngIf='branchEntity && !isVisitCall' class="sub-heading-text-1 text-center inner-padding placement-layout"><span class="ticket_branch custom text-color">{{ branchEntity.name }}</span></div>
-  <div class="parent-container row">
-    <div
-      [ngClass]="{'ticket-container-rtl' : isRtl, 'ticket-container' : true, 'ticket-container-center' : isVisitCall, 'expand-view-ticket': isTicketEndedOrDeleted}">
-      <app-ticket #ticketNumberComponent [isCalled] = "isVisitCall" [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isAfterCalled]="isAfterCalled"></app-ticket>
-    </div>
-    
+    <div *ngIf='branchEntity && !isVisitCall' class="sub-heading-text-1 text-center inner-padding placement-layout">
+      <span class="ticket_branch custom text-color">{{ branchEntity.name }}</span></div>
+    <div class="parent-container row">
+      <div
+        [ngClass]="{'ticket-container-rtl' : isRtl, 'ticket-container' : true, 'ticket-container-center' : isVisitCall, 'expand-view-ticket': isTicketEndedOrDeleted}">
+        <app-ticket #ticketNumberComponent [isCalled]="isVisitCall" [isTicketEndedOrDeleted]="isTicketEndedOrDeleted"
+          [isAfterCalled]="isAfterCalled"></app-ticket>
+      </div>
 
+
+    </div>
   </div>
 </div>
+<div [hidden]="!isVisitCall || !isMeetingAvailable"
+  [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
+  <app-visit-cancel #cancelVisitComponent [isUrlAccessedTicket]='isUrlAccessedTicket'
+    [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isVisitCall]="isVisitCall"></app-visit-cancel>
 </div>
-<div [hidden]="!isVisitCall || !isMeetingAvailable" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
-  <app-visit-cancel #cancelVisitComponent [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" [isVisitCall]="isVisitCall"></app-visit-cancel>
-</div>
-<div [hidden]="isVisitCall && !isVisitRecycled || redirectUrlLoading" [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
-  <app-visit-cancel #cancelVisitComponent [isDelayFuncAvailable]="isDelayFuncAvailable" [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted" (deletedByUser)="deletedByUser($event)"></app-visit-cancel>
+<div [hidden]="isVisitCall && !isVisitRecycled || redirectUrlLoading"
+  [ngClass]="{'button-container-rtl' : isRtl, 'button-container' : true, 'expand-view-btn': isTicketEndedOrDeleted}">
+  <app-visit-cancel #cancelVisitComponent [isDelayFuncAvailable]="isDelayFuncAvailable"
+    [isUrlAccessedTicket]='isUrlAccessedTicket' [isTicketEndedOrDeleted]="isTicketEndedOrDeleted"
+    (deletedByUser)="deletedByUser($event)"></app-visit-cancel>
 </div>

@@ -60,6 +60,11 @@
     "unauthorized" : "You are not authorized to open the ticket",
     "appointmentTime" : "Get ready to be served in:"
   },
+  "customForm": {
+    "description": "Please fill out this form while waiting. You will keep your place in line",
+    "toForm": "To form",
+    "dismiss": "Dismiss"
+  },
   "visit": {
     "notFound": "Sorry, something went wrong,",
     "onGoingVisit": "There is an ongoing visit. Please close the visit before you proceed",

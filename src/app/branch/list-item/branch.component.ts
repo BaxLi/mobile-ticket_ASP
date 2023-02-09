@@ -19,10 +19,11 @@ export class BranchComponent implements OnInit {
   public isRtl: boolean;
 
   constructor(public router: Router) {
+    history.pushState(null, null, location.href);
   }
 
   ngOnInit() {
-    this.setRtlStyles();    
+    this.setRtlStyles();
   }
 
   selectBranch(branch) {
@@ -30,10 +31,10 @@ export class BranchComponent implements OnInit {
     this.router.navigate(['services']);
   }
 
-  setRtlStyles(){
-    if(document.dir == "rtl"){
+  setRtlStyles() {
+    if (document.dir == "rtl") {
       this.isRtl = true;
-    }else{
+    } else {
       this.isRtl = false;
     }
   }

@@ -91,8 +91,10 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     this.getSelectedServices();
     this.countryCode = this.config.getConfig('country_code').trim();
     const countryCodeValues = Object.values(CountryISO);
-
-    if (this.countryCode.match(/^[A-Za-z]+$/)) {
+    
+    if(this.countryCode === 'disable') {
+      this.countryCode = '';
+    } else if (this.countryCode.match(/^[A-Za-z]+$/)) {
       this.countryCode = this.countryCode.toLowerCase();
       if (countryCodeValues.includes(this.countryCode as CountryISO)) {
         this.selectedCountryISO = this.countryCode;

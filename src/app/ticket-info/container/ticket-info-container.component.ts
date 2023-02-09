@@ -53,6 +53,8 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   private checkedEvents: boolean = false;
   private userLanguage: string;
   public isTicketDeletedByUser: boolean;
+  public showFormDialog: boolean = false;
+  public externalFormLink: string = '';
 
   @ViewChild('ticketNumberComponent', {static: true}) ticketNumberComponent;
   @ViewChild('queueComponent', {static: true}) queueComponent;
@@ -74,7 +76,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     this.visitState = new VisitState();
     this.isMeetingAvailable = false;
     this.redirectUrlLoading = false;
-
+    
     this.router.onSameUrlNavigation ='reload';
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
@@ -123,6 +125,12 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     } else {
       this.showAppTime = false;
     }
+
+    if (this.config.getConfig('dynamic_url').trim() !== '') {
+      console.log('hello')
+      this.showFormDialog = true;
+      this.externalFormLink = this.config.getConfig('dynamic_url').trim();
+    } 
 
   }
 
@@ -488,5 +496,14 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     this.isTicketEndedOrDeleted = $event;
     // this.deletedByUserSuccessed.emit($event)
     // console.log($event);
+  }
+  dismiss() {
+    this.showFormDialog = false; 
+  }
+  goToForm() {
+    var branchId = MobileTicketAPI.getSelectedBranch().id;
+    var visitId = MobileTicketAPI.getCurrentVisit().visitId;
+    var url = this.externalFormLink.replace('{{branchId}}', branchId).replace('{{visitId}}',visitId);
+    window.open(url, "_blank");
   }
 }

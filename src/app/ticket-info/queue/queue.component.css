@@ -31,11 +31,6 @@
   margin-top: 2em !important;
 }
 
-.queue-body {
-  padding-top: 5vw;
-  display: table-row;
-  text-align: right;
-}
 
 .app-queue-item{
   font-size: 0em;

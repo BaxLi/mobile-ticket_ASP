@@ -6,7 +6,7 @@ import { Config } from 'app/config/config';
 @Component({
   selector: 'qm-frame-layout',
   templateUrl: './frame-layout.component.html',
-  styleUrls: ['./frame-layout.component.css']
+  styleUrls: ['./frame-layout.component.scss']
 })
 
 export class FrameLayoutComponent implements OnInit {

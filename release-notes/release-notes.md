@@ -67,7 +67,7 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2023-02-07**
  
-**Build number: 1**
+**Build number: 2**
 
 <h3>Stories</h3>
 
@@ -75,6 +75,11 @@ This document describes the new features, bug corrections, known issues and reco
 | --- | --- |
 | **MOB-989** | **Adding dependency - "frameguard"** |
 
+<h3>Bug fixes</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-948** | **MT service can't be installed when theres a space in the install folder name** |
 
 ----------
 

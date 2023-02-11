@@ -24,7 +24,7 @@
     "description": "Google Analytic Track-ID"
   },
   "cookie_consent": {
-    "value": "enable",
+    "value": "disable",
     "description": "Enable or disable cookie consent popup in the first landing page, 'on = enable', 'off = disable'"
   },
   "notification_sound": {
@@ -124,7 +124,7 @@
     "description": "show or hide appointment time in the appointment ticket. If both show_queue_position and show_appointment_time are enabled, only appointment time will be shown"
   },
   "show_number_of_waiting_customers": {
-    "value": "disable",
+    "value": "enable",
     "description": " If this setting is enabled the number of waiting customers will appear in the service list, if disabled only service names are listed."
   },
   "appointment_late": {
@@ -150,40 +150,36 @@
   "customer_data": {
     "value": {
       "phone_number": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer phone number field in customer data section, 'enable => phone number field is visible but not mandatory', 'disable => phone number field is not visible' , 'mandatory => phone number field is visible and mandatory'"
       },
       "first_name": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer first name field in customer data section, 'on = enable', 'off = disable', 'mandatory => first name field is visible and mandatory'"
       },
       "last_name": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer last name field in customer data section, 'on = enable', 'off = disable', 'mandatory => last name field is visible and mandatory'"
       },
       "customerId": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable customer id field in customer data section, 'on = enable', 'off = disable'"
       },
       "additional_data": {
         "value": "",
-        "description": "Enable or disable additional customer data on creating ticket URL/ service group URL, that is using in query parameter. Maximum of two comma separated values are expected."
+        "description": "Enable or disable additional customer data on creating ticket URL/service group URL/service selection URL/No preselect URL, that is using in query parameter. Maximum of two comma separated values are expected."
       }
     },
-    "description": "Enable or disable customer id or phone number in customer area. If both are disabled customer data section will be hidden"
+    "description": "Enable or disable customer id, first name, last name or phone number in customer area. If nothing enabled, customer data section will be hidden"
   },
   "delay_visit": {
     "value": {
       "availability": {
-        "value": "enable",
+        "value": "disable",
         "description": "Enable or disable whether customer need to create or update visit with delay"
       },
       "time_slot": {
-        "value": [
-          5,
-          10,
-          15
-        ],
+        "value": [],
         "description": "Define delay time slots (minutes)"
       }
     },
@@ -207,11 +203,11 @@
     "description": "Enable or disable service translation"
   },
   "privacy_policy": {
-    "value": "enable",
+    "value": "disable",
     "description": "Enable or disable privacy policy when sending phone number, 'on = enable', 'off = disable'"
   },
   "active_consent": {
-    "value": "enable",
+    "value": "disable",
     "description": "Enable or disable whether customer need to actively press button to agree privacy policy"
   },
   "privacy_policy_link": {
@@ -227,7 +223,7 @@
     "description": "Define the preferred country codes for dropdown in country code inputs. list of comma separated country codes is expected. Should be 'ISO alpha-2 format'."
   },
   "queue_poll_retry": {
-    "value": "1",
+    "value": "2",
     "description": "Define how many times should retry the queue poll request."
   },
   "queue_retry_timeout": {
@@ -257,7 +253,7 @@
   "footer": {
     "value": {
       "logo": {
-        "value": "enable",
+        "value": "disable",
         "description": "show or hide the brand logo on the footer, enable = show, disable = hide"
       },
       "custom_text": {

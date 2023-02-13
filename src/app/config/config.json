@@ -239,7 +239,7 @@
     "description": "Enable or disable OTP service"
   },
   "create_ticket_token": {
-    "value": "enable",
+    "value": "disable",
     "description": "Enable or disable unique token for a ticket"
   },
   "reschedule_link": {

@@ -273,7 +273,7 @@ export class AppointmentComponent implements OnInit {
 
 
   rescheduleAppointment(){
-    window.open(this.rescheduleUrl+"/#/"+this.app.publicId,"_blank")
+    window.open(this.rescheduleUrl+"#/"+this.app.publicId,"_blank")
   }
 
 }

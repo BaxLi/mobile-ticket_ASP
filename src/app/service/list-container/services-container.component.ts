@@ -142,10 +142,10 @@ export class ServicesContainerComponent implements OnInit {
     }
 
     private takeTicket(): void {
-        let customerPhoneData = this.config.getConfig('customer_data').phone_number.value;   
-        let customerIdData = this.config.getConfig('customer_data').customerId.value; 
-        let isFirstNameEnabled = this.config.getConfig('customer_data').first_name.value;
-        let isLastNameEnabled = this.config.getConfig('customer_data').last_name.value;  
+        let customerPhoneData = this.config.getConfig('customer_data').phone_number ? this.config.getConfig('customer_data').phone_number.value : false;   
+        let customerIdData = this.config.getConfig('customer_data').customerId ? this.config.getConfig('customer_data').customerId.value : false; 
+        let isFirstNameEnabled = this.config.getConfig('customer_data').first_name ? this.config.getConfig('customer_data').first_name.value : false;
+        let isLastNameEnabled = this.config.getConfig('customer_data').last_name ? this.config.getConfig('customer_data').last_name.value : false;  
         let OtpService = this.config.getConfig('otp_service');   
         let isDeviceBounded  =  this.config.getConfig('block_other_browsers');
         if (!this.isTakeTicketClickedOnce) {

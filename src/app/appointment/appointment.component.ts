@@ -141,7 +141,7 @@ export class AppointmentComponent implements OnInit {
             if (!this.arriveAppRetried) {
               this.fetchAppointment().then(() => {
                 this.app = MobileTicketAPI.getAppointment();
-                this.isInvalid = this.isAppointmentInvalid();
+                this.isAppointmentInvalid();
                 this.arriveAppRetried = true;
               });
             }
@@ -228,15 +228,17 @@ export class AppointmentComponent implements OnInit {
         this.branchEntity.position = new PositionEntity(res.latitude, res.longitude);
         this.branchEntity.timeZone = res.timeZone;
         MobileTicketAPI.setBranchSelection(this.branchEntity);
-        this.isInvalid = this.isAppointmentInvalid();
+        this.isAppointmentInvalid();
       });
+    }else{
+      this.setAppointmentConditions();
     }
   }
 
   // MOVE ALL MobileTicketAPI calls to service class otherwise using things this way
   // makes unit test writing impossible
 
-  private isAppointmentInvalid(): boolean {
+  private isAppointmentInvalid() {
     let timeZone = this.branchEntity.timeZone;
     let appStart = this.app.startTime.replace('T', ' ').replace(/-/g, '/');
     let timeFormat = this.config.getConfig('timeFormat');
@@ -246,11 +248,6 @@ export class AppointmentComponent implements OnInit {
     this.app.startTimeFormatted = moment(startDefault).format(timeFormat).toString();
     this.app.date = moment(startDefault).locale(timeZone).format(dateFormat).toString();
 
-    if (this.app.status === 'NOTFOUND')
-      this.isNotFound = true;
-
-    if (this.app.status !== 'CREATED' && this.app.status !== 'NOTFOUND')
-      this.isInvalidStatus = true;
     var now = moment.tz();//now
     let minDiff = now.diff(startDefault, 'minutes')
     if (minDiff >= 0 && Math.abs(minDiff) > this.config.getConfig('appointment_late'))
@@ -267,9 +264,23 @@ export class AppointmentComponent implements OnInit {
     if (this.app.date !== todayDate)
       this.isInvalidDate = true;
 
-    this.isUnschedulable = this.isLate || this.isInvalidStatus;
-    return this.isLate || this.isEarly || this.isInvalidStatus || this.isInvalidDate;
+    this.setAppointmentConditions();
+
   }
+
+  setAppointmentConditions(){
+    if (this.app.status === 'NOTFOUND')
+      this.isNotFound = true;
+
+    if (this.app.status !== 'CREATED' && this.app.status !== 'NOTFOUND')
+      this.isInvalidStatus = true;
+
+
+    this.isUnschedulable = this.isLate || this.isInvalidStatus || this.isNotFound;
+    this.isInvalid= this.isLate || this.isEarly || this.isInvalidStatus || this.isInvalidDate || this.isNotFound;
+  }
+
+
 
 
   rescheduleAppointment(){

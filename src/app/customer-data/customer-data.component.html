@@ -52,7 +52,7 @@
         <!-- start phone number field -->
         <div class="customer-phone" *ngIf="isCustomerPhoneDataEnabled">
           <div *ngIf="!showLoader" class="custom-phone-card">
-            <div *ngIf="!isFirstNameEnabled && !isLastNameEnabled">
+            <div *ngIf="!isFirstNameEnabled && !isLastNameEnabled && !isCustomerIdEnabled">
             <div class="text-color phone-heading-one"> {{'customer_info.phoneNumberHeadingOne' | translate}}</div>
             <ul class="phone-description">
               <li *ngIf="'customer_info.firstAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.firstAdvantageByEnteringPhone' | translate">  </li>
@@ -96,7 +96,7 @@
               <div class="phone-num-error" [ngStyle]="{'margin':seperateCountryCode ? '0' : '0 1px' }"
                 *ngIf="PhoneNumberMandatoryError"> {{'customer_info.phoneNumberIsMandatory' | translate}}</div>
             </div>
-            <div *ngIf="isFirstNameEnabled || isLastNameEnabled">
+            <div *ngIf="isFirstNameEnabled || isLastNameEnabled || isCustomerIdEnabled">
               <div class="text-color phone-heading-one"> {{'customer_info.phoneNumberHeadingOne' | translate}}</div>
               <ul class="phone-description-bottom" >
                 <li *ngIf="'customer_info.firstAdvantageByEnteringPhone' | translate" [innerHTML]="'customer_info.firstAdvantageByEnteringPhone' | translate">  </li>

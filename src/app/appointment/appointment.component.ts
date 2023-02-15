@@ -14,6 +14,7 @@ import { AlertDialogService } from '../shared/alert-dialog/alert-dialog.service'
 import { RetryService } from '../shared/retry.service';
 import { isDevMode } from '@angular/core';
 import * as moment from 'moment-timezone';
+import { LocationStrategy } from '@angular/common';
 
 declare var MobileTicketAPI: any;
 declare var ga: Function;
@@ -45,10 +46,23 @@ export class AppointmentComponent implements OnInit {
   public currentPosition: PositionEntity;
   public rescheduleUrl:string ="";
   public isUnschedulable:boolean = false;
+  public showLoader:boolean = false;
 
 
-  constructor(private config: Config, public router: Router, private translate: TranslateService,
-    private alertDialogService: AlertDialogService, private retryService: RetryService, private currentLocation: LocationService) {
+  constructor(
+    private config: Config,
+    public router: Router,
+    private translate: TranslateService,
+    private alertDialogService: AlertDialogService,
+    private retryService: RetryService,
+    private currentLocation: LocationService,
+    private location: LocationStrategy
+
+    ) {
+      history.pushState(null, null, window.location.href);
+      this.location.onPopState(() => {
+        history.pushState(null, null, window.location.href);
+      });
   }
 
   ngOnInit() {
@@ -74,7 +88,9 @@ export class AppointmentComponent implements OnInit {
   }
 
   onArriveAppointment() {
+    this.showLoader=true;
     let visitInfo = MobileTicketAPI.getCurrentVisit();
+    this.showLoader=false;
     if (visitInfo && visitInfo != null && visitInfo.visitStatus !== "DELETE") {
       let alertMsg = '';
       this.translate.get('visit.onGoingVisit').subscribe((res: string) => {

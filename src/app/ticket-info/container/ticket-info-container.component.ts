@@ -125,9 +125,10 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     } else {
       this.showAppTime = false;
     }
-
-    if (this.config.getConfig('dynamic_url').trim() !== '') {
-      console.log('hello')
+    
+    if ( this.config.getConfig('dynamic_url') !== false && this.config.getConfig('dynamic_url').trim() !== '') {
+    
+      // this.config['dynamic_url'].value
       this.showFormDialog = true;
       this.externalFormLink = this.config.getConfig('dynamic_url').trim();
     } 

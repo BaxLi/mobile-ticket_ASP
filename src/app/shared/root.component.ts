@@ -17,6 +17,12 @@ export class RootComponent {
       ga('create', track_id, 'auto');
       ga('send', 'pageview');
     }
+    window.addEventListener('resize', this.appHeight)
+    this.appHeight()
+  }
 
+  public appHeight()  {
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
   }
 }

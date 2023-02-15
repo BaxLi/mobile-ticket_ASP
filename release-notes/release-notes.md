@@ -39,33 +39,10 @@ This document describes the new features, bug corrections, known issues and reco
 
 ----------
 -->
-<h2> Version 2.5.2 </h2>
-
-**Date: 2023-02-02**
- 
-**Build number: 1**
-
-<h3>Stories</h3>
-
-| **Id** | **Release notes** |
-| --- | --- |
-| **MOB-956** | **Add dynamic url to Mobile Ticket** |
-
-<h3>Bug fixes</h3>
-
-| **Id** | **Release notes** |
-| --- | --- |
-| **MOB-837** | **Block browser back from branch page.** |
-| **MOB-942** | **Mobile Ticket phone number country code as blank.** |
-
-
-----------
-
-
 
 <h2> Version 2.5.3 </h2>
 
-**Date: 2023-02-07**
+**Date: 2023-02-15**
  
 **Build number: 2**
 
@@ -80,6 +57,8 @@ This document describes the new features, bug corrections, known issues and reco
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-948** | **MT service can't be installed when theres a space in the install folder name** |
+| **MOB-837** | **Block browser back from branch page.** |
+| **MOB-942** | **Mobile Ticket phone number country code as blank.** |
 
 ----------
 

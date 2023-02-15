@@ -62,7 +62,7 @@ export class AppointmentComponent implements OnInit {
     this.app = MobileTicketAPI.getAppointment();
     this.getBranch();
     this.setRtlStyles();
-    this.rescheduleUrl = this.config.getConfig('reschedule_link');
+    this.rescheduleUrl = this.config.getConfig('reschedule_link') !== false ? this.config.getConfig('reschedule_link') : '';
   }
 
   setRtlStyles() {

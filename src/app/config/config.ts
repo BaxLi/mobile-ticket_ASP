@@ -24,6 +24,6 @@ export class Config {
         });
     }
     public getConfig(key: any) {
-        return this.config[key].value;
+        return (this.config[key]) ? this.config[key].value : false;
     }
 }

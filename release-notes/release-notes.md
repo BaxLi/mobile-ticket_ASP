@@ -42,15 +42,16 @@ This document describes the new features, bug corrections, known issues and reco
 
 <h2> Version 2.5.3 </h2>
 
-**Date: 2023-02-15**
+**Date: 2023-02-16**
  
-**Build number: 2**
+**Build number: 3**
 
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-989** | **Adding dependency - "frameguard"** |
+| **MOB-970** | **Input feild order change** |
 
 <h3>Bug fixes</h3>
 
@@ -59,6 +60,7 @@ This document describes the new features, bug corrections, known issues and reco
 | **MOB-948** | **MT service can't be installed when theres a space in the install folder name** |
 | **MOB-837** | **Block browser back from branch page.** |
 | **MOB-942** | **Mobile Ticket phone number country code as blank.** |
+
 
 ----------
 

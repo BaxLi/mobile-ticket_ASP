@@ -88,9 +88,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   onArriveAppointment() {
-    this.showLoader=true;
     let visitInfo = MobileTicketAPI.getCurrentVisit();
-    this.showLoader=false;
     if (visitInfo && visitInfo != null && visitInfo.visitStatus !== "DELETE") {
       let alertMsg = '';
       this.translate.get('visit.onGoingVisit').subscribe((res: string) => {
@@ -143,7 +141,9 @@ export class AppointmentComponent implements OnInit {
         let numberOfCustomers = (this.app.custom && JSON.parse(this.app.custom).numberOfCustomers) ?
           parseInt(JSON.parse(this.app.custom).numberOfCustomers) : null;
 
+          this.showLoader=true;
         MobileTicketAPI.arriveAppointment(this.app.branchId, entryPointId, this.app.qpId, this.app.notes, selectedServicesWithPeopleServices, numberOfCustomers, (response) => {
+          this.showLoader=false;
           this.ticket = response;
           this.router.navigate(['ticket'], {
             queryParams: {
@@ -161,6 +161,7 @@ export class AppointmentComponent implements OnInit {
                 this.arriveAppRetried = true;
               });
             }
+            // this.showLoader=false;
           });
       }
     },
@@ -225,12 +226,14 @@ export class AppointmentComponent implements OnInit {
               resolve(null);
             });
         }
+        this.showLoader=false;
 
       },
         (xhr, status, errorMessage) => {
           aEntity.status = 'NOTFOUND';
           MobileTicketAPI.setAppointment(aEntity);
           resolve(null);
+          this.showLoader=false;
         });
     });
   }

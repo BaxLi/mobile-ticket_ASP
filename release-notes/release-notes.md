@@ -40,6 +40,20 @@ This document describes the new features, bug corrections, known issues and reco
 ----------
 -->
 
+<h2> Version 2.6.0 </h2>
+
+**Date: 2023-02-20**
+ 
+**Build number: 1**
+
+<h3>Stories</h3>
+
+| **Id** | **Release notes** |
+| --- | --- |
+| **MOB-826** | **Mobile Ticket bridge with Qmatic Web Booking** |
+
+----------
+
 <h2> Version 2.5.3 </h2>
 
 **Date: 2023-02-16**

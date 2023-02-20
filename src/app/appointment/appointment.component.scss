@@ -80,12 +80,24 @@
   margin: 20px;
 }
 
+.table-child-footer {
+  position: absolute;
+  // width: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  max-width: calc((9 * 40px) + 50px + (2px * 10) + 1px);
+  width: calc((9 * 8.5vw) + 12vw + (2px * 10) + 1px);
+}
+
 .qm-footer{
   margin-top: 10px;
   position: absolute;
     left: 0;
     right: 0;
     bottom: 40px;
+  padding: 1em;
 }
 
 .btn-margin-extend {
@@ -105,6 +117,14 @@
 
 .loader-container{
   margin-top: 3em;
+}
+
+.secondary-button {
+  background-color: white !important;
+  border: 2px solid #0079C2 !important;
+  color: #0079C2 !important;
+  font-family: 'Roboto-Medium' !important;
+  line-height: 1em !important;
 }
 
 @media only screen and (max-width: 768px) {

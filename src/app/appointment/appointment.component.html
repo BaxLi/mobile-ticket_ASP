@@ -106,7 +106,7 @@
       *ngIf="!isInvalid">
         {{ 'appointment.arriveBtnText' | translate }}
       </div>
-      <div class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend" (click)='rescheduleAppointment()'
+      <div class="accent-btn custom accent-bg-color btn-text-color btn-margin-extend secondary-button" (click)='rescheduleAppointment()'
       *ngIf="(rescheduleUrl!='') && !isUnschedulable">
       {{ 'appointment.rescheduleBtnText' | translate }}
       </div>

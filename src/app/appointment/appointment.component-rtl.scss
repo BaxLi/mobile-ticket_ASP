@@ -1,14 +1,22 @@
 
 .appointment-label-rtl {
-  font-family: Roboto-Regular; 
+  font-family: Roboto-Regular;
   text-align: left;
 }
 .appointment-data-rtl {
-  font-family: Roboto-Light; 
+  font-family: Roboto-Light;
   text-align:right;
 }
 
 .col-rtl{
   float: right;
+}
+
+.secondary-button {
+  background-color: white !important;
+  border: 2px solid #0079C2 !important;
+  color: #0079C2 !important;
+  font-family: 'Roboto-Medium' !important;
+  line-height: 1em !important;
 }
 

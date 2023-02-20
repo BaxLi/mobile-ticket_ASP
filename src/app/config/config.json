@@ -242,6 +242,10 @@
     "value": "disable",
     "description": "Enable or disable unique token for a ticket"
   },
+  "reschedule_link": {
+    "value": "",
+    "description": "URL to open Qmatic web booking application. eg: http://localhost:8090/qmaticwebbooking/"
+  },
   "footer": {
     "value": {
       "logo": {

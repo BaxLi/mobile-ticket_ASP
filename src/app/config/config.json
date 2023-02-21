@@ -246,6 +246,10 @@
     "value": "",
     "description": "URL to open Qmatic web booking application. eg: http://localhost:8090/qmaticwebbooking/"
   },
+  "dynamic_url": {
+    "value": "",
+    "description": "Show dialog to open a dynamic url. {{branchId}} and {{visitId}} can be used to bind branch id and visit id to url. eg:http://www.yourdomain.com/form/{{branchId}}/{{visitId}}"
+  },
   "footer": {
     "value": {
       "logo": {

@@ -43,7 +43,7 @@
         <div *ngIf="visitCallMsgOne && !isVisitRecycled" [innerHTML]="visitCallMsgOne" class="visitcall-heading-one">
         </div>
         <div class="visit-call-message"  *ngIf="visitCallMsg && !isVisitRecycled  && isMeetingAvailable && !meetingUrlLoading">
-          {{ 'visitCallMsg' | translate}}
+          {{ visitCallMsg}}
         </div>
         <div *ngIf="visitCallMsg && !isVisitRecycled  && !isMeetingAvailable && !meetingUrlLoading" class="visit-call-message" [innerHTML]="visitCallMsg"></div>
         <div *ngIf="visitCallMsgThree && !isVisitRecycled && !isMeetingAvailable && !meetingUrlLoading" [innerHTML]="visitCallMsgThree" 

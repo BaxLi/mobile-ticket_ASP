@@ -43,7 +43,7 @@
     "btnTitleArrive": "I'm here",
     "defaultTitle": "Mobile Ticket",
     "titleYourTurn": "It's your turn!",
-    "ticketReady": "{firstName} is ready to serve you at:",
+    "ticketReady": "{firstName} is ready to serve you",
     "ticketReadyWithNoName": "You will be served at",
     "titleInLine": "position",
     "btnTitleNewTicket": "Get new ticket",

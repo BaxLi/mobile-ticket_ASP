@@ -10944,6 +10944,7 @@ var MobileTicketAPI = (function () {
   var currentvisitEvent = undefined;
   var currentVisitStatus = undefined;
   var meetingUrl = undefined;
+  var meetingUrlLoading = false;
   var delayInfo = undefined;
   var isUserOpenDelay = false;
   var custom3 = undefined;
@@ -11171,6 +11172,10 @@ var MobileTicketAPI = (function () {
 
   function getFingerprint() {
     return MobileTicketAPI.fingerprint;
+  }
+
+  function getMeetingUrlLoading() {
+	return MobileTicketAPI.meetingUrlLoading;
   }
 
   function getTicketToken() {
@@ -11953,6 +11958,7 @@ var MobileTicketAPI = (function () {
             if (visitsData != undefined) {
               var visitStatus = processVisitStatus(visitsData);
               if (MobileTicketAPI.meetingUrl === undefined && visitsData.currentStatus === "CALLED") {
+				MobileTicketAPI.meetingUrlLoading = true;
                 MobileTicketAPI.getMeetingUrl(branchIdVal, visitIdVal);
               }
               onSuccess(visitStatus);
@@ -12128,7 +12134,7 @@ var MobileTicketAPI = (function () {
     },
     getMeetingUrl: function(branchId, visitId) {
       var CENTR_REST_API = MOBILE_TICKET + "/" + MYMEETING + "/" + BRANCHES + "/" + branchId + "/" + VISITS + "/" + visitId;
-      $.ajax({
+	  $.ajax({
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
@@ -12140,8 +12146,10 @@ var MobileTicketAPI = (function () {
               MobileTicketAPI.meetingUrl = "Not present";
             }
           }
+		  MobileTicketAPI.meetingUrlLoading = false;
         },
         error: function (xhr, status, errorMsg) {
+		  MobileTicketAPI.meetingUrlLoading = false;
           onError(xhr, status, errorMsg);
         }
       });    
@@ -12298,6 +12306,12 @@ var MobileTicketAPI = (function () {
     getFingerprint: function () {
       return getFingerprint();
     },
+	setMeetingUrlLoading: function(state) {
+		MobileTicketAPI.meetingUrlLoading = state;
+	},
+	getMeetingUrlLoading: function() {
+		return getMeetingUrlLoading();
+	},
     setTicketToken: function (status) {
       MobileTicketAPI.ticketToken = status;
     },

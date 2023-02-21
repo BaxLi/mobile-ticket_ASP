@@ -55,6 +55,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   public isTicketDeletedByUser: boolean;
   public showFormDialog: boolean = false;
   public externalFormLink: string = '';
+  public meetingUrlLoading: boolean;
 
   @ViewChild('ticketNumberComponent', {static: true}) ticketNumberComponent;
   @ViewChild('queueComponent', {static: true}) queueComponent;
@@ -81,31 +82,13 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
    }
-//    this.eventSub = this.router.events.subscribe((evt) => {
-//     if (evt instanceof NavigationEnd) {
-//        // trick the Router into believing it's last link wasn't previously loaded
-//        this.router.navigated = false;
-//     }
-// });
 
-    this.getSelectedBranch();
+   this.getSelectedBranch();
     this.userLanguage = navigator.language;
     if (typeof navigator !== 'undefined' && navigator) {
       this.userLanguage = navigator.language.split('-')[0];
     }
     
-
-    /**
-     * this is commented
-     * Issue: once called and ended a ticket and next time issued a ticket
-     * previosuly ticket called screen is shown for a while.
-     */
-    /**
-    if (MobileTicketAPI.getCurrentVisitStatus() !== undefined) {
-      this.onVisitStatusUpdate(MobileTicketAPI.getCurrentVisitStatus());
-    }
-    */
-
   }
 
   ngOnInit() {
@@ -127,8 +110,6 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
     }
     
     if ( this.config.getConfig('dynamic_url') !== false && this.config.getConfig('dynamic_url').trim() !== '') {
-    
-      // this.config['dynamic_url'].value
       this.showFormDialog = true;
       this.externalFormLink = this.config.getConfig('dynamic_url').trim();
     } 
@@ -259,6 +240,7 @@ export class TicketInfoContainerComponent implements OnInit, OnDestroy {
   }
 
   onVisitStatusUpdate(visitStatus: QueueEntity) {
+    this.meetingUrlLoading = MobileTicketAPI.getMeetingUrlLoading();
     this.isVisitRecycled = false;
     this.updateBrowserTitle(visitStatus);
     this.isDelayFuncAvailable = visitStatus.queueId && visitStatus.queueId > 0 ? true : false;

@@ -76,7 +76,6 @@ export class TicketComponent implements OnInit {
       this.serviceName = serviceName;
     }
     if (serviceName.length> 15) {
-      console.log(serviceName.length)
       this.isServiceTextSmall = true;
       this.isServiceTextLarge = false;
     }

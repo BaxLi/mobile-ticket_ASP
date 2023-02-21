@@ -42,8 +42,11 @@
       <div [hidden]="isNetworkErr" class="center-text sub-heading-text-2 custom text-color">
         <div *ngIf="visitCallMsgOne && !isVisitRecycled" [innerHTML]="visitCallMsgOne" class="visitcall-heading-one">
         </div>
-        <div *ngIf="visitCallMsg && !isVisitRecycled" class="visit-call-message" [innerHTML]="visitCallMsg"></div>
-        <div *ngIf="visitCallMsgThree && !isVisitRecycled" [innerHTML]="visitCallMsgThree"
+        <div class="visit-call-message"  *ngIf="visitCallMsg && !isVisitRecycled  && isMeetingAvailable && !meetingUrlLoading">
+          {{ 'visitCallMsg' | translate}}
+        </div>
+        <div *ngIf="visitCallMsg && !isVisitRecycled  && !isMeetingAvailable && !meetingUrlLoading" class="visit-call-message" [innerHTML]="visitCallMsg"></div>
+        <div *ngIf="visitCallMsgThree && !isVisitRecycled && !isMeetingAvailable && !meetingUrlLoading" [innerHTML]="visitCallMsgThree" 
           class="visitcall-heading-three"></div>
       </div>
       <div [hidden]="!isNetworkErr">

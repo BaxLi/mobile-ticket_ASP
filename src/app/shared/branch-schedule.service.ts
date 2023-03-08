@@ -55,7 +55,7 @@ export class BranchScheduleService {
             success(branchServiceAvailability);
         }
         const errorCallBack = function(error){
-            success({});
+            success(null);
         }
         MobileTicketAPI.getAllBranchSchedule(successCallBack, errorCallBack);
     }

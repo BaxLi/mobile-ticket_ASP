@@ -123,10 +123,9 @@ export class BranchesComponent implements AfterViewInit {
         // }
       }
       this.branchScheduleService.checkBranchAvailability((status)=>{
-        if(status.size !=0 ){
+        if(status !=null ){
           this.serviceAvailableBranches = status;
         }
-
       });
     }
     else {

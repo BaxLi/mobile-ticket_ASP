@@ -67,7 +67,7 @@ const configuration = JSON.parse(
 //Set well-known web vulnerabilities by setting HTTP headers appropriately
 app.use(helmet());
 
-//Hackers can exploit known vulnerabilities in Express/Node if they see that your site is 
+//Hackers can exploit known vulnerabilities in Express/Node if they see that your site is
 //powered by Express (or whichever framework you use)
 app.use(hidePoweredBy());
 app.disable('x-powered-by');
@@ -75,7 +75,7 @@ app.disable('x-powered-by');
 //Abolish all JS client-side caching.
 app.use(nocache());
 
-//Browsers will try to "sniff" mimetypes. For example, if my server serves file.txt with a text/plain content-type, 
+//Browsers will try to "sniff" mimetypes. For example, if my server serves file.txt with a text/plain content-type,
 //some browsers can still run that file with <script src="file.txt"></script>
 app.use(nosniff());
 
@@ -163,7 +163,7 @@ if (supportSSL) {
 	credentials = { key: privateKey, cert: certificate };
 	if (tlsVersion.length > 0 && tlsversionSet.indexOf(tlsVersion) !== -1) {
 		credentials.secureProtocol = tlsVersion;
-	} 
+	}
 	if (cipherSet.length > 0) {
 		credentials.ciphers = cipherSet.join(':');
 	}
@@ -330,7 +330,7 @@ const apiProxy = proxy(host, {
 			} else {
 				req.abort();
 			}
-				
+
 		}
 		return require('url').parse(req.originalUrl).path;
 	},
@@ -345,7 +345,7 @@ const apiProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -370,7 +370,7 @@ const apiFindProxy = proxy(host, {	// ip and port off apigateway
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -408,7 +408,7 @@ const apiTranslationProxy = proxy(host, {	// ip and port off apigateway
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -418,7 +418,7 @@ const apiTranslationProxy = proxy(host, {	// ip and port off apigateway
 	userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
 		const data = JSON.parse(proxyResData.toString('utf8'));
 		const newData:any = {};
-		
+
 		if (data.serviceList !== undefined) {
 			newData.serviceList = [];
 			data.serviceList.forEach(service => {
@@ -428,7 +428,7 @@ const apiTranslationProxy = proxy(host, {	// ip and port off apigateway
                 newService.custom = service.custom;
                 newData.serviceList.push(newService);
 			});
-		} 
+		}
 		// else if (data.branchList !== undefined) {
 		// 	newData.branchList = [];
 		// 	data.branchList.forEach(branch => {
@@ -458,7 +458,7 @@ const apiFindExtProxy = proxy(host, {	// ip and port off apigateway
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -472,7 +472,7 @@ const apiFindExtProxy = proxy(host, {	// ip and port off apigateway
 		const data = JSON.parse(proxyResData.toString('utf8'));
 		const newData:any = {};
 		newData.properties = {};
-		
+
 		if (data !== undefined) {
 			var CryptoJS = require("crypto-js");
 			var encryptedText = CryptoJS.AES.encrypt( data.id.toString(), authToken ).toString();
@@ -484,7 +484,7 @@ const apiFindExtProxy = proxy(host, {	// ip and port off apigateway
 			newData.branchId = data.branchId;
 			newData.startTime = data.startTime;
 			newData.endTime = data.endTime;
-			
+
 			newData.properties.notes = (data.properties && data.properties.notes) || '';
 			newData.properties.custom = (data.properties && data.properties.custom) || '';
 		}
@@ -508,7 +508,7 @@ const apiFindCentralProxy = proxy(host, {	// ip and port off apigateway
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -553,7 +553,7 @@ const apiFindCentralByEIdProxy = proxy(host, {	// ip and port off apigateway
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -595,7 +595,7 @@ const apiEntryPointProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -623,7 +623,7 @@ const apiCustomParameterProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -635,7 +635,7 @@ const apiCustomParameterProxy = proxy(host, {
 		let newData:any = {};
 		newData.parameterMap = {};
 		if (data !== undefined) {
-			newData.parameterMap.userId = data.parameterMap.userId;	
+			newData.parameterMap.userId = data.parameterMap.userId;
 		}
 		return JSON.stringify(newData);
 	}
@@ -670,7 +670,7 @@ const apiArriveProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -687,7 +687,7 @@ const apiArriveProxy = proxy(host, {
 			newData.currentVisitService = data.currentVisitService;
 			newData.checksum = data.checksum;
 			newData.parameterMap.startQueueOrigId = data.parameterMap.startQueueOrigId;
-			newData.parameterMap.branchName = data.parameterMap.branchName;	
+			newData.parameterMap.branchName = data.parameterMap.branchName;
 		}
 		return JSON.stringify(newData);
 	}
@@ -711,7 +711,7 @@ const apiMeetingProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -749,7 +749,7 @@ const apiDelayProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -776,7 +776,7 @@ var apiBranchScheduleProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -803,7 +803,7 @@ var apiEventProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -830,7 +830,7 @@ var apiServicesGroupsProxy = proxy(host, {
 			headers['X-Frame-Options'] = "DENY";
 		}
 		headers['Content-Security-Policy'] = "default-src \'self\'";
-	
+
 		if (supportSSL) {
 			headers['Strict-Transport-Security'] = "max-age=" + hstsExpireTime + "; includeSubDomains";
 		}
@@ -910,7 +910,7 @@ app.use("/MobileTicket/services/*", apiProxy);
 app.use("/MobileTicket/MyVisit/LastEvent/*", apiEventProxy);
 app.use("/MobileTicket/MyVisit/*", apiProxy);
 app.use("/MobileTicket/MyMeeting/*", apiMeetingProxy);
-app.use("/MobileTicket/BranchSchedule/variables/*", apiBranchScheduleProxy);
+app.use("/MobileTicket/BranchSchedule/*", apiBranchScheduleProxy);
 app.use("/MobileTicket/servicesGroups/*", apiServicesGroupsProxy);
 
 // MT service
@@ -921,7 +921,7 @@ let tenantID = "";
 let userConfigFile = __dirname + '/src/app/config/config.json';
 let mtConfigFile = __dirname + '/mt-service/src/config/config.json';
 if (env=='dev') {
-	userConfigFile = "../src/app/config/config.json";	
+	userConfigFile = "../src/app/config/config.json";
 }
 const userConfiguration = JSON.parse(fs.readFileSync(userConfigFile, "utf8"));
 const mtConfiguration = JSON.parse(fs.readFileSync(mtConfigFile, "utf8"));
@@ -967,12 +967,12 @@ if (otpService === "enable" || ticketToken === "enable") {
 
 async function checkToken(token) {
 
-    return await new Promise(function(resolve, reject) { 
+    return await new Promise(function(resolve, reject) {
         var data = JSON.stringify({
             token: token,
         });
         var MT_SERVICE_TOKEN_DELETE = "/MTService/token/delete";
-		
+
         var options = {
             hostname: "localhost",
             port: supportSSL ? sslPort : port,
@@ -992,7 +992,7 @@ async function checkToken(token) {
 				resolve(res.statusCode);
 			});
 		}
-		
+
 		tokenRequest.on("error", function (error) {
 			console.error('error :'+error);
 			resolve(500);

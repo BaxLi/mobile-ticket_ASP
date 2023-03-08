@@ -10993,7 +10993,7 @@ var MobileTicketAPI = (function () {
   $.ajaxSetup({
     beforeSend: function (xhr) {
       xhr.setRequestHeader("Accept", "application/json");
-      xhr.setRequestHeader("auth-token", "d0516eee-a32d-11e5-bf7f-feff819cdc9f"); //Change the api token with your one      
+      xhr.setRequestHeader("auth-token", "d0516eee-a32d-11e5-bf7f-feff819cdc9f"); //Change the api token with your one
     }
   });
 
@@ -11087,7 +11087,7 @@ var MobileTicketAPI = (function () {
     MobileTicketAPI.custom4 = undefined;
     MobileTicketAPI.custom5 = undefined;
     MobileTicketAPI.queryParameters = undefined;
-    
+
   }
 
   function eraseCookie(name) {
@@ -11252,7 +11252,7 @@ var MobileTicketAPI = (function () {
     MobileTicketAPI.currentVisitStatus = {};
   }
 
-  function getParameterFromUrl( name, url ) {  
+  function getParameterFromUrl( name, url ) {
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";
     var regex = new RegExp( regexS );
@@ -11260,10 +11260,10 @@ var MobileTicketAPI = (function () {
     return results == null ? null : results[1];
   }
 
-  function checkIfUrlFromQR(){  
+  function checkIfUrlFromQR(){
 
     visitFromQR = true;
-    
+
     var branchId = "";
     var visitId = "";
 
@@ -11277,11 +11277,11 @@ var MobileTicketAPI = (function () {
     var searchParams = window.location.search;
 
     //var URL = "http://localhost:4200/MobileTicket/MyVisit/CurrentStatus?branch=5&visit=297&checksum=720035390";
-    //var searchParams = "http://localhost:4200/MobileTicket/MyVisit/CurrentStatus?branch=5&visit=297&checksum=720035390";    
-    
+    //var searchParams = "http://localhost:4200/MobileTicket/MyVisit/CurrentStatus?branch=5&visit=297&checksum=720035390";
+
 
     if(!branchPattern.test(searchParams)){
-      visitFromQR = false;      
+      visitFromQR = false;
     }else{
       branchId = getParameterFromUrl('branch', URL);
     }
@@ -11289,7 +11289,7 @@ var MobileTicketAPI = (function () {
     if(!visitPattern.test(searchParams)){
       visitFromQR = false;
     }else{
-      visitId = getParameterFromUrl('visit', URL);    
+      visitId = getParameterFromUrl('visit', URL);
     }
 
     if(!checksumPattern.test(searchParams)){
@@ -11300,9 +11300,9 @@ var MobileTicketAPI = (function () {
       visitFromQR = false;
     }
 
-    if(visitFromQR){    
+    if(visitFromQR){
       var eventData = {};
-      //eventData.param = "QR";    
+      //eventData.param = "QR";
       // eventData.param = "MT_VISIT";
       // var eventName = VISIT_EVENT_NAME;
       // MobileTicketAPI.sendCustomStatEvent(branchId, visitId, eventName, eventData);
@@ -11507,7 +11507,27 @@ var MobileTicketAPI = (function () {
         onError(null, null, e.message);
       }
     },
-    getBranchSchedule : function(branchId, onSuccess, onError) {
+    getAllBranchSchedule : function(onSuccess, onError) {
+      try {
+        var ALL_BRANCH_SCHEDULE_REST_API = MOBILE_TICKET + "/" + BRANCH_SCHEDULE + "/variables?name=scheduleStatus&option=CONTAINS";
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: ALL_BRANCH_SCHEDULE_REST_API,
+          success: function (data) {
+            if (data != undefined) {
+              onSuccess(data);
+            }
+          },
+          error: function (xhr, status, errorMsg) {
+            onError(xhr, status, errorMsg);
+          }
+        });
+      } catch (e) {
+        onError(null, null, e.message);
+      }
+    },
+    getBranchSchedule : function(branchId,onSuccess, onError) {
       try {
         var BRANCH_SCHEDULE_REST_API = MOBILE_TICKET + "/" + BRANCH_SCHEDULE + "/variables/scheduleStatus" + branchId;
         $.ajax({
@@ -11629,7 +11649,7 @@ var MobileTicketAPI = (function () {
       }
     },
     getServicesGroups: function(onSuccess, onError){
-      try{      
+      try{
         var SERVICES_GROUPS_API = MOBILE_TICKET + "/" + SERVICES_GROUPS;
         $.ajax({
           type: "GET",
@@ -11689,7 +11709,7 @@ var MobileTicketAPI = (function () {
             error: function (xhr, status, errorMsg) {
               onError(xhr, status, errorMsg);
             }
-  
+
           })
             .done(function () {
               onSuccess();
@@ -11726,7 +11746,7 @@ var MobileTicketAPI = (function () {
 
         if (enteredPhoneNum && enteredPhoneNum.length > 0 || enteredCustomerId && enteredCustomerId.length > 0 || fingerPrint || custom3 || custom4 || enteredFirstName || enteredLastName) {
           jsonData.parameters = {};
-          
+
            if (fingerPrint) {
             jsonData.parameters. userId = fingerPrint
             // jsonData = { "parameters": {phoneNumber: enteredPhoneNum, primaryCustomerPhoneNumber: enteredPhoneNum, userId: fingerPrint}};
@@ -11741,7 +11761,7 @@ var MobileTicketAPI = (function () {
             jsonData.parameters. phoneNumber = enteredPhoneNum;
             jsonData.parameters. primaryCustomerPhoneNumber = enteredPhoneNum;
             // jsonData = { "parameters": {phoneNumber: enteredPhoneNum, primaryCustomerPhoneNumber: enteredPhoneNum}};
-           } 
+           }
            if (enteredCustomerId && enteredCustomerId.length > 0) {
             jsonData.parameters.custom2 = enteredCustomerId;
            }
@@ -11781,7 +11801,7 @@ var MobileTicketAPI = (function () {
                 error: function (xhr, status, errorMsg) {
                   onError(xhr, status, errorMsg);
                 }
-      
+
               })
                 .done(function (data) {
                   if (data != undefined) {
@@ -11817,7 +11837,7 @@ var MobileTicketAPI = (function () {
             error: function (xhr, status, errorMsg) {
               onError(xhr, status, errorMsg);
             }
-  
+
           })
             .done(function (data) {
               if (data != undefined) {
@@ -11840,16 +11860,16 @@ var MobileTicketAPI = (function () {
             });
         }
 
-        
+
       } catch (e) {
         onError(null, null, e.message);
       }
     },
 
     sendCustomStatEvent: function(branchId, visitId, eventName, eventData){
-      try {                
+      try {
         var SEND_CUSTOM_EVENT_REST_API = MOBILE_TICKET + "/" + BRANCHES + "/" + branchId + "/" + VISITS + "/" + visitId + "/" + EVENTS + "/" + eventName;
-        
+
         $.ajax({
           type: "POST",
           dataType: "json",
@@ -11858,9 +11878,9 @@ var MobileTicketAPI = (function () {
           data: JSON.stringify(eventData),
           url: SEND_CUSTOM_EVENT_REST_API,
           success: function (data) {
-            
+
           },
-          error: function (xhr, status, errorMsg) {            
+          error: function (xhr, status, errorMsg) {
             onError(xhr, status, errorMsg);
           }
 
@@ -11882,7 +11902,7 @@ var MobileTicketAPI = (function () {
           success: function (visitEvents) {
             if (visitEvents != undefined) {
               var usedByMT = true;
-              
+
               for (let index = 0; index < visitEvents.length; index++) {
                 const event = visitEvents[index];
                 usedByMT = false;
@@ -12000,8 +12020,8 @@ var MobileTicketAPI = (function () {
           type: "GET",
           dataType: "json",
           url: APP_REST_API,
-          success: function (data) {            
-            if (data != undefined) {              
+          success: function (data) {
+            if (data != undefined) {
               onSuccess(data.appointment);
             }
           },
@@ -12021,8 +12041,8 @@ var MobileTicketAPI = (function () {
           type: "GET",
           dataType: "json",
           url: CENTR_REST_API,
-          success: function (data) {     
-            if (data != undefined) {          
+          success: function (data) {
+            if (data != undefined) {
               onSuccess(data);
             } else {
               onSuccess('No content');
@@ -12042,15 +12062,15 @@ var MobileTicketAPI = (function () {
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
-        success: function (data) {                  
-          if (data != undefined) {                                  
+        success: function (data) {
+          if (data != undefined) {
             onSuccess(data);
           }
         },
         error: function (xhr, status, errorMsg) {
           onError(xhr, status, errorMsg);
         }
-      });    
+      });
     },
     findCentralAppointmentByEId: function(qpId, onSuccess, onError) {
       var CENTR_REST_API = MOBILE_TICKET + "/" + MYAPPOINTMENT + "/findCentral/id/" + qpId
@@ -12058,15 +12078,15 @@ var MobileTicketAPI = (function () {
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
-        success: function (data) {                  
-          if (data != undefined) {                                  
+        success: function (data) {
+          if (data != undefined) {
             onSuccess(data);
           }
         },
         error: function (xhr, status, errorMsg) {
           onError(xhr, status, errorMsg);
         }
-      });    
+      });
     },
     findEntrypointId: function(branchId, onSuccess, onError) {
       var CENTR_REST_API = MOBILE_TICKET + "/" + MYAPPOINTMENT + "/entrypoint/" + BRANCHES + "/" + branchId + "/entryPoints/deviceTypes/SW_VISITAPP";
@@ -12074,19 +12094,19 @@ var MobileTicketAPI = (function () {
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
-        success: function (data) {                  
-          if (data != undefined) {  
-            MobileTicketAPI.entryPointId = data[0].id;                                
+        success: function (data) {
+          if (data != undefined) {
+            MobileTicketAPI.entryPointId = data[0].id;
             onSuccess(data);
           }
         },
         error: function (xhr, status, errorMsg) {
           onError(xhr, status, errorMsg);
         }
-      });    
+      });
     },
     arriveAppointment: function(branchId, entryPointId, appointmentId, notes, peopleServices, numberOfCustomers, onSuccess, onError) {
-      var ARRIVE_REST_API = MOBILE_TICKET + "/" + MYAPPOINTMENT + "/" + ARRIVE +"/" + BRANCHES + "/" + branchId + "/entryPoints/" + entryPointId + "/" + VISITS;     
+      var ARRIVE_REST_API = MOBILE_TICKET + "/" + MYAPPOINTMENT + "/" + ARRIVE +"/" + BRANCHES + "/" + branchId + "/entryPoints/" + entryPointId + "/" + VISITS;
       eventData = {};
       eventData.appointmentId = appointmentId;
       eventData.parameters = {};
@@ -12096,13 +12116,13 @@ var MobileTicketAPI = (function () {
       }
       if (numberOfCustomers) {
         eventData.parameters.numberOfCustomers = numberOfCustomers;
-      }    
+      }
       $.ajax({
         type: "POST",
         dataType: "json",
         contentType: 'application/json',
         data: JSON.stringify(eventData),
-        url: ARRIVE_REST_API,     
+        url: ARRIVE_REST_API,
         error: function (xhr, status, errorMsg) {
           onError(xhr, status, errorMsg);
         }
@@ -12112,7 +12132,7 @@ var MobileTicketAPI = (function () {
 
           //MobileTicketAPI.visitInformation = data;
           MobileTicketAPI.visitInformation = {};
-          // Adding some additional fields because the return values here are different from the 
+          // Adding some additional fields because the return values here are different from the
           // response of the mobile ticket api when creating a ticket
           MobileTicketAPI.visitInformation.branchId = branchId.toString();
           MobileTicketAPI.visitInformation.visitId = data.id.toString();
@@ -12130,7 +12150,7 @@ var MobileTicketAPI = (function () {
           saveToLocalStorage();
           onSuccess(data);
         }
-      });   
+      });
     },
     getMeetingUrl: function(branchId, visitId) {
       var CENTR_REST_API = MOBILE_TICKET + "/" + MYMEETING + "/" + BRANCHES + "/" + branchId + "/" + VISITS + "/" + visitId;
@@ -12138,9 +12158,9 @@ var MobileTicketAPI = (function () {
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
-        success: function (data) {                  
-          if (data != undefined) { 
-            if (data.parameterMap.meetingUrl  !== undefined ) {                       
+        success: function (data) {
+          if (data != undefined) {
+            if (data.parameterMap.meetingUrl  !== undefined ) {
             MobileTicketAPI.meetingUrl =  data.parameterMap.meetingUrl;
             } else {
               MobileTicketAPI.meetingUrl = "Not present";
@@ -12152,7 +12172,7 @@ var MobileTicketAPI = (function () {
 		  MobileTicketAPI.meetingUrlLoading = false;
           onError(xhr, status, errorMsg);
         }
-      });    
+      });
     },
     getDelayInfo: function(branchId, visitId, onSuccess) {
       var CENTR_REST_API = MOBILE_TICKET + "/" + DELAY_VISIT + "/" + BRANCHES + "/" + branchId + "/" + VISITS + "/" + visitId;
@@ -12160,9 +12180,9 @@ var MobileTicketAPI = (function () {
         type: "GET",
         dataType: "json",
         url: CENTR_REST_API,
-        success: function (data) {                  
-          if (data != undefined) { 
-            if (data.delayExpirySeconds !== undefined && data.delayed !== undefined && data.delayed) {                       
+        success: function (data) {
+          if (data != undefined) {
+            if (data.delayExpirySeconds !== undefined && data.delayed !== undefined && data.delayed) {
               MobileTicketAPI.delayInfo = data.delayExpirySeconds;
             } else {
               MobileTicketAPI.delayInfo = null;
@@ -12173,7 +12193,7 @@ var MobileTicketAPI = (function () {
         error: function (xhr, status, errorMsg) {
           onError(xhr, status, errorMsg);
         }
-      });    
+      });
     },
     setVisit: function (branchId, queueId, visitId, checksum, ticketNumber, appointmentId) {
       MobileTicketAPI.visitId = visitId;
@@ -12368,7 +12388,7 @@ var MobileTicketAPI = (function () {
     },
     resetAllVars: function () {
       resetAllVars();
-    }, 
+    },
     getAppointment: function () {
       return this.appointment;
     },

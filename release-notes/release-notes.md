@@ -44,13 +44,14 @@ This document describes the new features, bug corrections, known issues and reco
 
 **Date: 2023-02-20**
  
-**Build number: 1**
+**Build number: 2**
 
 <h3>Stories</h3>
 
 | **Id** | **Release notes** |
 | --- | --- |
 | **MOB-826** | **Mobile Ticket bridge with Qmatic Web Booking** |
+| **MOB-951** | **Make branch greyed out if no services are available using service scheduler** |
 
 ----------
 

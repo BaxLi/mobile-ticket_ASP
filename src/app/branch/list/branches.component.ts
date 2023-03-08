@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Util } from './../../util/util';
 import { BranchOpenHoursValidator } from '../../util/branch-open-hours-validator';
 import { Config } from '../../config/config'
+import { BranchScheduleService } from 'app/shared/branch-schedule.service';
 
 declare var MobileTicketAPI: any;
 
@@ -27,14 +28,27 @@ export class BranchesComponent implements AfterViewInit {
   private nmbrOfEnabledBranches: number;
   public loaderResource: string = "app/resources/loader.svg";
   private isRedirectedFromServices: boolean = false;
+  public serviceAvailableBranches:Map<number,boolean> =  new Map<number,boolean>();
 
   @Output() startLoading = new EventEmitter<boolean>();
   @Output() onShowHideRequest = new EventEmitter<boolean>();
   @Output() isBranchOpen = new EventEmitter<boolean>();
 
-  constructor(private branchService: BranchService, private retryService: RetryService, private route: ActivatedRoute,
-    public router: Router, private translate: TranslateService,
-    private sort: SortPipe, location: PlatformLocation, private config: Config, private openHourValidator: BranchOpenHoursValidator) {
+  constructor(
+    private branchService: BranchService,
+    private retryService: RetryService,
+    private route: ActivatedRoute,
+    public router: Router,
+    private translate: TranslateService,
+    private sort: SortPipe,
+    location: PlatformLocation,
+    private config: Config,
+    private openHourValidator: BranchOpenHoursValidator,
+    private branchScheduleService: BranchScheduleService,
+
+    )
+
+    {
     this.translate.get('branch.defaultTitle').subscribe((res: string) => {
       document.title = res;
     });
@@ -88,6 +102,8 @@ export class BranchesComponent implements AfterViewInit {
         this.onBranchFetchSuccess(branchList, branchService, isFullList);
       }
     });
+
+
   }
 
   private onBranchFetchSuccess(branchList, branchService, isFullList): void {
@@ -106,6 +122,12 @@ export class BranchesComponent implements AfterViewInit {
         this.router.navigate(['services']);
         // }
       }
+      this.branchScheduleService.checkBranchAvailability((status)=>{
+        if(status.size !=0 ){
+          this.serviceAvailableBranches = status;
+        }
+
+      });
     }
     else {
       this.showBranchList = false;
@@ -127,5 +149,6 @@ export class BranchesComponent implements AfterViewInit {
   public reloadData() {
     this.loadData(this.branchService, this.retryService);
   }
+
 
 }

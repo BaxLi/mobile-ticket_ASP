@@ -60,14 +60,14 @@
 .btn-text {
   font-size: 17px;
   font-weight: 400;
-  margin: 0 auto;
+  margin: 0 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: -webkit-baseline-middle;
-  width: 70%;
+  width: auto;
   font-family: Roboto-Medium;
-  
+
 }
 
 .branch-addr {
@@ -104,18 +104,37 @@
   margin: 0 auto;
 }
 
+.btn-disabled{
+  background-color: #0000001A;
+  color:#0000004D;
+  pointer-events: none;
+
+}
+.customer-waiting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.customer-path {
+  color: rgba(0,0,0,0.8) !important;
+}
+.disabled-icon{
+  fill:#0000004D;
+}
+
 /* Media Queries */
 
 @media (min-width: 450px) {
   .btn-text {
     font-size: 17px;
     font-weight: 400;
-    margin: 0 auto;
+    margin: 0 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: -webkit-baseline-middle;
-    width: 70%;
+    width: auto;
   }
 }
 

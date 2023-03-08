@@ -34,6 +34,32 @@ export class BranchScheduleService {
         MobileTicketAPI.getBranchSchedule(branchId, successCallBack, errorCallBack);
     }
 
+    public checkBranchAvailability(success){
+        const successCallBack = function(res){
+            let branchServiceAvailability = new Map<number,boolean>();
+            // const allBranchSch = JSON.parse(res[0]);
+            res.forEach(data => {
+              let branchId = +data.name.substr(-1);
+              let values = JSON.parse(data.value)
+              if(values.status === 1){
+                  let isBranchServiceAvailable = false;
+                  values.services.forEach(serv => {
+                    if(serv.status === 1){
+                      isBranchServiceAvailable = true;
+                    }
+                  });
+                  branchServiceAvailability.set(branchId,isBranchServiceAvailable);
+              }
+            });
+
+            success(branchServiceAvailability);
+        }
+        const errorCallBack = function(error){
+            success({});
+        }
+        MobileTicketAPI.getAllBranchSchedule(successCallBack, errorCallBack);
+    }
+
     getBranchStatus(data) {
         return data.status === 1 ? true : false;
     }

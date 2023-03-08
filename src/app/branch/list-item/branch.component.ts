@@ -16,6 +16,8 @@ export class BranchComponent implements OnInit {
   @Input() public entity: BranchEntity
   @Input() public address: string
   @Input() public distance: string
+  @Input() public serviceAvailability:Map<number,boolean>
+  @Input() public id: number
   public isRtl: boolean;
 
   constructor(public router: Router) {

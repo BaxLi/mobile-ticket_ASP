@@ -725,7 +725,9 @@ const apiMeetingProxy = proxy(host, {
 		if (data !== undefined) {
 			newData.ticketId = data.ticketId;
 			newData.checksum = data.checksum;
-			newData.parameterMap.meetingUrl = data.parameterMap.meetingUrl;
+			if(data.parameterMap) {
+				newData.parameterMap.meetingUrl = data.parameterMap.meetingUrl;
+			}
 		}
 		return JSON.stringify(newData);
 	}

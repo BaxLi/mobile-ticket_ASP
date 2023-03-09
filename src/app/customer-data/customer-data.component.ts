@@ -77,7 +77,8 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
   public isFirstNameMandatory: boolean;
   public isLastNameEnabled: boolean;
   public isLastNameMandatory: boolean;
-
+  public isRtl: boolean;
+  
   constructor(
     private translate: TranslateService,
     public router: Router,
@@ -165,7 +166,17 @@ export class CustomerDataComponent implements OnInit, AfterViewInit {
     } else {
       this.isSkipVisible = true;
     }
+    this.setRtlStyles();
   }
+
+  setRtlStyles() {
+    if (document.dir === 'rtl') {
+      this.isRtl = true;
+    } else {
+      this.isRtl = false;
+    }
+  }
+
   ngAfterViewInit() {
     if (this.seperateCountryCode) {
       const phoneContainer = document.getElementsByClassName('customer-phone__number-container');

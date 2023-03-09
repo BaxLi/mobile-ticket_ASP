@@ -146,11 +146,11 @@
                 </div>
                 <div *ngIf="activeConsentEnable == 'enable'">
                   <div style="display: flex">
-                    <label class="container"> <span class="agree-text">{{'customer_info.activeConsentDescription' |
+                    <label class="container" [ngClass]="{'container-rtl': isRtl}"> <span class="agree-text">{{'customer_info.activeConsentDescription' |
                         translate}} </span>
                       <input type="checkbox" checked="checked" id="active-consent-checkbox"
                         [(ngModel)]="isPrivacyPolicyAgreed">
-                      <span class="checkmark"></span>
+                      <span class="checkmark" [ngClass]="{'checkmark-rtl': isRtl}"></span>
                     </label>
                   </div>
                   <div class="privacy-read-container custom link-text-color">

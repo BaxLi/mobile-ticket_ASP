@@ -226,6 +226,7 @@
   margin: 0 2px;
   padding: 8px 10px;
 }
+
 .feild-error {
   font-size: 12px;
   color: var(--eror-text);
@@ -539,6 +540,7 @@ body {
     padding: 0 15px;
   }
 }
+
 .phone-description-bottom {
   margin: 0 10px;
   font-size: 16px;
@@ -600,6 +602,11 @@ input[type="checkbox"] {
   user-select: none;
 }
 
+.container-rtl {
+  padding-right: 35px;
+  padding-left: auto;
+}
+
 /* Hide the browser's default checkbox */
 .container input {
   position: absolute;
@@ -620,6 +627,10 @@ input[type="checkbox"] {
   border-radius: 5px;
 }
 
+ .checkmark-rtl {
+  right: 0;
+  left: auto;
+}
 /* On mouse-over, add a grey background color */
 .container:hover input~.checkmark {
   background-color: #ccc;
@@ -654,4 +665,31 @@ input[type="checkbox"] {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.container .checkmark-rtl:after { 
+  border-width: 3px 3px 0 0;
+  -webkit-transform: rotate(135deg); 
+}
+
+::ng-deep [dir="rtl"] .iti--allow-dropdown .iti__flag-container,
+.iti--separate-dial-code .iti__flag-container {
+  left: auto;
+  right: 0;
+}
+
+::ng-deep [dir="rtl"] .iti input[type=tel] {
+  padding-right: 98px;
+  padding-left: 6px;
+}
+::ng-deep [dir="rtl"] .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
+::ng-deep [dir="rtl"] .iti__country {
+  text-align: right !important;
+}
+::ng-deep [dir="rtl"] .iti__flag-box, .iti__country-name {
+  margin-right: 6px !important;
+  margin-left: 6px !important;
 }

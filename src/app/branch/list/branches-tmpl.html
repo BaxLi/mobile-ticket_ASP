@@ -1,6 +1,6 @@
 
 
-<div [hidden]="!showLoader" class="row loader-container sub-heading-text-1-margin">
+<div [hidden]="!(showLoader || showLoader2)" class="row loader-container sub-heading-text-1-margin">
   <div class="row width-control">
     <div class="loader-container">
       <div class="inline-block-elem left-cell">
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div [hidden]="!showBranchList || showLoader || networkError" class="list-container" >
+<div [hidden]="!showBranchList || showLoader || networkError || showLoader2" class="list-container" >
    <branch [name]="branch.name" [address]="branch.address" [distance]="branch.distance" [entity]="branch" [id]="branch.id"
    [serviceAvailability] = "serviceAvailableBranches"
    *ngFor="let branch of branches"></branch>

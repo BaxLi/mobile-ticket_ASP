@@ -23,6 +23,7 @@ export class BranchesComponent implements AfterViewInit {
   public branches: Array<BranchEntity>;
   public showBranchList: boolean = true;
   public showLoader: boolean = true;
+  public showLoader2: boolean = true;
   public networkError = false;
   public loadingText: string = "Loading...";
   private nmbrOfEnabledBranches: number;
@@ -113,20 +114,41 @@ export class BranchesComponent implements AfterViewInit {
       this.sort.transform(branchList, "name");
     }
     this.branches = branchList;
+
     let branchListCntr = 0;
     if (branchList.length > 0) {
+      this.showLoader2=true;
       this.showBranchList = true;
-      if (branchList.length == 1) {
-        MobileTicketAPI.setBranchSelection(branchList[0]);
-        // if (!this.isRedirectedFromServices){
-        this.router.navigate(['services']);
-        // }
+      //check branch schedule and send the rest call
+      if(this.config.getConfig('branch_schedule') === 'enable'){
+        this.branchScheduleService.checkBranchAvailability((status)=>{
+          if(status !=null ){
+            this.showLoader2=false;
+            this.serviceAvailableBranches = status;
+          }
+        });
+      }else{
+        this.showLoader2=false;
       }
-      this.branchScheduleService.checkBranchAvailability((status)=>{
-        if(status !=null ){
-          this.serviceAvailableBranches = status;
+      if (branchList.length == 1) {
+        if(this.serviceAvailableBranches.size>0){
+          if(this.serviceAvailableBranches.get(+this.branches[0].id)){
+            MobileTicketAPI.setBranchSelection(branchList[0]);
+            // if (!this.isRedirectedFromServices){
+            this.router.navigate(['services']);
+            // }
+          }
+        }else{
+          MobileTicketAPI.setBranchSelection(branchList[0]);
+          // if (!this.isRedirectedFromServices){
+          this.router.navigate(['services']);
+          // }
+
         }
-      });
+
+      }
+
+
     }
     else {
       this.showBranchList = false;

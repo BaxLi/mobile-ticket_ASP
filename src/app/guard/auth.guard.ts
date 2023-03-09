@@ -137,7 +137,7 @@ export class AuthGuard implements CanActivate {
                         if (status) {
                             _thisObj.processRoute(state, route, resolve);
                         } else {
-                            _thisObj.router.navigate(['open_hours']);
+                            _thisObj.router.navigate(['branches']);
                             resolve(false);
                         }
                     });
@@ -202,13 +202,13 @@ export class AuthGuard implements CanActivate {
         }
 
         let branchSelectionRegex = new RegExp("\/branches\/[0-9]+[?]");
-        
+
         if(url.startsWith('/?') || branchSelectionRegex.test(url)){
 
             if(queryParameters.length > 0){
                 let custom3_ =  route.queryParams[queryParameters[0].trim()];
                 const paramName = queryParameters[0].trim();
-                if(custom3_) MobileTicketAPI.setCustom3ToLocalStorage( [paramName, custom3]); 
+                if(custom3_) MobileTicketAPI.setCustom3ToLocalStorage( [paramName, custom3]);
             }
 
             if(queryParameters.length > 1){
@@ -216,7 +216,7 @@ export class AuthGuard implements CanActivate {
                 const paramName = queryParameters[0].trim();
                 if(custom4_) MobileTicketAPI.setCustom4ToLocalStorage( [paramName, custom4]);
             }
-            
+
         }
 
         if (url.startsWith('/branches/') || url.endsWith('/branches') || url.endsWith('/branches;redirect=true')) {
@@ -302,7 +302,7 @@ export class AuthGuard implements CanActivate {
                                 if(custom3 && custom3.length > 0) {MobileTicketAPI.setCustom3(custom3);}
                                 if(custom4 && custom4.length > 0) {MobileTicketAPI.setCustom4(custom4);}
                             }
-                            
+
                             this.router.navigate(['services']);
                             resolve(false);
                         }
@@ -354,9 +354,9 @@ export class AuthGuard implements CanActivate {
                                 let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
                                 translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
                                 if(translatedValue){
-                                    sEntity.name = translatedValue;         
-                                } 
-                            }      
+                                    sEntity.name = translatedValue;
+                                }
+                            }
                         });
                 }
 
@@ -379,16 +379,16 @@ export class AuthGuard implements CanActivate {
                             if (this.checkCreateTicketOption(resolve)) {
                                 return;
                             }
-                            let isCustomerPhoneNumDataEnabled = this.config.getConfig('customer_data').phone_number.value; 
+                            let isCustomerPhoneNumDataEnabled = this.config.getConfig('customer_data').phone_number.value;
                             let isCustomeIdDataEnabled = this.config.getConfig('customer_data').customerId.value;
                             let isFirstNameEnabled = this.config.getConfig('customer_data').first_name.value;
                             let isLastNameEnabled = this.config.getConfig('customer_data').last_name.value;
 
                             let isOTPEnabled = this.config.getConfig('otp_service');
                             if (
-                                (isCustomerPhoneNumDataEnabled === 'enable' || isCustomerPhoneNumDataEnabled === 'mandatory') 
-                                || isCustomeIdDataEnabled === 'enable' 
-                                || (isFirstNameEnabled === 'enable' || isFirstNameEnabled === 'mandatory')  
+                                (isCustomerPhoneNumDataEnabled === 'enable' || isCustomerPhoneNumDataEnabled === 'mandatory')
+                                || isCustomeIdDataEnabled === 'enable'
+                                || (isFirstNameEnabled === 'enable' || isFirstNameEnabled === 'mandatory')
                                 || (isLastNameEnabled === 'enable' || isLastNameEnabled === 'mandatory')) {
                                 MobileTicketAPI.setBranchSelection(branchEntity);
                                 this.serviceService.fetchServices((serviceList: Array<ServiceEntity>, error: boolean) => {
@@ -578,7 +578,7 @@ export class AuthGuard implements CanActivate {
                             // this.aEntity.publicId = response1.properties.publicId;
                             // this.aEntity.qpId = response1.id;
                             // getAppointment(response1.id, this.aEntity);
-                        }     
+                        }
                     },
                         (xhr, status, errorMessage) => {
                             this.aEntity.status = 'NOTFOUND';
@@ -628,16 +628,16 @@ export class AuthGuard implements CanActivate {
                                 newService.custom = service.custom;
                                 serviceData.push(newService);
                             });
-                                            
+
                             let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
                             if(matchedService && matchedService.custom !== null){
                                 let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
                                 translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
                                 if(translatedValue){
-                                    entity.serviceName = translatedValue; 
-                                } 
+                                    entity.serviceName = translatedValue;
+                                }
                             }
-                                            
+
                         });
                     }
                     MobileTicketAPI.setAppointment(entity);
@@ -664,7 +664,7 @@ export class AuthGuard implements CanActivate {
                                     }
                                     MobileTicketAPI.getServiceTranslation(
                                         (serviceTranslations: any) => {
-                
+
                                             // development env
                                             const services = serviceTranslations.serviceList;
                                             const serviceData:any = [];
@@ -674,16 +674,16 @@ export class AuthGuard implements CanActivate {
                                                 newService.custom = service.custom;
                                                 serviceData.push(newService);
                                             });
-                                            
+
                                             let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
                                             if(matchedService && matchedService.custom !== null){
                                                 let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
                                                 translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
                                                 if(translatedValue){
-                                                    entity.serviceName = translatedValue; 
-                                                } 
+                                                    entity.serviceName = translatedValue;
+                                                }
                                             }
-                                            
+
                                         });
                                 }
                                 MobileTicketAPI.setAppointment(entity);
@@ -712,7 +712,7 @@ export class AuthGuard implements CanActivate {
                                     }
                                     MobileTicketAPI.getServiceTranslation(
                                         (serviceTranslations: any) => {
-                
+
                                             // development env
                                             const services = serviceTranslations.serviceList;
                                             const serviceData:any = [];
@@ -722,16 +722,16 @@ export class AuthGuard implements CanActivate {
                                                 newService.custom = service.custom;
                                                 serviceData.push(newService);
                                             });
-                                            
+
                                             let matchedService = (serviceData.find((s) => s.id ==  entity.serviceId));
                                             if(matchedService && matchedService.custom !== null){
                                                 let translatedValue = JSON.parse(matchedService.custom).names[userLanguage.toLowerCase()];
                                                 translatedValue = translatedValue !== null ? translatedValue : JSON.parse(matchedService.custom).names[userLanguage.toUpperCase()];
                                                 if(translatedValue){
-                                                    entity.serviceName = translatedValue; 
-                                                } 
+                                                    entity.serviceName = translatedValue;
+                                                }
                                             }
-                                            
+
                                         });
                                 }
                                 MobileTicketAPI.setAppointment(entity);
@@ -743,7 +743,7 @@ export class AuthGuard implements CanActivate {
                                 resolve(true);
                             });
                     }
-                  
+
                 }
             }
 
@@ -803,7 +803,7 @@ export class AuthGuard implements CanActivate {
                                 } else {
                                     resolve(true);
                                 }
-                            }, 
+                            },
                             (error) => {
                                 resolve(false);
                                 this.router.navigate(['branches']);

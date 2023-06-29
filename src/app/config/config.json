@@ -120,7 +120,7 @@
     "description": "show or hide queue and queue position in the ticket"
   },
   "show_appointment_time": {
-    "value": "disable",
+    "value": "enable",
     "description": "show or hide appointment time in the appointment ticket. If both show_queue_position and show_appointment_time are enabled, only appointment time will be shown"
   },
   "show_number_of_waiting_customers": {
@@ -128,11 +128,11 @@
     "description": " If this setting is enabled the number of waiting customers will appear in the service list, if disabled only service names are listed."
   },
   "appointment_late": {
-    "value": 30,
+    "value": 5,
     "description": " How long is the customer allowed to arrive for his appointment (in minutes)"
   },
   "appointment_early": {
-    "value": 180,
+    "value": 5,
     "description": " How early is the customer allowed to arrive for his appointment (in minutes)"
   },
   "timeFormat": {
@@ -175,11 +175,11 @@
   "delay_visit": {
     "value": {
       "availability": {
-        "value": "disable",
+        "value": "enable",
         "description": "Enable or disable whether customer need to create or update visit with delay"
       },
       "time_slot": {
-        "value": [],
+        "value": [15, 30, 45, 60],
         "description": "Define delay time slots (minutes)"
       }
     },
